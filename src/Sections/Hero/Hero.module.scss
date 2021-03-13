@@ -1,0 +1,151 @@
+.section {
+    // position: relative;
+    height: 70vh;
+}
+
+.bg {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        display: block;
+        height: 110%;
+        width: 110%;
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        background-color: rgba($color: #000000, $alpha: .6);
+        z-index: 100;
+    }
+    & > img {
+        width: 100%;
+        height: auto;
+        filter: blur(32px);
+        transform: scale(1.1);
+    }
+}
+
+.titles {
+    margin-left: 12.5%;
+    position: relative;
+    width: 30vw;
+    margin-top: 30vh;
+}
+
+.title {
+    color: white;
+    font-family: Quicksand;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 3.5vw;
+    margin: 1vw 0;
+}
+
+.subTitle {
+    color: whitesmoke;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 1.2vw;
+    margin: 2vw 0;
+}
+
+.buttonDiv {
+    margin-left: 12.5%;
+}
+
+.buttonList {
+    list-style: none;
+    padding: 0%;
+    display: flex;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    font-size: 1vw;
+    font-family: Roboto;
+    padding: .4vw .9vw;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.mainButton {
+    background-color: #99CE8C;
+    position: relative;
+    width: 12vw;
+}
+
+.secondButton {
+    border: 1px solid #99CE8C;
+    position: relative;
+    margin-left: 4vw;
+    width: 12vw;
+    & > .button {
+        padding: calc(.4vw - 1px) .9vw;
+        color: white;
+    }
+}
+
+// Side door image
+.door {
+    position: absolute;
+    right: 10vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+
+.doorImage {
+    width: auto;
+    height: 80%;
+    z-index: 100;
+}
+
+.bar {
+    position: absolute;
+    top: 35%;
+    height: 8%;
+    left: 20%;
+}
+
+.bar:nth-child(2) {
+    top: 55%;
+}
+
+
+// social media linking
+.socialButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    & > img {
+        width: 2.2vw;
+    }
+
+    &:hover > img {
+        color: #98CD8B;
+    }
+}
+
+.socialList {
+    padding: 0;
+    list-style: none;
+}
+
+.socialList > li {
+    margin: .6vw 0;
+}
+
+.socialListContainer {
+    position: relative;
+    left: 2vw;
+}

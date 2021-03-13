@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Quicksand', 'Roboto']
+  },
+  custom: {
+    families: ['overseer']
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
