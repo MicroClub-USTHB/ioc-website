@@ -1,0 +1,217 @@
+$brand-color: #6927FF;
+$secondary-strong: #666666;
+$main-font: 'Roboto', sans-serif;
+$decoration-color: #60C7CD;
+
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+//Form and inputs
+
+.form {
+    position: relative;
+    width: 100%;
+    z-index: 120;
+}
+
+.inputDiv {
+    position: relative;
+    margin-top: 2vw;
+    width: 100%;
+}
+
+.inputDiv > input {
+    position: relative;
+    width: 100%;
+    font-size: .9vw;
+    border: none;
+    border-bottom: .5px solid rgba($color: #ffffff, $alpha: .3);
+    border-radius: 0;
+    background-color: transparent;
+    outline: none;
+    padding: .3vw .5vw .3vw;
+    padding-bottom: .3vw;
+    color: whitesmoke;
+    font-family: Roboto;
+}
+
+.inputDiv > label {
+    color: whitesmoke;
+    opacity: .7;
+    position: absolute;
+    top: .35vw;
+    left: 1.7vw;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.inputDiv > input:focus ~ label {
+    top: -1vw;
+    opacity: 1;
+}
+
+.inputDiv > span {
+    color: whitesmoke;
+    position: absolute;
+    top: .35vw;
+    left: .3rem;
+    transition: all .3s ease;
+    pointer-events: none;
+}
+
+.inputDiv > input:focus ~ span {
+    top: -1vw;
+}
+
+.decoration {
+    height: 2px;
+    background-color: whitesmoke;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.errorIndicator {
+    width: 1vw;
+    height: 1vw;
+    background-color: rgb(255, 114, 114);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    border-radius: 50%;
+    position: absolute;
+    top: .35vw;
+    right: -2.7vw;
+    cursor: default;
+
+    &:hover ~ .errorContainer {
+        display: block;
+    }
+}
+
+.errorContainer {
+    width: 70%;
+    padding: .5vw;
+    position: absolute;
+    font-size: .8vw;
+    font-family: Roboto;
+    bottom: 2vw;
+    right: -20%;
+    border-radius: 5px;
+    background-color: rgb(255, 114, 114);
+    color: whitesmoke;
+    display: none;
+    animation: appear .1s ease;
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: .5vw solid rgb(255, 114, 114);
+        border-right: .5vw solid transparent;
+        border-left: .5vw solid transparent;
+        position: absolute;
+        bottom: -.3vw;
+        right: 0px;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.inputDiv > input:focus ~ .decoration {
+    width: calc(105% + 6px);
+    opacity: 1;
+}
+
+// Checkbox
+
+.checkboxDiv {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkboxDiv > input{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    position: absolute;
+    left: 2px;
+    width: 1.21rem;
+    height: 1.2rem;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    transition: all .2s ease;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.checkbox::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: .3rem;
+    height: .7rem;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-radius: 3px;
+    opacity: 1;
+    transform: rotateZ(120deg);
+    transition: all .2s ease;
+}
+
+.checkboxDiv > input:checked ~ .checkbox {
+    background-color: whitesmoke;
+}
+
+.checkboxDiv > input:checked ~ .checkbox::after {
+    border-bottom: 3px solid #608158;
+    border-right: 3px solid #608158;
+    transform: rotateZ(45deg);
+}
+
+.checkboxDiv > label {
+    color: whitesmoke;
+    margin-left: .8rem;
+    font-size: .8rem;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.buttonContainer > button {
+    padding: .8rem 1.2rem;
+    font-family: $main-font;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .2s ease;
+     background-color: whitesmoke;
+}
+
+.buttonContainer > button:hover {
+    background-color: $decoration-color;
+    color: whitesmoke;
+}

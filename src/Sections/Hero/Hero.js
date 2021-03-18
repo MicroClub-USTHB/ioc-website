@@ -1,13 +1,16 @@
 import React from 'react';
+
+// Style
 import heroStyle from './Hero.module.scss';
 
 //media
-import landingBG from '../../media/landingBG-min.jpg';
+import landingBG from '../../media/bg.jpg';
 import door from '../../media/Door-min.png';
 import bar from '../../media/Bar-min.jpg';
-import instagramLogo from '../../media/instagramLogo-min.svg';
-import linkedinLogo from '../../media/linkedinLogo-min.svg';
-import facebookLogo from '../../media/facebookLogo-min.svg';
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Hero = () => {
     return (
@@ -22,13 +25,23 @@ const Hero = () => {
             <div className={heroStyle.buttonDiv}>
                 <ul className={heroStyle.buttonList}>
                     <li>
-                        <div className={heroStyle.mainButton}>
-                            <button className={heroStyle.button}>Begin the challenges</button>
-                        </div>
+                        <a href="/register">
+                            <div className={heroStyle.mainButton}>
+                                <button className={heroStyle.button}>Begin the challenges</button>
+                            </div>
+                        </a>
                     </li>
                     <li>
                         <div className={heroStyle.secondButton}>
-                            <button className={heroStyle.button}>Find out more</button>
+                            <button
+                                className={heroStyle.button}
+                                onClick={(event) => {
+                                    window.scrollTo({
+                                        top: window.innerHeight,
+                                        behavior: 'smooth'
+                                    })
+                                }}
+                            >Find out more</button>
                         </div>
                     </li>
                 </ul>
@@ -36,19 +49,19 @@ const Hero = () => {
             <div className={heroStyle.socialListContainer}>
                 <ul className={heroStyle.socialList}>
                     <li>
-                        <button className={heroStyle.socialButton}>
-                            <img src={facebookLogo} alt="Facebook logo" />
-                        </button>
+                        <a href="https://www.facebook.com/Micro.Club.USTHB" className={heroStyle.socialIcon}>
+                            <FontAwesomeIcon icon={faFacebookSquare} />
+                        </a>
                     </li>
                     <li>
-                        <button className={heroStyle.socialButton}>
-                            <img src={instagramLogo} alt="Instagram logo" />
-                        </button>
+                        <a href="https://www.instagram.com/micro.club/" className={heroStyle.socialIcon}>
+                            <FontAwesomeIcon icon={faInstagramSquare} />
+                        </a>
                     </li>
                     <li>
-                        <button className={heroStyle.socialButton}>
-                            <img src={linkedinLogo} alt="Linked In logo" />
-                        </button>
+                        <a href="https://www.linkedin.com/company/micro-club/" className={heroStyle.socialIcon}>
+                            <FontAwesomeIcon icon={faLinkedin} />
+                        </a>
                     </li>
                 </ul>
             </div>

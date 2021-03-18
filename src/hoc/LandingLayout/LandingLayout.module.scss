@@ -41,18 +41,24 @@
     & > button {
         background-color: transparent;   
         border: none;
-        font-family: Roboto;
-        color: white;
         font-size: 1vw;
         border: 2px solid white;
         padding: .2vw .8vw;
         cursor: pointer;
         transition: all .2s ease;
+        & > a {
+            font-family: Roboto;
+            color: white;
+            text-decoration: none;
+            transition: all .2s ease;
+        }
     }
 
     & > button:hover {
         border-color: #98CD8B;
-        color: #98CD8B;
+        & > a {
+            color: #98CD8B;
+        }
     }
 }
 
@@ -69,10 +75,15 @@
     justify-self: flex-end;
     & > a {
         padding: .8vw .4vw;
+
+        &:hover > * {
+            color: #60C7CD;
+        }
     }
-    & > a > img {
-        height: 1.5vw;
-        color: #60C7CD;
+    & > a > * {
+        font-size: 1.2vw;
+        color: #AAAAAA;
+        transition: .2s ease;
     }
 }
 

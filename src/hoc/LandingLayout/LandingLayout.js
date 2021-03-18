@@ -6,9 +6,8 @@ import layoutStyle from './LandingLayout.module.scss';
 
 // media
 import mcLogo from '../../media/MC Logo-min.svg';
-import instagramLogo from '../../media/instagramLogo-min.svg';
-import linkedinLogo from '../../media/linkedinLogo-min.svg';
-import facebookLogo from '../../media/facebookLogo-min.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 const LandingLayout = ({children}) => {
@@ -17,19 +16,37 @@ const LandingLayout = ({children}) => {
             <nav className={layoutStyle.navBar}>
                 <ul className={layoutStyle.navList}>
                     <li>
-                        <img className={layoutStyle.logo} src={mcLogo} alt="logo of Micro Club" />
+                        <a href="/">
+                            <img className={layoutStyle.logo} src={mcLogo} alt="logo of Micro Club" />
+                        </a>
                     </li>
                     <li className={layoutStyle.navLink}>
                         <button>Home</button>
                     </li>
                     <li className={layoutStyle.navLink}>
-                        <button>The Event</button>
+                        <button
+                            onClick={() => {
+                                window.scrollTo({
+                                    top: window.innerHeight,
+                                    behavior: 'smooth'
+                                })
+                            }}
+                        >The Event</button>
                     </li>
                     <li className={layoutStyle.navLink}>
-                        <button>How it works</button>
+                        <button
+                            onClick={() => {
+                                window.scrollTo({
+                                    top: window.document.body.scrollHeight,
+                                    behavior: 'smooth'
+                                })
+                            }}
+                        >How it works</button>
                     </li>
                     <li className={layoutStyle.navLinkButton}>
-                        <button>Participate</button>
+                        <button>
+                            <a href="/register">Participate</a>
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -40,14 +57,14 @@ const LandingLayout = ({children}) => {
                     <a href="#">Participate</a>
                 </div>
                 <div className={layoutStyle.footerSocial}>
-                    <a href="#">
-                        <img src={instagramLogo} alt="Instagram logo" />
+                    <a href="https://www.facebook.com/Micro.Club.USTHB">
+                        <FontAwesomeIcon icon={faFacebookSquare} />
                     </a>
-                    <a href="#">
-                        <img src={facebookLogo} alt="Facebook logo" />
+                    <a href="https://www.instagram.com/micro.club/">
+                        <FontAwesomeIcon icon={faInstagramSquare} />
                     </a>
-                    <a href="#">
-                        <img src={linkedinLogo} alt="Linked In logo" />
+                    <a href="https://www.linkedin.com/company/micro-club/">
+                        <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                 </div>
             </footer>

@@ -20,7 +20,7 @@
         position: absolute;
         top: -5%;
         left: -5%;
-        background-color: rgba($color: #000000, $alpha: .6);
+        background-color: rgba($color: #0D1B28, $alpha: .6);
         z-index: 100;
     }
     & > img {
@@ -80,16 +80,103 @@
     background-color: #99CE8C;
     position: relative;
     width: 12vw;
+
+    &:hover, &:active {
+        & > .button {
+            &::after {
+                opacity: 1;
+                bottom: -.5vw;
+                right: -.3vw;
+            }
+            
+            &::before {
+                opacity: 1;
+                right: -.44vw;
+                bottom: -.5vw;
+            }
+        }
+
+        &::after {
+            opacity: 1;
+            top: -.5vw;
+            left: -.3vw;
+        }
+
+        &::before {
+            opacity: 1;
+            left: -.44vw;
+            top: -.5vw;
+        }
+    }
+
+    & > .button {
+        &::after {
+            content: '';
+            display: block;
+            width: 5vw;
+            height: .2vw;
+            position: absolute;
+            background-color: #99CE8C;
+            bottom: 0;
+            right: 0;
+            transition: .2s ease;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: .14vw;
+            height: 1.7vw;
+            background-color: #99CE8C;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transition: .2s ease;
+        }
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: 5vw;
+        height: .14vw;
+        position: absolute;
+        background-color: #99CE8C;
+        top: 0;
+        left: 0;
+        transition: .2s ease;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        width: .14vw;
+        height: 1.7vw;
+        background-color: #99CE8C;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: .2s ease;
+    }
 }
 
 .secondButton {
-    border: 1px solid #99CE8C;
+    border: 1px solid whitesmoke;
     position: relative;
     margin-left: 4vw;
     width: 12vw;
+    transition: .2s ease;
     & > .button {
         padding: calc(.4vw - 1px) .9vw;
-        color: white;
+        color: whitesmoke;
+        transition: .2s ease;
+    }
+}
+
+.secondButton:hover {
+    border-color: #99CE8C;
+    & > .button {
+        color: #99CE8C;
     }
 }
 
@@ -123,15 +210,15 @@
 
 
 // social media linking
-.socialButton {
-    border: none;
-    background-color: transparent;
+.socialIcon {
+    color: whitesmoke;
     cursor: pointer;
-    & > img {
-        width: 2.2vw;
+    & > * {
+        font-size: 2vw;
+        transition: .2s ease;
     }
 
-    &:hover > img {
+    &:hover > * {
         color: #98CD8B;
     }
 }
