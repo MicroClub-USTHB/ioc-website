@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Style
 import heroStyle from './Hero.module.scss';
@@ -25,11 +26,11 @@ const Hero = () => {
             <div className={heroStyle.buttonDiv}>
                 <ul className={heroStyle.buttonList}>
                     <li>
-                        <a href="/register">
+                        <Link to="/register" href="/register">
                             <div className={heroStyle.mainButton}>
                                 <button className={heroStyle.button}>Begin the challenges</button>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <div className={heroStyle.secondButton}>

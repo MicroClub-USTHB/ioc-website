@@ -1,0 +1,43 @@
+.day {
+    display: flex;
+    align-items: center;
+    margin: 1.3vw 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    text-decoration: none;
+}
+
+.dayTextExpand {
+    animation: dayExpand .7s ease;
+}
+
+@keyframes dayExpand {
+    0% {
+        width: 0%;
+        opacity: 0;
+    }
+
+    100% {
+        width: fit-content;
+        opacity: 1;
+    }
+}
+
+.dayNumber {
+    color: white;
+    font-family: quicksand;
+    font-size: 1.4vw;
+    margin-left: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.dayTitle {
+    color: rgb(24, 24, 24);
+    font-family: roboto;
+    font-size: 1vw;
+    margin-left: 1vw;
+    white-space: nowrap;
+}

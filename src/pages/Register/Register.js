@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Components
 import Register2 from '../../components/RegisterForm/RegisterForm';
 
 // Images
@@ -24,11 +27,11 @@ const Register = () => {
                         {/* <img src={SignupImage} className={SUStyle.leftImage} alt="Computer" /> */}
                         <div className={SUStyle.leftText}>
                             <h4>Already have an account?</h4>
-                            <a href="/login">Log in &#8594;</a>
+                            <Link to="/login">Log in &#8594;</Link>
                         </div>
                     </div>
                     <div className={SUStyle.rightSection}>
-                        <a href="/" className={SUStyle.reLink}>Impact of Code</a>
+                        <Link to="/" className={SUStyle.reLink}>Impact of Code</Link>
                         <Register2 />
                     </div>
                 </div>

@@ -14,6 +14,7 @@ import {
     faUserAlt,
     faLock,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const blurStyles = {
@@ -68,9 +69,9 @@ const Login = () => {
             <div className={SStyle.bgImageContainer}>
                 <img src={bgImage} alt="" className={SStyle.bgImage} />
                 <div className={SStyle.cardContainer}>
-                    <a href="/" className={SStyle.mainIconContainer}>
+                    <Link to="/" className={SStyle.mainIconContainer}>
                         <FontAwesomeIcon icon={faUserAlt} className={SStyle.mainIcon} />
-                    </a>
+                    </Link>
                     <span className={SStyle.title}>
                         Login
                     </span>
@@ -172,7 +173,7 @@ const Login = () => {
                         }
                     </Formik>
                         <div className={SStyle.signupCTA}>
-                            <a href="/register">Create an account &#8594;</a>
+                            <Link to="/register">Create an account &#8594;</Link>
                         </div>
                 </div>
             </div>

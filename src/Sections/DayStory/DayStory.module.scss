@@ -1,0 +1,129 @@
+.container {
+    width: 24.5vw;
+    height: 100vh;
+    background-color: #0D1B28;
+    animation: appear .3s ease;
+    position: relative;
+    z-index: -1;
+}
+
+.disappearAnimation {
+    animation: disappear .4s ease;
+}
+
+@keyframes disappear {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes appear {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+
+// Header
+
+.header {
+    margin: 2.5vw 3vw 3.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.headerTextContainer {
+    margin-left: 2vw;
+}
+
+.headerDay {
+    font-family: quicksand;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.headerTitle {
+    font-family: roboto;
+    font-size: 1.1vw;
+    color: white;
+    font-weight: 200;
+}
+
+// Icon
+
+.dayCircle {
+    width: 3vw;
+    height: 3vw;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.romanOne {
+    margin: 0 .15vw;
+    height: 50%;
+    width: 3px;
+    background-color: white;
+}
+
+.romanFive {
+    height: 50%;
+    width: .6vw;
+    margin: 0 .18vw;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 105%;
+        width: 3px;
+        background-color: white;
+        transform: rotateZ(-15deg);
+        border-bottom-left-radius: 5px;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        height: 105%;
+        width: 3px;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: .45vw;
+        transform: rotateZ(15deg);
+        border-bottom-right-radius: 5px;
+    }
+}
+
+// Story Section
+
+.storySection {
+    margin: 0 3vw;
+}
+
+.sectionTitle {
+    color: white;
+    font-family: quicksand;
+    text-transform: uppercase;
+    font-size: 1.6vw;
+}
+
+.storyContent {
+    margin-top: 1vw;
+    color: white;
+    font-family: roboto;
+    font-size: .9vw;
+    white-space: pre-wrap;
+}

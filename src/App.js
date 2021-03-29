@@ -8,6 +8,7 @@ import './App.css';
 import Landing from './pages/Landing/Landing';
 import Signup from './pages/Register/Register';
 import Login from './pages/Login/Login';
+import Workspace from './pages/Workspace/Workspace';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/register" exact component={Signup} />
           <Route path="/login" exact component={Login} />
+          <Route path="/workspace" component={Workspace} />
         </Switch>
       </div>
     </Router>
