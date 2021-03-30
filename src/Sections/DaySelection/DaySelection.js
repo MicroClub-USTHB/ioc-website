@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { minimize } from '../../redux/workspaceSlice';
+
+
+// Components
+import DaySelectionButton from '../../components/DaySelectionButton/DaySelectionButton';
 
 // Style
 import dayStyle from './DaySelection.module.scss';
 
 // Images
 import mcLogo from '../../media/MC LogoWS-min.png';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import DaySelectionButton from '../../components/DaySelectionButton/DaySelectionButton';
 
 const DaySelection = () => {
-    const [Minimize, setMinimize] = useState(false);
+    // const [minimized, setMinimize] = useState(false);
+    const minimized = useSelector(state => state.workspace.minimized);
+    const dispatch = useDispatch();
     return (
         <section
-            className={`${dayStyle.container} ${Minimize? dayStyle.containerAnimateContract : dayStyle.containerAnimateExpand }`}
+            className={`${dayStyle.container} ${minimized? dayStyle.containerAnimateContract : dayStyle.containerAnimateExpand }`}
             style={{
-                width: Minimize? 'fit-content' : '18.5vw',
+                width: minimized? 'fit-content' : '19.5vw',
             }}
 
         >
@@ -26,58 +32,58 @@ const DaySelection = () => {
                             className={dayStyle.titleImage}
                             src={mcLogo} alt="Micro Club Logo"
                             style={{
-                                width: Minimize? '4vw' : '5vw'
+                                width: minimized? '4vw' : '5vw'
                             }}
                         />
                     </Link>
                 </div>
                 <div
-                    className={`${dayStyle.title} ${!Minimize && dayStyle.titleAppear}`}
+                    className={`${dayStyle.title} ${!minimized && dayStyle.titleAppear}`}
                     style={{
-                        width: Minimize? '0' : 'fit-content'
+                        width: minimized? '0' : 'fit-content'
                     }}
                 >Challenges</div>
             </div>
             <div className={dayStyle.days}>
                 <DaySelectionButton
                     dayNumber={1}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 1"
                     dayTitle="What Happened?"
                 />
                 <DaySelectionButton
                     dayNumber={2}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 2"
                     dayTitle="Find The Mole"
                 />
                 <DaySelectionButton
                     dayNumber={3}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 3"
                     dayTitle="Secret Message"
                 />
                 <DaySelectionButton
                     dayNumber={4}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 4"
                     dayTitle="Geohash Coordinates"
                 />
                 <DaySelectionButton
                     dayNumber={5}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 5"
                     dayTitle="Protection Layers"
                 />
                 <DaySelectionButton
                     dayNumber={6}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 6"
                     dayTitle="Hide Under The Tree"
                 />
                 <DaySelectionButton
                     dayNumber={7}
-                    minimize={Minimize}
+                    minimize={minimized}
                     day="Day 7"
                     dayTitle="Who Are You?"
                 />
@@ -85,22 +91,23 @@ const DaySelection = () => {
             <button
                 className={dayStyle.minimizeContainer}
                 onClick={() => {
-                    setMinimize(!Minimize)
+                    dispatch(minimize());
+                    // setMinimize(!minimized)
                 }}
             >
                 <div
                     className={dayStyle.minimizeSymbol}
                     style={{
-                        marginRight: Minimize? '0' : '1vw',
-                        position: Minimize? 'static' : 'relative',
-                        transform: Minimize && "rotateZ(180deg)"
+                        marginRight: minimized? '0' : '1vw',
+                        position: minimized? 'static' : 'relative',
+                        transform: minimized && "rotateZ(180deg)"
                     }}
                 ></div>
                 {
-                    !Minimize && 
+                    !minimized && 
                     (<div
                         className={dayStyle.minimizeText}
-                    >Minimize</div>)
+                    >minimized</div>)
                 }
             </button>
         </section>

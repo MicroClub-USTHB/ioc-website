@@ -1,10 +1,11 @@
 .container {
-    width: 18.5vw;
+    width: 19.5vw;
     position: relative;
     background-color: #767676;
     display: block;
     transition: width 4s ease;
     overflow: hidden;
+    z-index: 2;
 }
 
 .containerAnimateContract {

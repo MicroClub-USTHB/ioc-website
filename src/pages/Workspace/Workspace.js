@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import DayChallenge from '../../Sections/DayChallenge/DayChallenge';
 import DaySelection from '../../Sections/DaySelection/DaySelection';
 import DayStory from '../../Sections/DayStory/DayStory';
 
@@ -73,8 +74,121 @@ const Workspace = () => {
                     story={`It’s day 07, our hero has entered the city, but everyone is looking horrified of course they are, it's just a matter of time and the enemy can destroy the door and destroy the city.\n\nThe hero has told everyone to calm down, he is thinking of building an AI model using computer vision to detect apes, so it can kill them before they get closer to the city.`}
                 />)}
             />
-            
-            
+
+            <Route path="/workspace/1" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        <strong>What to do?</strong><br />
+                        Given the txt format find the SUM of rooms he can enter. <br />
+                        Note that doors might start from a number different then one or zero. <br/>
+                        <strong>Input:</strong><br />
+                        682 <br />
+                        696 <br />
+                        884 <br />
+                        985 <br />
+                        947 <br />
+                        903 <br />
+                        122 <br />
+                        408 <br />
+                        689 <br />
+                        101 <br />
+                        710 <br />
+                        217 <br />
+                        213 <br />
+                        563 <br />
+                        486 <br />
+                        1 <br />
+                        827 <br />
+                        849 <br />
+                        677 <br />
+                        154 <br />
+                        573 <br />
+                    </div>
+                </DayChallenge>
+            )} />
+
+            <Route path="/workspace/2" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        Given the following files in which we intercepted all coded messages sent in the last 2 months, can you find how many moles are actually hiding among the rebellion ? <br />
+                        <strong><i>example:</i></strong><br />
+                        110010001010001111011010011010110101100101011010011010101101101010111001000<br />
+                        answer → this one is a mole he’s creating copies of our messages <br />
+                        reason → sent it to himself<br />
+                        110010001010001101101010110110101011011010011010110101100101011010111001000 <br />
+                        → give them txt file with the following format: <br />
+                        <br />
+                        01-22-2310:110010001010001111011010011010110101100101011010011010101101101010111001000<br />
+                        01-25-2310:100010001010001111011010011010110101100101011010011010101101101010111001000<br />
+                        01-02-2310:000010001010001111011010011010110101100101011010011010101101101010111001011<br />
+                        01-25-2310:101010001010001111011010011010110101100101011010011010101101101010101001001<br />
+                        <br />
+                        format is date:message.<br />
+                        → here we have one mole
+                    </div>
+                </DayChallenge>
+            )} />
+
+            <Route path="/workspace/3" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        Given the following files that has 3 lines of number series , try to get the 3 sentences (1 sentence line)<br />
+                        Knowing that each sentence starts with a “/” and ends with “.” And the letters are in CAPS.<br />
+                        <strong><i>example:</i></strong><br />
+                        Input → three lines of succession of numbers<br />
+                    </div>
+                </DayChallenge>
+            )} />
+
+            <Route path="/workspace/4" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        This challenge is missing!
+                    </div>
+                </DayChallenge>
+            )} />
+
+            <Route path="/workspace/5" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        Given the following files in which we gathered all the sizes found in stores, can you find the maximum number of layers he can wear? note that  two suits of the same size  (width/height) cannot contain each other. <br />
+                        <strong><i>example:</i></strong><br />
+                                     <br />
+                        Input (sizes[height,width]): [[5,4],[6,4],[6,7],[2,3]] <br />
+                        answer → (number of layers he can wear ) 3  <br />
+                        reason → The maximum number of layers  you can Russian doll is 3 ([2,3] → [5,4] → [6,7]) <br />
+                    </div>
+                </DayChallenge>
+            )} />
+
+            <Route path="/workspace/6" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        given a binary tree as an input, you have to find the top view of the tree <br />
+                        example (the values that are visible from the top. <br />
+                        input : list of numbers (separated by white-spaces) <br />
+                         <br />
+                        <strong><i>example:</i></strong><br />
+                         <br />
+                        input : 5 2 4 8 10 13 3 9 11 1 <br />
+                        output : 1 2 5 8 10 13  <br />
+                    </div>
+                </DayChallenge>
+            )} />
+
+             <Route path="/workspace/7" render={() => (
+                <DayChallenge>
+                    <div className={workStyle.content}>
+                        build the architecture of the model to detect apes.<br />
+                        <br />
+                        <strong><i>Testing the architecture</i></strong><br />
+                        We put 10 different pictures that contain apes and different beings.<br />
+                        <br />
+                        The output has to give a number of apes.<br />
+                    </div>
+                </DayChallenge>
+            )} />
+             
         </div>
     );
 }

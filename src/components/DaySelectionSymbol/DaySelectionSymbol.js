@@ -37,7 +37,6 @@ const DaySelectionSymbol = ({dayNumber}) => {
             return (
                 <div className={symbolStyle.dayCircle}>
                     <div className={symbolStyle.romanFive}></div>
-                    <div className={symbolStyle.romanFive}></div>
                 </div>
             )
         case 6:
