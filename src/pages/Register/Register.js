@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import Register2 from '../../components/RegisterForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 // Images
 import bgImage from '../../media/registerBackgroung.jpg';
@@ -32,7 +32,7 @@ const Register = () => {
                     </div>
                     <div className={SUStyle.rightSection}>
                         <Link to="/" className={SUStyle.reLink}>Impact of Code</Link>
-                        <Register2 />
+                        <RegisterForm />
                     </div>
                 </div>
         </div>

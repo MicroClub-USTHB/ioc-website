@@ -26,7 +26,7 @@ const Hero = () => {
             <div className={heroStyle.buttonDiv}>
                 <ul className={heroStyle.buttonList}>
                     <li>
-                        <Link to="/register" href="/register">
+                        <Link to="/login">
                             <div className={heroStyle.mainButton}>
                                 <button className={heroStyle.button}>Begin the challenges</button>
                             </div>

@@ -1,0 +1,16 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-gap: .5vw;
+    justify-items: center;
+
+    & > *:nth-child(2) {
+        justify-self: left;
+    }
+}
+
+.tableHead {
+    font-family: roboto;
+    color: #B7BBBF;
+    justify-self: center;
+}

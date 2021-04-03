@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Style
 import landingStyle from './Landing.module.scss';
 
 // Sections
@@ -7,15 +9,16 @@ import Info from '../../Sections/Info/Info';
 import FAQ from '../../Sections/FAQ/FAQ';
 
 // hoc
+import Layout from '../../hoc/Layout/Layout';
 import LandingLayout from '../../hoc/LandingLayout/LandingLayout';
 
 const Landing = () => {
     return (
-        <LandingLayout>
+        <Layout>
             <Hero />
             <Info />
             <FAQ />
-        </LandingLayout>
+        </Layout>
     );
 }
 

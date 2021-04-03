@@ -52,6 +52,7 @@
 .answerInputHolder {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .answerInput {
@@ -64,14 +65,51 @@
     font-family: roboto;
     color: #0D1B28;
     resize: none;
+    font-size: .9vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: all .4s ease;
+    min-height: 1.5vw;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.answerInputHeightCalc {
+    width: 80%;
+    position: absolute;
+    bottom: 0;
     height: fit-content;
+    white-space: pre-wrap;
+    overflow: hidden;
+    display: block;
+    font-family: roboto;
+    font-size: .9vw;
+    padding: .3vw .8vw;
+    overflow-wrap: break-word;
+    max-height: 10vw;
+    min-height: 1.5vw;
+    visibility: hidden;
+    border-bottom: 1px solid #0D1B28;
 }
 
 .answerSubmitButton {
-    background-color: #0D1B28;
-    color: white;
     font-family: roboto;
     padding: .3vw .8vw;
     outline: none;
+    background-color: transparent;
     border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #0D1B28;
+    cursor: pointer;
+    transition: .1s ease;
+    height: fit-content;
+
+    &:hover {
+        border: none;
+        background-color: #0D1B28;
+        color: white;
+    }
+
 }

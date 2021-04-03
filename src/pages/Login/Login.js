@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+
+// Firebase
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 // Styles
 import SStyle from './Login.module.scss';
@@ -14,9 +21,13 @@ import {
     faUserAlt,
     faLock,
 } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { setUser } from '../../redux/workspaceSlice';
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const [AuthError, setAuthError] = useState(false);
+
+
     const blurStyles = {
         label: {
             top: '-1vw',
@@ -97,13 +108,37 @@ const Login = () => {
                         }
                         validateOnBlur
                         onSubmit={( values, setSubmitting) => {
-                            alert(JSON.stringify(values));
+                            firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+                                .then(userCredentials => {
+                                    dispatch(setUser(userCredentials.user));
+                                })
+                                .catch(error => {
+                                    setAuthError(true);
+                                    console.log('caught error in sign in: ', error);
+                                })
                             setSubmitting(false);
                         }}
                     >
                         {
                             ({errors, touched}) => (
                                 <Form className={SStyle.form}>
+                                    {
+                                        AuthError &&
+                                        (
+                                            <div
+                                                style={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center'
+                                                }}
+                                            >
+                                                <h1
+                                                    style={{
+                                                        margin: '0'
+                                                    }}
+                                                >Auth Error, try again.</h1>
+                                            </div>
+                                        )
+                                    }
                                     <div className={SStyle.inputDiv}>
                                         <Field
                                             name="email"

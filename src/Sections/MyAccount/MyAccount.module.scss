@@ -1,0 +1,148 @@
+.sectionContainer {
+    background-color: #0D1B28;
+    display: flex;
+    height: 100vh;
+    width: 50vw;
+}
+
+.navigation {
+    min-width: 10vw;
+    margin: 8vw 2vw;
+}
+
+// Navigation header
+
+.navigationHeader {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navigationHeaderImage {
+    width: 4vw;
+}
+
+.navigationHeaderTitle {
+    font-family: roboto;
+    color: white;
+    font-size: 1vw;
+    text-transform: uppercase;
+    margin-left: 1vw;
+}
+
+// Navigation list
+
+.navigationListContainer {
+    margin: 2vw 0;
+}
+
+.navigationList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & > li {
+        margin: .3vw 0;
+    }
+}
+
+.navigationListLink {
+    font-family: roboto;
+    font-size: .9vw;
+    color: white;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+        &::before {
+            content: '> ';
+            font-family: roboto;
+            display: block;
+            position: absolute;
+            left: -1vw;
+        }
+    }
+}
+
+// Section
+.sectionTitle {
+    color: white;
+    font-family: roboto;
+    font-size: 3vw;
+    font-weight: 400;
+    margin: 2vw 0 0;
+}
+
+// Table of completion
+.completionContainer {
+    color: white;
+    margin-top: 2.6vw;
+}
+
+.subSectionTitle {
+    font-family: roboto;
+    font-weight: 400;
+    font-size: 1.4vw;
+    color: white;
+    text-transform: uppercase;
+}
+
+// Table
+.table {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: -4%;
+    width: 100%;
+}
+
+.tableName {
+    justify-self: left;
+}
+
+.rowSeparator {
+    margin: 0.3vw 0;
+}
+
+.rowTotal {
+    display: flex;
+    align-items: center;
+    font-family: roboto;
+    position: absolute;
+    right: 1.6vw;
+    bottom: -1.2vw;
+}
+
+.rowTotalTitle {
+    font-family: roboto;
+    font-size: .9vw;
+    color: #ffffff70;
+}
+
+.rowTotalScore {
+    margin-left: 2.5vw;
+}
+
+// Acount Info Container
+.accountInfoContainer {
+    margin: 4vw 0 0;
+}
+
+.accountInfoModule {
+    margin: 1vw 0;
+    font-family: roboto;
+}
+
+.accountInfoModuleTitle {
+    color: #ffffff70;
+    font-size: .9vw;
+}
+
+.accountInfoModuleData {
+    color: white;
+    font-size: 1vw;
+    padding: .8vw 1vw;
+    background-color: #1D3245;
+    border-radius: 15px;
+    margin-top: .5vw;
+}

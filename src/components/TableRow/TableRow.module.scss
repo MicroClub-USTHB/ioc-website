@@ -1,0 +1,18 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-gap: .5vw;
+    font-size: .9vw;
+    justify-items: center;
+    align-items: center;
+    font-family: roboto;
+    font-weight: 400;
+
+    & > *:nth-child(2) {
+        justify-self: left;
+    }
+}
+
+.icon {
+    width: 1.2vw;
+}

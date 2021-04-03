@@ -1,0 +1,131 @@
+.signedinNav {
+    position: fixed;
+    top: 2.5vw;
+    right: 2vw;
+    z-index: 101;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+
+    &:hover {
+        & > .circle {
+            border-color: #31669A;
+            & > .circleIcon {
+                color: #31669A;
+            }
+        }
+    }
+}
+
+.circle {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #0D1B28;
+    transition: .2s ease;
+    margin-right: 3vw;
+}
+
+.circleIcon {
+    font-size: 2vw;
+    color: #0D1B28;
+    transition: .2s ease;
+}
+
+// Navigation rectangle
+.navigationBody {
+    background-color: #1D3245;
+    padding: .2vw 0;
+    font-family: roboto;
+    color: white;
+    margin-top: 1vw;
+    margin-right: 2vw;
+    font-size: .9vw;
+    position: relative;
+    box-sizing: border-box;
+    width: max-content;
+
+    &::before {
+        content: '';
+        display: block;
+        background-color: transparent;
+        height: 1vw;
+        width: 100%;
+        position: absolute;
+        top: -1vw;
+        left: 0;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        border-left: .6vw solid transparent;
+        border-right: .6vw solid transparent;
+        border-bottom: .4vw solid #1d3245;
+        position: absolute;
+        top: -.4vw;
+        right: 22%;
+    }
+}
+
+.navigationList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    & > li {
+        padding: .5vw 1.8vw;
+        width: 63%;
+        position: relative;
+
+        &:nth-last-child(1) {
+            border-top: 1px solid white;
+            margin-top: .4vw;
+            padding-top: .7vw;
+        }
+
+        &:hover {
+            background-color: #19344E;
+            
+            &::before {
+                content: '';
+                display: block;
+                height: 100%;
+                width: .3vw;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: #31669A;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+}
+
+.link, .button {
+    color: white;
+    text-decoration: none;
+    font-size: .9vw;
+    background-color: transparent;
+    font-family: roboto;
+    display: flex;
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.icon {
+    margin-right: .8vw;
+    font-size: .9vw;
+}

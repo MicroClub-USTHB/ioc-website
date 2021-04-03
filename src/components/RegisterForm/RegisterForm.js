@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+// Firebase
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 // Styles
 import regStyle from './RegisterForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +14,13 @@ import {
     faKey,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/workspaceSlice';
 
 const Register2 = () => {
+    const dispatch = useDispatch();
+    const [RegisterError, setRegisterError] = useState(false);
+
     const blurStyles = {
         label: {
             top: '-1vw',
@@ -119,12 +128,19 @@ const Register2 = () => {
                 })}
                 validateOnChange
                 onSubmit={values => {
-                    alert(JSON.stringify(values))
+                    firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+                        .then(userCredential => {
+                            dispatch(setUser(userCredential.user));
+                            console.log('bopped here');
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            setRegisterError(true);
+                        })
                 }}
             >
                 {({ errors, touched }) => (
                     <Form className={regStyle.form}>
-                        {console.log(touched)}
                     <div className={regStyle.inputDiv}>
                         <Field
                             name="email"

@@ -107,7 +107,7 @@ const DaySelection = () => {
                     !minimized && 
                     (<div
                         className={dayStyle.minimizeText}
-                    >minimized</div>)
+                    >minimize</div>)
                 }
             </button>
         </section>
