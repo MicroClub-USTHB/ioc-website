@@ -53,13 +53,12 @@ const SignedinNav = () => {
                                     Lounge
                                 </Link>
                             </li>
-                            <li>
-                                <button
-                                    className={snavStyle.button}
-                                    onClick={() => {
-                                        dispatch(signOut());
-                                    }}
-                                >
+                            <li
+                                onClick={() => {
+                                    dispatch(signOut());
+                                }}
+                            >
+                                <button className={snavStyle.button}>
                                     <FontAwesomeIcon icon={faDoorOpen}  className={snavStyle.icon}/>
                                     Signout
                                 </button>
