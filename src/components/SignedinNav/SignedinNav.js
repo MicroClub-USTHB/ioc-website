@@ -7,7 +7,7 @@ import firebase from 'firebase/app';
 // Style
 import snavStyle from './SingedinNav.module.scss';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/workspaceSlice';
+import { setUser, signOut } from '../../redux/workspaceSlice';
 
 const SignedinNav = () => {
     const [NavAppear, setNavAppear] = useState(false);
@@ -57,14 +57,7 @@ const SignedinNav = () => {
                                 <button
                                     className={snavStyle.button}
                                     onClick={() => {
-                                        firebase.auth().signOut()
-                                            .then(() => {
-                                                dispatch(setUser(null));
-                                                console.log('gg signed out');
-                                            })
-                                            .catch(error => {
-                                                console.log(error);
-                                            })
+                                        dispatch(signOut());
                                     }}
                                 >
                                     <FontAwesomeIcon icon={faDoorOpen}  className={snavStyle.icon}/>

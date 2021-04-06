@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-
-// Firebase
-import firebase from 'firebase/app';
-import 'firebase/auth';
 
 // Styles
 import SStyle from './Login.module.scss';
@@ -20,13 +15,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
     faUserAlt,
     faLock,
+    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-import { setUser } from '../../redux/workspaceSlice';
+import { emailSignIn } from '../../redux/workspaceSlice';
 
 const Login = () => {
     const dispatch = useDispatch();
-    const [AuthError, setAuthError] = useState(false);
+    const AuthError = useSelector(state => state.workspace.authError);
+    const loadingUser = useSelector(state => state.workspace.loadingUser);
 
+    const LoadingIndicator = (
+        <div className={SStyle.mainIconContainer}>
+            <FontAwesomeIcon className={SStyle.spinner} icon={faSpinner} />
+        </div>
+    )
+
+    const HomeLink = (
+        <Link to="/" className={SStyle.mainIconContainer}>
+            <FontAwesomeIcon icon={faUserAlt} className={SStyle.mainIcon} />
+        </Link>
+    )
 
     const blurStyles = {
         label: {
@@ -80,9 +88,10 @@ const Login = () => {
             <div className={SStyle.bgImageContainer}>
                 <img src={bgImage} alt="" className={SStyle.bgImage} />
                 <div className={SStyle.cardContainer}>
-                    <Link to="/" className={SStyle.mainIconContainer}>
-                        <FontAwesomeIcon icon={faUserAlt} className={SStyle.mainIcon} />
-                    </Link>
+                    {
+                        loadingUser? LoadingIndicator : HomeLink
+                    }
+                    
                     <span className={SStyle.title}>
                         Login
                     </span>
@@ -108,14 +117,7 @@ const Login = () => {
                         }
                         validateOnBlur
                         onSubmit={( values, setSubmitting) => {
-                            firebase.auth().signInWithEmailAndPassword(values.email, values.password)
-                                .then(userCredentials => {
-                                    dispatch(setUser(userCredentials.user));
-                                })
-                                .catch(error => {
-                                    setAuthError(true);
-                                    console.log('caught error in sign in: ', error);
-                                })
+                            dispatch(emailSignIn(values));
                             setSubmitting(false);
                         }}
                     >

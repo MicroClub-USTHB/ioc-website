@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-// Firebase
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
 // Styles
 import regStyle from './RegisterForm.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,11 +11,10 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/workspaceSlice';
+import { emailSignUp } from '../../redux/workspaceSlice';
 
 const Register2 = () => {
     const dispatch = useDispatch();
-    const [RegisterError, setRegisterError] = useState(false);
 
     const blurStyles = {
         label: {
@@ -128,15 +123,8 @@ const Register2 = () => {
                 })}
                 validateOnChange
                 onSubmit={values => {
-                    firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
-                        .then(userCredential => {
-                            dispatch(setUser(userCredential.user));
-                            console.log('bopped here');
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            setRegisterError(true);
-                        })
+                    console.log(values);
+                    dispatch(emailSignUp(values))
                 }}
             >
                 {({ errors, touched }) => (
@@ -251,15 +239,9 @@ const Register2 = () => {
                                 <ErrorMessage name="passwordConfirm" />
                             </div>)
                         }
-                    </div>
-                    
-                    <div className={regStyle.checkboxDiv}>
-                        <Field name="save" type="checkbox" />
-                        <span className={regStyle.checkbox}></span>
-                        <label htmlFor="save">Remember me</label>
-                    </div>
+                    </div>                    
                     <div className={regStyle.buttonContainer}>
-                        <button type="submit">Login</button>    
+                        <button type="submit">Register</button>    
                     </div>
                 </Form>
                 )}

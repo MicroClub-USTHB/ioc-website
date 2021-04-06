@@ -8,3 +8,58 @@
     font-size: .9vw;
     font-family: roboto;
 }
+
+.loadingContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000050;
+
+    & > .spinner {
+        font-size: 5vw;
+        color: #0D1B28;
+        animation: spin 2s linear infinite;
+    }
+
+    & > .loadingFailedContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.3vw;
+        color: #0D1B28;
+        font-family: roboto;
+        text-transform: capitalize;
+
+        & > button {
+            margin-top: 1vw;
+            background-color: transparent;
+            border: 2px solid #0D1B28;
+            padding: .4vw .8vw;
+            border-radius: 6px;
+            font-family: roboto;
+            color: #0D1B28;
+            font-size: 1vw;
+            cursor: pointer;
+            transition: .2s ease;
+
+            &:hover {
+                background-color: #0D1B28;
+                color: white;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

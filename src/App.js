@@ -10,15 +10,13 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Workspace from './pages/Workspace/Workspace';
 
-
 // Firebase
 import firebase from 'firebase/app';
-// import 'firebase/auth';
 
-// import { useAuthState } from 'react-firebase-hooks/auth'; 
-import { useSelector } from 'react-redux';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
 import Lounge from './pages/Lounge/Lounge';
-// import { setUser } from './redux/workspaceSlice';
+import { sessionStart } from './redux/workspaceSlice';
 
 
 firebase.initializeApp({
@@ -34,15 +32,22 @@ firebase.initializeApp({
 
 
 function App() {
-  // const dispatch = useDispatch();
   const user = useSelector(state => state.workspace.user);
+  const loadingUser = useSelector(state => state.workspace.loadingUser);
+  const dispatch = useDispatch();
+
+  if (localStorage.uid && !user && !loadingUser) {
+    console.log(localStorage.uid);
+    dispatch(sessionStart(localStorage.uid))
+  }
+
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route path="/" exact component={Landing} />
-          <Route path="/register" exact render={() => user? (<Redirect to="/workspace" />) : (<Register />)} />
-          <Route path="/login" exact render={() => (user? (<Redirect to="/workspace" />) : (<Login />))} />
+          <Route path="/register" exact render={() => (user && user.userDB)? (<Redirect to="/workspace" />) : (<Register />)} />
+          <Route path="/login" exact render={() => (user && user.userDB)? (<Redirect to="/workspace" />) : (<Login />)} />
           <Route path="/workspace" component={Workspace} />
           <Route path="/lounge" component={Lounge} />
         </Switch>

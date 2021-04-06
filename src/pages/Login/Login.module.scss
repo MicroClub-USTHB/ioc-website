@@ -94,6 +94,22 @@ $decoration-color: #60C7CD;
     margin-top: 2rem;
 }
 
+.spinner {
+    font-size: 2.5vw;
+    color: #00003E;
+    animation: spin 2s linear infinite;
+    margin: 1.25vw;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .mainIcon {
     margin: 1.5vw;
     font-size: 2vw;

@@ -137,64 +137,6 @@ $decoration-color: #60C7CD;
     opacity: 1;
 }
 
-// Checkbox
-
-.checkboxDiv {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.checkboxDiv > input{
-    opacity: 0;
-    cursor: pointer;
-}
-
-.checkbox {
-    position: absolute;
-    left: 2px;
-    width: 1.21rem;
-    height: 1.2rem;
-    background-color: transparent;
-    border: 1px solid whitesmoke;
-    border-radius: 3px;
-    transition: all .2s ease;
-    pointer-events: none;
-    cursor: pointer;
-}
-
-.checkbox::after {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 1px;
-    width: .3rem;
-    height: .7rem;
-    border-bottom: 3px solid transparent;
-    border-right: 3px solid transparent;
-    border-radius: 3px;
-    opacity: 1;
-    transform: rotateZ(120deg);
-    transition: all .2s ease;
-}
-
-.checkboxDiv > input:checked ~ .checkbox {
-    background-color: whitesmoke;
-}
-
-.checkboxDiv > input:checked ~ .checkbox::after {
-    border-bottom: 3px solid #608158;
-    border-right: 3px solid #608158;
-    transform: rotateZ(45deg);
-}
-
-.checkboxDiv > label {
-    color: whitesmoke;
-    margin-left: .8rem;
-    font-size: .8rem;
-}
-
 .buttonContainer {
     display: flex;
     justify-content: center;

@@ -81,14 +81,12 @@
     position: relative;
 
     & > li {
-        padding: .5vw 1.8vw;
-        width: 63%;
         position: relative;
 
         &:nth-last-child(1) {
             border-top: 1px solid white;
             margin-top: .4vw;
-            padding-top: .7vw;
+            padding-top: .6vw;
         }
 
         &:hover {
@@ -109,6 +107,11 @@
     }
 }
 
+.link {
+    padding: .5vw 1.8vw;
+    width: 63%;
+}
+
 .link, .button {
     color: white;
     text-decoration: none;
@@ -123,6 +126,8 @@
     cursor: pointer;
     padding: 0;
     margin: 0;
+    padding: .5vw 1.8vw;
+    width: 63%;
 }
 
 .icon {

@@ -5,6 +5,18 @@ import DaySelectionSymbol from '../../components/DaySelectionSymbol/DaySelection
 import storyStyle from './DayStory.module.scss';
 
 const DayStory = ({dayNumber, day, title, story}) => {
+    const replaceAll = (string, target, replaceWith) => {
+        let stringCopy = string;
+        let indexOfMatch = stringCopy.indexOf(target);
+        console.log(indexOfMatch);
+        while (indexOfMatch!==-1) {
+            stringCopy = stringCopy.replace(target, replaceWith);
+            indexOfMatch = stringCopy.indexOf(target);
+            console.log(indexOfMatch);
+        }
+        return stringCopy;
+    }
+
     return (
         <section className={storyStyle.container}>
             <div className={storyStyle.header}>
@@ -16,7 +28,7 @@ const DayStory = ({dayNumber, day, title, story}) => {
             </div>
             <div className={storyStyle.storySection}>
                 <div className={storyStyle.sectionTitle}>The Story</div>
-                <div className={storyStyle.storyContent}>{story}</div>
+                <div className={storyStyle.storyContent}>{replaceAll(story, '\\n', '\n')}</div>
             </div>
         </section>
     );

@@ -93,7 +93,7 @@
     flex-direction: column;
     position: relative;
     left: -4%;
-    width: 100%;
+    width: 93%;
 }
 
 .tableName {
@@ -109,7 +109,7 @@
     align-items: center;
     font-family: roboto;
     position: absolute;
-    right: 1.6vw;
+    right: 2.9vw;
     bottom: -1.2vw;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .rowTotalScore {
-    margin-left: 2.5vw;
+    margin-left: 2.8vw;
 }
 
 // Acount Info Container
@@ -145,4 +145,5 @@
     background-color: #1D3245;
     border-radius: 15px;
     margin-top: .5vw;
+    width: 80%;
 }

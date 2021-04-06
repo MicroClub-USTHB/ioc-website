@@ -10,7 +10,6 @@ import FAQ from '../../Sections/FAQ/FAQ';
 
 // hoc
 import Layout from '../../hoc/Layout/Layout';
-import LandingLayout from '../../hoc/LandingLayout/LandingLayout';
 
 const Landing = () => {
     return (

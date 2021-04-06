@@ -60,8 +60,33 @@ $decoration-color: #59BCF8;
 }
 
 .leftImage {
-    font-size: 10vw;
+    font-size: 10.2vw;
     color: whitesmoke;
+}
+
+.loadingContainer {
+    background-color: white;
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingIcon {
+    font-size: 8vw;
+    color: #0D1B28;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .leftText {
@@ -88,6 +113,28 @@ $decoration-color: #59BCF8;
 
 .leftText > a:hover {
     text-decoration: underline;
+}
+
+.authErrorContainer {
+    font-size: 1.1vw;
+    color: #0D1B28;
+    font-family: roboto;
+    width: 18vw;
+    position: absolute;
+    bottom: 1vw;
+    left: 1vw;
+    margin-left: 1vw;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: .2vw;
+        background-color: #FF7272;
+        left: -1vw;
+        border-radius: 5px;
+    }
 }
 
 // Right Section

@@ -14,9 +14,21 @@ import dayStyle from './DaySelection.module.scss';
 import mcLogo from '../../media/MC LogoWS-min.png';
 
 const DaySelection = () => {
-    // const [minimized, setMinimize] = useState(false);
     const minimized = useSelector(state => state.workspace.minimized);
+    const challenges = useSelector(state => state.workspace.challenges);
     const dispatch = useDispatch();
+    const mapchallengeToButton = (dayNum, dayTitleText) => {
+        let button = (
+            <DaySelectionButton
+                dayNumber={dayNum}
+                minimize={minimized}
+                day={`Day ${dayNum}`}
+                dayTitle={dayTitleText}
+            />
+        )
+        return button;
+    }
+
     return (
         <section
             className={`${dayStyle.container} ${minimized? dayStyle.containerAnimateContract : dayStyle.containerAnimateExpand }`}
@@ -45,48 +57,9 @@ const DaySelection = () => {
                 >Challenges</div>
             </div>
             <div className={dayStyle.days}>
-                <DaySelectionButton
-                    dayNumber={1}
-                    minimize={minimized}
-                    day="Day 1"
-                    dayTitle="What Happened?"
-                />
-                <DaySelectionButton
-                    dayNumber={2}
-                    minimize={minimized}
-                    day="Day 2"
-                    dayTitle="Find The Mole"
-                />
-                <DaySelectionButton
-                    dayNumber={3}
-                    minimize={minimized}
-                    day="Day 3"
-                    dayTitle="Secret Message"
-                />
-                <DaySelectionButton
-                    dayNumber={4}
-                    minimize={minimized}
-                    day="Day 4"
-                    dayTitle="Geohash Coordinates"
-                />
-                <DaySelectionButton
-                    dayNumber={5}
-                    minimize={minimized}
-                    day="Day 5"
-                    dayTitle="Protection Layers"
-                />
-                <DaySelectionButton
-                    dayNumber={6}
-                    minimize={minimized}
-                    day="Day 6"
-                    dayTitle="Hide Under The Tree"
-                />
-                <DaySelectionButton
-                    dayNumber={7}
-                    minimize={minimized}
-                    day="Day 7"
-                    dayTitle="Who Are You?"
-                />
+                {
+                    challenges? challenges.map(challenge => mapchallengeToButton(challenge.day, challenge.content.title)) : null
+                }
             </div>
             <button
                 className={dayStyle.minimizeContainer}

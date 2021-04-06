@@ -49,10 +49,57 @@
     // justify-content: space-between;
 }
 
+.submittingIndicatorContainer {
+    position: absolute;
+    top: -3.5%;
+    left: -2.5%;
+    width: 110%;
+    height: 120%;
+    z-index: 108;
+    background-color: #00000060;
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > .spinner {
+        color: #0D1B28;
+        font-size: 1.6vw;
+        margin-right: .8vw;
+        animation: spin 2s linear infinite;
+    }
+
+    & > .indicatorText {
+        font-family: roboto;
+        color: #0D1B28;
+        font-size: 1.2vw;
+        text-transform: capitalize;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .answerInputHolder {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+.wrongAnswerMessage {
+    position: absolute;
+    right: 17%;
+    top: 0;
+    font-family: roboto;
+    font-size: .9vw;
+    color: red;
 }
 
 .answerInput {
