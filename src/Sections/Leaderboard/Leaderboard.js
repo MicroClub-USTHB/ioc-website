@@ -1,6 +1,7 @@
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import LeaderboardHead from '../../components/LeaderboardHead/LeaderboardHead';
 import LeaderboardRow from '../../components/LeaderboardRow/LeaderboardRow';
 
@@ -8,6 +9,7 @@ import LeaderboardRow from '../../components/LeaderboardRow/LeaderboardRow';
 import boardStyle from './Leaderboard.module.scss';
 
 const Leaderboard = () => {
+    const leaderboardArray = useSelector(state => state.workspace.leaderboard);
     return (
         <section className={boardStyle.section}>
             <div>
@@ -20,126 +22,17 @@ const Leaderboard = () => {
                     <div className={boardStyle.rowDividor}>
                         <LeaderboardHead />
                     </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={1}
-                            fullname=""
-                            score="1850"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={2}
-                            fullname=""
-                            score="1600"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={3}
-                            fullname=""
-                            score="1300"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={4}
-                            fullname=""
-                            score="1300"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={5}
-                            fullname=""
-                            score="1050"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={6}
-                            fullname=""
-                            score="1050"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={7}
-                            fullname=""
-                            score="1050"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={8}
-                            fullname=""
-                            score="1050"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={9}
-                            fullname=""
-                            score="1050"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={10}
-                            fullname=""
-                            score="650"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={11}
-                            fullname=""
-                            score="650"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={12}
-                            fullname=""
-                            score="450"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={13}
-                            fullname=""
-                            score="650"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={14}
-                            fullname=""
-                            score="450"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={15}
-                            fullname=""
-                            score="650"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={16}
-                            fullname=""
-                            score="450"
-                        />
-                    </div>
-                    <div className={boardStyle.rowDividor}>
-                        <LeaderboardRow
-                            position={17}
-                            fullname=""
-                            score="450"
-                        />
-                    </div>
-                    
+                    {
+                        leaderboardArray.map((item, index) => (
+                            <div className={boardStyle.rowDividor} >
+                                <LeaderboardRow
+                                    position={index+1}
+                                    fullname={item.fullName}
+                                    score={item.score}
+                                />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>

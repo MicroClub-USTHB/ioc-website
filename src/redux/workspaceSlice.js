@@ -1,3 +1,4 @@
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -6,19 +7,52 @@ import 'firebase/firestore';
 
 // helper functions
 const saveToLocalStorage = (uid) => {
-    console.log(uid);
     localStorage.setItem('uid', uid);
 }
+
+const makeLeaderboardEntry = ({uid, fullName, score}) => {
+    firebase.firestore().collection('leaderboard').doc(uid).set({
+        fullName,
+        uid,
+        score
+    });
+}
+
+const updateLeaderboard = ({ challengeCompletion, challenges, uid }) => {
+    console.log('here props: ', challengeCompletion, challenges, uid);
+    const scoresArray = challenges.map(challenge => {
+        if (challengeCompletion[`day${challenge.day}`]) {
+            return challenge.score;
+        }
+        return 0;
+    })
+    console.log(scoresArray);
+    const newScore = scoresArray.reduce((a,b) => (a + b), 0);
+    console.log(newScore);
+    firebase.firestore().collection('leaderboard').doc(uid).update({
+        score: newScore,
+    })
+}
+
 // Answer actions
 const _updateChallengeCompletion = createAsyncThunk(
     'workspace/_updateChallengeCompletion',
     async (day, thunkAPI) => {
         try {
-            console.log(day);
             let uid = thunkAPI.getState().workspace.user.uid;
+            let challenges = thunkAPI.getState().workspace.challenges;
+            let userDB = thunkAPI.getState().workspace.user.userDB;
             let ref = `challengeCompletion.day${day}`;
-            firebase.firestore().collection('users').doc(uid).update({
+            await firebase.firestore().collection('users').doc(uid).update({
                 [ref]: true,
+            })
+            updateLeaderboard({
+                challengeCompletion: {
+                    ...userDB.challengeCompletion,
+                    [`day${day}`]: true,
+                },
+                challenges,
+                uid,
             })
         } catch(error) {
             thunkAPI.rejectWithValue(error);
@@ -30,16 +64,12 @@ export const answerSubmission = createAsyncThunk(
     'workspace/answerSubmission',
     async ({answerHash, dayNumber}, thunkAPI) => {
         try {
-            console.log(answerHash, dayNumber);
             const dayChallenge = await firebase.firestore().collection('challenges').where('day', '==', dayNumber).get();
             const challenge = dayChallenge.docs[0].data();
-            console.log('yo: ', challenge);
             if (challenge.solutionHash === answerHash) {
-                console.log('it got here');
                 thunkAPI.dispatch(_updateChallengeCompletion(dayNumber));
                 return dayNumber;
             }
-            console.log('its getting here');
             return false;
         } catch (error) {
             thunkAPI.rejectWithValue(error);
@@ -81,6 +111,11 @@ const _makeUserData = createAsyncThunk(
             }
             await firebase.firestore().collection('users').doc(values.uid).set(userData);
             thunkAPI.dispatch(_getChallenges());
+            makeLeaderboardEntry({
+                uid: values.uid,
+                fullName: values.fullName,
+                score: 0
+            })
             saveToLocalStorage(values.uid);
             return userData;
         } catch (error) {
@@ -176,10 +211,12 @@ export const workspaceSlice = createSlice({
         challenges: null,
         challengesState: 'loading',
         answerSubmissionState: 'initial',
+        leaderboard: null,
     },
     reducers: {
-        chooseDay: (state, action) => { state.chosenDay = action.payload },
+        chooseDay: ( state, action ) => { state.chosenDay = action.payload },
         minimize: state => { state.minimized =  !state.minimized},
+        setLeaderboard: ( state, action ) => { state.leaderboard = action.payload}
     },
     extraReducers: {
         [emailSignIn.fulfilled]: (state, action) => {
@@ -287,6 +324,6 @@ export const workspaceSlice = createSlice({
     }
 })
 
-export const { chooseDay, minimize } = workspaceSlice.actions;
+export const { chooseDay, minimize, setLeaderboard } = workspaceSlice.actions;
 
 export default workspaceSlice.reducer;

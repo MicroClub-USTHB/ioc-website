@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 // Style
@@ -12,11 +12,12 @@ import Workspace from './pages/Workspace/Workspace';
 
 // Firebase
 import firebase from 'firebase/app';
+import 'firebase/database';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import Lounge from './pages/Lounge/Lounge';
-import { sessionStart } from './redux/workspaceSlice';
+import { sessionStart, setLeaderboard } from './redux/workspaceSlice';
 
 
 firebase.initializeApp({
@@ -29,8 +30,6 @@ firebase.initializeApp({
     measurementId: "G-HP19NWQDXW"
 });
 
-
-
 function App() {
   const user = useSelector(state => state.workspace.user);
   const loadingUser = useSelector(state => state.workspace.loadingUser);
@@ -40,6 +39,22 @@ function App() {
     console.log(localStorage.uid);
     dispatch(sessionStart(localStorage.uid))
   }
+
+  useEffect(() => {
+    // listening on leaderboard changes
+    let unsubscribe = firebase.firestore().collection('leaderboard').onSnapshot(snapshot => {
+      const leaderboardData = snapshot.docs.map(item => {
+        return item.data();
+      })
+      // sorting
+      leaderboardData.sort(( a, b ) => -(a.score - b.score));
+      dispatch(setLeaderboard(leaderboardData))
+    })
+    console.log('engaged');
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
     <Router>
