@@ -52,3 +52,31 @@
     max-height: 70%;
     max-width: 20vw;
 }
+
+@media (max-width: 500px) {
+    .container {
+        background-color: transparent;
+        margin: 1.8rem 0;
+    }
+
+    .infoText {
+        width: 100%;
+    }
+
+    .titleContainer {
+        background-color: #222D33;
+        padding: .4rem .8rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        letter-spacing: .05rem;
+
+    }
+
+    .description {
+        color: black;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+}

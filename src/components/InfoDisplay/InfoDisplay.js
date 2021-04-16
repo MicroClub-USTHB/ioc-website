@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 // Style
 import infoStyle from './InfoDisplay.module.scss';
 
 const InfoDisplay = ({left, title, img, altText, description}) => {
+    const isMobile = useSelector(state => state.workspace.isMobile)
     let comp = (
         <div className={infoStyle.info}
             style={{
@@ -16,9 +18,13 @@ const InfoDisplay = ({left, title, img, altText, description}) => {
                 </div>
                 <p className={infoStyle.description}>{description}</p>
             </div>
-            <div className={infoStyle.imageContainer}>
-                <img className={infoStyle.image} src={img} alt={altText} />
-            </div>
+            {
+                !isMobile && (
+                    <div className={infoStyle.imageContainer}>
+                        <img className={infoStyle.image} src={img} alt={altText} />
+                    </div>
+                )
+            }
         </div>
     );
     return (

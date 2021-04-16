@@ -25,3 +25,18 @@
     text-align: justify;
     margin: 0.4vw 0;
 }
+
+@media (max-width: 500px) {
+    .section {
+        margin: 5rem 0;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .description {
+        font-size: 1.15rem;
+        width: 100%;
+        margin: 0.4rem 0;
+    }
+}
