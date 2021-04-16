@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 
 // Style
 import qaStyle from './QA.module.scss';
 
 const QA = ({questionText, answerText}) => {
+    const isMobile = useSelector(state => state.workspace.isMobile);
     const [AnswerExpand, setAnswerExpand] = useState(false);
     console.log('logged', AnswerExpand);
     let handleAnswerClick = (event) => {
-        setAnswerExpand(!AnswerExpand);
+        if (!isMobile) {
+            setAnswerExpand(!AnswerExpand);
+        }
     }
     return (
         <div
@@ -20,22 +24,26 @@ const QA = ({questionText, answerText}) => {
                     <div
                         className={qaStyle.questionLine}
                         style={{
-                            backgroundColor: AnswerExpand? '#60C7CD' : 'transparent'
+                            backgroundColor: isMobile? '#60C7CD' : AnswerExpand? '#60C7CD' : 'transparent'
                         }}
                     ></div>
                 </div>
-                <div
-                    className={qaStyle.expandSymbol}
-                    style={{
-                        transform: AnswerExpand? 'rotateZ(-90deg)' : 'rotateZ(90deg)'
-                    }}
-                >&gt;</div>
+                {
+                    !isMobile && (
+                        <div
+                            className={qaStyle.expandSymbol}
+                            style={{
+                                transform: AnswerExpand? 'rotateZ(-90deg)' : 'rotateZ(90deg)'
+                            }}
+                        >&gt;</div>
+                    )
+                }
             </div>
             <div
                 className={qaStyle.answerContainer}
                 style={{
-                    height: AnswerExpand? '8vw' : '0',
-                    margin: AnswerExpand? '.8vw 0' : '0'
+                    height: !isMobile && (AnswerExpand? '8vw' : '0'),
+                    margin: !isMobile && (AnswerExpand? '.8vw 0' : '0')
                 }}
             >
                 {answerText}

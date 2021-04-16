@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 
 // Style
 import snavStyle from './SingedinNav.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '../../redux/workspaceSlice';
 
 const SignedinNav = () => {
+    const isMobile = useSelector(state => state.workspace.isMobile);
     const [NavAppear, setNavAppear] = useState(false);
     const dispatch = useDispatch();
 
@@ -16,13 +17,20 @@ const SignedinNav = () => {
         <div
             className={snavStyle.signedinNav}
             onMouseLeave={() => {
-                setNavAppear(false);
+                if (!isMobile) {
+                    setNavAppear(false);
+                }
             }}
         >
             <div
                 className={snavStyle.circle}
                 onMouseEnter={() => {
-                    setNavAppear(true);
+                    if (!isMobile) {
+                        setNavAppear(true);
+                    }
+                }}
+                onClick={() => {
+                    setNavAppear(state => !state);
                 }}
             >
                 <FontAwesomeIcon

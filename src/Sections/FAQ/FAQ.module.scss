@@ -17,3 +17,13 @@
     font-family: 'Roboto';
     font-weight: 400;
 }
+
+@media (max-width: 500px) {
+    .section {
+        margin: 5rem 12.5vw;
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+}

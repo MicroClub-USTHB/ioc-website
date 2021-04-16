@@ -83,20 +83,22 @@ const Layout = ({children}) => {
                 {
                     location.pathname === '/' && (
                         <footer className={layoutStyle.footerBar}>
-                            <div className={layoutStyle.footerLinks}>
-                                <a href="https://www.microclub.net">Micro Club Website</a>
-                                <Link to="/login">Participate</Link>
-                            </div>
-                            <div className={layoutStyle.footerSocial}>
-                                <a href="https://www.facebook.com/Micro.Club.USTHB">
-                                    <FontAwesomeIcon icon={faFacebookSquare} />
-                                </a>
-                                <a href="https://www.instagram.com/micro.club/">
-                                    <FontAwesomeIcon icon={faInstagramSquare} />
-                                </a>
-                                <a href="https://www.linkedin.com/company/micro-club/">
-                                    <FontAwesomeIcon icon={faLinkedin} />
-                                </a>
+                            <div className={layoutStyle.footerContent}>
+                                <div className={layoutStyle.footerLinks}>
+                                    <a className={layoutStyle.footerLink} href="https://www.microclub.net">Micro Club Website</a>
+                                    <Link className={layoutStyle.footerLink} to="/login">Participate</Link>
+                                </div>
+                                <div className={layoutStyle.footerSocial}>
+                                    <a href="https://www.facebook.com/Micro.Club.USTHB">
+                                        <FontAwesomeIcon className={layoutStyle.footerIcon} icon={faFacebookSquare} />
+                                    </a>
+                                    <a href="https://www.instagram.com/micro.club/">
+                                        <FontAwesomeIcon className={layoutStyle.footerIcon} icon={faInstagramSquare} />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/micro-club/">
+                                        <FontAwesomeIcon className={layoutStyle.footerIcon} icon={faLinkedin} />
+                                    </a>
+                                </div>
                             </div>
                         </footer>
                     )

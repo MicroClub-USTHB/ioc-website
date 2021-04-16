@@ -15,7 +15,6 @@
     }
 }
 
-
 .question {
     font-size: 1.4vw;
     font-family: 'Roboto';
@@ -49,4 +48,30 @@
     height: inherit;
     margin: 8vw 0;
     transition: .5s ease;
+}
+
+@media (max-width: 500px) {
+    .container {
+        border: none;
+        padding: 0;
+        margin: 2rem 0;
+
+        &:hover {
+            border: none;
+        }
+    }
+
+    .question {
+        font-size: 1.4rem;
+    }
+
+    .questionLine {
+        height: .12rem;
+    }
+
+    .answerContainer {
+        width: 100%;
+        margin: .5rem 0;
+        font-size: 1rem;
+    }
 }
