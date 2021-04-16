@@ -2,12 +2,11 @@ import { faChair, faDoorOpen, faHome, faPen, faUser } from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/app';
 
 // Style
 import snavStyle from './SingedinNav.module.scss';
 import { useDispatch } from 'react-redux';
-import { setUser, signOut } from '../../redux/workspaceSlice';
+import { signOut } from '../../redux/workspaceSlice';
 
 const SignedinNav = () => {
     const [NavAppear, setNavAppear] = useState(false);

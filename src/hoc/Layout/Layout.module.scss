@@ -96,3 +96,13 @@
         }
     }
 }
+
+@media (max-width: 500px) {
+    .navBar {
+        top: 2rem;
+    }
+
+    .logo {
+        width: 6rem;
+    }
+}

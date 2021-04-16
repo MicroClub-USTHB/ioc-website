@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // Style
 import heroStyle from './Hero.module.scss';
@@ -14,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Hero = () => {
+    const isMobile = useSelector(state => state.workspace.isMobile);
     return (
         <section className={heroStyle.section}>
             <div className={heroStyle.bg}>
@@ -66,11 +68,15 @@ const Hero = () => {
                     </li>
                 </ul>
             </div>
-            <div className={heroStyle.door}>
-                <img src={bar} className={heroStyle.bar} alt="bar" />
-                <img src={bar} className={heroStyle.bar} alt="bar" />
-                <img src={door} className={heroStyle.doorImage} alt="vault door with IOC written on it" />
-            </div>
+            {
+                !isMobile && (
+                    <div className={heroStyle.door}>
+                        <img src={bar} className={heroStyle.bar} alt="bar" />
+                        <img src={bar} className={heroStyle.bar} alt="bar" />
+                        <img src={door} className={heroStyle.doorImage} alt="vault door with IOC written on it" />
+                    </div>
+                )
+            }
         </section>
     );
 }

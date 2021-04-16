@@ -1,0 +1,68 @@
+.container {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: roboto;
+    padding: .5rem .6rem;
+    border: 1px solid #ffffff40;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.icon {
+    display: block;
+    border-left: .9rem solid transparent;
+    border-right: .9rem solid transparent;
+    border-top: .8rem solid white;
+    position: relative;
+    margin-left: .6rem;
+    transition: .1s ease;
+}
+
+// Dropdown
+.dropdown {
+    background-color: transparent;
+    position: absolute;
+    width: 99%;
+    border: 1px solid #ffffff40;
+    padding: .3rem 0;
+    animation: slideDown .1s linear;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdownList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: roboto;
+}
+
+.listItem {
+    padding: .3rem .7rem;
+}
+
+.listItemButton {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: white;
+}
+
+.listItemLink {
+    color: white;
+    text-decoration: none;
+}

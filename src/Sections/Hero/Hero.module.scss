@@ -236,3 +236,96 @@
     position: relative;
     left: 2vw;
 }
+
+@media (max-width: 500px) {
+    .bg {
+        & > img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .titles {
+        margin-right: 12.5%;
+        width: 75%;
+    }
+    
+    .title {
+        font-size: clamp(2.5rem, 9vw, 3rem);
+    }
+    
+    .subTitle {
+        font-size: 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .buttonList {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .buttonDiv {
+        margin-left: 0;
+    }
+    
+    .button {
+        font-size: 1.5rem;
+        padding: .7rem .9rem;
+    }
+    
+    .mainButton {
+        background-color: #99CE8C;
+        width: 75vw;
+        & > .button {
+            &::after {
+                bottom: 2px;
+            }
+    
+            &::before {
+                bottom: 2px;
+            }
+        }
+    }
+    
+    .secondButton {
+        border: none;
+        margin-left: 0;
+        margin-top: .5rem;
+        left: -120%;
+        width: auto;
+        & > .button {
+            font-size: 1rem;
+            color: #f5f5f570;
+        }
+    }
+
+    // social media linking
+    .socialIcon {
+        color: whitesmoke;
+        cursor: pointer;
+        & > * {
+            font-size: 2rem;
+            transition: .2s ease;
+        }
+
+        &:hover > * {
+            color: #98CD8B;
+        }
+    }
+
+    .socialList {
+        padding: 0;
+        list-style: none;
+    }
+
+    .socialList > li {
+        margin: 1rem 0;
+    }
+
+    .socialListContainer {
+        position: relative;
+        margin-top: 5rem;
+        margin-left: .4rem;
+        left: 2vw;
+    }
+}

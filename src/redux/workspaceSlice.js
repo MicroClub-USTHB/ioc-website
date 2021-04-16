@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -26,9 +25,7 @@ const updateLeaderboard = ({ challengeCompletion, challenges, uid }) => {
         }
         return 0;
     })
-    console.log(scoresArray);
     const newScore = scoresArray.reduce((a,b) => (a + b), 0);
-    console.log(newScore);
     firebase.firestore().collection('leaderboard').doc(uid).update({
         score: newScore,
     })
@@ -212,11 +209,13 @@ export const workspaceSlice = createSlice({
         challengesState: 'loading',
         answerSubmissionState: 'initial',
         leaderboard: null,
+        isMobile: false
     },
     reducers: {
         chooseDay: ( state, action ) => { state.chosenDay = action.payload },
         minimize: state => { state.minimized =  !state.minimized},
-        setLeaderboard: ( state, action ) => { state.leaderboard = action.payload}
+        setLeaderboard: ( state, action ) => { state.leaderboard = action.payload},
+        setIsMobile: (state, action) => {state.isMobile = action.payload},
     },
     extraReducers: {
         [emailSignIn.fulfilled]: (state, action) => {
@@ -324,6 +323,6 @@ export const workspaceSlice = createSlice({
     }
 })
 
-export const { chooseDay, minimize, setLeaderboard } = workspaceSlice.actions;
+export const { chooseDay, minimize, setLeaderboard, setIsMobile } = workspaceSlice.actions;
 
 export default workspaceSlice.reducer;
