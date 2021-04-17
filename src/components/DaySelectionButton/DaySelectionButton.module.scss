@@ -49,3 +49,19 @@
     margin-left: 1vw;
     white-space: nowrap;
 }
+
+@media (max-width: 500px) {
+    .day {
+        margin: .6rem 1vw;
+    }
+
+    .dayNumber {
+        font-size: 1.4rem;
+        margin-left: 1rem;
+    }
+
+    .dayTitle {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+}

@@ -16,3 +16,14 @@
 .icon {
     width: 1.2vw;
 }
+
+@media (max-width: 500px) {
+    .row {
+        font-size: .9rem;
+        grid-template-columns: 1fr 4fr 1fr 2fr;
+    }
+
+    .icon {
+        width: 1.1rem;
+    }
+}

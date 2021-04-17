@@ -63,3 +63,9 @@
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 500px) {
+    .workspace {
+        flex-direction: column;
+    }
+}

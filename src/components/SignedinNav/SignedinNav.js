@@ -1,7 +1,7 @@
 import { faChair, faDoorOpen, faHome, faPen, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // Style
 import snavStyle from './SingedinNav.module.scss';
@@ -10,12 +10,19 @@ import { signOut } from '../../redux/workspaceSlice';
 
 const SignedinNav = () => {
     const isMobile = useSelector(state => state.workspace.isMobile);
+    const history = useHistory();
     const [NavAppear, setNavAppear] = useState(false);
     const dispatch = useDispatch();
+
+    const signedInStyle = (history.location.pathname === "/workspace" && isMobile) ? {
+        top: '1rem',
+        right: '3.5rem'
+    } : null
 
     return (
         <div
             className={snavStyle.signedinNav}
+            style={signedInStyle}
             onMouseLeave={() => {
                 if (!isMobile) {
                     setNavAppear(false);

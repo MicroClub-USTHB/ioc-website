@@ -45,3 +45,23 @@
         border-bottom-right-radius: 5px;
     }
 }
+
+@media (max-width: 500px) {
+    .dayCircle {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .romanOne {
+        margin: 0 .1rem;
+    }
+
+    .romanFive {
+        width: .6rem;
+        margin: 0 .3rem;
+
+        &::after {
+            left: .45rem;
+        }
+    }
+}

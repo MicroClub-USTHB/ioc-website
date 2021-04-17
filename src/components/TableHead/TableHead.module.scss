@@ -14,3 +14,10 @@
     color: #B7BBBF;
     justify-self: center;
 }
+
+@media (max-width: 500px) {
+    .row {
+        grid-template-columns: 1fr 4fr 1fr 2fr;
+        font-size: .8rem;
+    }
+}

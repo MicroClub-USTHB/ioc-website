@@ -16,3 +16,9 @@
         justify-self: center;
     }
 }
+
+@media (max-width: 500px) {
+    .headItem {
+        font-size: 1rem;
+    }
+}

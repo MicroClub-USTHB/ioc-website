@@ -85,7 +85,7 @@ function App() {
           <Route path="/" exact component={Landing} />
           <Route path="/register" exact render={() => (user && user.userDB)? (<Redirect to="/workspace" />) : (<Register />)} />
           <Route path="/login" exact render={() => (user && user.userDB)? (<Redirect to="/workspace" />) : (<Login />)} />
-          <Route path="/workspace" render={() => (user && user.userDB)? <Workspace /> : <Redirect to="/" />} />
+          <Route path="/workspace" component={Workspace} />
           <Route path="/lounge" render={() => (user && user.userDB)? <Lounge /> : <Redirect to="/" />} />
         </Switch>
       </div>

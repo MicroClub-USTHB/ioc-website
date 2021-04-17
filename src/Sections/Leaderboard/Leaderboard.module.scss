@@ -43,3 +43,32 @@
 .rowDividor {
     margin: .3vw 0;
 }
+
+@media (max-width: 500px) {
+    .section {
+        width: 90vw;
+        height: fit-content;
+        padding: 6rem 5vw;
+    }
+
+    .lineDecoration {
+        height: .25rem;
+    }
+
+    .lineTrophy {
+        font-size: 2rem;
+        top: -2rem;
+    }
+
+    .subSectionTitle {
+        font-size: 1.3rem;
+    }
+
+    .leaderboardTable {
+        font-size: 1rem;
+    }
+
+    .rowDividor {
+        margin: .3rem 0;
+    }
+}
