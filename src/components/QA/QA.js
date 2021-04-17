@@ -7,7 +7,6 @@ import qaStyle from './QA.module.scss';
 const QA = ({questionText, answerText}) => {
     const isMobile = useSelector(state => state.workspace.isMobile);
     const [AnswerExpand, setAnswerExpand] = useState(false);
-    console.log('logged', AnswerExpand);
     let handleAnswerClick = (event) => {
         if (!isMobile) {
             setAnswerExpand(!AnswerExpand);

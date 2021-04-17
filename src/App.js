@@ -46,10 +46,7 @@ function App() {
     // Window resizer
     const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
     if (!isMobile) {
-      console.log('ran');
-      console.log(viewportWidth);
       if (viewportWidth<=500) {
-        console.log('rany');
         dispatch(setIsMobile(true));
       }
     }

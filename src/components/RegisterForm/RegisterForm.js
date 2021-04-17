@@ -10,19 +10,20 @@ import {
     faKey,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { emailSignUp } from '../../redux/workspaceSlice';
 
 const Register2 = () => {
     const dispatch = useDispatch();
+    const isMobile = useSelector(state => state.workspace.isMobile);
 
     const blurStyles = {
         label: {
-            top: '-1vw',
+            top: isMobile? '-1rem' : '-1vw',
             opacity: '1',
         },
         icon: {
-            top: '-1vw'
+            top: isMobile? '-1rem' : '-1vw'
         }
     }
     const [BlurData, setBlurData] = useState({

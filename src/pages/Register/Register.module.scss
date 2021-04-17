@@ -120,7 +120,7 @@ $decoration-color: #59BCF8;
     color: #0D1B28;
     font-family: roboto;
     width: 18vw;
-    position: absolute;
+    position: relative;
     bottom: 1vw;
     left: 1vw;
     margin-left: 1vw;
@@ -158,4 +158,77 @@ $decoration-color: #59BCF8;
 .reLink:hover,
 .reLink:focus {
     text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    .bgImage {
+        width: auto !important;
+        height: 100%;
+    }
+
+    .box {
+        width: 25rem;
+        // height: 28rem;
+        height: fit-content;
+        background-color: transparent;
+        flex-direction: column;
+    }
+    
+    // Left
+    .leftSection {
+        background-color: #608158;
+        padding: 2rem 0;
+        width: 100%;
+    }
+
+    .leftImage {
+        font-size: 4rem;
+    }
+
+    .loadingContainer {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .loadingIcon {
+        font-size: 2.5rem;
+    }
+
+    .leftText {
+        margin-top: 1rem;
+
+        & > h4 {
+            font-size: .9rem;
+        }
+
+        & > a {
+            font-size: 1rem;
+        }
+    }
+
+    // Error
+    .authErrorContainer {
+        font-size: .9rem;
+        width: 11.5rem;
+        color: white;
+        margin-left: 1rem;
+        left: 0;
+        margin-top: 1rem;
+        bottom: auto;
+
+        &::before {
+            width: .3rem;
+            left: -.8rem;
+        }
+    }
+
+    // Right
+    .rightSection {
+        width: 100%;
+    }
+
+    .reLink {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
 }

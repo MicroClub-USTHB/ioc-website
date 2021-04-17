@@ -22,49 +22,49 @@ $decoration-color: #60C7CD;
     position: relative;
     margin-top: 2vw;
     width: 100%;
-}
 
-.inputDiv > input {
-    position: relative;
-    width: 100%;
-    font-size: .9vw;
-    border: none;
-    border-bottom: .5px solid rgba($color: #ffffff, $alpha: .3);
-    border-radius: 0;
-    background-color: transparent;
-    outline: none;
-    padding: .3vw .5vw .3vw;
-    padding-bottom: .3vw;
-    color: whitesmoke;
-    font-family: Roboto;
-}
+    & > input {
+        position: relative;
+        width: 100%;
+        font-size: .9vw;
+        border: none;
+        border-bottom: .5px solid rgba($color: #ffffff, $alpha: .3);
+        border-radius: 0;
+        background-color: transparent;
+        outline: none;
+        padding: .3vw .5vw .3vw;
+        padding-bottom: .3vw;
+        color: whitesmoke;
+        font-family: Roboto;
+    }
 
-.inputDiv > label {
-    color: whitesmoke;
-    opacity: .7;
-    position: absolute;
-    top: .35vw;
-    left: 1.7vw;
-    pointer-events: none;
-    transition: all .3s ease;
-}
+    & > label {
+        color: whitesmoke;
+        opacity: .7;
+        position: absolute;
+        top: .35vw;
+        left: 1.7vw;
+        pointer-events: none;
+        transition: all .3s ease;
+    }
 
-.inputDiv > input:focus ~ label {
-    top: -1vw;
-    opacity: 1;
-}
+    & > span {
+        color: whitesmoke;
+        position: absolute;
+        top: .35vw;
+        left: .3rem;
+        transition: all .3s ease;
+        pointer-events: none;
+    }
 
-.inputDiv > span {
-    color: whitesmoke;
-    position: absolute;
-    top: .35vw;
-    left: .3rem;
-    transition: all .3s ease;
-    pointer-events: none;
-}
+    & > input:focus ~ label {
+        top: -1vw;
+        opacity: 1;
+    }
 
-.inputDiv > input:focus ~ span {
-    top: -1vw;
+    & > input:focus ~ span {
+        top: -1vw;
+    }
 }
 
 .decoration {
@@ -154,6 +154,61 @@ $decoration-color: #60C7CD;
 }
 
 .buttonContainer > button:hover {
-    background-color: $decoration-color;
+    background-color: #608158;
     color: whitesmoke;
+}
+
+@media (max-width: 500px) {
+    .inputDiv {
+        margin-top: 2rem;
+
+        & > input {
+            font-size: 1.2rem;
+            padding: .3rem .5rem .3rem;
+            padding-bottom: .3rem;
+            margin-top: .3rem;
+        }
+
+        & > label {
+            top: .45rem;
+            left: 1.8rem;
+        }
+
+        & > span {
+            top: .4rem;
+        }
+
+        & > input:focus ~ label {
+            top: -1rem;
+        }
+
+        & > input:focus ~ span {
+            top: -1rem;
+        }
+    }
+
+    .errorIndicator {
+        width: 1.3rem;
+        height: 1.3rem;
+        top: .75rem;
+        right: -2.9rem;
+    }
+
+    .errorContainer {
+        padding: .5rem;
+        font-size: .8rem;
+        bottom: 2.4rem;
+        right: -19%;
+
+        &::after {
+            border-top: .5rem solid rgb(255, 114, 114);
+            border-right: .5rem solid transparent;
+            border-left: .5rem solid transparent;
+            bottom: -.3rem;
+        }
+    }
+
+    .buttonContainer {
+        margin-bottom: 2rem;
+    }
 }

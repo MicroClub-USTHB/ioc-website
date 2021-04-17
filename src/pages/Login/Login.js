@@ -23,6 +23,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const AuthError = useSelector(state => state.workspace.authError);
     const loadingUser = useSelector(state => state.workspace.loadingUser);
+    const isMobile = useSelector(state => state.workspace.isMobile);
 
     const LoadingIndicator = (
         <div className={SStyle.mainIconContainer}>
@@ -38,11 +39,11 @@ const Login = () => {
 
     const blurStyles = {
         label: {
-            top: '-1vw',
+            top: isMobile? '-1.2rem' : '-1vw',
             opacity: '1',
         },
         icon: {
-            top: '-1vw'
+            top: isMobile? '-1.2rem' : '-1vw'
         }
     }
     const [BlurData, setBlurData] = useState({
