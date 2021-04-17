@@ -14,7 +14,7 @@ const SignedinNav = () => {
     const [NavAppear, setNavAppear] = useState(false);
     const dispatch = useDispatch();
 
-    const signedInStyle = (history.location.pathname === "/workspace" && isMobile) ? {
+    const signedInStyle = (history.location.pathname.includes("/workspace") && isMobile) ? {
         top: '1rem',
         right: '3.5rem'
     } : null

@@ -2,7 +2,7 @@
     position: relative;
     background-color: #767676;
     display: block;
-    transition: width 4s ease;
+    // transition: width 4s ease;
     overflow: hidden;
     z-index: 2;
 }
@@ -17,21 +17,21 @@
 @media (min-width: 500px) {
     @keyframes pulsateContract {
         0% {
-            width: 18.5vw;
+            width: 19.5vw;
         }
         
         100% {
-            width: 6vw;
+            width: 7.3vw;
         }
     }
     
     @keyframes pulsateExpand {
         0% {
-            width: 6vw;
+            width: 8vw;
         }
         
         100% {
-            width: 18.5vw;
+            width: 19.5vw;
         }
     }
 }

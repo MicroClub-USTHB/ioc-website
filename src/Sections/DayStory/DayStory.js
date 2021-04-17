@@ -5,14 +5,14 @@ import DaySelectionSymbol from '../../components/DaySelectionSymbol/DaySelection
 import storyStyle from './DayStory.module.scss';
 
 const DayStory = ({dayNumber, day, title, story}) => {
+
+    // Replaces \\n with \n, so that new lines work
     const replaceAll = (string, target, replaceWith) => {
         let stringCopy = string;
         let indexOfMatch = stringCopy.indexOf(target);
-        console.log(indexOfMatch);
         while (indexOfMatch!==-1) {
             stringCopy = stringCopy.replace(target, replaceWith);
             indexOfMatch = stringCopy.indexOf(target);
-            console.log(indexOfMatch);
         }
         return stringCopy;
     }

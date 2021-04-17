@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { minimize } from '../../redux/workspaceSlice';
@@ -19,13 +19,16 @@ const DaySelection = () => {
     const isMobile = useSelector(state => state.workspace.isMobile);
     const dispatch = useDispatch();
 
-    const containerStyle = isMobile? {
-        height: minimized? 'fit-content' : '100vh',
-        width: '100vw',
-    } : {
-        height: '100vh',
-        width: minimized? 'fit-content' : '19.5vw',
-    }
+    const containerStyle = !challenges? {
+            width: "100vw",
+            height: "100vh",
+        } : isMobile? {
+            height: minimized? 'fit-content' : '100vh',
+            width: '100vw',
+        } : {
+            height: '100vh',
+            width: minimized? 'fit-content' : '19.5vw',
+        }
 
     const logoStyle = isMobile? {
         width: minimized? '5rem' : '5rem',
@@ -61,7 +64,6 @@ const DaySelection = () => {
         <section
             className={`${dayStyle.container} ${minimized? dayStyle.containerAnimateContract : dayStyle.containerAnimateExpand }`}
             style={containerStyle}
-
         >
             <div className={dayStyle.pageTitle}>
                 <div>
@@ -93,7 +95,6 @@ const DaySelection = () => {
                 className={dayStyle.minimizeContainer}
                 onClick={() => {
                     dispatch(minimize());
-                    // setMinimize(!minimized)
                 }}
             >
                 <div

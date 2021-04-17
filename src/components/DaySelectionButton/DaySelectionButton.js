@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { chooseDay } from '../../redux/workspaceSlice';
+import { chooseDay, minimize as changeMinimize } from '../../redux/workspaceSlice';
 import DaySelectionSymbol from '../DaySelectionSymbol/DaySelectionSymbol';
 
 // Style
@@ -22,7 +22,8 @@ const DaySelectionButton = ({dayNumber, minimize, day, dayTitle}) => {
                 to={`/workspace/${dayNumber}`}
                 className={buttonStyle.day}
                 onClick={() => {
-                    dispatch(chooseDay(dayNumber))
+                    dispatch(chooseDay(dayNumber));
+                    dispatch(changeMinimize());
                 }}
                 >
                 <DaySelectionSymbol dayNumber={dayNumber} />

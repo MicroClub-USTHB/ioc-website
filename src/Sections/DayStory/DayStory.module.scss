@@ -10,28 +10,32 @@
     animation: disappear .4s ease;
 }
 
-@keyframes disappear {
-    0% {
-        left: 0;
-    }
+@media (min-width: 500px) {
 
-    100% {
-        left: -100%;
+    
+    @keyframes disappear {
+        0% {
+            left: 0;
+        }
+        
+        100% {
+            left: -100%;
+        }
     }
+    
+    @keyframes appear {
+        0% {
+            left: -100%;
+        }
+        
+        100% {
+            left: 0;
+        }
+    }   
 }
 
-@keyframes appear {
-    0% {
-        left: -100%;
-    }
 
-    100% {
-        left: 0;
-    }
-}
-
-
-// Header
+// Head
 
 .header {
     margin: 2.5vw 3vw 3.5vw;
@@ -56,58 +60,7 @@
     font-weight: 200;
 }
 
-// Icon
-
-.dayCircle {
-    width: 3vw;
-    height: 3vw;
-    border: 3px solid white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.romanOne {
-    margin: 0 .15vw;
-    height: 50%;
-    width: 3px;
-    background-color: white;
-}
-
-.romanFive {
-    height: 50%;
-    width: .6vw;
-    margin: 0 .18vw;
-    position: relative;
-
-    &::before {
-        content: '';
-        display: block;
-        height: 105%;
-        width: 3px;
-        background-color: white;
-        transform: rotateZ(-15deg);
-        border-bottom-left-radius: 5px;
-    }
-
-    &::after {
-        content: '';
-        display: block;
-        height: 105%;
-        width: 3px;
-        background-color: white;
-        position: absolute;
-        top: 0;
-        left: .45vw;
-        transform: rotateZ(15deg);
-        border-bottom-right-radius: 5px;
-    }
-}
-
 // Story Section
-
 .storySection {
     margin: 0 3vw;
 }
@@ -125,4 +78,63 @@
     font-family: roboto;
     font-size: .9vw;
     white-space: pre-wrap;
+}
+
+@media (max-width: 500px) {
+    .container {
+        height: fit-content;
+        width: calc(100vw - 4rem);
+        padding: 2rem 2rem;
+    }
+
+    // Head
+    .header {
+        margin: 0;
+    }
+
+    .headerTextContainer {
+        margin-left: 2rem;
+    }
+
+    .headerDay {
+        font-size: 1.6rem;
+    }
+
+    .headerTitle {
+        font-size: 1.1rem;
+    }
+
+    // Story Section
+    .storySection {
+        margin: 2rem 0;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .storyContent {
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+
+    @keyframes disappear {
+        0% {
+            top: 0;
+        }
+        
+        100% {
+            top: -100%;
+        }
+    }
+    
+    @keyframes appear {
+        0% {
+            top: -100%;
+        }
+        
+        100% {
+            top: 0;
+        }
+    }   
 }

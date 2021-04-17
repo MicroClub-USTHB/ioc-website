@@ -31,11 +31,6 @@
     margin-bottom: 1vw;
 }
 
-// .answerFormHolder {
-//     width: 100%;
-//     position: relative;
-// }
-
 .answerLabel {
     font-family: roboto;
     color: #0D1B28;
@@ -45,8 +40,6 @@
 .answerForm {
     width: 100%;
     position: relative;
-    // display: flex;
-    // justify-content: space-between;
 }
 
 .submittingIndicatorContainer {
@@ -107,7 +100,7 @@
     border: none;
     border-bottom: 1px solid #0D1B28;
     border-radius: 0;
-    background-color: #00000007;
+    background-color: #00000015;
     padding: .3vw .8vw;
     font-family: roboto;
     color: #0D1B28;
@@ -149,6 +142,7 @@
     border: none;
     border-radius: 0;
     border-bottom: 1px solid #0D1B28;
+    background-color: #00000015;
     cursor: pointer;
     transition: .1s ease;
     height: fit-content;
@@ -158,5 +152,47 @@
         background-color: #0D1B28;
         color: white;
     }
+}
 
+@media (max-width: 500px) {
+    .sectionContainer {
+        margin: 2rem;
+        width: calc(100vw - 4rem);
+        min-height: auto;
+        height: fit-content;
+    }
+
+    .sectionTitle {
+        font-size: 2.3rem;
+    }
+
+    .answer {
+        position: relative;
+        margin-top: 2rem;
+        font-family: roboto;
+        font-size: 1.1rem;
+    }
+
+    .wrongAnswerMessage {
+        font-size: 1rem;
+        right: 0;
+        top: 5%;
+    }
+
+    .answerInputHolder {
+        margin-top: .8rem;
+    }
+
+    .answerInput {
+        padding: 1rem .8rem;
+        font-size: 1rem;
+        margin-right: .4rem;
+        width: 75%;
+        background-color: #00000015;
+    }
+
+    .answerSubmitButton {
+        padding: .3rem .8rem;
+        background-color: #00000015;
+    }
 }

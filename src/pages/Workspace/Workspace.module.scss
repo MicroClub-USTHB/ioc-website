@@ -69,3 +69,14 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 500px) {
+    .workspace {
+        height: auto;
+    }
+
+    .content {
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+}
