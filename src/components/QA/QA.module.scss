@@ -1,7 +1,8 @@
 .container {
-    border-radius: 20px;
+    // border-radius: 20px;
     border: 2px solid rgba($color: #352E58, $alpha: .2);
-    padding: 1vw 3vw 1.1vw;
+    background-color: #0D1B28;
+    padding: 1.3vw 3vw 1.1vw;
     transition: .2s ease;
     cursor: pointer;
     &:hover {
@@ -19,9 +20,13 @@
     font-size: 1.4vw;
     font-family: 'Roboto';
     font-weight: 200;
-    color: #352E58;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
+}
+
+.questionHolder {
+    width: 95%;
 }
 
 .questionLine {
@@ -35,7 +40,7 @@
 }
 
 .expandSymbol {
-    color: rgba($color: #352E58, $alpha: .2);
+    color: rgba($color: #ffffff, $alpha: .2);
     transition: all .5s ease;
 }
 
@@ -48,6 +53,13 @@
     height: inherit;
     margin: 8vw 0;
     transition: .5s ease;
+    color: white;
+}
+
+@media (min-width: 500px) {
+    .answerContainer {
+        width: 90%;
+    }
 }
 
 @media (max-width: 500px) {

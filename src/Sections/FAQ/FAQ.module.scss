@@ -5,6 +5,7 @@
 .qaList {
     list-style: none;
     padding: 0;
+    margin: 5vw 0;
 }
 
 .qaItem {
@@ -13,9 +14,36 @@
 
 .title {
     font-size: 3.5vw;
-    color: #352E58;
+    color: #0D1B28;
     font-family: 'Roboto';
     font-weight: 400;
+}
+
+.mainSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.imageContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 40vw;
+}
+
+.image {
+    position: relative;
+    z-index: 1;
+}
+
+.imagePlatform {
+    width: 22vw;
+    height: 10vw;
+    border: 5px solid #0D1B28;
+    position: absolute;
+    bottom: -2vw;
 }
 
 @media (max-width: 500px) {

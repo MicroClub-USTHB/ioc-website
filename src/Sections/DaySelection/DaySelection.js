@@ -19,16 +19,28 @@ const DaySelection = () => {
     const isMobile = useSelector(state => state.workspace.isMobile);
     const dispatch = useDispatch();
 
-    const containerStyle = !challenges? {
-            width: "100vw",
-            height: "100vh",
-        } : isMobile? {
+    let containerStyle;
+    if (challenges && isMobile) {
+        containerStyle = {
             height: minimized? 'fit-content' : '100vh',
             width: '100vw',
-        } : {
+        }
+    } else if (challenges && !isMobile) {
+        containerStyle = {
             height: '100vh',
             width: minimized? 'fit-content' : '19.5vw',
         }
+    } else if (!challenges && isMobile) {
+        containerStyle = {
+            width: "100vw",
+            height: "100vh",
+        }
+    } else if (!challenges && !isMobile) {
+        containerStyle = {
+            width: '19.5vw',
+            height: '100vh'
+        }
+    }
 
     const logoStyle = isMobile? {
         width: minimized? '5rem' : '5rem',
@@ -94,7 +106,7 @@ const DaySelection = () => {
             <button
                 className={dayStyle.minimizeContainer}
                 onClick={() => {
-                    dispatch(minimize());
+                    dispatch(minimize(!minimized));
                 }}
             >
                 <div

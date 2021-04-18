@@ -213,7 +213,7 @@ export const workspaceSlice = createSlice({
     },
     reducers: {
         chooseDay: ( state, action ) => { state.chosenDay = action.payload },
-        minimize: state => { state.minimized =  !state.minimized},
+        minimize: (state, action) => { state.minimized =  action.payload},
         setLeaderboard: ( state, action ) => { state.leaderboard = action.payload},
         setIsMobile: (state, action) => {state.isMobile = action.payload},
     },

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 // Images
-import bgImage from '../../media/registerBackgroung.jpg';
+import bgImage from '../../media/bg.jpg';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

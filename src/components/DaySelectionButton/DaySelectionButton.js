@@ -23,7 +23,7 @@ const DaySelectionButton = ({dayNumber, minimize, day, dayTitle}) => {
                 className={buttonStyle.day}
                 onClick={() => {
                     dispatch(chooseDay(dayNumber));
-                    dispatch(changeMinimize());
+                    dispatch(changeMinimize(true));
                 }}
                 >
                 <DaySelectionSymbol dayNumber={dayNumber} />

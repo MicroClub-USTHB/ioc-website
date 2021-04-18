@@ -1,8 +1,9 @@
 .container {
     width: 100%;
-    background-color: #6D7D7E;
     margin: 5vw 0;
-    border-radius: 30px;
+    border: 3px solid white;
+    position: relative;
+    z-index: 1;
 }
 
 .info {
@@ -12,14 +13,16 @@
     position: relative;
     overflow: hidden;
     width: fit-content;
+    min-height: 27vw;
 }
 
 .infoText {
     width: 50%;
+    margin: 8rem 0;
 }
 
 .titleContainer {
-    background-color: #A4D498;
+    background-color: #ffffff;
     padding: 0.2vw 0.8vw;
     width: fit-content;
 }
@@ -27,7 +30,7 @@
 .title {
     font-family: overseer;
     font-size: 2.4vw;
-    color: rgba($color: #ffffff, $alpha: .9);
+    color: #0D1B28;
     letter-spacing: .06vw;
     margin: 0;
 }
@@ -42,15 +45,14 @@
 }
 
 .imageContainer {
-    height: 20vw;
+    align-self: flex-end;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
 }
 
 .image {
-    max-height: 70%;
-    max-width: 20vw;
+    min-width: 10vw;
+    max-height: 28vw;
 }
 
 @media (max-width: 500px) {

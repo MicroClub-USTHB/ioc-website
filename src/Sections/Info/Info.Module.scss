@@ -1,6 +1,8 @@
 .section {
     position: relative;
-    padding: 0 12.5vw;
+    border-top: 8px solid white;
+    padding: 5vw 12.5vw;
+    background-color: #0D1B28;
 }
 
 // Short Description
@@ -10,12 +12,14 @@
     font-family: Roboto;
     font-size: 3.5vw;
     margin: 0;
-    color: #352E58;
+    color: white;
     font-weight: 400;
 }
 
 .shortDescription {
-    margin: 5vw 0;
+    color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .description {
@@ -24,6 +28,25 @@
     width: 55%;
     text-align: justify;
     margin: 0.4vw 0;
+}
+
+
+// decoration
+.topLeftDec {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    opacity: .15;
+}
+
+.bottomRightDec {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30vw;
+    opacity: .15;
 }
 
 @media (max-width: 500px) {

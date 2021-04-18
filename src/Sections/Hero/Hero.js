@@ -8,7 +8,7 @@ import heroStyle from './Hero.module.scss';
 //media
 import landingBG from '../../media/bg.jpg';
 import door from '../../media/Door-min.png';
-import bar from '../../media/Bar-min.jpg';
+import bar from '../../media/Bar-min.png';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

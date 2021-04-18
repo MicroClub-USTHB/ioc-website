@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import SStyle from './Login.module.scss';
 
 // Images
-import bgImage from '../../media/registerBackgroung-min.jpg';
+import bgImage from '../../media/bg.jpg';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
