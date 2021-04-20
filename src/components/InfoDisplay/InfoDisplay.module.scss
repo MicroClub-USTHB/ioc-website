@@ -60,25 +60,30 @@
         background-color: transparent;
         margin: 1.8rem 0;
     }
-
+    
     .infoText {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .titleContainer {
-        background-color: #222D33;
         padding: .4rem .8rem;
+        display: flex;
+        justify-content: center;
+
     }
 
     .title {
         font-size: 2rem;
         letter-spacing: .05rem;
-
+        width: 95%;
     }
 
     .description {
-        color: black;
         font-size: 1.2rem;
-        width: 100%;
+        width: 90%;
+
     }
 }

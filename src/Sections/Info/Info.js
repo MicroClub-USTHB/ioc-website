@@ -7,13 +7,14 @@ import infoStyle from './Info.Module.scss';
 // Images
 import flowerImg from '../../media/infoPhoto1-min.png';
 import apeImg from '../../media/infoPhoto2-min.png';
-import vineDec from '../../media/infoDecoration1-min.png';
-import treeDec from '../../media/infoDecoration2-min.png';
+import bottomLeftDec from '../../media/info-dec1.png';
+import bottomRightDec from '../../media/info-dec2.png';
+import topRightDec from '../../media/info-dec3.png';
 
 const Info = () => {
     return (
         <section className={infoStyle.section}>
-            <img className={infoStyle.topLeftDec} src={treeDec} alt="" />
+            <img className={infoStyle.topRightDec} src={topRightDec} alt="" />
             <div className={infoStyle.shortDescription}>
                 <h1 className={infoStyle.title}>What is IOC?</h1>
                 <p className={infoStyle.description}>Eventing (also known as three day eventing or horse trials) is an equestrian event where a single horse and rider combine and compete against other competitors across the three disciplines of dressage, cross-country, and show jumping.</p>
@@ -32,7 +33,8 @@ const Info = () => {
                 img={apeImg}
                 altText="picture of computer"
             />
-            <img className={infoStyle.bottomRightDec} src={vineDec} alt="" />
+            <img className={infoStyle.bottomLeftDec} src={bottomLeftDec} alt="" />
+            <img className={infoStyle.bottomRightDec} src={bottomRightDec} alt="" />
         </section>
     );
 }

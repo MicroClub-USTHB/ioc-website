@@ -1,10 +1,10 @@
 .container {
-    // border-radius: 20px;
     border: 2px solid rgba($color: #352E58, $alpha: .2);
     background-color: #0D1B28;
     padding: 1.3vw 3vw 1.1vw;
     transition: .2s ease;
     cursor: pointer;
+
     &:hover {
         border: 2px solid rgba($color: #352E58, $alpha: .6);
         & > .question > .expandSymbol {
@@ -75,6 +75,12 @@
 
     .question {
         font-size: 1.4rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .questionHolder {
+        width: 100%;
+
     }
 
     .questionLine {
@@ -82,8 +88,9 @@
     }
 
     .answerContainer {
-        width: 100%;
+        width: fit-content;
         margin: .5rem 0;
         font-size: 1rem;
+        padding: 0 1rem 1.5rem;
     }
 }

@@ -14,9 +14,11 @@ import Layout from '../../hoc/Layout/Layout';
 const Landing = () => {
     return (
         <Layout>
-            <Hero />
-            <Info />
-            <FAQ />
+            <main className={landingStyle.main}>
+                <Hero />
+                <Info />
+                <FAQ />
+            </main>
         </Layout>
     );
 }

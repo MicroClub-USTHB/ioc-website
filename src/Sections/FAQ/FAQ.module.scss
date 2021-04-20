@@ -1,5 +1,6 @@
 .section {
     margin: 10vw 12.5vw;
+    position: relative;
 }
 
 .qaList {
@@ -17,6 +18,16 @@
     color: #0D1B28;
     font-family: 'Roboto';
     font-weight: 400;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+        content: '';
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: #0D1B28;
+    }
 }
 
 .mainSection {
@@ -46,6 +57,15 @@
     bottom: -2vw;
 }
 
+.bg {
+    position: absolute;
+    width: 100vw;
+    right: -40vw;
+    bottom: -40vw;
+    z-index: -1;
+    opacity: .15;
+}
+
 @media (max-width: 500px) {
     .section {
         margin: 5rem 12.5vw;
@@ -53,5 +73,9 @@
 
     .title {
         font-size: 2.25rem;
+    }
+
+    .mainSection {
+        display: block;
     }
 }

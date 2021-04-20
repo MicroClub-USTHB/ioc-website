@@ -8,8 +8,11 @@ import faqStyle from './FAQ.module.scss';
 
 // Images
 import faqPhoto from '../../media/faqPhoto-min.png';
+import faqBG from '../../media/faq-bg.png';
+import { useSelector } from 'react-redux';
 
 const FAQ = () => {
+    const isMobile = useSelector(state => state.workspace.isMobile);
     return (
         <section className={faqStyle.section}>
             <div>
@@ -53,10 +56,17 @@ const FAQ = () => {
                             />
                     </li>
                 </ul>
-                <div className={faqStyle.imageContainer}>
-                    <img className={faqStyle.image} src={faqPhoto} alt="Raider." />
-                    <div className={faqStyle.imagePlatform}></div>
-                </div>
+                {
+                    !isMobile && (
+                        <>
+                            <div className={faqStyle.imageContainer}>
+                                <img className={faqStyle.image} src={faqPhoto} alt="Raider." />
+                                <div className={faqStyle.imagePlatform}></div>
+                            </div>
+                            <img className={faqStyle.bg} src={faqBG} alt="" />
+                        </>
+                    )
+                }
             </div>
         </section>
     );
