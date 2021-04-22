@@ -2,7 +2,7 @@
 $brand-color: #6927FF;
 $secondary-strong: #666666;
 $main-font: 'Roboto', sans-serif;
-$decoration-color: #60C7CD;
+$decoration-color: #AAAAAA;
 
 .mainContainer {
     width: 100vw;
@@ -79,7 +79,7 @@ $decoration-color: #60C7CD;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #608158;
+    background-color: #0D1B28;
     // background-image: linear-gradient(to bottom, #608158, #273423);
     font-family: $main-font;
     z-index: 2;
@@ -152,6 +152,7 @@ $decoration-color: #60C7CD;
     background-color: transparent;
     outline: none;
     padding-bottom: .3vw;
+    color: white;
 }
 
 .inputDiv > label {

@@ -11,9 +11,9 @@
 
     &:hover {
         & > .circle {
-            border-color: #31669A;
+            border-color: #BDD2CF;
             & > .circleIcon {
-                color: #31669A;
+                color: #BDD2CF;
             }
         }
     }
@@ -26,14 +26,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid #0D1B28;
+    border: 4px solid #31669A;
     transition: .2s ease;
     margin-right: 3vw;
 }
 
 .circleIcon {
     font-size: 2vw;
-    color: #0D1B28;
+    color: #31669A;
     transition: .2s ease;
 }
 

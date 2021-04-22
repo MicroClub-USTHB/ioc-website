@@ -126,8 +126,7 @@ export const _getChallenges = createAsyncThunk(
         'workspace/_getChallenges',
         async (_, thunkAPI) => {
             try {
-                let timeStamp = new Date();
-                const challenges = await firebase.firestore().collection('challenges').where('announced', '<', timeStamp).get();
+                const challenges = await firebase.firestore().collection('challenges').where('announced', '==', true).get();
                 const challengeList = challenges.docs.map(challenge => {
                     return challenge.data();
                 })

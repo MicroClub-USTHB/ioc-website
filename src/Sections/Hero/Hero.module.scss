@@ -210,17 +210,10 @@
 
 
 // social media linking
-.socialIcon {
-    color: whitesmoke;
-    cursor: pointer;
-    & > * {
-        font-size: 2vw;
-        transition: .2s ease;
-    }
-
-    &:hover > * {
-        color: #AAAAAA;
-    }
+.socialListContainer {
+    margin-top: 8vw;
+    position: relative;
+    left: 12.5vw;
 }
 
 .socialList {
@@ -232,9 +225,17 @@
     margin: .6vw 0;
 }
 
-.socialListContainer {
-    position: relative;
-    left: 2vw;
+.socialIcon {
+    color: whitesmoke;
+    cursor: pointer;
+    & > * {
+        font-size: 2vw;
+        transition: .2s ease;
+    }
+
+    &:hover > * {
+        color: #AAAAAA;
+    }
 }
 
 @media (max-width: 500px) {
@@ -251,7 +252,7 @@
     }
     
     .title {
-        font-size: clamp(2.5rem, 9vw, 3rem);
+        font-size: clamp(2.3rem, 9vw, 3rem);
     }
     
     .subTitle {
@@ -259,9 +260,8 @@
         margin: 1.5rem 0;
     }
     .buttonList {
-        flex-direction: column;
+        display: block;
         width: 100%;
-        align-items: center;
     }
 
     .buttonDiv {
@@ -276,6 +276,7 @@
     .mainButton {
         background-color: #AAAAAA;
         width: 75vw;
+        margin: 0 12.5vw;
         & > .button {
             &::after {
                 bottom: 2px;
@@ -289,10 +290,10 @@
     
     .secondButton {
         border: none;
-        margin-left: 0;
         margin-top: .5rem;
-        left: -120%;
-        width: auto;
+        width: fit-content;
+        margin-left: 12vw;
+
         & > .button {
             font-size: 1rem;
             color: #f5f5f570;

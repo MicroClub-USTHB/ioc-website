@@ -198,11 +198,6 @@ const Login = () => {
                                             </div>)
                                         }
                                     </div>
-                                    <div className={SStyle.checkboxDiv}>
-                                        <Field name="save" type="checkbox" />
-                                        <span className={SStyle.checkbox}></span>
-                                        <label htmlFor="save">Remember me</label>
-                                    </div>
                                     <div className={SStyle.buttonContainer}>
                                         <button type="submit">Login</button>    
                                     </div>

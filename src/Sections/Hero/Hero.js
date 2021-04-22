@@ -38,7 +38,7 @@ const Hero = () => {
                         <div className={heroStyle.secondButton}>
                             <button
                                 className={heroStyle.button}
-                                onClick={(event) => {
+                                onClick={() => {
                                     window.scrollTo({
                                         top: window.innerHeight,
                                         behavior: 'smooth'

@@ -32,10 +32,26 @@ const MobileDropDown = () => {
                 Nav && (
                     <div className={dropdownStyle.dropdown}>
                         <ul className={dropdownStyle.dropdownList}>
-                            <li className={dropdownStyle.listItem}>
+                            <li
+                                className={dropdownStyle.listItem}
+                                onClick={() => {
+                                    window.scrollBy({
+                                        top: window.innerHeight,
+                                        behavior: 'smooth'
+                                    })
+                                }}
+                            >
                                 <button className={dropdownStyle.listItemButton}>The Event</button>
                             </li>
-                            <li className={dropdownStyle.listItem}>
+                            <li
+                                className={dropdownStyle.listItem}
+                                onClick={() => {
+                                    window.scrollBy({
+                                        top: 2.6 * window.innerHeight,
+                                        behavior: 'smooth'
+                                    })
+                                }}
+                            >
                                 <button className={dropdownStyle.listItemButton}>How it Works</button>
                             </li>
                             <li className={dropdownStyle.listItem}>
