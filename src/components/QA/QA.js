@@ -28,6 +28,7 @@ const QA = ({questionText, answerText}) => {
         <div
             className={qaStyle.container}
             onClick={handleAnswerClick}
+            data-aos="fade-right"
         >
             <div className={qaStyle.question}>
                 <div className={qaStyle.questionHolder}>

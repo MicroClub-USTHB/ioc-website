@@ -16,7 +16,7 @@ const Info = () => {
     const isMobile = useSelector(state => state.workspace.isMobile);
     return (
         <section className={infoStyle.section}>
-            <div className={infoStyle.titleContent}>
+            <div data-aos="fade-right" className={infoStyle.titleContent}>
                 <h1 className={infoStyle.title}>What is This?</h1>
                 <p className={infoStyle.description}>Impact of Code is a series of small programming puzzles for a variety of skill levels. The challenges stretch 7 days with a new challenge being released each new day at exactly 00:00. Accompanying the challenges will be a part of the story of Axios. Enjoy the story as you solve the interesting challenges.</p>
             </div>

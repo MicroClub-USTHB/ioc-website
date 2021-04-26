@@ -43,7 +43,10 @@ const InfoDisplay = ({textIsLeft, title, img, altText, description}) => {
         </div>
     );
     return (
-        <div className={infoStyle.container}>
+        <div
+            className={infoStyle.container}
+            data-aos="fade"
+        >
             { comp }
         </div>
     );

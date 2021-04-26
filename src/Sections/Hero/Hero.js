@@ -19,7 +19,7 @@ const Hero = () => {
     return (
         <section className={heroStyle.hero}>
             <div className={heroStyle.topLeftDec}></div>
-            <div className={heroStyle.content}>
+            <div data-aos="fade-right" className={heroStyle.content}>
                 <h1 className={heroStyle.title}>Impact of Code</h1>
                 <p className={heroStyle.description}>Coding theory is the study of the properties of codes and their respective fitness for specific applications.</p>
                 <div className={heroStyle.buttonsContainer}>
@@ -51,7 +51,7 @@ const Hero = () => {
                     </a>
                 </div>
             </div>
-            <img className={heroStyle.heroImg} src={heroImg} alt="" />
+            <img  data-aos="fade-down" className={heroStyle.heroImg} src={heroImg} alt="" />
             {
                 !isMobile && (
                     <>

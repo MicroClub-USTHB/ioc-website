@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { debounce } from 'debounce';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 // Style
 import './App.css';
@@ -37,8 +40,11 @@ function App() {
   const dispatch = useDispatch();
 
   
-  
   useEffect(() => {
+    AOS.init({
+      offset: -10,
+      duration: 1000,
+    });
     if (localStorage.uid && !user && !loadingUser) {
       dispatch(sessionStart(localStorage.uid))
     }

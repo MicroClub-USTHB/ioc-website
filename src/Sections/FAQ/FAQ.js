@@ -48,7 +48,7 @@ const FAQ = () => {
                         <>
                             <div className={faqStyle.imagery}>
                                 <img className={faqStyle.circleDec} src={circleDec} alt="" />
-                                <img className={faqStyle.questionHand} src={questionHand} alt="" />
+                                <img data-aos="fade-down" className={faqStyle.questionHand} src={questionHand} alt="" />
                             </div>
                         </>
                     )
