@@ -61,9 +61,9 @@ const Layout = ({children}) => {
                                             {
                                                 !user && (
                                                     <li>
-                                                        <Link to='/register'>
+                                                        <Link to='/login'>
                                                             <button className={layoutStyle.navLinkButton}>
-                                                                Participate
+                                                                Login
                                                             </button>
                                                         </Link>
                                                     </li>
@@ -85,7 +85,7 @@ const Layout = ({children}) => {
                         <footer className={layoutStyle.footerBar}>
                             <div className={layoutStyle.footerContent}>
                                 <div className={layoutStyle.footerLinks}>
-                                    <a className={layoutStyle.footerLink} href="https://www.microclub.net">Micro Club Website</a>
+                                    <a className={layoutStyle.footerLink} href="https://www.microclub.net">MC Website</a>
                                     <Link className={layoutStyle.footerLink} to="/login">Participate</Link>
                                 </div>
                                 <div className={layoutStyle.footerSocial}>

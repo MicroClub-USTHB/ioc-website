@@ -55,7 +55,7 @@ const MobileDropDown = () => {
                                 <button className={dropdownStyle.listItemButton}>How it Works</button>
                             </li>
                             <li className={dropdownStyle.listItem}>
-                                <Link className={dropdownStyle.listItemLink} to="/login">Participate</Link>
+                                <Link className={dropdownStyle.listItemLink} to="/login">Login</Link>
                             </li>
                         </ul>
                     </div>

@@ -1,332 +1,269 @@
-.section {
-    // position: relative;
-    height: 70vh;
-}
-
-.bg {
-    height: 100vh;
+.hero {
+    min-height: 100vh;
     width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    overflow: hidden;
-
-    &::after {
-        content: '';
-        display: block;
-        height: 110%;
-        width: 110%;
-        position: absolute;
-        top: -5%;
-        left: -5%;
-        background-color: rgba($color: #264c72, $alpha: .2);
-        z-index: 100;
-    }
-    & > img {
-        width: 100%;
-        height: auto;
-        filter: blur(20px);
-        transform: scale(1.1);
-    }
 }
 
-.titles {
-    margin-left: 12.5%;
+.wave {
+    transform: rotate(-45deg);
+    height: 60vw;
+    position: absolute;
+    top: -20vw;
+    opacity: .35;
+}
+
+// Left section content
+.content {
+    margin: 30vh 15vw;
+    font-family: rajdhani;
     position: relative;
-    width: 30vw;
-    margin-top: 30vh;
+    width: 30%;
 }
 
 .title {
-    color: white;
-    font-family: Quicksand;
+    color: #cfcfcf;
+    font-family: quicksand;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 3.5vw;
-    margin: 1vw 0;
+    font-size: 2vw;
+    margin: 0;
 }
 
-.subTitle {
-    color: whitesmoke;
-    font-family: Roboto;
-    font-weight: 300;
+.description {
+    color: #cfcfcf;
+    font-family: rajdhani;
     font-size: 1.2vw;
-    margin: 2vw 0;
-}
-
-.buttonDiv {
-    margin-left: 12.5%;
-}
-
-.buttonList {
-    list-style: none;
-    padding: 0%;
-    display: flex;
-}
-
-.button {
-    border: none;
-    background-color: transparent;
-    font-size: 1vw;
-    font-family: Roboto;
-    padding: .4vw .9vw;
-    cursor: pointer;
     width: 100%;
-    height: 100%;
+    margin: 0;
+    margin-top: .2vw;
+}
+
+// Buttons
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 1vw;
 }
 
 .mainButton {
-    background-color: #AAAAAA;
+    background-color: #5B7E78;
+    border: none;
+    padding: .4vw 1.2vw;
+    font-size: 1.2vw;
+    font-family: rajdhani;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 400;
     position: relative;
-    width: 12vw;
-
-    &:hover, &:active {
-        & > .button {
-            &::after {
-                opacity: 1;
-                bottom: -.5vw;
-                right: -.3vw;
-            }
-            
-            &::before {
-                opacity: 1;
-                right: -.44vw;
-                bottom: -.5vw;
-            }
-        }
-
-        &::after {
-            opacity: 1;
-            top: -.5vw;
-            left: -.3vw;
-        }
-
-        &::before {
-            opacity: 1;
-            left: -.44vw;
-            top: -.5vw;
-        }
-    }
-
-    & > .button {
-        &::after {
-            content: '';
-            display: block;
-            width: 5vw;
-            height: .2vw;
-            position: absolute;
-            background-color: #AAAAAA;
-            bottom: 0;
-            right: 0;
-            transition: .2s ease;
-        }
-
-        &::before {
-            content: '';
-            display: block;
-            width: .14vw;
-            height: 1.7vw;
-            background-color: #AAAAAA;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            transition: .2s ease;
-        }
-    }
-
-    &::after {
-        content: '';
-        display: block;
-        width: 5vw;
-        height: .14vw;
-        position: absolute;
-        background-color: #AAAAAA;
-        top: 0;
-        left: 0;
-        transition: .2s ease;
-    }
+    z-index: 2;
 
     &::before {
         content: '';
         display: block;
-        width: .14vw;
-        height: 1.7vw;
-        background-color: #AAAAAA;
+        border-right: 3px solid #5B7E78;
+        border-bottom: 3px solid #5B7E78;
+        width: 70%;
+        height: 70%;
         position: absolute;
-        left: 0;
+        z-index: -1;
+        right: 0;
+        bottom: 0;
+        border-radius: 0 0 8px 0;
+        transition: all .2s ease;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        border-left: 3px solid #5B7E78;
+        border-top: 3px solid #5B7E78;
+        width: 70%;
+        height: 70%;
+        position: absolute;
+        z-index: -1;
         top: 0;
-        transition: .2s ease;
+        left: 0;
+        border-radius: 8px 0 0 0;
+        transition: all .2s ease;
+    }
+
+    &:hover {
+        &::before {
+            right: -.6rem;
+            bottom: -.6rem;
+        }
+
+        &::after {
+            left: -.6rem;
+            top: -.6rem;
+        }
     }
 }
 
-.secondButton {
-    border: 1px solid whitesmoke;
-    position: relative;
-    margin-left: 4vw;
-    width: 12vw;
-    transition: .2s ease;
-    & > .button {
-        padding: calc(.4vw - 1px) .9vw;
-        color: whitesmoke;
-        transition: .2s ease;
+.buttonSeparator {
+    color: #2C3E40;
+    font-size: 1.2vw;
+    margin: 0 1vw;
+}
+
+.secondaryButton {
+    padding: calc(.4vw - 3px) 1.2vw;
+    border: 3px solid #5B7E78;
+    background-color: transparent;
+    color: #5B7E78;
+    font-size: 1.2vw;
+    font-family: rajdhani;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease;
+    
+    &:hover {
+        background-color: #5B7E78;
+        font-weight: 600;
+        color: #0D131B;
     }
 }
 
-.secondButton:hover {
-    border-color: #AAAAAA;
-    & > .button {
-        color: #AAAAAA;
-    }
-}
-
-// Side door image
-.door {
-    position: absolute;
-    right: 10vw;
-    top: 0;
+// Social Media
+.socialContainer {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-}
-
-.doorImage {
-    width: auto;
-    height: 40vw;
-    z-index: 100;
-}
-
-.bar {
-    position: absolute;
-    top: 35%;
-    height: 8%;
-    left: 20%;
-}
-
-.bar:nth-child(2) {
-    top: 55%;
-}
-
-
-// social media linking
-.socialListContainer {
-    margin-top: 8vw;
+    flex-direction: column;   
+    margin-top: 10vh;
     position: relative;
-    left: 12.5vw;
-}
-
-.socialList {
-    padding: 0;
-    list-style: none;
-}
-
-.socialList > li {
-    margin: .6vw 0;
+    width: fit-content;
 }
 
 .socialIcon {
-    color: whitesmoke;
-    cursor: pointer;
-    & > * {
-        font-size: 2vw;
-        transition: .2s ease;
-    }
+    font-size: 2vw;
+    display: block;
+    color: #5B7E78;
+    margin: .6vw 0;
+    position: relative;
 
-    &:hover > * {
-        color: #AAAAAA;
+    &:hover {
+        color: #2C3E40;
     }
 }
 
+.heroImg {
+    position: absolute;
+    top: -8vw;
+    right: -5vw;
+    width: 40vw;
+}
+
+// Decorations
+.titleWatermark {
+    opacity: .12;
+    color: #cfcfcf;
+    font-size: 10vw;
+    text-transform: uppercase;
+    font-family: quicksand;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -32vw;
+    top: 36vw;
+}
+.decorationRect {
+    &:nth-last-of-type(2) {
+        right: 45vw;
+    }
+    
+    &:nth-last-of-type(1) {
+        right: 50vw;
+        top: 45vh;
+    }
+    
+    &:nth-last-of-type(3) {
+        right: 15vw;
+        top: 120vh;
+    }  
+}
+
+.lineDec {
+    position: absolute;
+    top: 4vh;
+    right: 35vw;
+    transform: rotate(-90deg);
+    opacity: .15;
+    width: 13vw;
+}
+
+.twoLineDec {
+    position: absolute;
+    top: 110vh;
+    right: -2vw;
+    opacity: .15;
+    width: 13vw;
+}
+
+.topLeftDec {
+    position: absolute;
+    top: -26vw;
+    left: -6vw;
+    border-top: 35vw solid transparent;
+    border-bottom: 35vw solid transparent;
+    border-right: 35vw solid #5B7E7802;
+    border-radius: 50%;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
 @media (max-width: 500px) {
-    .bg {
-        & > img {
-            width: auto;
-            height: 100%;
-        }
+    .hero {
+        min-height: 80vh;
+    }
+    .content {
+        width: 70%;
+        z-index: 2;
+        margin: 30vh 7vw;
     }
 
-    .titles {
-        margin-right: 12.5%;
-        width: 75%;
-    }
-    
     .title {
-        font-size: clamp(2.3rem, 9vw, 3rem);
-    }
-    
-    .subTitle {
-        font-size: 1.25rem;
-        margin: 1.5rem 0;
-    }
-    .buttonList {
-        display: block;
-        width: 100%;
+        font-size: 2.4rem;
     }
 
-    .buttonDiv {
-        margin-left: 0;
-    }
-    
-    .button {
-        font-size: 1.5rem;
-        padding: .7rem .9rem;
-    }
-    
-    .mainButton {
-        background-color: #AAAAAA;
-        width: 75vw;
-        margin: 0 12.5vw;
-        & > .button {
-            &::after {
-                bottom: 2px;
-            }
-    
-            &::before {
-                bottom: 2px;
-            }
-        }
-    }
-    
-    .secondButton {
-        border: none;
-        margin-top: .5rem;
-        width: fit-content;
-        margin-left: 12vw;
-
-        & > .button {
-            font-size: 1rem;
-            color: #f5f5f570;
-        }
+    .description {
+        font-size: 1.2rem;
+        margin-top: .2rem;
     }
 
-    // social media linking
+    .heroImg {
+        top: 20vh;
+        right: -36vw;
+        width: 80vw;
+        z-index: 1;
+        opacity: .3;
+    }
+
+    .titleWatermark {
+        top: 40vh;
+    }
+
     .socialIcon {
-        color: whitesmoke;
-        cursor: pointer;
-        & > * {
-            font-size: 2rem;
-            transition: .2s ease;
-        }
-
-        &:hover > * {
-            color: #98CD8B;
-        }
-    }
-
-    .socialList {
-        padding: 0;
-        list-style: none;
-    }
-
-    .socialList > li {
+        font-size: 2rem;
         margin: 1rem 0;
     }
 
-    .socialListContainer {
+    .buttonsContainer {
+        margin-top: 1rem;
+    }
+
+    .mainButton {
+        padding: .4rem 1.2rem;
+        font-size: 1.2rem;
         position: relative;
-        margin-top: 5rem;
-        margin-left: .4rem;
-        left: 2vw;
+    }
+
+    .buttonSeparator {
+        font-size: 1.2rem;
+        margin: 0 1rem;
+    }
+
+    .secondaryButton {
+        padding: calc(.4rem - 3px) 1.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 }

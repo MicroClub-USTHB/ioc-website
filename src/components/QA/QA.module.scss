@@ -1,12 +1,11 @@
 .container {
-    border: 2px solid rgba($color: #352E58, $alpha: .2);
-    background-color: #0D1B28;
+    background-color: #cfcfcf;
     padding: 1.3vw 3vw 1.1vw;
     transition: .2s ease;
     cursor: pointer;
+    margin: 1vw 0;
 
     &:hover {
-        border: 2px solid rgba($color: #352E58, $alpha: .6);
         & > .question > .expandSymbol {
             color: rgba($color: #352E58, $alpha: .6);
         }
@@ -18,15 +17,15 @@
 
 .question {
     font-size: 1.4vw;
-    font-family: 'Roboto';
+    font-family: quicksand;
     font-weight: 200;
-    color: #ffffff;
+    color: #0D131B;
     display: flex;
     justify-content: space-between;
 }
 
 .questionHolder {
-    width: 95%;
+    width: fit-content;
 }
 
 .questionLine {
@@ -40,20 +39,25 @@
 }
 
 .expandSymbol {
-    color: rgba($color: #ffffff, $alpha: .2);
+    color: rgba($color: #0D131B, $alpha: .2);
     transition: all .5s ease;
 }
 
 .answerContainer {
     width: 60%;
     overflow: hidden;
-    font-size: Roboto;
-    font-size: 1vw;
+    font-family: rajdhani;
+    font-size: 1.1vw;
     text-align: justify;
-    height: inherit;
-    margin: 8vw 0;
+    height: fit-content;
+    margin: 1.2vw 0 .8vw;
     transition: .5s ease;
-    color: white;
+    color: #0D131B;
+    animation: appear .2s ease;
+}
+
+.answerUnexpand {
+    animation: disappear .2s ease;
 }
 
 @media (min-width: 500px) {

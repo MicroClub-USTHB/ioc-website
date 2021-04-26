@@ -183,6 +183,7 @@ export const emailSignUp = createAsyncThunk(
     }
 )
 
+
 export const signOut = createAsyncThunk(
     'workspace/signOut',
     async (values, thunkAPI) => {

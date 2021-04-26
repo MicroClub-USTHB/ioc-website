@@ -32,3 +32,13 @@
     transform: rotate(360deg);
   }
 }
+
+.decorationRect {
+  height: 2.5vw;
+  width: 2.5vw;
+  background-color: #5B7E78;
+  border-radius: 5px;
+  position: absolute;
+  transform: rotate(45deg) ;
+  opacity: .15; 
+}

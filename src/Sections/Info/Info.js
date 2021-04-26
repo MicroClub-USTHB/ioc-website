@@ -1,40 +1,51 @@
 import React from 'react';
-import InfoDisplay from '../../components/InfoDisplay/InfoDisplay';
+import { useSelector } from 'react-redux';
 
 // Style
 import infoStyle from './Info.Module.scss';
 
+// Components
+import InfoDisplay from '../../components/InfoDisplay/InfoDisplay';
+
 // Images
-import flowerImg from '../../media/infoPhoto1-min.png';
-import apeImg from '../../media/infoPhoto2-min.png';
-import bottomLeftDec from '../../media/info-dec1.png';
-import bottomRightDec from '../../media/info-dec2.png';
-import topRightDec from '../../media/info-dec3.png';
+import infoPhoto1 from '../../media/infoPhoto1-min.png';
+import infoPhoto2 from '../../media/infoPhoto2-min.png';
+import lineDec from '../../media/decoration-1.svg';
 
 const Info = () => {
+    const isMobile = useSelector(state => state.workspace.isMobile);
     return (
         <section className={infoStyle.section}>
-            <img className={infoStyle.topRightDec} src={topRightDec} alt="" />
-            <div className={infoStyle.shortDescription}>
-                <h1 className={infoStyle.title}>What is IOC?</h1>
-                <p className={infoStyle.description}>Eventing (also known as three day eventing or horse trials) is an equestrian event where a single horse and rider combine and compete against other competitors across the three disciplines of dressage, cross-country, and show jumping.</p>
+            <div className={infoStyle.titleContent}>
+                <h1 className={infoStyle.title}>What is This?</h1>
+                <p className={infoStyle.description}>Impact of Code is a series of small programming puzzles for a variety of skill levels. The challenges stretch 7 days with a new challenge being released each new day at exactly 00:00. Accompanying the challenges will be a part of the story of Axios. Enjoy the story as you solve the interesting challenges.</p>
             </div>
-            <InfoDisplay
-                left={false}
-                title="Learn as you travel through the journey"
-                description="Produced by Frederator Studios and Cartoon Network Studios, the series follows the adventures of a boy named Finn (voiced by Jeremy Shada) and his best friend and adoptive brother Jake (John DiMaggio)—a dog with the magical power to change size and shape at will."
-                img={flowerImg}
-                altText="picture of computer"
-            />
-            <InfoDisplay
-                left={true}
-                title="Code your way through an adventure"
-                description="Adventure Time is an American fantasy animated television series created by Pendleton Ward for Cartoon Network."
-                img={apeImg}
-                altText="picture of computer"
-            />
-            <img className={infoStyle.bottomLeftDec} src={bottomLeftDec} alt="" />
-            <img className={infoStyle.bottomRightDec} src={bottomRightDec} alt="" />
+            <div className={infoStyle.infoList}>
+                <InfoDisplay
+                    textIsLeft={true}
+                    title="Seven Days. Seven Challenges. One Hero, You!"
+                    img={infoPhoto1}
+                    altText=""
+                    description={"Impact of Code features 7 challenges of different domains and difficulties, you don’t have to be a computer science student nor have any coding skills to solve them, a good brain inside your thick skull is all that is required.\nA new challenge is announced with the coming of each new day, solving the challenges advances the story."}
+                />
+                <InfoDisplay
+                    textIsLeft={false}
+                    title={"Beat the Enemies in the Story. Beat Your Friends on the Leadboard."}
+                    img={infoPhoto2}
+                    altText=""
+                    description={"Impact of Code features 7 challenges of different domains and difficulties, you don’t have to be a computer science student nor have any coding skills to solve them, a good brain inside your thick skull is all that is required.\nA new challenge is announced with the coming of each new day, solving the challenges advances the story."}
+                />
+            </div>
+            {
+                !isMobile && (
+                    <>
+                        <img className={`${infoStyle.lineDec} ${infoStyle.lineDecLeft}`} src={lineDec} alt="" />
+                        <img className={`${infoStyle.lineDec} ${infoStyle.lineDecRight}`} src={lineDec} alt="" />
+                        <div className={`${infoStyle.decorationRect} decorationRect`}></div>
+                        <div className={`${infoStyle.decorationRect} decorationRect`}></div>
+                    </>
+                )
+            }
         </section>
     );
 }

@@ -6,10 +6,22 @@ import qaStyle from './QA.module.scss';
 
 const QA = ({questionText, answerText}) => {
     const isMobile = useSelector(state => state.workspace.isMobile);
+
     const [AnswerExpand, setAnswerExpand] = useState(false);
     let handleAnswerClick = (event) => {
         if (!isMobile) {
             setAnswerExpand(!AnswerExpand);
+        }
+        expandFunc();
+    }
+
+    let expand;
+    let expandFunc = () => {
+        for (let i = 0; i <= 100; i++) {
+            if (i === 100) {
+                expand = 'fit-content';
+            }
+            expand = `${(8/100) * i}vw`;
         }
     }
     return (
@@ -23,7 +35,7 @@ const QA = ({questionText, answerText}) => {
                     <div
                         className={qaStyle.questionLine}
                         style={{
-                            backgroundColor: isMobile? '#60C7CD' : AnswerExpand? '#60C7CD' : 'transparent'
+                            backgroundColor: isMobile? '#0D131B' : AnswerExpand? '#0D131B' : 'transparent'
                         }}
                     ></div>
                 </div>
@@ -38,15 +50,15 @@ const QA = ({questionText, answerText}) => {
                     )
                 }
             </div>
-            <div
-                className={qaStyle.answerContainer}
-                style={{
-                    height: !isMobile && (AnswerExpand? '8vw' : '0'),
-                    margin: !isMobile && (AnswerExpand? '.8vw 0' : '0')
-                }}
-            >
-                {answerText}
-            </div>
+            {
+                (AnswerExpand || isMobile) && (
+                    <div
+                        className={`${qaStyle.answerContainer} ${!AnswerExpand && qaStyle.answerUnexpand}`}
+                    >
+                        {answerText}
+                    </div>
+                )
+            }
         </div>
     );
 }

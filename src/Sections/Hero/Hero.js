@@ -1,80 +1,67 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 // Style
 import heroStyle from './Hero.module.scss';
 
-//media
-import landingBG from '../../media/bg.jpg';
-import door from '../../media/Door-min.png';
-import bar from '../../media/Bar-min.png';
-
-// Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+// Images
+import heroImg from '../../media/gorillaHead.svg';
+import lineDec from '../../media/decoration-1.svg';
+import twoLineDec from '../../media/decoration-2.svg';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const isMobile = useSelector(state => state.workspace.isMobile);
     return (
-        <section className={heroStyle.section}>
-            <div className={heroStyle.bg}>
-                <img src={landingBG} alt="desert environment." />
-            </div>
-            <div className={heroStyle.titles}>
-                <h1 className={heroStyle.title}>Impact of code</h1>
-                <h2 className={heroStyle.subTitle}>Coding theory is the study of the properties of codes and their respective fitness for specific applications.</h2>
-            </div>
-            <div className={heroStyle.buttonDiv}>
-                <ul className={heroStyle.buttonList}>
-                    <li>
-                        <Link to="/login">
-                            <div className={heroStyle.mainButton}>
-                                <button className={heroStyle.button}>Begin the challenges</button>
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <div className={heroStyle.secondButton}>
-                            <button
-                                className={heroStyle.button}
-                                onClick={() => {
-                                    window.scrollTo({
-                                        top: window.innerHeight,
-                                        behavior: 'smooth'
-                                    })
-                                }}
-                            >Find out more</button>
+        <section className={heroStyle.hero}>
+            <div className={heroStyle.topLeftDec}></div>
+            <div className={heroStyle.content}>
+                <h1 className={heroStyle.title}>Impact of Code</h1>
+                <p className={heroStyle.description}>Coding theory is the study of the properties of codes and their respective fitness for specific applications.</p>
+                <div className={heroStyle.buttonsContainer}>
+                    <Link to="/register">
+                        <button className={heroStyle.mainButton}>Get Started</button>
+                    </Link>
+                    <span className={heroStyle.buttonSeparator}>OR</span>
+                    <button
+                        className={heroStyle.secondaryButton}
+                        onClick={() => {
+                            window.scrollBy({
+                                top: window.innerHeight,
+                                behavior: 'smooth'
+                            })
+                        }}
+                    >Learn More</button>
+                </div>
+                <div className={heroStyle.socialContainer}>
+                    <a href="https://www.facebook.com/Micro.Club.USTHB">
+                        <FontAwesomeIcon  className={heroStyle.socialIcon} icon={faFacebookSquare} />
+                    </a>
+                    <a href="https://www.instagram.com/micro.club/">
+                        <FontAwesomeIcon  className={heroStyle.socialIcon} icon={faInstagramSquare} />
+                    </a>
+                    <a href="https://www.linkedin.com/company/micro-club/">
+                        <div>
+                            <FontAwesomeIcon  className={heroStyle.socialIcon} icon={faLinkedin} />
                         </div>
-                    </li>
-                </ul>
+                    </a>
+                </div>
             </div>
-            <div className={heroStyle.socialListContainer}>
-                <ul className={heroStyle.socialList}>
-                    <li>
-                        <a href="https://www.facebook.com/Micro.Club.USTHB" className={heroStyle.socialIcon}>
-                            <FontAwesomeIcon icon={faFacebookSquare} />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/micro.club/" className={heroStyle.socialIcon}>
-                            <FontAwesomeIcon icon={faInstagramSquare} />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/company/micro-club/" className={heroStyle.socialIcon}>
-                            <FontAwesomeIcon icon={faLinkedin} />
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <img className={heroStyle.heroImg} src={heroImg} alt="" />
             {
                 !isMobile && (
-                    <div className={heroStyle.door}>
-                        <img src={bar} className={heroStyle.bar} alt="bar" />
-                        <img src={bar} className={heroStyle.bar} alt="bar" />
-                        <img src={door} className={heroStyle.doorImage} alt="vault door with IOC written on it" />
-                    </div>
+                    <>
+                        <div className={heroStyle.titleWatermark}>Impact of Code</div>
+                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
+                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
+                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
+                        <img className={heroStyle.lineDec} src={lineDec} alt="" />
+                        <img className={heroStyle.twoLineDec} src={twoLineDec} alt="" />
+                    </>
                 )
             }
         </section>

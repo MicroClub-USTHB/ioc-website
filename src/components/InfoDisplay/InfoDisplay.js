@@ -4,12 +4,17 @@ import { useSelector } from 'react-redux';
 // Style
 import infoStyle from './InfoDisplay.module.scss';
 
-const InfoDisplay = ({left, title, img, altText, description}) => {
+// Images
+import infoDec1 from '../../media/box-dec1.svg';
+import infoDec2 from '../../media/box-dec2.svg';
+import infoDec3 from '../../media/box-dec3.svg';
+
+const InfoDisplay = ({textIsLeft, title, img, altText, description}) => {
     const isMobile = useSelector(state => state.workspace.isMobile)
     let comp = (
         <div className={infoStyle.info}
             style={{
-                flexDirection: left? 'row' : 'row-reverse'
+                flexDirection: textIsLeft? 'row' : 'row-reverse'
             }}
         >
             <div className={infoStyle.infoText}>
@@ -23,6 +28,16 @@ const InfoDisplay = ({left, title, img, altText, description}) => {
                     <div className={infoStyle.imageContainer}>
                         <img className={infoStyle.image} src={img} alt={altText} />
                     </div>
+                )
+            }
+            {
+                !isMobile && textIsLeft? (
+                    <img className={`${infoStyle.dec} ${infoStyle.topRight}`} src={infoDec2} alt="" />
+                    ) : (
+                        <>
+                            <img className={`${infoStyle.dec} ${infoStyle.bottomRight}`} src={infoDec1} alt="" />
+                            <img className={`${infoStyle.dec} ${infoStyle.topLeft}`} src={infoDec3} alt="" />
+                        </>
                 )
             }
         </div>

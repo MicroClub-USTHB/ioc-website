@@ -16,6 +16,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: static;
 }
 
 code {

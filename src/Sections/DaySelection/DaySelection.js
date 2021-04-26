@@ -11,7 +11,7 @@ import DaySelectionButton from '../../components/DaySelectionButton/DaySelection
 import dayStyle from './DaySelection.module.scss';
 
 // Images
-import mcLogo from '../../media/MC LogoWS-min.png';
+import mcLogo from '../../media/mcLogoInvis-min.svg';
 
 const DaySelection = () => {
     const minimized = useSelector(state => state.workspace.minimized);
