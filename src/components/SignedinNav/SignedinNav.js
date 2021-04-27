@@ -52,19 +52,28 @@ const SignedinNav = () => {
                             <li>
                                 <Link className={snavStyle.link} to="/">
                                     <FontAwesomeIcon icon={faHome}  className={snavStyle.icon}/>
-                                    Home
+                                    <span className={snavStyle.linkText}>
+                                        Home
+                                    </span>
+
                                 </Link>
                             </li>
                             <li>
                                 <Link className={snavStyle.link} to="/workspace">
                                     <FontAwesomeIcon icon={faPen}  className={snavStyle.icon}/>
-                                    Workspace
+                                    <span className={snavStyle.linkText}>
+                                        Workspace
+                                    </span>
+
                                 </Link>
                             </li>
                             <li>
                                 <Link className={snavStyle.link} to="/lounge">
                                     <FontAwesomeIcon icon={faChair}  className={snavStyle.icon}/>
-                                    Lounge
+                                    <span className={snavStyle.linkText}>
+                                        Lounge
+                                    </span>
+
                                 </Link>
                             </li>
                             <li
@@ -74,7 +83,10 @@ const SignedinNav = () => {
                             >
                                 <button className={snavStyle.button}>
                                     <FontAwesomeIcon icon={faDoorOpen}  className={snavStyle.icon}/>
-                                    Signout
+                                    <span className={snavStyle.linkText}>
+                                        Signout
+                                    </span>
+
                                 </button>
                             </li>
                         </ul>

@@ -52,14 +52,14 @@ const Hero = () => {
                 </div>
             </div>
             <img  data-aos="fade-down" className={heroStyle.heroImg} src={heroImg} alt="" />
+            <div className={`${heroStyle.decorationRect} decorationRect`}></div>
+            <div className={`${heroStyle.decorationRect} decorationRect`}></div>
+            <img className={heroStyle.lineDec} src={lineDec} alt="" />
             {
                 !isMobile && (
                     <>
+                    <div className={`${heroStyle.decorationRect} decorationRect`}></div>
                         <div className={heroStyle.titleWatermark}>Impact of Code</div>
-                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
-                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
-                        <div className={`${heroStyle.decorationRect} decorationRect`}></div>
-                        <img className={heroStyle.lineDec} src={lineDec} alt="" />
                         <img className={heroStyle.twoLineDec} src={twoLineDec} alt="" />
                     </>
                 )

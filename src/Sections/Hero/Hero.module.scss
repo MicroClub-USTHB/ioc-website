@@ -172,6 +172,8 @@
     top: 36vw;
 }
 .decorationRect {
+    animation: appear 1s ease;
+
     &:nth-last-of-type(2) {
         right: 45vw;
     }
@@ -214,6 +216,28 @@
     border-radius: 50%;
     z-index: 0;
     transform: rotate(45deg);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: .15;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: .15;
+    }
 }
 
 @media (max-width: 500px) {
@@ -272,5 +296,28 @@
         padding: calc(.4rem - 3px) 1.2rem;
         font-size: 1.2rem;
         font-weight: 600;
+    }
+
+    .decorationRect {
+        width: 1.4rem;
+        height: 1.4rem;
+
+        &:nth-last-of-type(1) {
+            top: 20vh;
+            right: 70vw;
+        }
+
+        &:nth-last-of-type(2) {
+            top: 70vh;
+            right: 55vw;
+        }
+    }
+
+    .lineDec {
+        top: 90vh;
+        right: 0;
+        width: 8rem;
+        transform: translateX(0);
+        animation: slideInLeft 1s ease;
     }
 }

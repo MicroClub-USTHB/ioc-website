@@ -43,7 +43,7 @@
     background-color: #1D3245;
     padding: .2vw 0;
     font-family: tajawal;
-    line-height: 1.4vw;
+    // line-height: 1.4vw;
     color: white;
     margin-top: 1vw;
     margin-right: 2vw;
@@ -114,6 +114,15 @@
     width: 63%;
 }
 
+.linkText {
+    // display: block;
+    // position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    // bottom: 1vw/;
+}
+
 .link, .button {
     color: white;
     text-decoration: none;
@@ -136,6 +145,8 @@
 .icon {
     margin-right: .8vw;
     font-size: .9vw;
+    position: relative;
+    top: .2vw;
 }
 
 @media (max-width: 500px) {
@@ -195,6 +206,7 @@
     .icon {
         font-size: .9rem;
         margin-right: .7rem;
+        top: 0;
     }
 
     .button {
