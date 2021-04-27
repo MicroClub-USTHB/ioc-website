@@ -19,9 +19,10 @@
 }
 
 .description {
-    font-family: rajdhani;
+    font-family: tajawal;
     color: #cfcfcf;
     font-size: 1.1vw;
+    line-height: 1.4vw;
 }
 
 // info boxes
@@ -72,6 +73,7 @@
     .description {
         font-size: 1.1rem;
         width: calc(100% - 14vw);
+        white-space: 1.4rem;
     }
 
     .infoList {

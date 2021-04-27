@@ -32,7 +32,8 @@
 }
 
 .answerLabel {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     color: #0D1B28;
 
 }
@@ -64,7 +65,8 @@
     }
 
     & > .indicatorText {
-        font-family: roboto;
+        font-family: tajawal;
+        line-height: 1.4vw;
         color: #0D1B28;
         font-size: 1.2vw;
         text-transform: capitalize;
@@ -90,7 +92,8 @@
     position: absolute;
     right: 17%;
     top: 0;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     color: red;
 }
@@ -102,7 +105,8 @@
     border-radius: 0;
     background-color: #00000015;
     padding: .3vw .8vw;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     color: #0D1B28;
     resize: none;
     font-size: .9vw;
@@ -124,7 +128,8 @@
     white-space: pre-wrap;
     overflow: hidden;
     display: block;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     padding: .3vw .8vw;
     overflow-wrap: break-word;
@@ -135,7 +140,8 @@
 }
 
 .answerSubmitButton {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     padding: .3vw .8vw;
     outline: none;
     background-color: transparent;
@@ -169,7 +175,8 @@
     .answer {
         position: relative;
         margin-top: 2rem;
-        font-family: roboto;
+        font-family: tajawal;
+        line-height: 1rem;
         font-size: 1.1rem;
     }
 

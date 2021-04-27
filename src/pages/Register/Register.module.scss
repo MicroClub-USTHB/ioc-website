@@ -1,7 +1,7 @@
 /* Variables */
 $brand-color: #608158;
 $secondary-strong: #666666;
-$main-font: 'Roboto', sans-serif;
+$main-font: 'Tajawal', sans-serif;
 $decoration-color: #59BCF8;
 
 .container {
@@ -46,6 +46,7 @@ $decoration-color: #59BCF8;
     align-items: center;
     justify-content: space-between;
     font-family: $main-font;
+    line-height: 1.4vw;
     position: relative;
     z-index: 10;
 }
@@ -118,7 +119,8 @@ $decoration-color: #59BCF8;
 .authErrorContainer {
     font-size: 1.1vw;
     color: #0D1B28;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     width: 18vw;
     position: relative;
     bottom: 1vw;
@@ -168,10 +170,10 @@ $decoration-color: #59BCF8;
 
     .box {
         width: 25rem;
-        // height: 28rem;
         height: fit-content;
         background-color: transparent;
         flex-direction: column;
+        line-height: 1.4rem;
     }
     
     // Left

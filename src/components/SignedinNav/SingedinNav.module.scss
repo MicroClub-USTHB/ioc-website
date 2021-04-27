@@ -42,7 +42,8 @@
 .navigationBody {
     background-color: #1D3245;
     padding: .2vw 0;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     color: white;
     margin-top: 1vw;
     margin-right: 2vw;
@@ -118,7 +119,8 @@
     text-decoration: none;
     font-size: .9vw;
     background-color: transparent;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     display: flex;
 }
 
@@ -155,6 +157,7 @@
         margin-top: .8rem;
         margin-right: 1rem;
         font-size: .9rem;
+        line-height: 1.4rem;
 
         &::before {
             height: 1rem;

@@ -4,7 +4,8 @@
 }
 
 .headItem {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     color: #00000070;
 
@@ -20,5 +21,6 @@
 @media (max-width: 500px) {
     .headItem {
         font-size: 1rem;
+        line-height: 1.4rem;
     }
 }

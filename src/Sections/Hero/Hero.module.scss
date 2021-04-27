@@ -14,7 +14,7 @@
 // Left section content
 .content {
     margin: 30vh 15vw;
-    font-family: rajdhani;
+    font-family: tajawal;
     position: relative;
     width: 30%;
 }
@@ -24,14 +24,18 @@
     font-family: quicksand;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 2vw;
+    font-size: 3vw;
+    letter-spacing: 2px;
     margin: 0;
+    white-space: nowrap;
 }
 
 .description {
     color: #cfcfcf;
-    font-family: rajdhani;
+    font-family: tajawal;
+    font-weight: 200;
     font-size: 1.2vw;
+    line-height: 1.5vw;
     width: 100%;
     margin: 0;
     margin-top: .2vw;
@@ -49,13 +53,14 @@
     border: none;
     padding: .4vw 1.2vw;
     font-size: 1.2vw;
-    font-family: rajdhani;
+    font-family: tajawal;
     text-transform: uppercase;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 400;
     position: relative;
     z-index: 2;
+    white-space: nowrap;
 
     &::before {
         content: '';
@@ -112,10 +117,11 @@
     background-color: transparent;
     color: #5B7E78;
     font-size: 1.2vw;
-    font-family: rajdhani;
+    font-family: tajawal;
     border-radius: 5px;
     cursor: pointer;
     transition: all .2s ease;
+    white-space: nowrap;
     
     &:hover {
         background-color: #5B7E78;
@@ -221,12 +227,13 @@
     }
 
     .title {
-        font-size: 2.4rem;
+        font-size: 2.7rem;
     }
 
     .description {
         font-size: 1.2rem;
         margin-top: .2rem;
+        line-height: 1.5rem;
     }
 
     .heroImg {
@@ -234,7 +241,7 @@
         right: -36vw;
         width: 80vw;
         z-index: 1;
-        opacity: .3;
+        opacity: .2 !important;
     }
 
     .titleWatermark {

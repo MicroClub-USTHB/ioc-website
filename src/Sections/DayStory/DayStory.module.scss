@@ -54,7 +54,8 @@
 }
 
 .headerTitle {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: 1.1vw;
     color: white;
     font-weight: 200;
@@ -75,7 +76,8 @@
 .storyContent {
     margin-top: 1vw;
     color: white;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     white-space: pre-wrap;
 }
@@ -116,6 +118,7 @@
     .storyContent {
         font-size: 1.1rem;
         text-align: justify;
+        line-height: 1.4rem;
     }
 
     @keyframes disappear {

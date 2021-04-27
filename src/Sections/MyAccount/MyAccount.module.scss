@@ -23,7 +23,8 @@
 }
 
 .navigationHeaderTitle {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     color: white;
     font-size: 1vw;
     text-transform: uppercase;
@@ -47,7 +48,8 @@
 }
 
 .navigationListLink {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     color: white;
     text-decoration: none;
@@ -56,7 +58,8 @@
     &:hover {
         &::before {
             content: '> ';
-            font-family: roboto;
+            font-family: tajawal;
+            line-height: 1.4vw;
             display: block;
             position: absolute;
             left: -1vw;
@@ -67,7 +70,8 @@
 // Section
 .sectionTitle {
     color: white;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: 3vw;
     font-weight: 400;
     margin: 2vw 0 0;
@@ -80,7 +84,8 @@
 }
 
 .subSectionTitle {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-weight: 400;
     font-size: 1.4vw;
     color: white;
@@ -107,14 +112,16 @@
 .rowTotal {
     display: flex;
     align-items: center;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     position: absolute;
     right: 2.9vw;
     bottom: -1.2vw;
 }
 
 .rowTotalTitle {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     color: #ffffff70;
 }
@@ -130,7 +137,8 @@
 
 .accountInfoModule {
     margin: 1vw 0;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
 }
 
 .accountInfoModuleTitle {
@@ -169,6 +177,7 @@
 
     .navigationHeaderTitle {
         font-size: 1rem;
+        line-height: 1.4rem;
         margin-left: 1rem;
     }
 
@@ -184,6 +193,7 @@
 
     .navigationListLink {
         font-size: .9rem;
+        line-height: 1.4rem;
         margin: 0 .5rem;
     }
 
@@ -194,6 +204,7 @@
 
     .sectionTitle {
         font-size: 2.4rem;
+        line-height: 1.4rem;
     }
 
     .subSectionTitle {
@@ -215,6 +226,7 @@
 
     .rowTotalTitle {
         font-size: .9rem;
+        line-height: 1.4rem;
     }
 
     .rowTotalScore {
@@ -232,10 +244,12 @@
 
     .accountInfoModuleTitle {
         font-size: .9rem;
+        line-height: 1.4rem;
     }
 
     .accountInfoModuleData {
         font-size: 1rem;
+        line-height: 1.4rem;
         padding: .6rem 1rem;
         margin-top: .5rem;
     }

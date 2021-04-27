@@ -46,8 +46,9 @@
 .answerContainer {
     width: 60%;
     overflow: hidden;
-    font-family: rajdhani;
+    font-family: tajawal;
     font-size: 1.1vw;
+    line-height: 1.4vw;
     text-align: justify;
     height: fit-content;
     margin: 1.2vw 0 .8vw;
@@ -96,5 +97,6 @@
         margin: .5rem 0;
         font-size: 1rem;
         padding: 0 1rem 1.5rem;
+        line-height: 1.4rem;
     }
 }

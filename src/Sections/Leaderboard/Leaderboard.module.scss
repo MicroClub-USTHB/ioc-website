@@ -24,7 +24,8 @@
 }
 
 .subSectionTitle {
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     color: #0D1B28;
     font-size: 1.4vw;
     text-transform: uppercase;
@@ -34,7 +35,8 @@
 .leaderboardTable {
     display: flex;
     flex-direction: column;
-    font-family: roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     font-size: .9vw;
     position: relative;
     left: -2.3vw;
@@ -62,10 +64,12 @@
 
     .subSectionTitle {
         font-size: 1.3rem;
+        line-height: 1.4rem;
     }
 
     .leaderboardTable {
         font-size: 1rem;
+        line-height: 1.4rem;
     }
 
     .rowDividor {

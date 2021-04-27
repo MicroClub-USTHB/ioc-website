@@ -1,6 +1,6 @@
 $brand-color: #6927FF;
 $secondary-strong: #666666;
-$main-font: 'Roboto', sans-serif;
+$main-font: 'Tajawal', sans-serif;
 $decoration-color: #60C7CD;
 
 
@@ -35,7 +35,8 @@ $decoration-color: #60C7CD;
         padding: .3vw .5vw .3vw;
         padding-bottom: .3vw;
         color: whitesmoke;
-        font-family: Roboto;
+        font-family: tajawal;
+        line-height: 1.4vw;
     }
 
     & > label {
@@ -100,7 +101,8 @@ $decoration-color: #60C7CD;
     padding: .5vw;
     position: absolute;
     font-size: .8vw;
-    font-family: Roboto;
+    font-family: tajawal;
+    line-height: 1.4vw;
     bottom: 2vw;
     right: -20%;
     border-radius: 5px;
@@ -199,6 +201,7 @@ $decoration-color: #60C7CD;
         font-size: .8rem;
         bottom: 2.4rem;
         right: -19%;
+        line-height: 1.4rem;
 
         &::after {
             border-top: .5rem solid rgb(255, 114, 114);

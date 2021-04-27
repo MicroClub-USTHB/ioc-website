@@ -9,7 +9,7 @@ import store from './redux/store';
 
 WebFont.load({
   google: {
-    families: ['Quicksand', 'Roboto', 'Lusitana', 'Rajdhani']
+    families: ['Quicksand', 'Tajawal']
   },
   custom: {
     families: ['overseer']
