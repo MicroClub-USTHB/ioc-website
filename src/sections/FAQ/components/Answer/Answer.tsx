@@ -4,7 +4,7 @@ import React from 'react';
 import answerStyle from './Answer.module.scss';
 
 // resources
-import answer1 from '../../../../resources/Answer1.png';
+import answer1 from '../../../../resources/Answer1-min.png';
 
 interface Props {
   answer: string
