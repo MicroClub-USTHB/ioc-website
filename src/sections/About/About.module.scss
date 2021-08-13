@@ -27,6 +27,7 @@ $main_color: #40CD7D;
         color: #8C8C8C20;
         left: -8vw;
         bottom: -1.6vw;
+        white-space: nowrap;
       }
 
       &::after {
@@ -142,8 +143,16 @@ $main_color: #40CD7D;
         height: 350px;
         margin: 5rem 0 2.5rem;
         background-color: $main_color;
+        height: fit-content;
+
+        & > img {
+          position: absolute;
+        }
+
         .top_description {
           font-size: 1rem;
+          position: relative;
+          padding: 2rem 0;
           & > h2 {
             margin-bottom: .9rem;
             font-size: 2rem;
@@ -154,9 +163,17 @@ $main_color: #40CD7D;
       & > .info_box_bottom {
         margin: 2.5rem 0 5rem;
         height: 400px;
+        height: fit-content;
         background-color: $main_color;
+
+        & > img {
+          position: absolute;
+        }
+
         .bottom_description {
           font-size: 1rem;
+          position: relative;
+          padding: 2rem 0;
           & > h2 {
             margin-bottom: .9rem;
             font-size: 2rem;

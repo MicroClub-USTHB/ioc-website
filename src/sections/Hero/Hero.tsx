@@ -13,7 +13,7 @@ import hero_image from '../../resources/HeroImage-min.png';
 
 // styles
 import heroStyle from './Hero.module.scss';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 
 interface LineProps {
   text: string

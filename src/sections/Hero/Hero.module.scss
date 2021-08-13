@@ -181,99 +181,30 @@ $secondary_color: #0D1B28;
 }
 
 /* popover */
-.popover_button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #0D1B28;
-  transition: color .1s ease;
 
-  &:hover {
-    color: $main_color;
-  }
-}
-
-.popover_container {
-  background-color: white;
-  padding: 2rem 2rem;
-  border-radius: 10px;
-  cursor: default;
-  box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
-  -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
-}
-
-.nav_list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-
-  & > li {
-    margin: .2vw 0;
+@media screen and (max-width: 425px) {
+  .navigation {
+    padding: 1.2rem 8vw 0;
   }
 
-  /* navigation button of popover */
-  .nav_button {
-    background-color: transparent;
-    border: none;
+  .main_container {
     display: flex;
-    cursor: pointer;
+    justify-content: center;
+    align-items: flex-end;
+  }
 
-    & > .nav_icon_container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4rem;
-      height: 4rem;
-      border-radius: 10px;
-      background-color: #E0E0E0;
+  .hero_image_container {
+    width: 13rem;
+    height: 13rem;
+    position: absolute;
 
-      & > svg {
-        width: 2.5rem;
-        height: 2.5rem;
-        color: #8C8C8C;
-      }
-    }
-
-    .nav_button_text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      height: 4rem;
-      margin-left: 1.5rem;
-
-      & > span {
-        font-size: 1.1rem;
-      }
-
-      & > span:nth-child(1) {
-        font-weight: 600;
-      }
-    }
-
-    &:hover {
-      & > .nav_icon_container {
-        background-color: #40CD7D40;
-
-        & > svg {
-          color: #309A5D;
-        }
-      }
-      
-      & > .nav_button_text {
-        & > span:nth-child(1) {
-          color: #309A5D;
-        }
-      }
+    &::after {
+      font-size: 3rem;
+      margin-bottom: 4rem;
     }
   }
 
-  /* signin form of popover */
-  .signin_form {
-    display: flex;
-    flex-direction: column;
+  .line {
+    width: 2rem;
   }
 }
