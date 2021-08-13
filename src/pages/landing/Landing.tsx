@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../../sections/About/About';
+import FAQ from '../../sections/FAQ/FAQ';
 import Hero from '../../sections/Hero/Hero';
 import Video from '../../sections/Video/Video';
 
@@ -14,7 +15,8 @@ const Landing: React.FC<Props> = () => {
     <main className={landingStyle.main_container}>
       {/* <Hero /> */}
       {/* <About /> */}
-      <Video />
+      {/* <Video /> */}
+      <FAQ />
     </main>
   );
 }
