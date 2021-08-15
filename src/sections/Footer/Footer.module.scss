@@ -1,0 +1,113 @@
+$secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$light_color: #E0E0E0;
+
+.footer_container {
+  min-height: 70vh;
+  width: 100vw;
+  padding: 10vw 10vw;
+  position: relative;
+}
+
+.card_container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $secondary_color;
+  overflow: hidden;
+
+  & > .dec1 {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    width: 25vw;
+  }
+
+  & > .dec2 {
+    position: absolute;
+    bottom: -.5rem;
+    right: -.5rem;
+    width: 25vw;
+  }
+}
+
+.content_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vw 7.6vw 5vw;
+  position: relative;
+  z-index: 2;
+
+  & > .title {
+    color: $main_color;
+    font-size: 8vw;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  & > .subTitles {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4vw;
+    & > h2 {
+      color: $light_color;
+      font-weight: 400;
+      & > a {
+        color: $main_color;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    & > a {
+      text-decoration: none;
+      & > h2 {
+        color: $light_color;
+        font-weight: 400;
+        transition: all .1s ease;
+      }
+      &:hover {
+        & > h2 {
+          color: $main_color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer_container {
+    min-height: fit-content;
+    padding: 3rem 8vw 5rem;
+  }
+
+  .card_container {
+    & > .dec1, & > .dec2 {
+      width: 14rem;
+    }
+  }
+
+  .content_container {
+    padding: 5rem 1.6rem 6rem;
+
+    & > .title {
+      font-size: 3rem;
+      white-space: normal;
+      text-align: center;
+    }
+
+    & > .subTitles {
+      font-size: .8rem;
+      margin-top: 2rem;
+
+      & > a {
+        text-align: right;
+      }
+    }
+  }
+}

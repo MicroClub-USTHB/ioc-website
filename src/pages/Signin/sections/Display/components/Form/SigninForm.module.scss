@@ -1,0 +1,107 @@
+$secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$error_color: #CD4040;
+$light_color: #E0E0E0;
+$dark_color: #8C8C8C;
+
+.input_list {
+  list-style: none;
+  margin: 0;
+  padding: 3rem 2.5rem;
+
+  & > li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 4.5rem;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-size: cover;
+      width: 18px;
+      height: 18px;
+      z-index: 2;
+      transform: translateX(15px);
+    }
+    
+    &:nth-child(1)::after {
+      background-image: url('../../../../../../resources/Input1-min.png');
+    }
+    
+    &:nth-child(2)::after {
+      background-image: url('../../../../../../resources/Input2-min.png');
+    }
+
+    & > .field {
+      background-color: $light_color;
+      padding: .8rem 1.2rem;
+      border: none;
+      border-radius: 30px;
+      padding-left: 3rem;
+
+      &:focus + .label {
+        color: $main_color;
+        transform: translateY(-38px);
+      }
+    }
+
+    & > .label {
+      color: $light_color;
+      position: absolute;
+      z-index: 2;
+      color: $dark_color;
+      font-size: 1.1rem;
+      margin-left: 3rem;
+      top: .55rem;
+      transition: all .1s ease;
+    }
+
+    & > .error {
+      color: $light_color;
+      position: absolute;
+      bottom: -1.7rem;
+      margin-left: 1.7rem;
+      &::before {
+        content: '!';
+        background-color: $light_color;
+        width: 1.2rem;
+        height: 1.2rem;
+        color: $secondary_color;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transform: translateX(-13px);
+      }
+    }
+
+  }
+}
+
+.label_values {
+  transform: translateY(-38px) !important;
+  color: $main_color !important;
+}
+
+.error_color {
+  color: $error_color !important;
+}
+
+.submit_button {
+  background-color: $main_color;
+  padding: .7rem 0;
+  border: none;
+  border-radius: 30px;
+  color: $secondary_color;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all .1s ease;
+  &:hover {
+    background-color: $light_color;
+    color: $secondary_color;
+    font-weight: 500;
+  }
+}
