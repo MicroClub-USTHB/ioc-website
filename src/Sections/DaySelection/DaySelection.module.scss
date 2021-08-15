@@ -1,0 +1,219 @@
+.container {
+    position: relative;
+    background-color: #767676;
+    display: block;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.containerAnimateContract {
+    animation: pulsateContract .4s ease;
+}
+
+.containerAnimateExpand {
+    animation: pulsateExpand .4s ease;
+}
+@media (min-width: 500px) {
+    @keyframes pulsateContract {
+        0% {
+            width: 19.5vw;
+        }
+        
+        100% {
+            width: 7.3vw;
+        }
+    }
+    
+    @keyframes pulsateExpand {
+        0% {
+            width: 8vw;
+        }
+        
+        100% {
+            width: 19.5vw;
+        }
+    }
+}
+    
+// Head
+
+.pageTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 3vw 1vw;
+    
+}
+
+.titleImage {
+    width: 5vw;
+    transition: .4s ease;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: quicksand;
+    color: white;
+    font-size: 1.5vw;
+    overflow: hidden;
+}
+
+.titleAppear {
+    animation: titleAppearAnimation .4s ease;
+}
+
+@keyframes titleAppearAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// Days
+.days {
+    margin: 1vw;
+}
+// Minimize
+
+.minimizeContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 2vw;
+    right: 1.3vw;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: tajawal;
+    line-height: 1.4vw;
+    font-size: 1.1vw;
+    cursor: pointer;
+    transition: .4s ease;
+    
+    &:hover > .minimizeText {
+        display: block;
+        color: #352E58;
+    }
+    
+    &:hover > .minimizeSymbol {
+        animation: slide 1.6s ease;
+        border-right-color: #352E58;
+    }
+}
+
+.minimizeSymbol {
+    border-top: .7vw solid transparent;
+    border-bottom: .7vw solid transparent;
+    border-right: .7vw solid white;
+    margin-right: 1vw;
+    position: relative;
+    overflow: hidden;
+    transition: border-right-color .2s ease;
+}
+
+.minimizeText {
+    color: white;
+    font-family: tajawal;
+    line-height: 1.4vw;
+    font-size: 1.1vw;
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    animation: appear 1.4s ease;
+    position: relative;
+    transition: color .2s ease;
+}
+
+
+
+@keyframes appear {
+    0% {
+        right: -100%;
+    }
+    
+    10% {
+        right: -100%;
+    }
+    
+    70% {
+        right: 0%;
+    }
+    
+    100% {
+        right: 0%;
+    }
+}
+
+@keyframes slide {
+    0% {
+        right: -72%;
+    }
+    
+    10% {
+        right: -72%;
+    }
+    
+    70% {
+        right: 0%;
+    }
+    
+    100% {
+        right: 0%;
+    }
+}
+
+@media (max-width: 500px) {
+    .titleImage {
+        width: 5rem;
+        margin: 1rem 1.5rem;
+    }
+
+    .title {
+        font-size: 1.3rem;
+        margin: 1rem 8.5rem 1rem 1.5rem;
+    }
+
+    .minimizeContainer {
+        bottom: .5rem;
+        right: 1.5rem;
+    }
+
+    .minimizeSymbol {
+        border-top: 1rem solid transparent;
+        border-bottom: 1rem solid transparent;
+        border-right: 1rem solid white;
+        margin-right: 3rem;
+    }
+
+    @keyframes pulsateContract {
+        from {
+            height: 100vw;
+        }
+        
+        to {
+            height: 5.5rem;
+        }
+    }
+    
+    @keyframes pulsateExpand {
+        from {
+            height: 5.5rem;
+        }
+        
+        to {
+            height: 100vh;
+        }
+    }
+
+    .days {
+        margin: 1rem 1.5rem;
+    }
+}

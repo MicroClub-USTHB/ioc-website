@@ -1,0 +1,143 @@
+.container {
+    width: 24.5vw;
+    height: 100vh;
+    background-color: #0D1B28;
+    animation: appear .3s ease;
+    position: relative;
+}
+
+.disappearAnimation {
+    animation: disappear .4s ease;
+}
+
+@media (min-width: 500px) {
+
+    
+    @keyframes disappear {
+        0% {
+            left: 0;
+        }
+        
+        100% {
+            left: -100%;
+        }
+    }
+    
+    @keyframes appear {
+        0% {
+            left: -100%;
+        }
+        
+        100% {
+            left: 0;
+        }
+    }   
+}
+
+
+// Head
+
+.header {
+    margin: 2.5vw 3vw 3.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.headerTextContainer {
+    margin-left: 2vw;
+}
+
+.headerDay {
+    font-family: quicksand;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.headerTitle {
+    font-family: tajawal;
+    line-height: 1.4vw;
+    font-size: 1.1vw;
+    color: white;
+    font-weight: 200;
+}
+
+// Story Section
+.storySection {
+    margin: 0 3vw;
+}
+
+.sectionTitle {
+    color: white;
+    font-family: quicksand;
+    text-transform: uppercase;
+    font-size: 1.6vw;
+}
+
+.storyContent {
+    margin-top: 1vw;
+    color: white;
+    font-family: tajawal;
+    line-height: 1.4vw;
+    font-size: .9vw;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 500px) {
+    .container {
+        height: fit-content;
+        width: calc(100vw - 4rem);
+        padding: 2rem 2rem;
+    }
+
+    // Head
+    .header {
+        margin: 0;
+    }
+
+    .headerTextContainer {
+        margin-left: 2rem;
+    }
+
+    .headerDay {
+        font-size: 1.6rem;
+    }
+
+    .headerTitle {
+        font-size: 1.1rem;
+    }
+
+    // Story Section
+    .storySection {
+        margin: 2rem 0;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .storyContent {
+        font-size: 1.1rem;
+        text-align: justify;
+        line-height: 1.4rem;
+    }
+
+    @keyframes disappear {
+        0% {
+            top: 0;
+        }
+        
+        100% {
+            top: -100%;
+        }
+    }
+    
+    @keyframes appear {
+        0% {
+            top: -100%;
+        }
+        
+        100% {
+            top: 0;
+        }
+    }   
+}

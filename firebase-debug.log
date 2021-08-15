@@ -1,0 +1,24 @@
+[debug] [2021-04-11T07:22:00.644Z] ----------------------------------------------------------------------
+[debug] [2021-04-11T07:22:00.646Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pc-click\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js hosting:channel:open
+[debug] [2021-04-11T07:22:00.646Z] CLI Version:   9.9.0
+[debug] [2021-04-11T07:22:00.646Z] Platform:      win32
+[debug] [2021-04-11T07:22:00.646Z] Node Version:  v12.16.1
+[debug] [2021-04-11T07:22:00.648Z] Time:          Sun Apr 11 2021 09:22:00 GMT+0200 (Central European Summer Time)
+[debug] [2021-04-11T07:22:00.649Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-11T07:22:00.663Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-11T07:22:00.663Z] > authorizing via signed-in user (nidhal.bouzara@gmail.com)
+[debug] [2021-04-11T07:22:00.663Z] [iam] checking project ioc-website for permissions ["firebase.projects.get","firebasehosting.sites.get"]
+[debug] [2021-04-11T07:22:00.667Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ioc-website:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2021-04-11T07:22:03.188Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 11 Apr 2021 07:22:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=614","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-11T07:22:03.190Z] > refreshing access token with scopes: []
+[debug] [2021-04-11T07:22:03.191Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-11T07:22:03.491Z] <<< HTTP RESPONSE 200 {"date":"Sun, 11 Apr 2021 07:22:03 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-11T07:22:03.509Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ioc-website [none]
+[debug] [2021-04-11T07:22:03.896Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ioc-website 200
+[debug] [2021-04-11T07:22:03.896Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ioc-website {"projectId":"ioc-website","projectNumber":"1022206627398","displayName":"IOC-Website","name":"projects/ioc-website","resources":{"hostingSite":"ioc-website","storageBucket":"ioc-website.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2021-04-11T07:22:03.898Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/ioc-website/sites/ioc-website/channels pageToken=&pageSize=10
+[debug] [2021-04-11T07:22:04.870Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/ioc-website/sites/ioc-website/channels 200
+[debug] [2021-04-11T07:22:04.870Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/ioc-website/sites/ioc-website/channels {"channels":[{"name":"projects/1022206627398/sites/ioc-website/channels/live","url":"https://ioc-website.web.app","createTime":"2021-03-30T11:11:18.707750530Z","updateTime":"2021-03-30T11:11:18.707750530Z","retainedReleaseCount":2147483647}]}

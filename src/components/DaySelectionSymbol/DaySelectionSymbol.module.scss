@@ -1,0 +1,67 @@
+.dayCircle {
+    width: 3vw;
+    height: 3vw;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.romanOne {
+    margin: 0 .15vw;
+    height: 50%;
+    width: 3px;
+    background-color: white;
+}
+
+.romanFive {
+    height: 50%;
+    width: .6vw;
+    margin: 0 .18vw;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 105%;
+        width: 3px;
+        background-color: white;
+        transform: rotateZ(-15deg);
+        border-bottom-left-radius: 5px;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        height: 105%;
+        width: 3px;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: .45vw;
+        transform: rotateZ(15deg);
+        border-bottom-right-radius: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .dayCircle {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .romanOne {
+        margin: 0 .1rem;
+    }
+
+    .romanFive {
+        width: .6rem;
+        margin: 0 .3rem;
+
+        &::after {
+            left: .45rem;
+        }
+    }
+}

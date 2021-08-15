@@ -1,0 +1,217 @@
+$brand-color: #6927FF;
+$secondary-strong: #666666;
+$main-font: 'Tajawal', sans-serif;
+$decoration-color: #60C7CD;
+
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+//Form and inputs
+
+.form {
+    position: relative;
+    width: 100%;
+    z-index: 120;
+}
+
+.inputDiv {
+    position: relative;
+    margin-top: 2vw;
+    width: 100%;
+
+    & > input {
+        position: relative;
+        width: 100%;
+        font-size: .9vw;
+        border: none;
+        border-bottom: .5px solid rgba($color: #ffffff, $alpha: .3);
+        border-radius: 0;
+        background-color: transparent;
+        outline: none;
+        padding: .3vw .5vw .3vw;
+        padding-bottom: .3vw;
+        color: whitesmoke;
+        font-family: tajawal;
+        line-height: 1.4vw;
+    }
+
+    & > label {
+        color: whitesmoke;
+        opacity: .7;
+        position: absolute;
+        top: .35vw;
+        left: 1.7vw;
+        pointer-events: none;
+        transition: all .3s ease;
+    }
+
+    & > span {
+        color: whitesmoke;
+        position: absolute;
+        top: .35vw;
+        left: .3rem;
+        transition: all .3s ease;
+        pointer-events: none;
+    }
+
+    & > input:focus ~ label {
+        top: -1vw;
+        opacity: 1;
+    }
+
+    & > input:focus ~ span {
+        top: -1vw;
+    }
+}
+
+.decoration {
+    height: 2px;
+    background-color: whitesmoke;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.errorIndicator {
+    width: 1vw;
+    height: 1vw;
+    background-color: rgb(255, 114, 114);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    border-radius: 50%;
+    position: absolute;
+    top: .35vw;
+    right: -2.7vw;
+    cursor: default;
+
+    &:hover ~ .errorContainer {
+        display: block;
+    }
+}
+
+.errorContainer {
+    width: 70%;
+    padding: .5vw;
+    position: absolute;
+    font-size: .8vw;
+    font-family: tajawal;
+    line-height: 1.4vw;
+    bottom: 2vw;
+    right: -20%;
+    border-radius: 5px;
+    background-color: rgb(255, 114, 114);
+    color: whitesmoke;
+    display: none;
+    animation: appear .1s ease;
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: .5vw solid rgb(255, 114, 114);
+        border-right: .5vw solid transparent;
+        border-left: .5vw solid transparent;
+        position: absolute;
+        bottom: -.3vw;
+        right: 0px;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.inputDiv > input:focus ~ .decoration {
+    width: calc(105% + 6px);
+    opacity: 1;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.buttonContainer > button {
+    padding: .8rem 1.2rem;
+    font-family: $main-font;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .2s ease;
+     background-color: whitesmoke;
+}
+
+.buttonContainer > button:hover {
+    background-color: #608158;
+    color: whitesmoke;
+}
+
+@media (max-width: 500px) {
+    .inputDiv {
+        margin-top: 2rem;
+
+        & > input {
+            font-size: 1.2rem;
+            padding: .3rem .5rem .3rem;
+            padding-bottom: .3rem;
+            margin-top: .3rem;
+        }
+
+        & > label {
+            top: .45rem;
+            left: 1.8rem;
+        }
+
+        & > span {
+            top: .4rem;
+        }
+
+        & > input:focus ~ label {
+            top: -1rem;
+        }
+
+        & > input:focus ~ span {
+            top: -1rem;
+        }
+    }
+
+    .errorIndicator {
+        width: 1.3rem;
+        height: 1.3rem;
+        top: .75rem;
+        right: -2.9rem;
+    }
+
+    .errorContainer {
+        padding: .5rem;
+        font-size: .8rem;
+        bottom: 2.4rem;
+        right: -19%;
+        line-height: 1.4rem;
+
+        &::after {
+            border-top: .5rem solid rgb(255, 114, 114);
+            border-right: .5rem solid transparent;
+            border-left: .5rem solid transparent;
+            bottom: -.3rem;
+        }
+    }
+
+    .buttonContainer {
+        margin-bottom: 2rem;
+    }
+}

@@ -1,0 +1,83 @@
+.section {
+    position: relative;
+    top: -10vw;
+    margin-bottom: 8vw;
+}
+
+.titleContent {
+    margin: 0 15vw;
+    width: 35%;
+}
+
+.title {
+    color: #cfcfcf;
+    font-family: quicksand;
+    font-weight: 400;
+    font-size: 2vw;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.description {
+    font-family: tajawal;
+    color: #cfcfcf;
+    font-size: 1.1vw;
+    line-height: 1.4vw;
+}
+
+// info boxes
+.infoList {
+    margin: 0 15vw;
+}
+
+// decorations
+.lineDec {
+    opacity: .15;
+    position: absolute;
+    width: 13vw;
+}
+
+.lineDecLeft {
+    transform: rotateY(180deg);
+    left: -5vw;
+    top: 40vw;
+    width: 13vw;
+}
+
+.lineDecRight {
+    right: 0;
+    width: 13vw;
+}
+
+.decorationRect {
+    &:nth-last-of-type(1) {
+        left: 8vw;
+    }
+
+    &:nth-last-of-type(2) {
+        right: 6vw;
+        bottom: 6vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .titleContent {
+        width: 100%;
+        margin: 0 7vw;
+    }
+
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        width: calc(100% - 14vw);
+        line-height: 1.4rem;
+    }
+
+    .infoList {
+        width: calc(100% - 14vw - 16px);
+        margin: 0 7vw;
+    }
+}

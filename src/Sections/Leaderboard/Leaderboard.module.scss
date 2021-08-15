@@ -1,0 +1,78 @@
+.section {
+    width: 40vw;
+    height: 70vh;
+    padding: 15vh 5vw;
+    position: relative;
+}
+
+.lineDecoration {
+    height: .5vw;
+    width: 100%;
+    background-color: #0D1B28;
+}
+
+.lineTrophy {
+    position: absolute;
+    font-size: 3vw;
+    top: -590%;
+    right: 0;
+    color: #0D1B28;
+}
+
+.sectionHeader {
+    position: relative;
+}
+
+.subSectionTitle {
+    font-family: tajawal;
+    line-height: 1.4vw;
+    color: #0D1B28;
+    font-size: 1.4vw;
+    text-transform: uppercase;
+}
+
+// Leaderboard Table
+.leaderboardTable {
+    display: flex;
+    flex-direction: column;
+    font-family: tajawal;
+    line-height: 1.4vw;
+    font-size: .9vw;
+    position: relative;
+    left: -2.3vw;
+}
+
+.rowDividor {
+    margin: .3vw 0;
+}
+
+@media (max-width: 500px) {
+    .section {
+        width: 90vw;
+        height: fit-content;
+        padding: 6rem 5vw;
+    }
+
+    .lineDecoration {
+        height: .25rem;
+    }
+
+    .lineTrophy {
+        font-size: 2rem;
+        top: -2rem;
+    }
+
+    .subSectionTitle {
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+    }
+
+    .leaderboardTable {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+
+    .rowDividor {
+        margin: .3rem 0;
+    }
+}

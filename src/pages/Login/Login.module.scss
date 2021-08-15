@@ -1,0 +1,428 @@
+/* Variables */
+$brand-color: #6927FF;
+$secondary-strong: #666666;
+$main-font: 'Tajawal', sans-serif;
+$decoration-color: #AAAAAA;
+
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    // background-image: url(../images/signinBackground.jpg);
+    background-color: #00003E;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.mainContainer::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #6927ff, $alpha: .8);
+    z-index: -2;
+}
+
+.mainContainer::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #ffffff, $alpha: .7);
+    z-index: -1;
+}
+
+.bgImageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::after {
+        content: '';
+        display: block;
+        height: 110%;
+        width: 110%;
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        background-color: rgba($color: #0D1B28, $alpha: .6);
+        z-index: 1;
+    }
+    & > .bgImage {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        filter: blur(32px);
+        transform: scale(1.1);
+    }
+}
+
+.cardContainer {
+    width: 20vw;
+    height: 30vw;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0D1B28;
+    // background-image: linear-gradient(to bottom, #608158, #273423);
+    font-family: $main-font;
+    z-index: 2;
+}
+
+// Card contents
+
+.mainIconContainer {
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    margin-top: 2rem;
+}
+
+.spinner {
+    font-size: 2.5vw;
+    color: #00003E;
+    animation: spin 2s linear infinite;
+    margin: 1.25vw;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mainIcon {
+    margin: 1.5vw;
+    font-size: 2vw;
+    color: #00003E;
+    transition: all .2s ease;
+}
+
+.mainIconContainer:hover > .mainIcon {
+    color: $decoration-color;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+//Form and inputs
+
+.form {
+    position: relative;
+    width: 80%;
+}
+
+.inputDiv {
+    position: relative;
+    margin-top: 2vw;
+    width: 100%;
+}
+
+.inputDiv > input {
+    position: relative;
+    width: 100%;
+    font-size: .9vw;
+    border: none;
+    border-bottom: .5px solid rgba($color: #ffffff, $alpha: .3);
+    border-radius: 0;
+    background-color: transparent;
+    outline: none;
+    padding-bottom: .3vw;
+    color: white;
+}
+
+.inputDiv > label {
+    color: whitesmoke;
+    opacity: .7;
+    position: absolute;
+    top: .1vw;
+    left: 1.7vw;
+    pointer-events: none;
+    transition: all .4s ease;
+}
+
+.inputDiv > input:focus ~ label {
+    top: -1vw;
+    top: -1rem;
+    opacity: 1;
+}
+
+.inputDiv > span {
+    color: whitesmoke;
+    position: absolute;
+    top: .05vw;
+    left: .3rem;
+    transition: all .4s ease;
+    pointer-events: none;
+}
+
+.inputDiv > input:focus ~ span {
+    top: -1vw;
+}
+
+.decoration {
+    height: 2px;
+    background-color: whitesmoke;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.inputDiv > input:focus ~ .decoration {
+    width: calc(100% + 4px);
+    opacity: 1;
+}
+
+.errorIndicator {
+    width: 1vw;
+    height: 1vw;
+    background-color: rgb(255, 114, 114);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    border-radius: 50%;
+    position: absolute;
+    top: .2vw;
+    right: -1.6vw;
+    cursor: default;
+
+    &:hover ~ .errorContainer {
+        display: block;
+    }
+}
+
+.errorContainer {
+    width: 70%;
+    padding: .5vw;
+    position: absolute;
+    font-size: .8vw;
+    font-family: tajawal;
+    bottom: 2vw;
+    right: -10%;
+    border-radius: 5px;
+    background-color: rgb(255, 114, 114);
+    color: whitesmoke;
+    display: none;
+    animation: appear .1s ease;
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: .5vw solid rgb(255, 114, 114);
+        border-right: .5vw solid transparent;
+        border-left: .5vw solid transparent;
+        position: absolute;
+        bottom: -.3vw;
+        right: 0px;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+// Checkbox
+
+.checkboxDiv {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkboxDiv > input{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    position: absolute;
+    left: 2px;
+    width: 1.21rem;
+    height: 1.2rem;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    transition: all .2s ease;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.checkbox::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: .3rem;
+    height: .7rem;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-radius: 3px;
+    opacity: 1;
+    transform: rotateZ(120deg);
+    transition: all .2s ease;
+}
+
+.checkboxDiv > input:checked ~ .checkbox {
+    background-color: whitesmoke;
+}
+
+.checkboxDiv > input:checked ~ .checkbox::after {
+    border-bottom: 3px solid #608158;
+    border-right: 3px solid #608158;
+    transform: rotateZ(45deg);
+}
+
+.checkboxDiv > label {
+    color: whitesmoke;
+    margin-left: .8rem;
+    font-size: .8rem;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.buttonContainer > button {
+    padding: .8rem 1.2rem;
+    font-family: $main-font;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .2s ease;
+     background-color: whitesmoke;
+}
+
+.buttonContainer > button:hover {
+    background-color: $decoration-color;
+    color: whitesmoke;
+}
+
+.recovery{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.recovery > * {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: .8rem;
+    transition: all .15s ease;
+    font-weight: 300;
+}
+
+.recovery > *:hover {
+    color: $decoration-color;
+}
+
+.signupCTA {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.signupCTA > * {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: 400;
+    transition: all .15s ease;
+    font-weight: 400;
+}
+
+.signupCTA > *:hover {
+    color: $decoration-color;
+}
+
+@media (max-width: 500px) {
+    .bgImage {
+        width: auto !important;
+        height: 100%;
+    }
+
+    .cardContainer {
+        width: 25rem;
+        height: 35rem;
+    }
+
+    .spinner {
+        font-size: 2.3rem;
+    }
+
+    .mainIcon {
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .inputDiv {
+        margin-top: 2rem;
+
+        & > input {
+            font-size: .9rem;
+            padding-bottom: .3rem;
+        }
+
+        & > label {
+            left: 1.7rem;
+        }
+    }
+
+    .errorIndicator {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .errorContainer {
+        padding: .5rem;
+        font-size: .8rem;
+        bottom: 2rem;
+        right: -2%;
+    }
+
+    .inputDiv > input:focus ~ label {
+        top: -1.2rem;
+    }
+
+    .inputDiv > input:focus ~ span {
+        top: -1.2rem;
+    }
+}
