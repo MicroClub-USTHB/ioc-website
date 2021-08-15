@@ -38,6 +38,8 @@ const SigninForm = () => {
         responseType: 'json'
       });
       const user_data: SignInResponse = res.data;
+      console.log('this is user data: ', user_data);
+      
     } catch (err) {
       console.log('this is error: ', err);
     }
