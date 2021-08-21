@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import NavButton from './components/NavButton/NavButton';
 import Challenge from './Sections/Challenge/Challenge';
 import { RouteComponentProps } from 'react-router-dom';
+import { useGetDaysQuery } from '../../redux/api/backend';
 
 // styles
 import challengesStyle from './Challenges.module.scss';
@@ -11,10 +12,8 @@ import logo from '../../resources/Challenges-min.png';
 import { UilDashboard, UilEstate } from '@iconscout/react-unicons'
 
 const Challenges = (props: RouteComponentProps) => {
-  useEffect(() => {
-    // TODO: Create a rtkq endpoint and use it here.
-  }, []);
-
+  const {data, isLoading} = useGetDaysQuery(null);
+  
   return (
     <main className={challengesStyle.outer_container}>
       {/* left navigation bar */}
@@ -25,27 +24,14 @@ const Challenges = (props: RouteComponentProps) => {
         </div>
         <div>
           <ul className={challengesStyle.challenges_list}>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="1" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="2" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="3" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="4" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="5" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="6" />
-            </li>
-            <li>
-              <NavButton title="Marcos Marlos" iconReplacement="7" />
-            </li>
+            {
+              isLoading ? <li>Loading...</li> :
+              data?.map((day, index) => (
+                <li key={day._id}>
+                  <NavButton title={`Day ${index + 1}`} iconReplacement={(index + 1).toString()} />
+                </li>
+              ))
+            }
           </ul>
           <hr className={challengesStyle.divider} />
           <ul className={challengesStyle.navigation_list}>

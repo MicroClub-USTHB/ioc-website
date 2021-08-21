@@ -5,7 +5,7 @@ import {
   Form,
   FormikHelpers,
 } from 'formik';
-import { api, useSignInMutation } from '../../../../../../redux/api/backend';
+import { api, usePrefetch, useSignInMutation } from '../../../../../../redux/api/backend';
 import FormControl from '../../../../../../common/Formik/FormControl';
 import ErrorDisplay from '../../../../../../common/Formik/ErrorDisplay/ErrorDisplay';
 import { useDispatch } from 'react-redux';
@@ -22,6 +22,7 @@ const SigninForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [ signIn ] = useSignInMutation();
+  const prefetchChallenges = usePrefetch('getDays');
   const initial_values: SignInValues = {
     email: '',
     password: '',
@@ -36,6 +37,7 @@ const SigninForm = () => {
     try {
       const res = await signIn(values);
       if (res.hasOwnProperty('data')) {
+        prefetchChallenges(null);
         const res_data_user = (res as { data: SignInResponse }).data.user;
         dispatch( api.util.updateQueryData('getUserData', null, state => { state = res_data_user; }) );
         history.push('/challenges');

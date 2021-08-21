@@ -5,11 +5,11 @@ export interface User {
   score: number
   challenges: Array<{
     main: {
-      completed: Date | string
+      completed: string | string
       correct_answer?: string
     }
     side: {
-      completed: Date | string
+      completed: string | string
       correct_answer?: string
     }
   }>
