@@ -8,7 +8,7 @@ import {
 
 
 // pages
-import Landing from './pages/landing/Landing';
+import Landing from './pages/Landing/Landing';
 import Signin from './pages/Signin/Signin';
 import Signup from './pages/Signup/Signup';
 import store from './redux/store';
