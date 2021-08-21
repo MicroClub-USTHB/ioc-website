@@ -57,6 +57,7 @@ $dark_color: #8C8C8C;
       margin-left: 3rem;
       top: .55rem;
       transition: all .1s ease;
+      pointer-events: none;
     }
 
     & > .error {

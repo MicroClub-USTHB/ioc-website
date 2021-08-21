@@ -14,6 +14,7 @@ import hero_image from '../../resources/HeroImage-min.png';
 // styles
 import heroStyle from './Hero.module.scss';
 import Navigation from './components/Navigation/Navigation';
+import { useRef } from 'react';
 
 interface LineProps {
   text: string
@@ -29,8 +30,9 @@ const LineText: React.FC<LineProps> = ({text}) => {
 }
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
   return (
-    <section>
+    <section ref={sectionRef}>
       <div className={heroStyle.navigation}>
         <Link to="/">Impact of Code</Link>
         <div className={heroStyle.nav}>
@@ -51,17 +53,19 @@ const Hero = () => {
       </div>
       <div className={heroStyle.main_container}>
         <div className={`${heroStyle.hero_nav} ${heroStyle.first_nav}`}>
-          <LineText text="Get Started" />
+          <Link to="/signin"><LineText text="Get Started" /></Link>
         </div>
         <div  className={heroStyle.hero_image_container}>
           <img src={hero_image} alt="Explorer" />
           <div className={heroStyle.decoration}></div>
           <div className={heroStyle.image_bottom_text}>
-            <LineText text="Learn More"/>
+            <button onClick={(e) => {
+              window.scrollBy({top: sectionRef.current !== null? sectionRef.current.offsetHeight : window.innerHeight, behavior: 'smooth'});
+            }}><LineText text="Learn More"/></button>
           </div>
         </div>
         <div className={`${heroStyle.hero_nav} ${heroStyle.second_nav}`}>
-          <LineText text="Micro Club" />
+          <a href="https://microclub.net/"><LineText text="Micro Club" /></a>
         </div>
       </div>
     </section>

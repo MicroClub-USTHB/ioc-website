@@ -1,0 +1,52 @@
+$secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$light_color: #E0E0E0;
+
+.outer_container {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: $light_color;
+}
+
+.navigation {
+  width: 21rem;
+  background-color: $main_color;
+  position: relative;
+}
+
+.header {
+  margin: 2rem 1rem;
+  display: flex;
+  align-items: center;
+
+  & > .logo {
+    height: 5rem;
+    width: auto;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+}
+
+.challenges_list {
+  list-style: none;
+  padding: 0;
+}
+
+.divider {
+  border: 1px solid $secondary_color;
+  width: 90%;
+  position: relative;
+  left: -2rem;
+  margin: 2.1rem 0;
+  display: flex;
+}
+
+.navigation_list {
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+}
