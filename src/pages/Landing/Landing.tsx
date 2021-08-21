@@ -1,10 +1,10 @@
 import React from 'react';
-import About from '../../sections/About/About';
-import FAQ from '../../sections/FAQ/FAQ';
-import Footer from '../../sections/Footer/Footer';
-import Hero from '../../sections/Hero/Hero';
-import Numbers from '../../sections/Numbers/Numbers';
-import Video from '../../sections/Video/Video';
+import About from '../../Sections/About/About';
+import FAQ from '../../Sections/FAQ/FAQ';
+import Footer from '../../Sections/Footer/Footer';
+import Hero from '../../Sections/Hero/Hero';
+import Numbers from '../../Sections/Numbers/Numbers';
+import Video from '../../Sections/Video/Video';
 
 // styles
 import landingStyle from './Landing.module.scss';
