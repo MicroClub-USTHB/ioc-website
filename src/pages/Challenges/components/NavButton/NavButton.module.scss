@@ -6,46 +6,114 @@ $light_color: #E0E0E0;
   background-color: transparent;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: none;
   cursor: pointer;
   padding: .3rem 2.4rem;
   transition: all .1s ease;
   width: 90%;
 
-  & > .icon_container {
-    background-color: $secondary_color;
-    color: $light_color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .2rem .7rem;
-    border-radius: 5px;
-    transition: all .1s ease;
-
-    & > svg {
-      height: 1.2rem;
-      stroke-width: 1px;
-    }
-  }
-
-  & > .with_icon_container {
-    padding: .3rem .2rem;
-  }
-
-  & > .title {
-    margin-left: 1rem;
-    font-weight: 500;
-    font-size: 1.05rem;
-    text-align: left;
-
-  }
-
   &:hover {
     background-color: #309A5D;
-
-    & > .icon_container {
+  
+    & > div > .icon_container {
       color: $secondary_color;
       background-color: $light_color;
     }
   }
+}
+
+.left_content {
+  display: flex;
+  align-items: center;
+}
+
+.icon_container {
+  background-color: $secondary_color;
+  color: $light_color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .2rem .7rem;
+  border-radius: 5px;
+  transition: all .1s ease;
+
+  & > svg {
+    height: 1.2rem;
+    stroke-width: 1px;
+  }
+}
+
+.with_icon_container {
+  padding: .3rem .2rem;
+}
+
+.title {
+  margin-left: 1rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.indicator {
+  font-weight: 600;
+}
+
+.indicator_active {
+  transform: rotateZ(90deg);
+  animation: whoop .2s ease;
+}
+
+.indicator_active_remove {
+  animation: whaap .2s ease;
+}
+
+@keyframes whoop {
+  from {
+    transform: rotateZ(0);
+  } to {
+    transform: rotateZ(90deg);
+  }
+}
+
+@keyframes whaap {
+  from {
+    transform: rotateZ(90deg);
+  } to {
+    transform: rotateZ(0);
+  }
+}
+
+// list
+.nav_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform-origin: top;
+  position: relative;
+
+  & > li {
+    position: relative;
+    width: 90%;
+    padding: .2rem 0 .2rem 5.4rem;
+  }
+
+  & > li > a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+  }
+
+  & > li:hover {
+    background-color: $light_color;
+  }
+}
+
+.list_expand :global {
+  animation: expand .1s linear;
+}
+
+.list_retract :global {
+  animation: retract .1s linear;
 }

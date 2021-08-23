@@ -21,7 +21,9 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact component={Landing} />
           <Route path="/signin" exact component={Signin} />
+          <Route path="/login" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
+          <Route path="/register" exact component={Signup} />
           <Route path="/challenges" component={Challenges} />
         </Switch>
       </Router>

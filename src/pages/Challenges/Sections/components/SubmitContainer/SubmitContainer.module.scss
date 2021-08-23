@@ -1,0 +1,122 @@
+$secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$light_color: #E0E0E0;
+$dark_color: #8C8C8C;
+
+.submit_container {
+  background-color: white;
+  margin: 0 3rem 3rem;
+  position: relative;
+  border-radius: 15px;
+  
+  & > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .title_container {
+      margin: 2rem 3rem 1rem;
+    }
+  }
+
+  .input_list {
+    list-style: none;
+    margin: 0 2.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    & > li {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+
+      &:nth-child(1) {
+        width: 70%;
+        margin-right: 2rem;
+      }
+
+      &:nth-child(2) > button {
+        background-color: $light_color;
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all .1s ease;
+        &:hover {
+          background-color: $secondary_color;
+          color: $light_color;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-size: cover;
+        width: 18px;
+        height: 18px;
+        z-index: 2;
+        transform: translateX(15px);
+      }
+
+      &:nth-child(1)::after {
+        background-color: url('../../../../../resources/Input1-min.png');
+      }
+    }
+  }
+}
+
+.title_container {
+  margin: 4rem 4rem 2rem;
+  & > .title_number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary_color;
+    color: white;
+    padding: 0 .7rem;
+    border-radius: 5px;
+    font-weight: 400;
+  }
+  & > .title_icon {
+    padding: .3rem .7rem;
+  }
+  & > .title {
+    margin-left: 1rem;
+  }
+}
+
+.field {
+  background-color: $light_color;
+  padding: .8rem 1.2rem;
+  border: none;
+  border-radius: 30px;
+  padding-left: 3rem;
+  &:focus + .label {
+    color: $main_color;
+    transform: translateY(-38px);
+  }
+}
+
+.error {
+  color: #B50A07;
+  position: absolute;
+  bottom: -1.7rem;
+  margin-left: 1.7rem;
+  &::before {
+    content: '!';
+    background-color: #B50A07;
+    width: 1.2rem;
+    height: 1.2rem;
+    color: $light_color;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transform: translateX(-13px);
+  }
+}
