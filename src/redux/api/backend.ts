@@ -51,6 +51,18 @@ export const api = createApi({
         }
       }),
     }),
+    /* Reauthenticate */
+    reAuthenticate: builder.query<{token: string}, null>({
+      query: () => ({
+        url: 'reauthenticate',
+      }),
+      transformResponse: (response: { token: string }) => {
+        if (response.token) {
+          localStorage.setItem('Authorization', response.token);
+        }
+        return response;
+      }
+    }),
     /* CHALLENGES & DAYS */
     getDays: builder.query<Array<Day>, null>({
       query: () => ({
@@ -65,6 +77,7 @@ export const {
   useSignInMutation,
   useSignUpMutation,
   useGetUserDataQuery,
+  useReAuthenticateQuery,
   useGetDaysQuery,
-  usePrefetch
+  usePrefetch,
 } = api;
