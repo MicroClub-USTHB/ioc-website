@@ -12,7 +12,8 @@ export const api = createApi({
         headers.set('Authorization', token_from_storage);
       }
       return headers;
-    }
+    },
+    credentials: 'include'
   }),
   endpoints: builder => ({
     /* AUTH ENDPINTS */
