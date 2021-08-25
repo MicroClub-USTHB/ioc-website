@@ -50,3 +50,21 @@ $light_color: #E0E0E0;
   margin: 0;
   padding: 0; 
 }
+
+.loader_container {
+  width: calc(100% - 21rem);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > div {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+.loading_list_indicator {
+  margin-left: 2.6rem;
+  font-size: 1.2rem;
+}

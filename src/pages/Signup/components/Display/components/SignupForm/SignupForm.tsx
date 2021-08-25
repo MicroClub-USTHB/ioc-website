@@ -1,6 +1,5 @@
 import React from 'react';
-import { api, useSignUpMutation } from '../../../../../../redux/api/backend';
-import { useDispatch } from 'react-redux';
+import { usePrefetch, useSignUpMutation } from '../../../../../../redux/api/backend';
 
 // Formik
 import { Form, Formik, FormikHelpers } from 'formik';
@@ -15,11 +14,12 @@ import { SignUpResponse, SignUpValues } from '../../../../../../types/User';
 import formStyle from './SignupForm.module.scss';
 import { useHistory } from 'react-router-dom';
 import { ValidationError } from '../../../../../../types/http';
+import Spinner from '../../../../../../common/Spinner/Spinner';
 
 const SignupForm = () => {
-  const dispatch = useDispatch();
   const history = useHistory();
-  const [ signUp ] = useSignUpMutation();
+  const [ signUp, { isLoading } ] = useSignUpMutation();
+  const prefetchReAuthenticate = usePrefetch('reAuthenticate');
   const initial_values: SignUpValues = {
     email: '',
     name: '',
@@ -40,8 +40,8 @@ const SignupForm = () => {
       // for an idea of what's happening below check out the handleSubmit function in SigninForm component
       if (res.hasOwnProperty('data')) {
         const res_data = (res as { data: SignUpResponse } ).data;
-        if (res_data.hasOwnProperty('user')) {
-          dispatch( api.util.updateQueryData('getUserData', null, state => { state = res_data.user!; }) );
+        if (res_data.hasOwnProperty('token')) {
+          prefetchReAuthenticate(null);
           history.push('/challenges');
         } else {
           history.push('/signin');
@@ -118,7 +118,7 @@ const SignupForm = () => {
                   />
                 </li>
                 <li>
-                  <button className={formStyle.submit_button}>Sign In</button>
+                  <button className={formStyle.submit_button}>{!isLoading ? 'Sign Up' : <Spinner />}</button>
                 </li>
               </ul>
             </Form>

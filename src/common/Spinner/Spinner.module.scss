@@ -1,0 +1,22 @@
+$secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$error_color: #CD4040;
+$light_color: #E0E0E0;
+$dark_color: #8C8C8C;
+
+.loader {
+  border: 4px solid $light_color; /* Light grey */
+  border-top: 4px solid $secondary_color; /* Blue */
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateZ(0);
+  } to {
+    transform: rotateZ(360deg);
+  }
+}

@@ -108,6 +108,9 @@ $dark_color: #8C8C8C;
   font-size: 1.3rem;
   cursor: pointer;
   transition: all .1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     background-color: $light_color;
     color: $secondary_color;

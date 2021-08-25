@@ -5,11 +5,12 @@ import {
   Form,
   FormikHelpers,
 } from 'formik';
-import { api, usePrefetch, useSignInMutation } from '../../../../../../redux/api/backend';
+import { api, usePrefetch, useReAuthenticateQuery, useSignInMutation } from '../../../../../../redux/api/backend';
 import FormControl from '../../../../../../common/Formik/FormControl';
 import ErrorDisplay from '../../../../../../common/Formik/ErrorDisplay/ErrorDisplay';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import Spinner from '../../../../../../common/Spinner/Spinner';
 
 // styles
 import formStyle from './SigninForm.module.scss';
@@ -21,8 +22,10 @@ import { ValidationError } from '../../../../../../types/http';
 const SigninForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [ signIn ] = useSignInMutation();
+  const [ signIn, { isLoading } ] = useSignInMutation();
+  const { data: token, isLoading: refreshTokenLoading } = useReAuthenticateQuery(null);
   const prefetchChallenges = usePrefetch('getDays');
+  const prefetchRefreshToken = usePrefetch('reAuthenticate');
   const initial_values: SignInValues = {
     email: '',
     password: '',
@@ -38,6 +41,7 @@ const SigninForm = () => {
       const res = await signIn(values);
       if (res.hasOwnProperty('data')) {
         prefetchChallenges(null);
+        prefetchRefreshToken(null);
         const res_data_user = (res as { data: SignInResponse }).data.user;
         dispatch( api.util.updateQueryData('getUserData', null, state => { state = res_data_user; }) );
         history.push('/challenges');
@@ -56,6 +60,10 @@ const SigninForm = () => {
     } catch (err) {
       // needs error handling logic
     }
+  }
+
+  if(token) {
+    return <Redirect to="/challenges" />
   }
   return (
     <Formik
@@ -92,7 +100,7 @@ const SigninForm = () => {
                   />
                 </li>
                 <li>
-                  <button className={formStyle.submit_button}>Sign In</button>
+                  <button disabled={isLoading} className={formStyle.submit_button}>{ !isLoading ? 'Sign In' : <Spinner />}</button>
                 </li>
               </ul>
             </Form>

@@ -6,6 +6,7 @@ export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://ioc-backend.herokuapp.com/',
+    // baseUrl: 'http://localhost:4242/',
     prepareHeaders: (headers, {getState}) => {
       const token_from_storage = localStorage.getItem('Authorization');
       if (token_from_storage) {
