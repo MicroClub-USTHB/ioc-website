@@ -5,11 +5,11 @@ import {
   Form,
   FormikHelpers,
 } from 'formik';
-import { api, usePrefetch, useReAuthenticateQuery, useSignInMutation } from '../../../../../../redux/api/backend';
+import { api, usePrefetch, useSignInMutation } from '../../../../../../redux/api/backend';
 import FormControl from '../../../../../../common/Formik/FormControl';
 import ErrorDisplay from '../../../../../../common/Formik/ErrorDisplay/ErrorDisplay';
 import { useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Spinner from '../../../../../../common/Spinner/Spinner';
 
 // styles
@@ -23,7 +23,6 @@ const SigninForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [ signIn, { isLoading } ] = useSignInMutation();
-  const { data: token, isLoading: refreshTokenLoading } = useReAuthenticateQuery(null);
   const prefetchChallenges = usePrefetch('getDays');
   const prefetchRefreshToken = usePrefetch('reAuthenticate');
   const initial_values: SignInValues = {
@@ -62,9 +61,6 @@ const SigninForm = () => {
     }
   }
 
-  if(token) {
-    return <Redirect to="/challenges" />
-  }
   return (
     <Formik
       initialValues={initial_values}

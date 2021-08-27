@@ -1,10 +1,11 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import Display from './sections/Display/Display';
 
 // styles
 import loginStyle from './Signin.module.scss';
 
-const Signin = () => {
+const Signin = (props: RouteComponentProps) => {
   const dec_array = Array(9).fill(<div>IMPACT OF CODE IMPACT OF CODE IMPACT OF CODE</div>);
   return (
     <main className={loginStyle.container}>

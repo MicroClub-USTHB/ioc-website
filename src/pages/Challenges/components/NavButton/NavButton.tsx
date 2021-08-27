@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { DayLinkPassedState } from '../../../../types/Day';
 

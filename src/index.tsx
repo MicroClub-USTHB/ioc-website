@@ -5,6 +5,7 @@ import App from './App';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { BrowserRouter as Switch } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://ioc-backend.herokuapp.com';
 // axios.defaults.baseURL = 'localhost:4242';
@@ -15,7 +16,9 @@ if (localStorage.getItem('Authorization') !== undefined) {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Switch>
+        <App />
+      </Switch>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -5,12 +5,13 @@ import questionStyle from './Question.module.scss';
 
 interface Props {
   question: string
+  key?: string | number
 }
 
 const Question: React.FC<Props> = (props) => {
-  const { question } = props;
+  const { question, key } = props;
   return (
-    <div className={questionStyle.question_container}>
+    <div className={questionStyle.question_container} key={key}>
       <div className={questionStyle.asker}>
         <div className={questionStyle.asker_icon}><span>?</span></div>
         <span>Question</span>

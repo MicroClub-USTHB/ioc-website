@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 
 
@@ -21,11 +22,9 @@ const App: React.FC = () => {
     <Router>
       <Switch>
         <Route path="/" exact component={Landing} />
-        <Route path="/signin" exact component={Signin} />
-        <Route path="/login" exact component={Signin} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/register" exact component={Signup} />
-        <Route path="/challenges" component={Challenges} />
+        <Route path={['/signin', '/login', '/connexion']} exact render={(props) => !localStorage.getItem('Authorization') ? <Signin {...props} /> : <Redirect to="/challenges" />} />
+        <Route path={['/signup', '/register', '/inscrire']} exact render={(props) => !localStorage.getItem('Authorization') ? <Signup {...props}/> : <Redirect to="/challenges" />} />
+        <Route path={['/challenges', '/defis']} render={(props) => localStorage.getItem('Authorization') ? <Challenges {...props} /> : <Redirect to="/" />} />
       </Switch>
     </Router>
   )

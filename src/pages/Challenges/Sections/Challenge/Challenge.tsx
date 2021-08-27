@@ -12,7 +12,7 @@ import { DayLinkPassedState } from '../../../../types/Day';
 
 const Challenge = (props: RouteComponentProps) => {
   const { number: dayNumber, day } = (props.location.state as DayLinkPassedState);
-  const { data, isLoading } = useGetDaysQuery(null);
+  const { data } = useGetDaysQuery(null);
 
   let story = '',
     content = '',

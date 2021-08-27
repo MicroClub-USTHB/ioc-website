@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
 import NavButton from './components/NavButton/NavButton';
 import Challenge from './Sections/Challenge/Challenge';
-import { Redirect, Route, RouteComponentProps, useRouteMatch } from 'react-router-dom';
-import { useGetDaysQuery, useReAuthenticateQuery } from '../../redux/api/backend';
+import { Route, RouteComponentProps, useRouteMatch } from 'react-router-dom';
+import { useGetDaysQuery } from '../../redux/api/backend';
 
 // styles
 import challengesStyle from './Challenges.module.scss';
@@ -15,10 +14,6 @@ import Spinner from '../../common/Spinner/Spinner';
 const Challenges = (props: RouteComponentProps) => {
   const match = useRouteMatch();
   const {data: days, isLoading: daysLoading} = useGetDaysQuery(null);
-  const {data: reauth_resp, isLoading: reauth_loading} = useReAuthenticateQuery(null);
-  if (!reauth_loading && !reauth_resp) {
-    return <Redirect to='/signin' />
-  }
   return (
     <main className={challengesStyle.outer_container}>
       {/* left navigation bar */}
