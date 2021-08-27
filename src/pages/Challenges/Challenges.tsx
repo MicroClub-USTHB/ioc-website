@@ -41,10 +41,10 @@ const Challenges = (props: RouteComponentProps) => {
           <hr className={challengesStyle.divider} />
           <ul className={challengesStyle.navigation_list}>
             <li>
-              <NavButton title="Score & Leaderboard" Icon={UilDashboard} />
+              <NavButton link={{pathname: '/leaderboard', state: { source: '/challenges' }}} title="Score & Leaderboard" Icon={UilDashboard} />
             </li>
             <li>
-              <NavButton title="Landing Page" Icon={UilEstate} />
+              <NavButton link={{pathname: '/', state: { source: '/challenges' }}} title="Landing Page" Icon={UilEstate} />
             </li>
           </ul>
         </div>

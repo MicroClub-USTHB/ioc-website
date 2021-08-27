@@ -11,6 +11,16 @@ interface NavButtonProps {
   title: string
   isChallengeLink?: boolean
   number?: number
+  link?: LinkPathObject
+}
+
+interface LinkPathObject {
+  pathname: string
+  state: LinkState
+}
+
+interface LinkState {
+  source: string
 }
 
 const ease = (v: number, pow = 4) => 1 - Math.pow(1 - v, pow);
@@ -57,7 +67,7 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
   const match = useRouteMatch();
   const [Expand, setExpand] = useState<{ expand: boolean, wasExpanded: boolean }>({expand: false, wasExpanded: false});
   const [ShowRetractAnimation, setShowRetractAnimation] = useState<boolean>(false);
-  const { title, Icon, iconReplacement, isChallengeLink, number } = props;
+  const { title, Icon, iconReplacement, isChallengeLink, number, link } = props;
 
   const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (Expand) {
@@ -79,25 +89,31 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
 
   createExpandKeyframeAnimation();
 
+  const ButtonContent: JSX.Element = (
+    <>
+      <div className={buttonStyle.left_content}>
+        <div className={`${buttonStyle.icon_container} ${!!Icon && buttonStyle.with_icon_container}`}>
+          { Icon ? <Icon /> : iconReplacement }
+        </div>
+        <span className={buttonStyle.title}>{ title }</span>
+      </div>
+      {
+        isChallengeLink && (
+          <span
+            className={`${buttonStyle.indicator} ${Expand.expand && buttonStyle.indicator_active} ${Expand.wasExpanded && buttonStyle.indicator_active_remove}`}
+          >
+            &gt;
+          </span>
+        )
+      }
+    </>
+  )
+
   return (
     <>
-      <button className={buttonStyle.button} onClick={handleButtonClick}>
-        <div className={buttonStyle.left_content}>
-          <div className={`${buttonStyle.icon_container} ${!!Icon && buttonStyle.with_icon_container}`}>
-            { Icon ? <Icon /> : iconReplacement }
-          </div>
-          <span className={buttonStyle.title}>{ title }</span>
-        </div>
-        {
-          isChallengeLink && (
-            <span
-              className={`${buttonStyle.indicator} ${Expand.expand && buttonStyle.indicator_active} ${Expand.wasExpanded && buttonStyle.indicator_active_remove}`}
-            >
-              &gt;
-            </span>
-          )
-        }
-      </button>
+      {
+        link?.pathname ? <Link<LinkState> className={buttonStyle.button} to={link}>{ButtonContent}</Link> : <button className={buttonStyle.button} onClick={handleButtonClick}>{ButtonContent}</button>
+      }
       {
         (Expand.expand && isChallengeLink) && (
           <ul className={`${buttonStyle.nav_list} ${Expand.expand && buttonStyle.list_expand} ${ShowRetractAnimation && buttonStyle.list_retract}`}>
