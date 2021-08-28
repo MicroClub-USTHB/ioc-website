@@ -19,6 +19,7 @@ import { Switch } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/types';
 import { setLanguage } from '../../redux/slices/common';
+import { LangType } from '../../common/Lang/french';
 
 interface LineProps {
   text: string
@@ -36,6 +37,7 @@ const LineText: React.FC<LineProps> = ({text}) => {
 const Hero = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const checked = useSelector<RootState>(state => state.common.language) === 'french';
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const dispatch = useDispatch<AppDispatch>();
   const dispatchWrappedAction = (checked: boolean) => {
     dispatch(setLanguage(checked));
@@ -50,7 +52,6 @@ const Hero = () => {
               checked={checked}
               onChange={dispatchWrappedAction}
               className={heroStyle.switch_container}
-              title="hero"
             >
               <div className={`${heroStyle.switch_thumb} ${checked && heroStyle.switch_thumb_french}`}>
                 {
@@ -77,7 +78,7 @@ const Hero = () => {
       </div>
       <div className={heroStyle.main_container}>
         <div className={`${heroStyle.hero_nav} ${heroStyle.first_nav}`}>
-          <Link to="/signin"><LineText text="Get Started" /></Link>
+          <Link to="/signin"><LineText text={Lang.hero_left_button} /></Link>
         </div>
         <div  className={heroStyle.hero_image_container}>
           <img src={hero_image} alt="Explorer" />
@@ -85,7 +86,7 @@ const Hero = () => {
           <div className={heroStyle.image_bottom_text}>
             <button onClick={(e) => {
               window.scrollBy({top: sectionRef.current !== null? sectionRef.current.offsetHeight : window.innerHeight, behavior: 'smooth'});
-            }}><LineText text="Learn More"/></button>
+            }}><LineText text={Lang.hero_middle_button}/></button>
           </div>
         </div>
         <div className={`${heroStyle.hero_nav} ${heroStyle.second_nav}`}>

@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/types';
+import { LangType } from '../../common/Lang/french';
 import { Link } from 'react-router-dom';
 
 // styles
@@ -9,6 +12,7 @@ import footer1 from '../../resources/Footer1-min.png';
 import footer2 from '../../resources/Footer2-min.png';
 
 const Footer = () => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   return (
     <section className={footerStyle.footer_container}>
       <div className={footerStyle.card_container}>
@@ -16,8 +20,8 @@ const Footer = () => {
         <div className={footerStyle.content_container}>
           <h1 className={footerStyle.title}>IMPACT OF CODE</h1>
           <div className={footerStyle.subTitles}>
-            <h2>A <a href="/">Micro Club</a> Event</h2>
-            <Link to="/"><h2>Start playing</h2></Link>
+            <h2>{Lang.footer_title1_part1} <a href="/">Micro Club</a> {Lang.footer_title1_part2}</h2>
+            <Link to="/"><h2>{Lang.footer_title2}</h2></Link>
           </div>
         </div>
         <img className={footerStyle.dec2} src={footer2} alt="" />
