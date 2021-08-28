@@ -9,20 +9,22 @@ import ChallengeContainer from '../components/ChallengeContainer/ChallengeContai
 // styles
 import challengeStyle from './Challenge.module.scss';
 import { DayLinkPassedState } from '../../../../types/Day';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/types';
 
 const Challenge = (props: RouteComponentProps) => {
   const { number: dayNumber, day } = (props.location.state as DayLinkPassedState);
   const { data } = useGetDaysQuery(null);
-
+  const language = useSelector<RootState>(state => state.common.language) as 'english' | 'french';
   let story = '',
     content = '',
     example = '',
     title = '';
 
   if (data !== undefined) {
-    content = data![Number(dayNumber) - 1].content.english[day].content;
-    story = data![Number(dayNumber) - 1].content.english[day].story;
-    example = data![Number(dayNumber) - 1].content.english[day].example ?? '';
+    content = data![Number(dayNumber) - 1].content[language][day].content;
+    story = data![Number(dayNumber) - 1].content[language][day].story;
+    example = data![Number(dayNumber) - 1].content[language][day].example ?? '';
     title = data![Number(dayNumber) - 1].title ?? '';
   }
 

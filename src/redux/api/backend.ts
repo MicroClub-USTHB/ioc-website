@@ -59,9 +59,7 @@ export const api = createApi({
         url: 'reauthenticate',
       }),
       transformResponse: (response: { token: string }) => {
-        if (response.token) {
-          localStorage.setItem('Authorization', response.token);
-        }
+        localStorage.setItem('Authorization', response.token);
         return response;
       }
     }),

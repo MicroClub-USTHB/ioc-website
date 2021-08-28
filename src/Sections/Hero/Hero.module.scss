@@ -1,5 +1,7 @@
-$main_color: #40CD7D;
 $secondary_color: #0D1B28;
+$main_color: #40CD7D;
+$light_color: #E0E0E0;
+$dark_color: #8C8C8C;
 
 .main_container {
   display: grid;
@@ -18,7 +20,6 @@ $secondary_color: #0D1B28;
   width: 100%;
   justify-content: space-between;
   color: $secondary_color;
-  cursor: pointer;
   & > a {
     color: $secondary_color;
     text-decoration: none;
@@ -198,6 +199,58 @@ $secondary_color: #0D1B28;
       margin-left: .5rem;
     }
   }
+}
+
+.switch_container {
+  background-color: $dark_color;
+  border: none;
+  height: 1.45rem;
+  width: 2.8rem;
+  border-radius: 50px;
+  margin: .14rem 1rem;
+  box-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
+  cursor: pointer;
+}
+
+.switch_thumb {
+  height: 1rem;
+  width: 1rem;
+  background-color: red;
+  border-radius: 50%;
+  transition: 0.5s;
+  position: relative;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.switch_thumb_french {
+  transform: translateX(0.95rem);
+  animation: fadein .5s ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    & > img {
+      opacity: 1; 
+    }
+  }
+  50% {
+    & > img {
+      opacity: 0; 
+    }
+  }
+  100% {
+    & > img {
+      opacity: 1; 
+    }
+  }
+  
 }
 
 /* popover */

@@ -24,7 +24,7 @@ const App: React.FC = () => {
         <Route path="/" exact component={Landing} />
         <Route path={['/signin', '/login', '/connexion']} exact render={(props) => !localStorage.getItem('Authorization') ? <Signin {...props} /> : <Redirect to="/challenges" />} />
         <Route path={['/signup', '/register', '/inscrire']} exact render={(props) => !localStorage.getItem('Authorization') ? <Signup {...props}/> : <Redirect to="/challenges" />} />
-        <Route path={['/challenges', '/defis']} render={(props) => localStorage.getItem('Authorization') ? <Challenges {...props} /> : <Redirect to="/" />} />
+        <Route path={['/challenges', '/defis']} render={(props) => localStorage.getItem('Authorization') ? <Challenges {...props} /> : <Redirect to="/signin" />} />
       </Switch>
     </Router>
   )

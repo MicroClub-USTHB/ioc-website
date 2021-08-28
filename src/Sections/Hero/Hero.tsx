@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // icons
@@ -15,6 +15,10 @@ import hero_image from '../../resources/HeroImage-min.png';
 import heroStyle from './Hero.module.scss';
 import Navigation from './components/Navigation/Navigation';
 import { useRef } from 'react';
+import { Switch } from '@headlessui/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../redux/types';
+import { setLanguage } from '../../redux/slices/common';
 
 interface LineProps {
   text: string
@@ -31,12 +35,32 @@ const LineText: React.FC<LineProps> = ({text}) => {
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const checked = useSelector<RootState>(state => state.common.language) === 'french';
+  const dispatch = useDispatch<AppDispatch>();
+  const dispatchWrappedAction = (checked: boolean) => {
+    dispatch(setLanguage(checked));
+  }
   return (
     <section ref={sectionRef}>
       <div className={heroStyle.navigation}>
         <Link to="/">Impact of Code</Link>
         <div className={heroStyle.nav}>
           <div className={heroStyle.nav_social}>
+            <Switch
+              checked={checked}
+              onChange={dispatchWrappedAction}
+              className={heroStyle.switch_container}
+              title="hero"
+            >
+              <div className={`${heroStyle.switch_thumb} ${checked && heroStyle.switch_thumb_french}`}>
+                {
+                  checked ? 
+                  <img src="https://cdn0.iconfinder.com/data/icons/flat-circle-flag/180/circle_france-512.png" alt="" />
+                  : 
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/United-states_flag_icon_round.svg/512px-United-states_flag_icon_round.svg.png" alt="" />
+                }
+              </div>
+            </Switch>
             <a href="/">
               <UilFacebook />
             </a>
