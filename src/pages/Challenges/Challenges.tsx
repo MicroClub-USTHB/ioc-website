@@ -10,8 +10,12 @@ import challengesStyle from './Challenges.module.scss';
 import logo from '../../resources/Challenges-min.png';
 import { UilDashboard, UilEstate } from '@iconscout/react-unicons'
 import Spinner from '../../common/Spinner/Spinner';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/types';
+import { LangType } from '../../common/Lang/french';
 
 const Challenges = (props: RouteComponentProps) => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const match = useRouteMatch();
   const {data: days, isLoading: daysLoading} = useGetDaysQuery(null);
   return (
@@ -36,10 +40,10 @@ const Challenges = (props: RouteComponentProps) => {
           <hr className={challengesStyle.divider} />
           <ul className={challengesStyle.navigation_list}>
             <li>
-              <NavButton link={{pathname: '/leaderboard', state: { source: '/challenges' }}} title="Score & Leaderboard" Icon={UilDashboard} />
+              <NavButton link={{pathname: '/leaderboard', state: { source: '/challenges' }}} title={Lang.challenges_leaderboard_button} Icon={UilDashboard} />
             </li>
             <li>
-              <NavButton link={{pathname: '/', state: { source: '/challenges' }}} title="Landing Page" Icon={UilEstate} />
+              <NavButton link={{pathname: '/', state: { source: '/challenges' }}} title={Lang.challenges_landing_button} Icon={UilEstate} />
             </li>
           </ul>
         </div>

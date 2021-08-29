@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { LangType } from '../../../../common/Lang/french';
+import { RootState } from '../../../../redux/types';
 import { DayLinkPassedState } from '../../../../types/Day';
 
 // styles
@@ -64,6 +67,7 @@ const createExpandKeyframeAnimation = () => new Promise<HTMLStyleElement>((resol
 })
 
 const NavButton: React.FC<NavButtonProps> = (props) => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const match = useRouteMatch();
   const [Expand, setExpand] = useState<{ expand: boolean, wasExpanded: boolean }>({expand: false, wasExpanded: false});
   const [ShowRetractAnimation, setShowRetractAnimation] = useState<boolean>(false);
@@ -125,7 +129,7 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
                     day: 'main'
                   }
                 }}
-                >Main</Link>
+                >{Lang.challenges_main}</Link>
             </li>
             <li>
               <Link<DayLinkPassedState> to={{
@@ -135,7 +139,7 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
                   day: 'side'
                 }
                 }}
-              >Side</Link>
+              >{Lang.challenges_side}</Link>
             </li>
           </ul>
         )

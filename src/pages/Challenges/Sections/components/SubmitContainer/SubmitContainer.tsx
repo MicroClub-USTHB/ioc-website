@@ -5,8 +5,12 @@ import FormControl from '../../../../../common/Formik/FormControl';
 
 // styles
 import submitStyle from './SubmitContainer.module.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../redux/types';
+import { LangType } from '../../../../../common/Lang/french';
 
 const SubmitContainer = (props: { dayNumber: string }) => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const form_values = {
     answer: ''
   }
@@ -21,7 +25,7 @@ const SubmitContainer = (props: { dayNumber: string }) => {
       <div>
         <h1 className={submitStyle.title_container}>
           <span className={submitStyle.title_number}>{props.dayNumber}</span>
-          <span className={submitStyle.title}>Submit An Answer</span>
+          <span className={submitStyle.title}>{Lang.challenges_submit}</span>
         </h1>
         <Formik
           initialValues={form_values}

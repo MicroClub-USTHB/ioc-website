@@ -46,7 +46,23 @@ const English : LangType = {
   ],
   footer_title1_part1: 'A',
   footer_title1_part2: 'Event',
-  footer_title2: 'Start Playing'
+  footer_title2: 'Start Playing',
+  signin_form_title: "Sign In",
+  signin_form_email: "E-mail",
+  signin_form_password: "Password",
+  signin_form_button: "Sign In",
+  signup_form_title: "Sign Up",
+  signup_form_email: "E-mail",
+  signup_form_name: "Nom et Prénom",
+  signup_form_password: "Password",
+  signup_form_password_confirm: "Confirm Password",
+  signup_form_button: "Sign Up",
+  challenges_leaderboard_button: "Score & Leaderboard",
+  challenges_landing_button: "Landing Page",
+  challenges_main: "Main",
+  challenges_side: "Side",
+  challenges_task: "Task",
+  challenges_submit: "Submit an Answer"
 }
 
 export default English;

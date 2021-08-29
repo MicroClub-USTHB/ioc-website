@@ -44,7 +44,24 @@ const French = {
   ],
   footer_title1_part1: "Un événement du",
   footer_title1_part2: "",
-  footer_title2: "Commencer à jouer"
+  footer_title2: "Commencer à jouer",
+  signin_form_title: "Se connecter",
+  signin_form_email: "E-mail",
+  signin_form_password: "Mot de Passe",
+  signin_form_button: "Connexion",
+  signup_form_title: "S'inscrire",
+  signup_form_email: "E-mail",
+  signup_form_name: "Nom et Prénom",
+  signup_form_password: "Mot de Passe",
+  signup_form_password_confirm: "Confirmez le Mot de Passe",
+  signup_form_button: "S'inscrire",
+  challenges_leaderboard_button: "Score & Classement",
+  challenges_landing_button: "Page de Destination",
+  challenges_main: "Principale",
+  challenges_side: "Secondaire",
+  challenges_task: "tâche",
+  challenges_submit: "Soumettre une Réponse"
+
 }
 
 export type LangType = typeof French;

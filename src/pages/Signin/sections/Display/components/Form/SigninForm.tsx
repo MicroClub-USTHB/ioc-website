@@ -8,7 +8,7 @@ import {
 import { api, usePrefetch, useSignInMutation } from '../../../../../../redux/api/backend';
 import FormControl from '../../../../../../common/Formik/FormControl';
 import ErrorDisplay from '../../../../../../common/Formik/ErrorDisplay/ErrorDisplay';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Spinner from '../../../../../../common/Spinner/Spinner';
 
@@ -18,8 +18,11 @@ import formStyle from './SigninForm.module.scss';
 // types
 import { SignInResponse, SignInValues } from '../../../../../../types/User';
 import { ValidationError } from '../../../../../../types/http';
+import { LangType } from '../../../../../../common/Lang/french';
+import { RootState } from '../../../../../../redux/types';
 
 const SigninForm = () => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const history = useHistory();
   const dispatch = useDispatch();
   const [ signIn, { isLoading } ] = useSignInMutation();
@@ -77,7 +80,7 @@ const SigninForm = () => {
                   <FormControl
                     control="email"
                     name="email"
-                    label="Email"
+                    label={Lang.signin_form_email}
                     label_className={`${formStyle.label} ${(errors.email && touched.email) && formStyle.error_color} ${values.email && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -88,7 +91,7 @@ const SigninForm = () => {
                   <FormControl
                     control="password"
                     name="password"
-                    label="Password"
+                    label={Lang.signin_form_password}
                     label_className={`${formStyle.label} ${(errors.password && touched.password) && formStyle.error_color} ${values.password && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -96,7 +99,7 @@ const SigninForm = () => {
                   />
                 </li>
                 <li>
-                  <button disabled={isLoading} className={formStyle.submit_button}>{ !isLoading ? 'Sign In' : <Spinner />}</button>
+                  <button disabled={isLoading} className={formStyle.submit_button}>{ !isLoading ? Lang.signin_form_button : <Spinner />}</button>
                 </li>
               </ul>
             </Form>

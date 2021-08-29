@@ -15,8 +15,12 @@ import formStyle from './SignupForm.module.scss';
 import { useHistory } from 'react-router-dom';
 import { ValidationError } from '../../../../../../types/http';
 import Spinner from '../../../../../../common/Spinner/Spinner';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../../redux/types';
+import { LangType } from '../../../../../../common/Lang/french';
 
 const SignupForm = () => {
+  const Lang = useSelector<RootState>(state => state.common.Lang) as LangType;
   const history = useHistory();
   const [ signUp, { isLoading } ] = useSignUpMutation();
   const prefetchReAuthenticate = usePrefetch('reAuthenticate');
@@ -77,7 +81,7 @@ const SignupForm = () => {
                   <FormControl
                     control="email"
                     name="email"
-                    label="Email"
+                    label={Lang.signup_form_email}
                     label_className={`${formStyle.label} ${(errors.email && touched.email) && formStyle.error_color} ${values.email && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -88,7 +92,7 @@ const SignupForm = () => {
                   <FormControl
                     control="text"
                     name="name"
-                    label="Name"
+                    label={Lang.signup_form_name}
                     label_className={`${formStyle.label} ${(errors.name && touched.name) && formStyle.error_color} ${values.name && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -99,7 +103,7 @@ const SignupForm = () => {
                   <FormControl
                     control="password"
                     name="password"
-                    label="Password"
+                    label={Lang.signup_form_password}
                     label_className={`${formStyle.label} ${(errors.password && touched.password) && formStyle.error_color} ${values.password && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -110,7 +114,7 @@ const SignupForm = () => {
                   <FormControl
                     control="password"
                     name="password_confirm"
-                    label="Confirm Password"
+                    label={Lang.signup_form_password_confirm}
                     label_className={`${formStyle.label} ${(errors.password_confirm && touched.password_confirm) && formStyle.error_color} ${values.password_confirm && formStyle.label_values}`}
                     field_className={formStyle.field}
                     error_className={formStyle.error}
@@ -118,7 +122,7 @@ const SignupForm = () => {
                   />
                 </li>
                 <li>
-                  <button className={formStyle.submit_button}>{!isLoading ? 'Sign Up' : <Spinner />}</button>
+                  <button className={formStyle.submit_button}>{!isLoading ? Lang.signup_form_button : <Spinner />}</button>
                 </li>
               </ul>
             </Form>
