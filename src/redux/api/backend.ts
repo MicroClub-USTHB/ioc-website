@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Day,ExtendedDay } from "../../types/Day";
+import { Day, ExtendedDay } from "../../types/Day";
 import { authResponse, SignInValues, SignUpValues } from "../../types/User";
 import { DayRequest } from "../../types/Day";
 
@@ -42,6 +42,10 @@ export const api = createApi({
                 method: "POST",
                 body: { ...body, login: true }, // auto signIn set to true
             }),
+            transformResponse: (response: authResponse) => {
+                localStorage.setItem("User", JSON.stringify(response));
+                return response;
+            },
         }),
         /* Get User Data */
         getUserData: builder.mutation<authResponse, void>({
@@ -52,8 +56,17 @@ export const api = createApi({
             },
         }),
         /* Reauthenticate */
-        reAuthenticate: builder.query<authResponse, null>({
-            query: () => ({ url: "reauthenticate", method: "POST" }),
+        reAuthenticate: builder.query<authResponse | undefined, null>({
+            query: () => ({
+                url: "reauthenticate",
+                method: "POST",
+                validateStatus: (response, result) => {
+                    console.log(result, response);
+                    if(response.status==450)localStorage.removeItem("User");
+                    return response.status < 400;
+                },
+            }),
+
             transformResponse: (response: authResponse) => {
                 localStorage.setItem("User", JSON.stringify(response));
                 return response;
