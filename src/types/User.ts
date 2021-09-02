@@ -1,18 +1,14 @@
+type Keys= `20${number}${number}`
+type Scores ={ 
+  [key in Keys]?: number
+};
 export interface User {
-  _id: string
-  email: string
-  name: string
-  score: number
-  challenges: Array<{
-    main: {
-      completed: string | string
-      correct_answer?: string
-    }
-    side: {
-      completed: string | string
-      correct_answer?: string
-    }
-  }>
+  _id: string;
+  email: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  scores: Scores;
 }
 
 /* AUTHENTICATION */
@@ -22,20 +18,17 @@ export interface SignInValues {
   password: string
 }
 
-export interface SignInResponse {
-  token: string
-  user: User
+export interface authResponse extends User {
+  token?:string
 }
 
 /* SIGN UP */
 export interface SignUpValues {
-  email: string
-  name: string
-  password: string
-  password_confirm: string
-  login?: boolean
-}
-
-export interface SignUpResponse extends Partial<SignInResponse> {
-  msg?: string
+  email: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  password_confirm: string;
+  login?: boolean;
 }

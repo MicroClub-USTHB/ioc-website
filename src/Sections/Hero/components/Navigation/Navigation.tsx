@@ -48,12 +48,8 @@ const Navigation = () => {
                 <UilInfoCircle />
               </div>
               <div className={popoverStyle.nav_button_text}>
-                <span>
-                  The event
-                </span>
-                <span>
-                  Learn more about the event
-                </span>
+                <span>The event </span>
+                <span> Learn more about the event</span>
               </div>
             </button>
           </li>

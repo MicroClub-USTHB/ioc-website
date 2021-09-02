@@ -1,31 +1,39 @@
-export interface Day {
-  _id: string
-  title: string
-  number: number
-  content: {
-    english: {
-      main: ChallengeDetails,
-      side: ChallengeDetails,
-    },
-    french: {
-      main: ChallengeDetails,
-      side: ChallengeDetails,
-    }
-  }
-  main: ChallengeDetails
-  side: ChallengeDetails
-  fromDate: string
-  toDate: string
+export interface DayRequest {
+    _id: string;
 }
+export interface Day {
+    _id: string;
+    title: string;
+    number: number;
+    main: string;
+    side: string;
+}
+export interface ExtendedDay {
+  _id: string;
+  title: string;
+  number: number;
+  main: Challenge;
+  side: Challenge;
+}
+type Lang= "EN"|"FR"
 
+export interface Challenge {
+  baseScore: number;
+  content: {
+    [key in Lang]?: ChallengeDetails
+  }
+}
 export interface ChallengeDetails {
-  story: string
-  content: string
-  example?: string
-  scoreBase: number
+    title: string;
+    story: string;
+    content: string;
+    example?: string;
+    finishingMsg?: string;
+    scoreBase: number;
 }
 
 export interface DayLinkPassedState {
-  number: number
-  day: 'main' | 'side'
+    number: number;
+    index:number;
+    type: "main" | "side";
 }
