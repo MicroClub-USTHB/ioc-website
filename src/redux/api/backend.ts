@@ -61,7 +61,6 @@ export const api = createApi({
                 url: "reauthenticate",
                 method: "POST",
                 validateStatus: (response, result) => {
-                    console.log(result, response);
                     if(response.status==450)localStorage.removeItem("User");
                     return response.status < 400;
                 },
