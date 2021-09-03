@@ -20,7 +20,6 @@ import { RootState } from "../../../../../../redux/types";
 const SigninForm = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const history = useHistory();
-    const dispatch = useDispatch();
     const [signIn, { isLoading }] = useSignInMutation();
     const prefetchChallenges = usePrefetch("getDays");
     const prefetchRefreshToken = usePrefetch("reAuthenticate");
