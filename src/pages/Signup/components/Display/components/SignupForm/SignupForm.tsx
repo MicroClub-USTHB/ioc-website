@@ -41,12 +41,9 @@ const SignupForm = () => {
             .required("This is a required field."),
         password_confirm: yup.string().oneOf([yup.ref("password"), ""], "Must be same as password."),
     });
-
     const handleSubmit = async (values: SignUpValues, formikHelpers: FormikHelpers<SignUpValues>) => {
         try {
-            console.log(values);
             const res = await signUp(values);
-            console.log(res);
             // for an idea of what's happening below check out the handleSubmit function in SigninForm component
             if (res.hasOwnProperty("data")) {
                 const res_data = (res as { data: authResponse }).data;
@@ -160,7 +157,7 @@ const SignupForm = () => {
                                 />
                             </li>
                             <li>
-                                <button disabled={isLoading} className={formStyle.submit_button}>
+                                <button disabled={isLoading} className={formStyle.submit_button} type="submit">
                                     {!isLoading ? Lang.signup_form_button : <Spinner />}
                                 </button>
                             </li>

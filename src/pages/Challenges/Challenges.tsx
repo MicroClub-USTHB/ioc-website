@@ -1,6 +1,6 @@
 import NavButton from "./components/NavButton/NavButton";
 import Challenge from "./Sections/Challenge/Challenge";
-import { Route, RouteComponentProps, useRouteMatch } from "react-router-dom";
+import { Route, RouteComponentProps, Switch, useRouteMatch } from "react-router-dom";
 import { useGetDaysQuery } from "../../redux/api/backend";
 
 // styles
@@ -13,12 +13,12 @@ import Spinner from "../../common/Spinner/Spinner";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/types";
 import { LangType } from "../../common/Lang/french";
+import Leaderboard from "./Sections/Leaderboard/Leaderboard";
 
 const Challenges = (props: RouteComponentProps) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const match = useRouteMatch();
     const { data: days, isLoading: daysLoading } = useGetDaysQuery(null);
-    if(!daysLoading)console.log(days);
     return (
         <main className={challengesStyle.outer_container}>
             {/* left navigation bar */}
@@ -44,7 +44,6 @@ const Challenges = (props: RouteComponentProps) => {
                                         title={day.title}
                                         iconReplacement={day.number.toString()}
                                         number={day.number}
-                                        index={index}
                                         isChallengeLink={true}
                                     />
                                 </li>
@@ -55,7 +54,7 @@ const Challenges = (props: RouteComponentProps) => {
                     <ul className={challengesStyle.navigation_list}>
                         <li>
                             <NavButton
-                                link={{ pathname: "/leaderboard", state: { source: "/challenges" } }}
+                                link={{ pathname: `${match.path}/leaderboard`, state: { source: "/challenges" } }}
                                 title={Lang.challenges_leaderboard_button}
                                 Icon={UilDashboard}
                             />
@@ -71,13 +70,10 @@ const Challenges = (props: RouteComponentProps) => {
                 </div>
             </div>
             {/* right content */}
-            {daysLoading || !days ? (
-                <div className={challengesStyle.loader_container}>
-                    <Spinner />
-                </div>
-            ) : (
-                <Route path={`${match.path}/:day`}  render={(props)=><Challenge {...props} days={days}/>} />
-                )}
+            <Switch>
+                <Route path={`${match.path}/leaderboard`} component={Leaderboard} />
+                <Route path={`${match.path}/:day`} component={Challenge} />
+            </Switch>
         </main>
     );
 };

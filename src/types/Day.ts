@@ -34,6 +34,5 @@ export interface ChallengeDetails {
 
 export interface DayLinkPassedState {
     number: number;
-    index:number;
     type: "main" | "side";
 }
