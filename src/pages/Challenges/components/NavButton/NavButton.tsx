@@ -15,7 +15,6 @@ interface NavButtonProps {
     isChallengeLink?: boolean;
     number?: number;
     link?: LinkPathObject;
-    index?: number;
 }
 
 interface LinkPathObject {
@@ -77,7 +76,7 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
         wasExpanded: false,
     });
     const [ShowRetractAnimation, setShowRetractAnimation] = useState<boolean>(false);
-    const { title, Icon, iconReplacement, isChallengeLink, number, link, index = 0 } = props;
+    const { title, Icon, iconReplacement, isChallengeLink, number, link } = props;
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (Expand) {
             setShowRetractAnimation(true);
@@ -141,7 +140,6 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
                                 pathname: `${match.path}/day${number}/main`,
                                 state: {
                                     number: number!,
-                                    index,
                                     type: "main",
                                 },
                             }}
@@ -155,7 +153,6 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
                                 pathname: `${match.path}/day${number}/side`,
                                 state: {
                                     number: number!,
-                                    index,
                                     type: "side",
                                 },
                             }}

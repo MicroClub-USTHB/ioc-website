@@ -9,19 +9,19 @@ export interface Day {
     side: string;
 }
 export interface ExtendedDay {
-  _id: string;
-  title: string;
-  number: number;
-  main: Challenge;
-  side: Challenge;
+    _id: string;
+    title: string;
+    number: number;
+    main: Challenge;
+    side: Challenge;
 }
-type Lang= "EN"|"FR"
+type Lang = "EN" | "FR";
 
 export interface Challenge {
-  baseScore: number;
-  content: {
-    [key in Lang]?: ChallengeDetails
-  }
+    baseScore: number;
+    content: {
+        [key in Lang]?: ChallengeDetails;
+    };
 }
 export interface ChallengeDetails {
     title: string;
@@ -34,6 +34,5 @@ export interface ChallengeDetails {
 
 export interface DayLinkPassedState {
     number: number;
-    index:number;
     type: "main" | "side";
 }
