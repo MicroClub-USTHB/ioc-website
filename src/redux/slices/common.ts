@@ -1,4 +1,4 @@
-import { createSlice, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import English from '../../common/Lang/english';
 import French, { LangType } from '../../common/Lang/french';
 

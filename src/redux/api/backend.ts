@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Day, ExtendedDay } from "../../types/Day";
-import { authResponse, SignInValues, SignUpValues } from "../../types/User";
+import { User, SignInValues, SignUpValues } from "../../types/User";
 import { DayRequest } from "../../types/Day";
 
 export const api = createApi({
@@ -13,16 +13,12 @@ export const api = createApi({
     endpoints: (builder) => ({
         /* AUTH END POINTS */
         /* Sign In */
-        signIn: builder.mutation<authResponse, SignInValues>({
+        signIn: builder.mutation<User, SignInValues>({
             query: (body) => ({
                 url: "login",
                 method: "POST",
                 body: body,
             }),
-            transformResponse: (response: authResponse) => {
-                localStorage.setItem("User", JSON.stringify(response));
-                return response;
-            },
         }),
         /* Log out */
         logOut: builder.mutation<any, void>({
@@ -30,46 +26,25 @@ export const api = createApi({
                 url: "logout",
                 method: "GET",
             }),
-            transformResponse: (response) => {
-                localStorage.removeItem("User");
-                return response;
-            },
         }),
         /* Sign Up */
-        signUp: builder.mutation<authResponse, SignUpValues>({
+        signUp: builder.mutation<User, SignUpValues>({
             query: (body) => ({
                 url: "register",
                 method: "POST",
                 body: { ...body, login: true }, // auto signIn set to true
             }),
-            transformResponse: (response: authResponse) => {
-                localStorage.setItem("User", JSON.stringify(response));
-                return response;
-            },
         }),
         /* Get User Data */
-        getUserData: builder.mutation<authResponse, void>({
+        getUserData: builder.mutation<User, void>({
             query: () => ({ url: "users" }),
-            transformResponse: (response: authResponse) => {
-                localStorage.setItem("User", JSON.stringify(response));
-                return response;
-            },
         }),
         /* Reauthenticate */
-        reAuthenticate: builder.query<authResponse | undefined, null>({
+        reAuthenticate: builder.query<User, null>({
             query: () => ({
                 url: "reauthenticate",
                 method: "POST",
-                validateStatus: (response, result) => {
-                    if(response.status==450)localStorage.removeItem("User");
-                    return response.status < 400;
-                },
             }),
-
-            transformResponse: (response: authResponse) => {
-                localStorage.setItem("User", JSON.stringify(response));
-                return response;
-            },
         }),
         /* CHALLENGES & DAYS */
         getDays: builder.query<Array<Day>, null>({ query: () => ({ url: "days" }) }),

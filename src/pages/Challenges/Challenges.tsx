@@ -18,7 +18,7 @@ const Challenges = (props: RouteComponentProps) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const match = useRouteMatch();
     const { data: days, isLoading: daysLoading } = useGetDaysQuery(null);
-    if(!daysLoading)console.log(days);
+    if (!daysLoading) console.log(days);
     return (
         <main className={challengesStyle.outer_container}>
             {/* left navigation bar */}
@@ -56,14 +56,14 @@ const Challenges = (props: RouteComponentProps) => {
                         <li>
                             <NavButton
                                 link={{ pathname: "/leaderboard", state: { source: "/challenges" } }}
-                                title={Lang.challenges_leaderboard_button}
+                                title={Lang.challenges.leaderboard}
                                 Icon={UilDashboard}
                             />
                         </li>
                         <li>
                             <NavButton
                                 link={{ pathname: "/", state: { source: "/challenges" } }}
-                                title={Lang.challenges_landing_button}
+                                title={Lang.challenges.landing}
                                 Icon={UilEstate}
                             />
                         </li>
@@ -76,8 +76,8 @@ const Challenges = (props: RouteComponentProps) => {
                     <Spinner />
                 </div>
             ) : (
-                <Route path={`${match.path}/:day`}  render={(props)=><Challenge {...props} days={days}/>} />
-                )}
+                <Route path={`${match.path}/:day`} render={(props) => <Challenge {...props} days={days} />} />
+            )}
         </main>
     );
 };

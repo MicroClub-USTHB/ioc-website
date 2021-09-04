@@ -1,101 +1,133 @@
-$main_color: #40CD7D;
-$secondary_color: #0D1B28;
+$main_color: #40cd7d;
+$secondary_color: #0d1b28;
 
 .popover_button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #0D1B28;
-  transition: color .1s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0d1b28;
+    transition: color 0.1s ease;
 
-  &:hover {
-    color: $main_color;
-  }
+    &:hover {
+        color: $main_color;
+    }
 }
 
 .popover_container {
-  background-color: white;
-  padding: 2rem 2rem;
-  border-radius: 10px;
-  cursor: default;
-  box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
-  -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.2);
+    background-color: white;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+    cursor: default;
+    box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
 }
 
 .nav_list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-
-  & > li {
-    margin: .2vw 0;
-    text-align: start;
-  }
-
-  /* navigation button of popover */
-  .nav_button {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    cursor: pointer;
-
-    & > .nav_icon_container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4rem;
-      height: 4rem;
-      border-radius: 10px;
-      background-color: #E0E0E0;
-
-      & > svg {
-        width: 2.5rem;
-        height: 2.5rem;
-        color: #8C8C8C;
-      }
-    }
-
-    .nav_button_text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      height: 4rem;
-      margin-left: 1.5rem;
-      text-align: start;
-      
-      & > span {
-        font-size: 1.1rem;
-      }
-
-      & > span:nth-child(1) {
-        font-weight: 600;
-      }
-    }
-
-    &:hover {
-      & > .nav_icon_container {
-        background-color: #40CD7D40;
-
-        & > svg {
-          color: #309A5D;
-        }
-      }
-      
-      & > .nav_button_text {
-        & > span:nth-child(1) {
-          color: #309A5D;
-        }
-      }
-    }
-  }
-
-  /* signin form of popover */
-  .signin_form {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-  }
+
+    & > li {
+        margin: 0.2vw 0;
+        text-align: start;
+    }
+
+    /* navigation button of popover */
+    .nav_button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        text-decoration: none;
+
+        & > .nav_icon_container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 10px;
+            background-color: #e0e0e0;
+
+            & > svg {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: #8c8c8c;
+            }
+        }
+
+        .nav_button_text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 4rem;
+            margin-left: 1.5rem;
+            text-align: start;
+
+            & > span {
+                font-size: 1.1rem;
+                color: #0d1b28;
+                transition: color 300ms ease-in;
+            }
+
+            & > span:nth-child(1) {
+                font-weight: 600;
+            }
+        }
+
+        &:hover {
+            & > .nav_icon_container {
+                background-color: #40cd7d40;
+
+                & > svg {
+                    color: #309a5d;
+                }
+            }
+
+            & > .nav_button_text {
+                & > span:nth-child(1) {
+                    color: #309a5d;
+                }
+            }
+        }
+    }
+    .nav_main {
+        & > .nav_icon_container {
+            background-color: #40cd7d;
+
+            & > svg {
+                color: white;
+            }
+        }
+
+        & > .nav_button_text {
+            & > span:nth-child(1) {
+                color: #40cd7d;
+            }
+        }
+        &:hover {
+            & > .nav_icon_container {
+                background-color: #40cd7dce;
+
+                & > svg {
+                    color: white;
+                }
+            }
+
+            & > .nav_button_text {
+                & > span:nth-child(1) {
+                    color: #40cd7d;
+                }
+            }
+        }
+    }
+    /* signin form of popover */
+    .signin_form {
+        display: flex;
+        flex-direction: column;
+    }
 }
