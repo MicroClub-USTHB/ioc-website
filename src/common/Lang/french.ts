@@ -35,7 +35,7 @@ const French = {
             `14 Défis`,
             `7 jours`,
             ["TOP 3", "Des Formations premium gratuitement"],
-            "notre partner",
+            "notre partenaire",
         ],
     },
     video: {
@@ -97,6 +97,15 @@ const French = {
         submit: "Soumettre une Réponse",
         no: "There is no Challenge yet! be patient !",
         select: "Select a challenge in the left",
+    },
+    menu: {
+        user: "Commencer les défis ",
+        home: ["Accueil", "Retour à la page de destination"],
+        signup: ["S'inscrire", "S'inscrire à ce défi"],
+        about: ["L'événement", "En savoir plus sur l'événement"],
+        FAQ: ["FAQ", "Questions et réponses"],
+        video: ["Tutoriel de participation", "Regarder un tutoriel vidéo"],
+        logout: ["Déconnexion", ""],
     },
 };
 

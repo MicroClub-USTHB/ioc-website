@@ -73,7 +73,6 @@ const Menu = () => {
         placement: "bottom-start",
         modifiers: [{ name: "offset", options: { offset: [0, 20] } }],
     });
-    console.log();
     return (
         <Popover style={{ zIndex: 10 }}>
             <Popover.Button ref={setReferenceElement as any} className={popoverStyle.popover_button}>
@@ -91,7 +90,7 @@ const Menu = () => {
                         <NavButton
                             to="/challenges"
                             text={user.userName}
-                            span={"Start the Challenges"}
+                            span={Lang.menu.user}
                             Comp={<UilUser />}
                             user={true}
                         />
@@ -134,15 +133,15 @@ const Menu = () => {
                             {window.location.pathname !== "/" && !user ? (
                                 <NavButton
                                     to="/"
-                                    text={"Home"}
-                                    span={"Go Back the the landing page"}
+                                    text={Lang.menu.home[0]}
+                                    span={Lang.menu.home[1]}
                                     Comp={<UilHome />}
                                 />
                             ) : (
                                 <NavButton
                                     to="/Signup"
-                                    text={"Signup"}
-                                    span={"Register in this challenge"}
+                                    text={Lang.menu.signup[0]}
+                                    span={Lang.menu.signup[1]}
                                     Comp={<UilSignInAlt />}
                                 />
                             )}
@@ -151,20 +150,35 @@ const Menu = () => {
                     {/* The event */}
                     <NavButton
                         to="/#About"
-                        text={"The event"}
-                        span={"Learn more about the event"}
+                        text={Lang.menu.about[0]}
+                        span={Lang.menu.about[1]}
                         Comp={<UilInfoCircle />}
                     />
                     {/* Video Tutorial 
                     <NavButton
                         to="/#Video"
-                        text={"Participation tutorial"}
-                        span={"Watch a video tutorial"}
+                        text={Lang.menu.video[0]}
+                        span={Lang.menu.video[1]}
                         Comp={<UilVideo />}
                     />*/}
                     {/* FAQ */}
-                    <NavButton to="/#FAQ" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
-                    {user ? <NavButton to="/logout" logout text={"Logout"} span={""} Comp={<UilSignOutAlt />} /> : ""}
+                    <NavButton
+                        to="/#FAQ"
+                        text={Lang.menu.FAQ[0]}
+                        span={Lang.menu.FAQ[1]}
+                        Comp={<UilCommentQuestion />}
+                    />
+                    {user ? (
+                        <NavButton
+                            to="/logout"
+                            logout
+                            text={Lang.menu.logout[0]}
+                            span={Lang.menu.logout[1]}
+                            Comp={<UilSignOutAlt />}
+                        />
+                    ) : (
+                        ""
+                    )}
                 </ul>
             </Popover.Panel>
         </Popover>

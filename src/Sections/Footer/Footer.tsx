@@ -21,9 +21,10 @@ const Footer = () => {
                     <h1 className={footerStyle.title}>IMPACT OF CODE</h1>
                     <div className={footerStyle.subTitles}>
                         <h2>
-                            {Lang.footer.titles[0][0]} <a href="/">Micro Club</a> {Lang.footer.titles[0][1]}
+                            {Lang.footer.titles[0][0]} <a href="https://microclub.net/">Micro Club</a>{" "}
+                            {Lang.footer.titles[0][1]}
                         </h2>
-                        <Link to="/">
+                        <Link to="/challenges">
                             <h2>{Lang.footer.titles[1]}</h2>
                         </Link>
                     </div>

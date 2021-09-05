@@ -98,6 +98,16 @@ const English: LangType = {
         no: "There is no Challenge yet! be patient !",
         select: "Select a challenge in the left",
     },
+
+    menu: {
+        user: "Start the Challenges",
+        home: ["Home", "Go Back the the landing page"],
+        signup: ["Signup", "Register in this challenge"],
+        about: ["The event", "Learn more about the event"],
+        FAQ: ["FAQ", "Questions and answers"],
+        video: ["Participation tutorial", "Watch a video tutorial"],
+        logout: ["Logout", ""],
+    },
 };
 
 export default English;
