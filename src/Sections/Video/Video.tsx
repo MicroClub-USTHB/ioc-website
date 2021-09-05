@@ -9,7 +9,7 @@ import videoStyle from "./Video.module.scss";
 // resources
 import video1 from "../../resources/Video1-min.png";
 import video2 from "../../resources/Video2-min.png";
-
+import teaser from "../../resources/teaser_ioc.jpg";
 const Video = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
 
@@ -23,13 +23,13 @@ const Video = () => {
                     {Lang.video.titles[0].main}{" "}
                     <span className={videoStyle.highlight}>{Lang.video.titles[0].highlight}</span>
                 </h1>
-                <iframe
-                    className={videoStyle.youtube_video}
+                <img className={videoStyle.youtube_video} src={teaser} />
+                {/*<iframe
                     src="https://www.youtube.com/embed/6TEBHQ-qm7c"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                ></iframe>
+                ></iframe>*/}
                 <h1>
                     {Lang.video.titles[1].parts![0]}{" "}
                     <span className={videoStyle.highlight}>{Lang.video.titles[1].highlight}</span>{" "}
