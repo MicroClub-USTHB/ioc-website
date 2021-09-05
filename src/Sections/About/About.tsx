@@ -34,13 +34,14 @@ const About = () => {
                         {Lang.event.about[0].description}
                     </div>
                 </div>
+                {/*
                 <div className={aboutStyle.info_box_bottom}>
                     <img src={about2} alt="" />
                     <div className={aboutStyle.bottom_description}>
                         <h2>{Lang.event.about[1].title}</h2>
                         {Lang.event.about[1].description}
                     </div>
-                </div>
+                </div>*/}
             </div>
         </section>
     );

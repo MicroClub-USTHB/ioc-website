@@ -10,12 +10,10 @@
 
         & > .section_title {
             font-size: 3rem;
-            margin: auto;
+            margin: 0 0 2vw;
             position: relative;
             display: flex;
             align-items: center;
-            margin-bottom: 2vw;
-            margin-left: 0;
 
             &::before {
                 content: "The Event";
