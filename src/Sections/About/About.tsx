@@ -12,10 +12,13 @@ import aboutStyle from "./About.module.scss";
 
 const About = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
+    const language = (useSelector<RootState>((state) => state.common.language) as "english") || "french";
     return (
         <section id="About" className={aboutStyle.about_container}>
             <div className={aboutStyle.left_section}>
-                <h1 className={aboutStyle.section_title}>{Lang.event.title}</h1>
+                <h1 className={aboutStyle.section_title + (language === "english" ? "" : " " + aboutStyle.FR)}>
+                    {Lang.event.title}
+                </h1>
                 <p>
                     {Lang.event.description[0]}
                     <br />

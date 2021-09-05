@@ -1,29 +1,25 @@
-$secondary_color: #0D1B28;
-$main_color: #40CD7D;
-$light_color: #E0E0E0;
-
 .container {
-  width: 100vw;
-  min-height: fit-content;
-  height: 100vh;
-  background-color: $light_color;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100vw;
+    min-height: fit-content;
+    height: 100vh;
+    background-color: var(--light_color);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .background_dec {
-  font-weight: 600;
-  color: #0D1B28;
-  opacity: .2;
-  font-size: 9vw;
-  position: absolute;
-  display: block;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-  transform-origin: center center;
-  transform: rotateZ(-35deg) ;
+    font-weight: 600;
+    color: #0d1b28;
+    opacity: 0.2;
+    font-size: 9vw;
+    position: absolute;
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    transform-origin: center center;
+    transform: rotateZ(-35deg);
 }

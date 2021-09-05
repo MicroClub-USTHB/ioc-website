@@ -1,70 +1,68 @@
-$secondary_color: #0D1B28;
-$main_color: #40CD7D;
-$light_color: #E0E0E0;
-
 .outer_container {
-  display: flex;
-  min-height: 100vh;
-  min-width: 100vw;
-  background-color: $light_color;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--light_color);
 }
 
 .navigation {
-  width: 21rem;
-  background-color: $main_color;
-  position: relative;
+    width: 22%;
+    min-width: 12rem;
+    max-width: 18rem;
+    background-color: var(--main_color);
+    overflow: auto;
+    height: 100vh;
 }
 
-.header {
-  margin: 2rem 1rem;
-  display: flex;
-  align-items: center;
-
-  & > .logo {
-    height: 5rem;
-    width: auto;
-  }
-
-  .title {
-    font-size: 1.2rem;
-    margin-left: 1rem;
-  }
+.container {
+    width: calc(100% - 18rem);
+    margin: 0 auto;
+    padding-top: 1rem;
+    height: 100vh;
+    overflow: auto;
 }
 
 .challenges_list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .divider {
-  border: 1px solid $secondary_color;
-  width: 90%;
-  position: relative;
-  left: -2rem;
-  margin: 2.1rem 0;
-  display: flex;
+    border: 1px solid var(--secondary_color);
+    width: 90%;
+    position: relative;
+    left: -2rem;
+    margin: 2.1rem 0;
+    display: flex;
 }
 
 .navigation_list {
-  list-style: none;
-  margin: 0;
-  padding: 0; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .loader_container {
-  width: calc(100% - 21rem);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & > div {
-    width: 20vw;
-    height: 20vw;
-  }
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > div:first-child {
+        height: 50%;
+    }
+    & p {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+        text-transform: uppercase;
+        color: var(--secondary_color);
+    }
 }
 
 .loading_list_indicator {
-  margin-left: 2.6rem;
-  font-size: 1.2rem;
+    margin-left: 2.6rem;
+    font-size: 1.2rem;
 }

@@ -15,10 +15,12 @@ import Card from "./Card/Card";
 
 const Numbers = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
-
+    const language = (useSelector<RootState>((state) => state.common.language) as "english") || "french";
     return (
         <section id="Card" className={numbersStyle.section_container}>
-            <h1 className={numbersStyle.section_title}>{Lang.numbers.title}</h1>
+            <h1 className={numbersStyle.section_title + (language === "english" ? "" : " " + numbersStyle.FR)}>
+                {Lang.numbers.title}
+            </h1>
             <div className={numbersStyle.holder_container}>
                 <div className={numbersStyle.cards_holder}>
                     <Card Icon={UilGift} heading={Lang.numbers.card[0][0]} subHeading={Lang.numbers.card[0][1]} />

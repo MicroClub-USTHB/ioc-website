@@ -1,90 +1,90 @@
-$secondary_color: #0D1B28;
-$main_color: #40CD7D;
-
 .section_container {
-  min-height: 100vh;
-  padding: 4vw 0;
-  width: 100vw;
-  overflow-x: hidden;
+    min-height: 100vh;
+    padding: 4vw 0;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .section_title {
-  font-size: 3vw;
-  margin: 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 2vw;
-  margin-left: 8vw;
+    font-size: 3vw;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vw;
+    margin-left: 8vw;
 
-  &::before {
-    content: 'Numbers';
-    display: block;
-    position: absolute;
-    font-size: 6vw;
-    color: #8C8C8C20;
-    left: -8vw;
-    bottom: -1.6vw;
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 4vw;
-    background-color: $secondary_color;
-    z-index: 40;
-    left: 0;
-    bottom: 0;
-  }
+    &::before {
+        content: "Numbers";
+        display: block;
+        position: absolute;
+        font-size: 4rem;
+        color: #8c8c8c65;
+        z-index: -1;
+        left: -2.5ch;
+        bottom: -0.5ch;
+    }
+    &.FR::before {
+        content: "chiffres";
+    }
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 4vw;
+        background-color: var(--secondary_color);
+        z-index: 40;
+        left: 0;
+        bottom: 0;
+    }
 }
 
 .holder_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  & > .cards_holder {
-    height: 100%;
     display: flex;
     align-items: center;
-  }
+    justify-content: center;
+    position: relative;
+
+    & > .cards_holder {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 }
 
 .bg_image {
-  position: absolute;
-  top: 0;
+    position: absolute;
+    top: 0;
 }
 
 @media screen and (max-width: 425px) {
-  .section_container {
-    padding: 4rem 0;
-  }
-
-  .section_title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-
-    &::before {
-      font-size: 5rem;
+    .section_container {
+        padding: 4rem 0;
     }
 
-    &::after {
-      width: 3rem;
+    .section_title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+
+        &::before {
+            font-size: 5rem;
+        }
+
+        &::after {
+            width: 3rem;
+        }
     }
-  }
 
-  .bg_image {
-    top: 5rem;
-  }
-
-  .cards_holder {
-    flex-direction: column;
-
-    & > .card_pair {
-      margin-top: -3rem;
+    .bg_image {
+        top: 5rem;
     }
-  }
+
+    .cards_holder {
+        flex-direction: column;
+
+        & > .card_pair {
+            margin-top: -3rem;
+        }
+    }
 }

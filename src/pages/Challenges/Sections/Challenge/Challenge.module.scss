@@ -1,18 +1,13 @@
-$secondary_color: #0D1B28;
-$main_color: #40CD7D;
-$light_color: #E0E0E0;
-$dark_color: #8C8C8C;
-
 .container {
-  display: flex;
-  height: 100vh;
-  width: calc(100% - 21rem);
-  position: relative;
-
-  /* left section */
-  & > .left_container {
     display: flex;
-    flex-direction: column;
-    width: 65%;
-  }
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    /* left section */
+    & > .left_container {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+    }
 }

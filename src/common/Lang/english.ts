@@ -85,6 +85,8 @@ const English: LangType = {
         side: "Side",
         task: "Task",
         submit: "Submit an Answer",
+        no: "There is no Challenge yet! be patient !",
+        select: "Select a challenge in the left",
     },
 };
 

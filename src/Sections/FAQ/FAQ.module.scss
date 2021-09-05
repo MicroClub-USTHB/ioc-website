@@ -1,37 +1,34 @@
-$main_color: #40CD7D;
-$secondary_color: #0D1B28;
-
 .faq_section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .section_title {
-  font-size: clamp(1.2rem, 2vw);
-  position: relative;
-  margin-top: 5rem;
+    font-size: clamp(1.2rem, 2vw);
+    position: relative;
+    margin-top: 5rem;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 3vw;
-    height: 2px;
-    background-color: $secondary_color;
-    position: absolute;
-    bottom: 0;
-  }
+    &::before {
+        content: "";
+        display: block;
+        width: 3vw;
+        height: 2px;
+        background-color: var(--secondary_color);
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 .qa_list {
-  margin-top: 3rem;
+    margin-top: 3rem;
 }
 
 @media screen and (max-width: 425px) {
-  .section_title {
-    &::before {
-      width: 2.3rem;
+    .section_title {
+        &::before {
+            width: 2.3rem;
+        }
     }
-  }
 }

@@ -4,20 +4,20 @@ import * as yup from "yup";
 import { usePopper } from "react-popper";
 import { Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import FormControl from "../../../../common/Formik/FormControl";
-import ErrorDisplay from "../../../../common/Formik/ErrorDisplay/ErrorDisplay";
-import Spinner from "../../../../common/Spinner/Spinner";
-
-import { SignInValues, User } from "../../../../types/User";
-import { useSignInMutation } from "../../../../redux/api/backend";
-import { LangType } from "../../../../common/Lang/french";
-import { AppDispatch, RootState } from "../../../../redux/types";
+import FormControl from "../../common/Formik/FormControl";
+import ErrorDisplay from "../../common/Formik/ErrorDisplay/ErrorDisplay";
+import Spinner from "../../common/Spinner/Spinner";
+import { Link } from "react-router-dom";
+import { SignInValues, User } from "../../types/User";
+import { useSignInMutation } from "../../redux/api/backend";
+import { LangType } from "../../common/Lang/french";
+import { AppDispatch, RootState } from "../../redux/types";
 // icons
 import { UilBars, UilInfoCircle, UilVideo, UilCommentQuestion, UilUser } from "@iconscout/react-unicons";
 
 // styles
-import popoverStyle from "./Navigation.module.scss";
-import { setUser } from "../../../../redux/slices/user";
+import popoverStyle from "./Menu.module.scss";
+import { setUser } from "../../redux/slices/user";
 const initial_values: SignInValues = {
     email: "",
     password: "",
@@ -28,26 +28,26 @@ const validation_schema = new yup.ObjectSchema({
     password: yup.string().min(8, "Password must be at least 8 characters long.").required(),
 });
 interface navButtonI {
-    href: string;
+    to: string;
     Comp: React.ReactNode;
     text: string;
     span: string;
     user?: boolean;
 }
-const NavButton: React.FC<navButtonI> = ({ href, Comp, text, span, user = false }) => {
+const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false }) => {
     return (
         <li>
-            <a href={href} className={`${user ? popoverStyle.nav_main : ""} ${popoverStyle.nav_button}`}>
+            <Link to={to} className={`${user ? popoverStyle.nav_main : ""} ${popoverStyle.nav_button}`}>
                 <div className={popoverStyle.nav_icon_container}>{Comp}</div>
                 <div className={popoverStyle.nav_button_text}>
                     <span>{text} </span>
                     <span> {span}</span>
                 </div>
-            </a>
+            </Link>
         </li>
     );
 };
-const Navigation = () => {
+const Menu = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const user = useSelector<RootState>((state) => state.user) as User;
     const [referenceElement, setReferenceElement] = useState(null);
@@ -74,7 +74,7 @@ const Navigation = () => {
                     {/* Sign in */}
                     {user ? (
                         <NavButton
-                            href="/challenges"
+                            to="/challenges"
                             text={user.userName}
                             span={"Start the Challenges"}
                             Comp={<UilUser />}
@@ -118,24 +118,24 @@ const Navigation = () => {
                     )}
                     {/* The event */}
                     <NavButton
-                        href="#About"
+                        to="/#About"
                         text={"The event"}
                         span={"Learn more about the event"}
                         Comp={<UilInfoCircle />}
                     />
                     {/* Video Tutorial */}
                     <NavButton
-                        href="#"
+                        to="/#Video"
                         text={"Participation tutorial"}
                         span={"Watch a video tutorial"}
                         Comp={<UilVideo />}
                     />
                     {/* FAQ */}
-                    <NavButton href="#" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
+                    <NavButton to="/#FAQ" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
                 </ul>
             </Popover.Panel>
         </Popover>
     );
 };
 
-export default Navigation;
+export default Menu;

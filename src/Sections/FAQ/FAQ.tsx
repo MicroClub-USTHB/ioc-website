@@ -18,7 +18,7 @@ const FAQ = () => {
     const qa_list: QAList = Lang.faq.qa;
 
     return (
-        <section id="Q&A" className={faqStyle.faq_section}>
+        <section id="FAQ" className={faqStyle.faq_section}>
             <h1 className={faqStyle.section_title}>{Lang.faq.title}</h1>
             <div className={faqStyle.qa_list}>
                 {qa_list.map((item, i) =>

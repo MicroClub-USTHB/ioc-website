@@ -1,9 +1,3 @@
-$secondary_color: #0d1b28;
-$main_color: #40cd7d;
-$error_color: #cd4040;
-$light_color: #e0e0e0;
-$dark_color: #8c8c8c;
-
 .input_list {
     list-style: none;
     margin: 0;
@@ -44,23 +38,23 @@ $dark_color: #8c8c8c;
         }
 
         & > .field {
-            background-color: $light_color;
+            background-color: var(--light_color);
             padding: 0.8rem 1.2rem;
             border: none;
             border-radius: 30px;
             padding-left: 3rem;
 
             &:focus + .label {
-                color: $main_color;
+                color: var(--main_color);
                 transform: translateY(-38px);
             }
         }
 
         & > .label {
-            color: $light_color;
+            color: var(--light_color);
             position: absolute;
             z-index: 2;
-            color: $dark_color;
+            color: var(--dark_color);
             font-size: 1.1rem;
             margin-left: 3rem;
             top: 0.55rem;
@@ -69,16 +63,16 @@ $dark_color: #8c8c8c;
         }
 
         & > .error {
-            color: $light_color;
+            color: var(--light_color);
             position: absolute;
             bottom: -1.7rem;
             margin-left: 1.7rem;
             &::before {
                 content: "!";
-                background-color: $light_color;
+                background-color: var(--light_color);
                 width: 1.2rem;
                 height: 1.2rem;
-                color: $secondary_color;
+                color: var(--secondary_color);
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -91,19 +85,19 @@ $dark_color: #8c8c8c;
 
 .label_values {
     transform: translateY(-38px) !important;
-    color: $main_color !important;
+    color: var(--main_color) !important;
 }
 
 .error_color {
-    color: $error_color !important;
+    color: var(--error_color) !important;
 }
 
 .submit_button {
-    background-color: $main_color;
+    background-color: var(--main_color);
     padding: 0.7rem 0;
     border: none;
     border-radius: 30px;
-    color: $secondary_color;
+    color: var(--secondary_color);
     font-size: 1.3rem;
     cursor: pointer;
     transition: all 0.1s ease;
@@ -111,8 +105,8 @@ $dark_color: #8c8c8c;
     justify-content: center;
     align-items: center;
     &:hover {
-        background-color: $light_color;
-        color: $secondary_color;
+        background-color: var(--light_color);
+        color: var(--secondary_color);
         font-weight: 500;
     }
 }

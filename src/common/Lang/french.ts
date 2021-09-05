@@ -92,6 +92,8 @@ const French = {
         side: "Secondaire",
         task: "tâche",
         submit: "Soumettre une Réponse",
+        no: "There is no Challenge yet! be patient !",
+        select: "Select a challenge in the left",
     },
 };
 
