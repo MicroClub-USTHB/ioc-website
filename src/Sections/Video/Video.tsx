@@ -1,4 +1,3 @@
-import React from "react";
 import { LangType } from "../../common/Lang/french";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/types";
