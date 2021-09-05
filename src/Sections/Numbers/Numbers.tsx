@@ -9,8 +9,10 @@ import numbersStyle from "./Numbers.module.scss";
 // resources
 
 // icons
-import { UilGift, UilBackpack, UilCalendarAlt } from "@iconscout/react-unicons";
+import { UilGift, UilBackpack, UilCalendarAlt, UilAward } from "@iconscout/react-unicons";
 import Card from "./Card/Card";
+import image from "../../resources/Etudz.png";
+const Sponsor = () => <img src={image} />;
 
 const Numbers = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
@@ -21,11 +23,11 @@ const Numbers = () => {
                 {Lang.numbers.title}
             </h1>
             <div className={numbersStyle.cards_holder}>
+                <Card Icon={Sponsor} heading={Lang.numbers.card[4] as string} />
+                <Card Icon={UilAward} heading={Lang.numbers.card[3][0]} subHeading={Lang.numbers.card[3][1]} />
                 <Card Icon={UilGift} heading={Lang.numbers.card[0][0]} subHeading={Lang.numbers.card[0][1]} />
-                <div className={numbersStyle.card_pair}>
-                    <Card Icon={UilBackpack} heading={Lang.numbers.card[1] as string} />
-                    <Card Icon={UilCalendarAlt} heading={Lang.numbers.card[2] as string} />
-                </div>
+                <Card Icon={UilCalendarAlt} heading={Lang.numbers.card[2] as string} />
+                <Card Icon={UilBackpack} heading={Lang.numbers.card[1] as string} />
             </div>
         </section>
     );

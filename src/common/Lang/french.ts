@@ -17,9 +17,9 @@ const French = {
         ],
         about: [
             {
-                title: "Sept jours. Sept défis. Un seul héros, vous !",
+                title: "7 Jours , 14 défis. Un seul héro , vous !",
                 description:
-                    "Impact of Code propose 7 défis de différents domaines et difficultés, vous n'avez pas besoin d'être un étudiant en informatique ni d'avoir des compétences en codage pour les résoudre, un bon cerveau dans votre crâne épais est tout ce qui est nécessaire. Un nouveau défi est annoncé à l'aube de chaque nouvelle journée, la résolution des défis fait avancer l'histoire.",
+                    "Impact of Code propose 14 défis de différentes techniques et difficultés, vous n'avez pas besoin d'être un étudiant en informatique pour les résoudre vous n'avez besoin que d'avoir des connaissances de base en algorithmes et structures de données.",
             },
             {
                 title: "Battez les ennemis dans l'histoire. Battez vos amis sur le tableau de bord.",
@@ -28,7 +28,16 @@ const French = {
             },
         ],
     },
-    numbers: { title: `Nos chiffres`, card: [[`100.000DZD`, `Cadeaux aux grands gagnants`], `14 Défis`, `7 jours`] },
+    numbers: {
+        title: `Nos chiffres`,
+        card: [
+            [`TOP 5`, `swags`],
+            `14 Défis`,
+            `7 jours`,
+            ["TOP 3", "Des Formations premium gratuitement"],
+            "notre partner",
+        ],
+    },
     video: {
         titles: [
             { main: "Vous voulez savoir comment vous pouvez participer ?", highlight: "Regardez ça 👇" },
@@ -41,16 +50,20 @@ const French = {
             "Que signifie IOC ?",
             "Impact of Code",
             "Qu'est-ce que IoC ?",
-            "Impact of code est un événement d'une semaine qui consiste en des défis algorithmiques enveloppés dans une histoire fascinante. Chaque jour, les défis deviennent de plus en plus difficiles, et votre tâche est de les résoudre !",
-            "Qui peut participer en IOC ?",
+            "Impact of code est un événement conçu par Micro club en collaboration avec Etudz Academy qui se fera en une semaine qui consiste en des défis algorithmiques enveloppés dans une histoire fascinante. Chaque jour, les défis deviennent de plus en plus difficiles, et votre tâche est de les résoudre !",
+            "Qui sont Etudz Academy ?",
+            "Etudz Academy est une école de formation innovante pour un apprentissage facile et efficace pour acquérir les compétences les plus recherchées par les entreprises.",
+            "Le IOC est-il en ligne ou sur place ?",
+            "IOC est un événement en ligne hébergé ici sur le site web! Il suffit de s’inscrire et attendre le début des défis.",
+            "Qui peut rejoindre IOC ?",
             "Tout le monde ! Peu importe qui vous êtes.",
-            "Comment gagner au IOC ?",
+            "Comment gagner à l' IOC ?",
             "Facile ! Tout ce que vous devez faire, c'est résoudre correctement le maximum de défis pour obtenir des points et vous hisser au sommet du classement.",
-            "Existe-t-il des exigences pour le IOC ?",
-            "Il n'y en a pas, mais il serait avantageux pour vous d'avoir des connaissances préalables en codage !",
-            "Puis-je travailler avec une équipe au sein du IOC ?",
-            "NON, il s'agit d'un concours solo, vous devrez donc travailler seul pour résoudre les problèmes.",
-            "Dans quelle langue le IOC sera-t-il rédigé ?",
+            "Y’a t'il  des exigences pour le IOC ?",
+            "Il n'y en a pas, mais il serait avantageux pour vous d'avoir des connaissances préalables en algorithmique !",
+            "Puis-je travailler avec une équipe?",
+            "Non, il s'agit d'une compétition individuelle, vous devrez donc travailler seul pour résoudre les problèmes.",
+            "Dans quelle langue sont les défis?",
             "Les défis seront principalement en anglais ou en français ,c'est à vous de choisir la langue qui vous convient ,vous avez la possibilité de la changer .",
         ],
         question: "Question",
