@@ -42,10 +42,8 @@ const English: LangType = {
         qa: [
             "What does IOC stand for ?",
             "Impact of Code",
-            "Is IOC online or on site ?",
+            "What is IOC about ?",
             "Impact of code is a one week long event that consists of algorithmic challenges wrapped in a compelling story , each day the challenges get harder and harder, and your task is to solve them !",
-            "Is IOC online or on site ?",
-            "IOC is an online event hosted on its website check ioc.com for more info .",
             "Who can join the IOC ?",
             "Everyone ! Regardless of who you are .",
             "How to win in the IOC ?",

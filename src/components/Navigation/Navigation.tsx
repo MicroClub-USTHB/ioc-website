@@ -35,13 +35,13 @@ const Navigation = () => {
                         )}
                     </div>
                 </Switch>
-                <a href="/">
+                <a href="https://www.facebook.com/Micro.Club.USTHB">
                     <UilFacebook />
                 </a>
-                <a href="/">
+                <a href="https://www.linkedin.com/in/micro-club-usthb/">
                     <UilLinkedin />
                 </a>
-                <a href="/">
+                <a href="https://www.instagram.com/microclub_usthb/">
                     <UilInstagram />
                 </a>
             </div>

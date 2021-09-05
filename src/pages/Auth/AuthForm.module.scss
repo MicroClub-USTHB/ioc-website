@@ -2,7 +2,17 @@
     list-style: none;
     margin: 0;
     padding: 3rem 2.5rem;
+    & > li.email::after {
+        background-image: url("../../resources/Input1-min.png");
+    }
 
+    & > li.userName::after {
+        background-image: url("../../resources/Input3-min.png");
+    }
+
+    & > li.password::after {
+        background-image: url("../../resources/Input2-min.png");
+    }
     & > li {
         display: flex;
         flex-direction: column;
@@ -21,41 +31,32 @@
             transform: translateX(15px);
         }
 
-        &:nth-child(1)::after {
-            background-image: url("../../../../../../resources/Input1-min.png");
-        }
-
-        &:nth-child(2)::after {
-            background-image: url("../../../../../../resources/Input3-min.png");
-        }
-
-        &:nth-child(3)::after {
-            background-image: url("../../../../../../resources/Input2-min.png");
-        }
-
-        &:nth-child(4)::after {
-            background-image: url("../../../../../../resources/Input2-min.png");
-        }
-
-        & > .field {
-            background-color: var(--light_color);
+        & > .field,
+        & > .field:-webkit-autofill,
+        & > .field:-webkit-autofill:hover,
+        & > .field:-webkit-autofill:focus {
+            background-color: var(--light_color) !important;
             padding: 0.8rem 1.2rem;
             border: none;
             border-radius: 30px;
             padding-left: 3rem;
-
+            font-size: 1rem;
+            font-weight: 800 !important;
+            color: var(--main_color) !important;
+            box-shadow: 1px 1px 9px -3px var(--secondary_color) !important;
             &:focus + .label {
-                color: var(--main_color);
+                color: var(--main_color) !important;
+                text-shadow: 2px 2px 6px var(--secondary_color);
                 transform: translateY(-38px);
             }
         }
 
         & > .label {
-            color: var(--light_color);
             position: absolute;
             z-index: 2;
             color: var(--dark_color);
             font-size: 1.1rem;
+            font-weight: 800 !important;
             margin-left: 3rem;
             top: 0.55rem;
             transition: all 0.1s ease;
@@ -86,6 +87,7 @@
 .label_values {
     transform: translateY(-38px) !important;
     color: var(--main_color) !important;
+    text-shadow: 2px 2px 6px var(--secondary_color);
 }
 
 .error_color {
@@ -99,14 +101,48 @@
     border-radius: 30px;
     color: var(--secondary_color);
     font-size: 1.3rem;
+    font-weight: 800;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: background-color 0.1s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 1px 1px 9px -3px var(--secondary_color);
+
+    z-index: 2;
     &:hover {
         background-color: var(--light_color);
-        color: var(--secondary_color);
-        font-weight: 500;
+    }
+}
+@media screen and (max-width: 800px) {
+    .input_list {
+        & > li {
+            & > .field,
+            & > .field:-webkit-autofill,
+            & > .field:-webkit-autofill:hover,
+            & > .field:-webkit-autofill:focus {
+                background-color: var(--secondary_color) !important;
+                color: var(--gray_color) !important;
+                &:focus + .label {
+                    color: var(--secondary_color) !important;
+                }
+            }
+            & > .label {
+                color: var(--dark_color);
+            }
+            & > .error {
+                color: var(--secondary_color);
+                &::before {
+                    background-color: var(--secondary_color);
+                    color: var(--light_color);
+                }
+            }
+        }
+    }
+    .submit_button {
+        &:hover {
+            background-color: var(--secondary_color);
+            color: var(--light_color);
+        }
     }
 }

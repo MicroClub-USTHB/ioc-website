@@ -6,8 +6,8 @@ import { DayRequest } from "../../types/Day";
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        // baseUrl: 'https://ioc-backend.herokuapp.com/',
-        baseUrl: "http://localhost:3001/",
+        baseUrl: "https://ioc-backend.herokuapp.com/",
+        //baseUrl: "http://localhost:3001/",
         credentials: "include",
     }),
     endpoints: (builder) => ({

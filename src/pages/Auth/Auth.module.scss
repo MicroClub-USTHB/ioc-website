@@ -10,7 +10,7 @@
 
 .background_dec {
     font-weight: 600;
-    width: 100%;
+    width: 70%;
     height: 100%;
     overflow: hidden;
     padding: 10%;
@@ -18,7 +18,7 @@
 
 .content_container {
     width: 100%;
-    max-width: 50rem;
+    max-width: 35rem;
     background-color: var(--secondary_color);
     height: 100vh;
     display: flex;
@@ -68,7 +68,7 @@
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .background_dec {
         display: none;
     }

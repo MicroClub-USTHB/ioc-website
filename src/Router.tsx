@@ -14,7 +14,7 @@ import { User } from "./types/User";
 import Leaderboard from "./pages/Challenges/Sections/Leaderboard/Leaderboard";
 
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
-const Auth = React.lazy(() => import("./pages/Signup/Auth"));
+const Auth = React.lazy(() => import("./pages/Auth/Auth"));
 
 const App: React.FC<{ isLoading: boolean; setLoading: any }> = ({ isLoading = false, setLoading }) => {
     const [logout, { isLoading: isLoggingOut }] = useLogOutMutation();

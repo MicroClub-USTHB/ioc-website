@@ -72,7 +72,7 @@
     align-items: center;
     z-index: -2;
     background-color: var(--main_color);
-    background: linear-gradient(-45deg, var(--main_color), var(--dark_color));
+    background: linear-gradient(-45deg, var(--main_color), var(--main_color_high));
     background-size: 200% 200%;
     animation: gradient 5s ease infinite;
     border-radius: 50%;
@@ -94,7 +94,7 @@
             background: var(--gradiant2);
             background-size: 200% 200%;
             animation: gradient 5s ease infinite;
-            z-index: 4;
+            z-index: -4;
             opacity: 40%;
             border-radius: 50%;
             position: absolute;
@@ -111,7 +111,7 @@
             width: 4vw;
             background-color: var(--main_color);
             position: absolute;
-            z-index: 4;
+            z-index: -4;
             right: -15rem;
             bottom: -15rem;
             animation: turn 5s linear infinite both;
