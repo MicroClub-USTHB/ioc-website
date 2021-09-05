@@ -75,6 +75,9 @@
     fill: inherit;
     width: 40%;
 }
+.Loader.transparent svg {
+    width: 100%;
+}
 @keyframes The_I {
     25% {
         transform: scale(1);
@@ -82,13 +85,13 @@
     }
     30% {
         transform: scale(1.35);
-        fill: var(--main_color);
+        fill: var(--main_color_high);
     }
     35% {
         transform: scale(1);
     }
     80% {
-        fill: var(--main_color);
+        fill: var(--main_color_high);
     }
     100% {
         fill: inherit;
@@ -124,11 +127,11 @@
     }
     45% {
         transform: scale(1);
-        fill: var(--main_color);
+        fill: var(--main_color_high);
     }
     60% {
         transform: scale(0.9);
-        fill: var(--main_color);
+        fill: var(--main_color_high);
     }
     100% {
         fill: inherit;

@@ -20,7 +20,7 @@ const Landing: React.FC<RouteComponentProps> = () => {
     });
     return (
         <main className={landingStyle.main_container}>
-            <LogoV />
+            <LogoV className={landingStyle.logo} />
             <Hero />
             <About />
             <Numbers />

@@ -1,127 +1,107 @@
 .main_container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: flex-end;
-}
-
-/* navigation */
-.navigation {
-    position: absolute;
-    padding: 1vw 8vw 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    color: var(--secondary_color);
-    & > a {
-        color: var(--secondary_color);
-        text-decoration: none;
-    }
-
-    & > .nav {
-        display: flex;
-        & > .nav_social {
-            display: flex;
-            margin-right: 2vw;
-            & > a {
-                color: var(--secondary_color);
-
-                &:hover {
-                    & > svg {
-                        color: var(--main_color);
-                    }
-                }
-            }
-            & > a + a {
-                margin-left: 0.2vw;
-            }
-        }
-
-        & > svg {
-            font-size: 2vw;
-            transition: color 0.1s ease;
-        }
-    }
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 /* links */
-.line {
-    height: 2px;
-    width: 4vw;
-    background-color: var(--secondary_color);
-}
 
 .hero_nav {
-    cursor: pointer;
+    display: flex;
+    width: 100%;
+    margin: auto 0 1rem;
+    justify-content: space-between;
 
     & > a {
         color: unset;
         text-decoration: unset;
         display: flex;
         align-items: center;
-    }
+        text-align: center;
+        margin: 0 0 auto;
 
-    & > a > span {
-        margin-left: 1rem;
-        font-weight: 500;
-        transition: all 0.1s ease;
-    }
+        &:last-child {
+            flex-direction: row-reverse;
+        }
+        &:nth-child(2) {
+            flex-direction: column-reverse;
+            margin: 5rem 0 0;
+        }
+        .line {
+            height: 2px;
+            width: 3rem;
+            background-color: var(--secondary_color);
+            transition: background-color 300ms ease-in;
+        }
+        & > span {
+            margin: 0 1rem;
+            font-size: 1.6rem;
 
-    &:hover {
-        & > a > span {
-            color: var(--main_color);
-            // todo: add sliding green bar to Line
+            font-family: "Hacked";
+            text-transform: uppercase;
+            transition: color 0.1s ease;
+        }
+        &:hover {
+            .line {
+                background-color: var(--main_color);
+            }
+            & > span {
+                color: var(--main_color);
+                // todo: add sliding green bar to Line
+            }
         }
     }
 }
 
-.first_nav {
-    position: relative;
-    left: 8vw;
-    bottom: 5vw;
-}
-
-.second_nav {
-    position: relative;
-    bottom: 5vw;
-    right: 8vw;
-    margin-left: auto;
-}
-
 /* hero image */
 .hero_image_container {
-    width: 35vw;
-    height: 35vw;
-    margin-top: 0;
+    width: 50vw;
+    max-width: 25rem;
+    height: 50vw;
+    max-height: 25rem;
+    margin: auto auto 0;
     align-self: center;
     justify-self: center;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
-
+    z-index: -2;
+    background-color: var(--main_color);
+    background: linear-gradient(-45deg, var(--main_color), var(--dark_color));
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    border-radius: 50%;
     & > img {
         position: absolute;
         bottom: 0;
+        z-index: 5;
         width: 100%;
     }
 
     & > .decoration {
+        position: absolute;
         &::before {
             display: block;
             content: "";
             height: 4vw;
             width: 4vw;
             background-color: var(--main_color);
-            position: absolute;
+            background: var(--gradiant2);
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
             z-index: 4;
-            left: -15vw;
-            top: 2vw;
-            border-radius: 50%;
             opacity: 40%;
+            border-radius: 50%;
+            position: absolute;
+            left: -15rem;
+            top: -15rem;
+            transform-origin: 15rem 15rem;
+            animation: turn 5s linear infinite both;
         }
 
         &::after {
@@ -132,8 +112,10 @@
             background-color: var(--main_color);
             position: absolute;
             z-index: 4;
-            right: -17vw;
-            bottom: 9vw;
+            right: -15rem;
+            bottom: -15rem;
+            animation: turn 5s linear infinite both;
+            transform-origin: -14rem -10rem;
             border-radius: 50%;
             opacity: 40%;
         }
@@ -141,137 +123,49 @@
 
     &::after {
         content: "Impact of Code";
-        display: block;
-        font-size: 11vw;
+        font-size: 9vw;
         white-space: nowrap;
-        margin-bottom: 20vh;
+        margin-top: -30%;
         font-family: HACKED;
-        color: var(--secondary_color);
-    }
-
-    &::before {
-        display: block;
-        z-index: -2;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: var(--main_color);
-        position: absolute;
-        bottom: 0;
-        border-radius: 50%;
-    }
-
-    & > .image_bottom_text {
-        position: absolute;
-        bottom: -6rem;
-        transform: rotate(90deg);
-
-        & > button {
-            background-color: transparent;
-            color: unset;
-            border: unset;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-
-            &:hover {
-                & > span::after {
-                    transition: all 0.1s ease;
-                    content: " >";
-                    position: absolute;
-                }
-            }
-        }
-
-        & > button > div {
-            width: 2rem;
-            height: 1px;
-        }
-
-        & > button > span {
-            white-space: nowrap;
-            margin-left: 0.5rem;
-        }
+        filter: blur(1px);
+        color: var(--secondary_color_fade);
     }
 }
 
-.switch_container {
-    background-color: var(--dark_color);
-    border: none;
-    height: 1.45rem;
-    width: 2.8rem;
-    border-radius: 50px;
-    margin: 0.14rem 1rem;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.switch_thumb {
-    height: 1rem;
-    width: 1rem;
-    background-color: var(--error_color);
-    border-radius: 50%;
-    transition: 0.5s;
-    position: relative;
-
-    & > img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-}
-
-.switch_thumb_french {
-    transform: translateX(0.95rem);
-    animation: fadein 0.5s ease-in-out;
-}
-
-@keyframes fadein {
+@keyframes gradient {
     0% {
-        & > img {
-            opacity: 1;
-        }
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 0% 100%;
     }
     50% {
-        & > img {
-            opacity: 0;
-        }
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 100% 0%;
     }
     100% {
-        & > img {
-            opacity: 1;
-        }
+        background-position: 0% 0%;
+    }
+}
+@keyframes turn {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-/* popover */
-
-@media screen and (max-width: 425px) {
-    .navigation {
-        padding: 1.2rem 8vw 0;
-    }
-
+@media screen and (max-width: 700px) {
     .main_container {
         display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        padding-bottom: 8vh;
     }
 
     .hero_image_container {
-        width: 13rem;
-        height: 13rem;
-        position: absolute;
-
         &::after {
-            font-size: 3rem;
-            margin-bottom: 4rem;
+            font-size: 12vw;
         }
-    }
-
-    .line {
-        width: 2rem;
     }
 }

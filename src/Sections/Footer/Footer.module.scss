@@ -1,7 +1,6 @@
 .footer_container {
-    min-height: 70vh;
     width: 100vw;
-    padding: 10vw 10vw;
+    padding: 10vw;
     position: relative;
 }
 
@@ -76,10 +75,9 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 600px) {
     .footer_container {
-        min-height: fit-content;
-        padding: 3rem 8vw 5rem;
+        padding: 0;
     }
 
     .card_container {
@@ -90,21 +88,11 @@
     }
 
     .content_container {
-        padding: 5rem 1.6rem 6rem;
-
-        & > .title {
-            font-size: 3rem;
-            white-space: normal;
-            text-align: center;
-        }
+        padding: 3rem 1.6rem;
 
         & > .subTitles {
-            font-size: 0.8rem;
-            margin-top: 2rem;
-
-            & > a {
-                text-align: right;
-            }
+            font-size: 0.6rem;
+            margin: 0.8rem 0;
         }
     }
 }

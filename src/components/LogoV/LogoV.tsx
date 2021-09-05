@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import "./LogoV.css";
-const LogoV = () => {
+const LogoV = ({ className }: { className: string }) => {
     return (
-        <Link to="/">
+        <Link className={className} to="/">
             <svg className="LogoV" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2110 400">
                 <g id="LogoV">
                     <g id="logo">

@@ -1,7 +1,7 @@
 .card_container {
     background-color: var(--light_color);
-    padding: 3rem 2rem;
-    margin: 3rem 1.5rem;
+    padding: 2rem 2rem;
+    margin: 0.5rem 0.5em;
     opacity: 1;
     position: relative;
     z-index: 1;
@@ -9,33 +9,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.1);
 
     & > svg {
-        width: 4rem;
-        height: 4rem;
+        width: 8vw;
+        height: 8vw;
         color: var(--secondary_color);
         margin-bottom: 1rem;
     }
 
     & > h1 {
         font-weight: 500;
-        font-size: clamp(2rem, 2vw, 3rem);
+        font-size: 2vw;
         color: var(--secondary_color);
     }
 
     & > h2 {
         font-weight: 400;
-        font-size: clamp(1rem, 1vw, 2rem);
+        font-size: 1.5vw;
         color: var(--secondary_color);
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 100px) {
     .card_container {
-        width: 100%;
-        margin: 3rem 0;
+        padding: 1rem;
+        margin: 1.5rem;
+    }
+    & > h1 {
+        font-size: 3vw;
+    }
+
+    & > h2 {
+        font-size: 2.5vw;
     }
 }

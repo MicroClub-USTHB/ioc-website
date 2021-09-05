@@ -34,31 +34,17 @@ const Hero = () => {
     return (
         <section ref={sectionRef}>
             <div className={heroStyle.main_container}>
-                <div className={`${heroStyle.hero_nav} ${heroStyle.first_nav}`}>
-                    <Link to="/signin">
-                        <LineText text={Lang.hero.left} />
-                    </Link>
-                </div>
                 <div className={heroStyle.hero_image_container}>
                     <img src={hero_image} alt="Explorer" />
                     <div className={heroStyle.decoration}></div>
-                    <div className={heroStyle.image_bottom_text}>
-                        <button
-                            onClick={(e) => {
-                                window.scrollBy({
-                                    top:
-                                        sectionRef.current !== null
-                                            ? sectionRef.current.offsetHeight
-                                            : window.innerHeight,
-                                    behavior: "smooth",
-                                });
-                            }}
-                        >
-                            <LineText text={Lang.hero.middle} />
-                        </button>
-                    </div>
                 </div>
-                <div className={`${heroStyle.hero_nav} ${heroStyle.second_nav}`}>
+                <div className={heroStyle.hero_nav}>
+                    <Link to="/signin">
+                        <LineText text={Lang.hero.left} />
+                    </Link>
+                    <Link to="/#About">
+                        <LineText text={Lang.hero.middle} />
+                    </Link>
                     <a href="https://microclub.net/">
                         <LineText text={Lang.hero.right} />
                     </a>

@@ -38,55 +38,21 @@
     z-index: 1;
 
     & > h1 {
-        font-size: 3vw;
+        font-size: 1.5rem;
         color: var(--light_color);
-        margin: 4vw 0;
-        white-space: nowrap;
+        margin: 1.5rem 2rem;
+        text-align: center;
         font-weight: 400;
     }
 
     & > .youtube_video {
-        width: 50vw;
-        height: calc(50vw * 9 / 16);
+        max-width: 50rem;
+        width: 80%;
+        max-height: calc(50rem * 9 / 16);
+        height: 55vh;
     }
 }
 
 .highlight {
     color: var(--main_color);
-}
-
-@media screen and (max-width: 425px) {
-    .video_section {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        & > .left_decoration {
-            left: 35%;
-            top: -22vh;
-            height: 49vh;
-            transform: rotate(90deg);
-        }
-
-        & > .right_decoration {
-            right: 30%;
-            bottom: -3vh;
-            height: 25vh;
-            transform: rotate(90deg);
-        }
-    }
-
-    .video_container {
-        & > h1 {
-            font-size: 1.7rem;
-            white-space: normal;
-            text-align: center;
-            padding: 0 0.4rem;
-        }
-
-        & > .youtube_video {
-            width: 90vw;
-            height: calc(90vw * 9 / 16);
-        }
-    }
 }

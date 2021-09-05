@@ -1,7 +1,7 @@
 import "./Logo.css";
 const Logo = () => {
     return (
-        <svg className="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1512.8757 707.4783">
+        <svg className="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1512 850">
             <g id="logo">
                 <path
                     id="circle"

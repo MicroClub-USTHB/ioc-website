@@ -42,7 +42,7 @@
 .switch_thumb {
     height: 1rem;
     width: 1rem;
-    background-color: red;
+    background-color: var(--error_color);
     border-radius: 50%;
     transition: 0.5s;
     position: relative;

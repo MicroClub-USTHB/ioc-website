@@ -9,21 +9,23 @@
         flex-direction: column;
 
         & > .section_title {
-            font-size: 3vw;
-            margin: 0;
+            font-size: 3rem;
+            margin: auto;
             position: relative;
             display: flex;
             align-items: center;
             margin-bottom: 2vw;
+            margin-left: 0;
 
             &::before {
                 content: "The Event";
                 display: block;
                 position: absolute;
                 font-size: 4rem;
-                color: #8c8c8c65;
+                color: var(--dark_color);
+                opacity: 0.3;
                 z-index: -1;
-                left: -2.5ch;
+                right: 1ch;
                 bottom: -0.5ch;
                 white-space: nowrap;
             }
@@ -33,7 +35,7 @@
                 display: block;
                 position: absolute;
                 height: 2px;
-                width: 4vw;
+                width: 100%;
                 background-color: var(--secondary_color);
                 z-index: 40;
                 left: 0;
@@ -108,13 +110,12 @@
         }
     }
 }
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
     .about_container {
         display: flex;
         flex-direction: column;
-
-        & > .left_section {
+        justify-content: space-between;
+        .left_section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -137,21 +138,21 @@
             }
         }
 
-        & > .right_section {
+        .right_section {
             min-height: 100vh;
 
             & > .info_box_top {
-                height: 350px;
-                margin: 5rem 0 2.5rem;
-                background-color: var(--main_color);
-                height: fit-content;
-
+                margin: 0 0 2.5rem;
+                overflow: hidden;
                 & > img {
                     position: absolute;
+                    width: 100%;
+                    top: -5px;
                 }
 
                 .top_description {
                     font-size: 1rem;
+
                     position: relative;
                     padding: 2rem 0;
                     & > h2 {
@@ -163,12 +164,10 @@
 
             & > .info_box_bottom {
                 margin: 2.5rem 0 5rem;
-                height: 400px;
-                height: fit-content;
-                background-color: var(--main_color);
 
                 & > img {
                     position: absolute;
+                    width: 100%;
                 }
 
                 .bottom_description {

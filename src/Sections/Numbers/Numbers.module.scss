@@ -3,11 +3,13 @@
     padding: 4vw 0;
     width: 100vw;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .section_title {
-    font-size: 3vw;
-    margin: 0;
+    font-size: 3rem;
+    margin: auto;
     position: relative;
     display: flex;
     align-items: center;
@@ -19,46 +21,55 @@
         display: block;
         position: absolute;
         font-size: 4rem;
-        color: #8c8c8c65;
+        color: var(--dark_color);
+        white-space: nowrap;
+        opacity: 0.3;
         z-index: -1;
-        left: -2.5ch;
+        right: 1ch;
         bottom: -0.5ch;
     }
     &.FR::before {
-        content: "chiffres";
+        content: "Nos chiffres";
     }
     &::after {
         content: "";
         display: block;
         position: absolute;
         height: 2px;
-        width: 4vw;
+        width: 100%;
         background-color: var(--secondary_color);
         z-index: 40;
-        left: 0;
         bottom: 0;
     }
 }
 
-.holder_container {
+.cards_holder {
+    background-image: url("../../resources/Numbers1-min.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 35rem;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    justify-content: space-around;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-
-    & > .cards_holder {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
 }
 
 .bg_image {
     position: absolute;
-    top: 0;
+    width: 100%;
 }
-
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 800px) {
+    .cards_holder {
+        width: 60%;
+        & > .card_pair {
+            margin-top: -3rem;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
     .section_container {
         padding: 4rem 0;
     }
@@ -79,12 +90,14 @@
     .bg_image {
         top: 5rem;
     }
-
-    .cards_holder {
-        flex-direction: column;
-
-        & > .card_pair {
-            margin-top: -3rem;
+    .holder_container {
+        width: 100%;
+        .cards_holder {
+            flex-direction: column;
+            width: 100%;
+            & > .card_pair {
+                margin-top: -3rem;
+            }
         }
     }
 }

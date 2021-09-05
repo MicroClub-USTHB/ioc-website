@@ -7,11 +7,14 @@
     --main_color: #40cd7d;
     --main_color_high: #309a5d;
     --secondary_color: #0d1b28;
+    --secondary_color_fade: #0d1b28de;
     --light_color: #e0e0e0;
     --white_color: white;
     --gray_color: #c0c0c0;
     --dark_color: #8c8c8c;
     --error_color: #cd4040;
+    --gradiant: linear-gradient(-45deg, var(--main_color), var(--dark_color));
+    --gradiant2: linear-gradient(-45deg, var(--main_color), var(--main_color_high));
 }
 * {
     font-family: "Open Sans";
@@ -42,4 +45,16 @@ h6 {
     color: var(--secondary_color);
     font-weight: 600;
     margin: 0;
+}
+::-webkit-scrollbar {
+    width: 1rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--main_color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main_color_high);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--secondary_color);
 }
