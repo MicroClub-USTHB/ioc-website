@@ -76,6 +76,7 @@
     .content_container {
         background-color: var(--white_color);
         width: 100%;
+        max-width: 100%;
         & .title {
             color: var(--secondary_color);
         }

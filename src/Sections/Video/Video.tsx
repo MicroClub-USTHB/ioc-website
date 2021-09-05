@@ -22,8 +22,9 @@ const Video = () => {
                     {Lang.video.titles[0].main}{" "}
                     <span className={videoStyle.highlight}>{Lang.video.titles[0].highlight}</span>
                 </h1>
-                <img className={videoStyle.youtube_video} src={teaser} />
+                <h1 className={videoStyle.coming}>Coming soon</h1>
                 {/*<iframe
+                <img className={videoStyle.youtube_video} src={teaser} />
                     src="https://www.youtube.com/embed/6TEBHQ-qm7c"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

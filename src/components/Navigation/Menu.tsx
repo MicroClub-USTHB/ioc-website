@@ -17,6 +17,7 @@ import {
     UilBars,
     UilInfoCircle,
     UilVideo,
+    UilHome,
     UilCommentQuestion,
     UilUser,
     UilSignOutAlt,
@@ -72,7 +73,7 @@ const Menu = () => {
         placement: "bottom-start",
         modifiers: [{ name: "offset", options: { offset: [0, 20] } }],
     });
-
+    console.log();
     return (
         <Popover style={{ zIndex: 10 }}>
             <Popover.Button ref={setReferenceElement as any} className={popoverStyle.popover_button}>
@@ -130,12 +131,21 @@ const Menu = () => {
                                     </button>
                                 </Form>
                             </Formik>
-                            <NavButton
-                                to="/Signup"
-                                text={"Signup"}
-                                span={"Register in this challenge"}
-                                Comp={<UilSignInAlt />}
-                            />
+                            {window.location.pathname !== "/" && !user ? (
+                                <NavButton
+                                    to="/"
+                                    text={"Home"}
+                                    span={"Go Back the the landing page"}
+                                    Comp={<UilHome />}
+                                />
+                            ) : (
+                                <NavButton
+                                    to="/Signup"
+                                    text={"Signup"}
+                                    span={"Register in this challenge"}
+                                    Comp={<UilSignInAlt />}
+                                />
+                            )}
                         </>
                     )}
                     {/* The event */}
@@ -145,13 +155,13 @@ const Menu = () => {
                         span={"Learn more about the event"}
                         Comp={<UilInfoCircle />}
                     />
-                    {/* Video Tutorial */}
+                    {/* Video Tutorial 
                     <NavButton
                         to="/#Video"
                         text={"Participation tutorial"}
                         span={"Watch a video tutorial"}
                         Comp={<UilVideo />}
-                    />
+                    />*/}
                     {/* FAQ */}
                     <NavButton to="/#FAQ" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
                     {user ? <NavButton to="/logout" logout text={"Logout"} span={""} Comp={<UilSignOutAlt />} /> : ""}

@@ -44,7 +44,11 @@
         text-align: center;
         font-weight: 400;
     }
-
+    & > .coming {
+        font-family: "Hacked";
+        font-size: 10rem;
+        color: var(--white_color);
+    }
     & > .youtube_video {
         max-width: 50rem;
         width: 80%;

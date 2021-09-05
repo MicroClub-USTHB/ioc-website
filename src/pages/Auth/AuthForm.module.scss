@@ -46,7 +46,7 @@
             box-shadow: 1px 1px 9px -3px var(--secondary_color) !important;
             &:focus + .label {
                 color: var(--main_color) !important;
-                text-shadow: 2px 2px 6px var(--secondary_color);
+                text-shadow: 1px 1px 2px var(--secondary_color);
                 transform: translateY(-38px);
             }
         }
@@ -87,7 +87,7 @@
 .label_values {
     transform: translateY(-38px) !important;
     color: var(--main_color) !important;
-    text-shadow: 2px 2px 6px var(--secondary_color);
+    text-shadow: 1px 1px 2px var(--secondary_color);
 }
 
 .error_color {
