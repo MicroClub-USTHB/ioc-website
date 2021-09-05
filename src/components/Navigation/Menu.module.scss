@@ -126,6 +126,23 @@
             }
         }
     }
+    .nav_logout {
+        &:hover {
+            & > .nav_icon_container {
+                background-color: var(--error_color);
+
+                & > svg {
+                    color: var(--light_color);
+                }
+            }
+
+            & > .nav_button_text {
+                & > span:nth-child(1) {
+                    color: var(--error_color);
+                }
+            }
+        }
+    }
     /* signin form of popover */
     .signin_form {
         display: flex;

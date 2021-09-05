@@ -21,5 +21,9 @@
     margin: 0;
     padding: 0;
     transform-origin: center center;
+
     transform: rotateZ(-35deg);
+    & > div {
+        font-family: "Hacked";
+    }
 }

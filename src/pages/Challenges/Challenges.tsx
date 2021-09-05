@@ -17,7 +17,6 @@ import Loader from "../../components/Loader/Loader";
 import { Day } from "../../types/Day";
 import Logo from "../../components/Logo/Logo";
 const PlaceHolder = ({ text }: { text: string }) => {
-    console.log(text);
     return (
         <div className={challengesStyle.loader_container}>
             <Loader transparent={true} />
@@ -117,7 +116,7 @@ const Challenges = (props: RouteComponentProps) => {
                 days={days}
                 match={match}
                 daysLoading={daysLoading}
-                text={!days ? Lang.challenges.no : Lang.challenges.select}
+                text={!days || days.length < 1 ? Lang.challenges.no : Lang.challenges.select}
             />
         </main>
     );

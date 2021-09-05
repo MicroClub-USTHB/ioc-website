@@ -13,7 +13,15 @@ import { useSignInMutation } from "../../redux/api/backend";
 import { LangType } from "../../common/Lang/french";
 import { AppDispatch, RootState } from "../../redux/types";
 // icons
-import { UilBars, UilInfoCircle, UilVideo, UilCommentQuestion, UilUser } from "@iconscout/react-unicons";
+import {
+    UilBars,
+    UilInfoCircle,
+    UilVideo,
+    UilCommentQuestion,
+    UilUser,
+    UilSignOutAlt,
+    UilSignInAlt,
+} from "@iconscout/react-unicons";
 
 // styles
 import popoverStyle from "./Menu.module.scss";
@@ -33,11 +41,17 @@ interface navButtonI {
     text: string;
     span: string;
     user?: boolean;
+    logout?: boolean;
 }
-const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false }) => {
+const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, logout = false }) => {
     return (
         <li>
-            <Link to={to} className={`${user ? popoverStyle.nav_main : ""} ${popoverStyle.nav_button}`}>
+            <Link
+                to={to}
+                className={`${user ? popoverStyle.nav_main : ""} ${logout ? popoverStyle.nav_logout : ""} ${
+                    popoverStyle.nav_button
+                }`}
+            >
                 <div className={popoverStyle.nav_icon_container}>{Comp}</div>
                 <div className={popoverStyle.nav_button_text}>
                     <span>{text} </span>
@@ -81,40 +95,48 @@ const Menu = () => {
                             user={true}
                         />
                     ) : (
-                        <Formik
-                            initialValues={initial_values}
-                            validationSchema={validation_schema}
-                            onSubmit={async (values: SignInValues) => {
-                                try {
-                                    const res = await signIn(values);
-                                    if (res.hasOwnProperty("data")) {
-                                        dispatch(setUser((res as { data: User }).data));
-                                    } else if (res.hasOwnProperty("error")) {
-                                        throw new Error(JSON.stringify((res as { error: unknown }).error));
+                        <>
+                            <Formik
+                                initialValues={initial_values}
+                                validationSchema={validation_schema}
+                                onSubmit={async (values: SignInValues) => {
+                                    try {
+                                        const res = await signIn(values);
+                                        if (res.hasOwnProperty("data")) {
+                                            dispatch(setUser((res as { data: User }).data));
+                                        } else if (res.hasOwnProperty("error")) {
+                                            throw new Error(JSON.stringify((res as { error: unknown }).error));
+                                        }
+                                    } catch (err) {
+                                        console.error(err);
                                     }
-                                } catch (err) {
-                                    console.error(err);
-                                }
-                            }}
-                        >
-                            <Form className={popoverStyle.signin_form}>
-                                <FormControl
-                                    control="email"
-                                    name="email"
-                                    label={Lang.auth.email}
-                                    ErrorComponent={ErrorDisplay}
-                                />
-                                <FormControl
-                                    control="password"
-                                    name="password"
-                                    label={Lang.auth.password}
-                                    ErrorComponent={ErrorDisplay}
-                                />
-                                <button disabled={isLoading}>
-                                    {!isLoading ? Lang.auth.signin.button : <Spinner />}
-                                </button>
-                            </Form>
-                        </Formik>
+                                }}
+                            >
+                                <Form className={popoverStyle.signin_form}>
+                                    <FormControl
+                                        control="email"
+                                        name="email"
+                                        label={Lang.auth.email}
+                                        ErrorComponent={ErrorDisplay}
+                                    />
+                                    <FormControl
+                                        control="password"
+                                        name="password"
+                                        label={Lang.auth.password}
+                                        ErrorComponent={ErrorDisplay}
+                                    />
+                                    <button disabled={isLoading}>
+                                        {!isLoading ? Lang.auth.signin.button : <Spinner />}
+                                    </button>
+                                </Form>
+                            </Formik>
+                            <NavButton
+                                to="/Signup"
+                                text={"Signup"}
+                                span={"Register in this challenge"}
+                                Comp={<UilSignInAlt />}
+                            />
+                        </>
                     )}
                     {/* The event */}
                     <NavButton
@@ -132,6 +154,7 @@ const Menu = () => {
                     />
                     {/* FAQ */}
                     <NavButton to="/#FAQ" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
+                    {user ? <NavButton to="/logout" logout text={"Logout"} span={""} Comp={<UilSignOutAlt />} /> : ""}
                 </ul>
             </Popover.Panel>
         </Popover>

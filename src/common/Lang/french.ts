@@ -55,6 +55,8 @@ const French = {
             "Dans quelle langue le CIO sera-t-il rédigé ?",
             "Les défis seront principalement en anglais ou en français ,c'est à vous de choisir la langue qui vous convient ,vous avez la possibilité de la changer .",
         ],
+        question: "Question",
+        answer: "Réponse",
     },
     footer: { titles: [["Un événement du", ""], "Commencer à jouer"] },
     auth: {
@@ -66,6 +68,14 @@ const French = {
         firstName: "Prénom",
         lastName: "Nom",
         password_confirm: "Confirmez le Mot de Passe",
+        validation: {
+            email: ["Doit être un email valide.", "Vous devez écrire votre adresse e-mail"],
+            userName: "Vous devez écrire un nom d'utilisateur que les gens verront dans le classement.",
+            firstName: "Vous devez écrire votre prénom.",
+            lastName: "Vous devez écrire votre nom de famille.",
+            password: ["Vous devez écrire un mot de passe.", "Le mot de passe doit comporter au moins 8 caractères"],
+            password_confirm: ["Vous devez réécrire le mot de passe.", "Doit être le même que le mot de passe."],
+        },
     },
     challenges: {
         leaderboard: "Score & Classement",

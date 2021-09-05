@@ -57,6 +57,8 @@ const English: LangType = {
             "What language will IOC be in?",
             "The challenges will be mainly in English or in French ,it is up to you to choose what language suits you ,you have the option to change it  .",
         ],
+        question: "Question",
+        answer: "Answer",
     },
     footer: { titles: [["A", "Event"], "Start Playing"] },
     auth: {
@@ -68,6 +70,14 @@ const English: LangType = {
         firstName: "first Name",
         lastName: "last Name",
         password_confirm: "Confirm Password",
+        validation: {
+            email: ["Must be a valid email.", "You need to write your e-mail address."],
+            userName: "You need to write a username that people will see in the leaderboard.",
+            firstName: "You need to write your first Name.",
+            lastName: "You need to write your last Name.",
+            password: ["You need to write a password.", "Password must be at least 8 characters long."],
+            password_confirm: ["You need to write the password again.", "Must be same as password."],
+        },
     },
     challenges: {
         leaderboard: "Score & Leaderboard",

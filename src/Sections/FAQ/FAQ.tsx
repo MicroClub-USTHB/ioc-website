@@ -17,14 +17,17 @@ const FAQ = () => {
                 {qa_list.map((item, i) => {
                     const question = i % 2 === 0;
                     return (
-                        <div className={`${faqStyle.message_container} ${question ? "" : faqStyle.Answer}`}>
+                        <div
+                            key={"FAQ" + i}
+                            className={`${faqStyle.message_container} ${question ? "" : faqStyle.Answer}`}
+                        >
                             <div className={faqStyle.person}>
                                 {question ? (
                                     <UilInfoCircle className={faqStyle.person_icon} />
                                 ) : (
                                     <UilUserCircle className={faqStyle.person_icon} />
                                 )}
-                                <span>{question ? "Question" : "Answer"}</span>
+                                <span>{question ? Lang.faq.question : Lang.faq.answer}</span>
                             </div>
                             <div className={faqStyle.message}>{item}</div>
                         </div>

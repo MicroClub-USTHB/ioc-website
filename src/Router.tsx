@@ -14,8 +14,7 @@ import { User } from "./types/User";
 import Leaderboard from "./pages/Challenges/Sections/Leaderboard/Leaderboard";
 
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
-const Signin = React.lazy(() => import("./pages/Signin/Signin"));
-const Signup = React.lazy(() => import("./pages/Signup/Signup"));
+const Auth = React.lazy(() => import("./pages/Signup/Auth"));
 
 const App: React.FC<{ isLoading: boolean; setLoading: any }> = ({ isLoading = false, setLoading }) => {
     const [logout, { isLoading: isLoggingOut }] = useLogOutMutation();
@@ -29,14 +28,9 @@ const App: React.FC<{ isLoading: boolean; setLoading: any }> = ({ isLoading = fa
                 <Switch>
                     <Route path="/" exact component={Landing} />
                     <Route
-                        path={["/signin", "/login", "/connexion"]}
+                        path={["/auth", "/signin", "/login", "/connexion", "/signup", "/register", "/inscrire"]}
                         exact
-                        render={(props) => (!user ? <Signin {...props} /> : <Redirect to="/challenges" />)}
-                    />
-                    <Route
-                        path={["/signup", "/register", "/inscrire"]}
-                        exact
-                        render={(props) => (!user ? <Signup {...props} /> : <Redirect to="/challenges" />)}
+                        render={(props) => (!user ? <Auth {...props} /> : <Redirect to="/challenges" />)}
                     />
                     <Route
                         path={["/challenges", "/defis"]}
@@ -46,9 +40,7 @@ const App: React.FC<{ isLoading: boolean; setLoading: any }> = ({ isLoading = fa
                         path={["/logout"]}
                         render={() => {
                             logout()
-                                .then((res) => {
-                                    dispatch(removeUser(res));
-                                })
+                                .then((res) => dispatch(removeUser(res)))
                                 .catch(console.error);
                             return <Redirect to="/" />;
                         }}

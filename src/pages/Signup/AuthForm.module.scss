@@ -1,0 +1,148 @@
+.input_list {
+    list-style: none;
+    margin: 0;
+    padding: 3rem 2.5rem;
+    & > li.email::after {
+        background-image: url("../../resources/Input1-min.png");
+    }
+
+    & > li.userName::after {
+        background-image: url("../../resources/Input3-min.png");
+    }
+
+    & > li.password::after {
+        background-image: url("../../resources/Input2-min.png");
+    }
+    & > li {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        margin-bottom: 3.7rem;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background-size: cover;
+            width: 18px;
+            height: 18px;
+            z-index: 2;
+            transform: translateX(15px);
+        }
+
+        & > .field,
+        & > .field:-webkit-autofill,
+        & > .field:-webkit-autofill:hover,
+        & > .field:-webkit-autofill:focus {
+            background-color: var(--light_color) !important;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 30px;
+            padding-left: 3rem;
+            font-size: 1rem;
+            font-weight: 800 !important;
+            color: var(--main_color) !important;
+            box-shadow: 1px 1px 9px -3px var(--secondary_color) !important;
+            &:focus + .label {
+                color: var(--main_color) !important;
+                text-shadow: 2px 2px 6px var(--secondary_color);
+                transform: translateY(-38px);
+            }
+        }
+
+        & > .label {
+            position: absolute;
+            z-index: 2;
+            color: var(--dark_color);
+            font-size: 1.1rem;
+            font-weight: 800 !important;
+            margin-left: 3rem;
+            top: 0.55rem;
+            transition: all 0.1s ease;
+            pointer-events: none;
+        }
+
+        & > .error {
+            color: var(--light_color);
+            position: absolute;
+            bottom: -1.7rem;
+            margin-left: 1.7rem;
+            &::before {
+                content: "!";
+                background-color: var(--light_color);
+                width: 1.2rem;
+                height: 1.2rem;
+                color: var(--secondary_color);
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                transform: translateX(-13px);
+            }
+        }
+    }
+}
+
+.label_values {
+    transform: translateY(-38px) !important;
+    color: var(--main_color) !important;
+    text-shadow: 2px 2px 6px var(--secondary_color);
+}
+
+.error_color {
+    color: var(--error_color) !important;
+}
+
+.submit_button {
+    background-color: var(--main_color);
+    padding: 0.7rem 0;
+    border: none;
+    border-radius: 30px;
+    color: var(--secondary_color);
+    font-size: 1.3rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 9px -3px var(--secondary_color);
+
+    z-index: 2;
+    &:hover {
+        background-color: var(--light_color);
+    }
+}
+@media screen and (max-width: 700px) {
+    .input_list {
+        & > li {
+            & > .field,
+            & > .field:-webkit-autofill,
+            & > .field:-webkit-autofill:hover,
+            & > .field:-webkit-autofill:focus {
+                background-color: var(--secondary_color) !important;
+                color: var(--gray_color) !important;
+                &:focus + .label {
+                    color: var(--secondary_color) !important;
+                }
+            }
+            & > .label {
+                color: var(--dark_color);
+            }
+            & > .error {
+                color: var(--secondary_color);
+                &::before {
+                    background-color: var(--secondary_color);
+                    color: var(--light_color);
+                }
+            }
+        }
+    }
+    .submit_button {
+        &:hover {
+            background-color: var(--secondary_color);
+            color: var(--light_color);
+        }
+    }
+}
