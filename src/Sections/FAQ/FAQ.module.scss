@@ -15,7 +15,7 @@
         display: block;
         width: 3vw;
         height: 2px;
-        background-color: var(--secondary_color);
+        background-color: var(--color2);
         position: absolute;
         bottom: 0;
     }
@@ -43,23 +43,23 @@
             width: 4.8rem;
             height: 4.8rem;
             margin: 0 1rem;
-            fill: var(--secondary_color);
+            fill: var(--color2);
         }
     }
 
     .message {
-        background-color: var(--main_color);
+        background-color: var(--color1);
         border-radius: 15px;
         padding: 2rem 3rem;
         font-size: clamp(1.2rem, 2vw, 2rem);
-        color: var(--secondary_color);
+        color: var(--color2);
         width: 100%;
     }
 }
 .Answer {
     flex-direction: row-reverse;
     .message {
-        background-color: var(--secondary_color);
+        background-color: var(--color2);
         color: var(--light_color);
     }
 }

@@ -10,7 +10,7 @@
     width: 22%;
     min-width: 12rem;
     max-width: 18rem;
-    background-color: var(--main_color);
+    background-color: var(--color1);
     overflow: auto;
     height: 100vh;
 }
@@ -29,7 +29,7 @@
 }
 
 .divider {
-    border: 1px solid var(--secondary_color);
+    border: 1px solid var(--color2);
     width: 90%;
     position: relative;
     left: -2rem;
@@ -60,7 +60,7 @@
         font-weight: 700;
         margin: 0;
         text-transform: uppercase;
-        color: var(--secondary_color);
+        color: var(--color2);
     }
 }
 

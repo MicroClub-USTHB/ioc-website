@@ -1,5 +1,5 @@
 .Logo {
-    fill: var(--secondary_color);
+    fill: var(--color2);
     margin: 2rem 3rem 1rem 2rem;
 }
 .Logo:hover #logo {

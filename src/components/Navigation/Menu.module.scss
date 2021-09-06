@@ -2,11 +2,11 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: var(--secondary_color);
+    color: var(--color2);
     transition: color 0.1s ease;
 
     &:hover {
-        color: var(--main_color);
+        color: var(--color1);
     }
 }
 
@@ -71,7 +71,7 @@
 
             & > span {
                 font-size: 1rem;
-                color: var(--secondary_color);
+                color: var(--color2);
                 transition: color 300ms ease-in;
             }
 
@@ -85,20 +85,20 @@
                 background-color: #40cd7d40;
 
                 & > svg {
-                    color: var(--main_color);
+                    color: var(--color1);
                 }
             }
 
             & > .nav_button_text {
                 & > span:nth-child(1) {
-                    color: var(--main_color);
+                    color: var(--color1);
                 }
             }
         }
     }
     .nav_main {
         & > .nav_icon_container {
-            background-color: var(--main_color);
+            background-color: var(--color1);
 
             & > svg {
                 color: var(--light_color);
@@ -107,12 +107,12 @@
 
         & > .nav_button_text {
             & > span:nth-child(1) {
-                color: var(--main_color);
+                color: var(--color1);
             }
         }
         &:hover {
             & > .nav_icon_container {
-                background-color: var(--main_color_high);
+                background-color: var(--color1_shade);
 
                 & > svg {
                     color: var(--light_color);
@@ -121,7 +121,7 @@
 
             & > .nav_button_text {
                 & > span:nth-child(1) {
-                    color: var(--main_color_high);
+                    color: var(--color1_shade);
                 }
             }
         }

@@ -34,7 +34,7 @@
         .line {
             height: 2px;
             width: 3rem;
-            background-color: var(--secondary_color);
+            background-color: var(--color2);
             transition: background-color 300ms ease-in;
         }
         & > span {
@@ -47,10 +47,10 @@
         }
         &:hover {
             .line {
-                background-color: var(--main_color);
+                background-color: var(--color1);
             }
             & > span {
-                color: var(--main_color);
+                color: var(--color1);
                 // todo: add sliding green bar to Line
             }
         }
@@ -71,8 +71,8 @@
     justify-content: center;
     align-items: center;
     z-index: -2;
-    background-color: var(--main_color);
-    background: linear-gradient(-45deg, var(--main_color), var(--main_color_high));
+    background-color: var(--color1);
+    background: linear-gradient(-45deg, var(--color1), var(--color1_shade));
     background-size: 200% 200%;
     animation: gradient 5s ease infinite;
     border-radius: 50%;
@@ -90,7 +90,7 @@
             content: "";
             height: 4vw;
             width: 4vw;
-            background-color: var(--main_color);
+            background-color: var(--color1);
             background: var(--gradiant2);
             background-size: 200% 200%;
             animation: gradient 5s ease infinite;
@@ -109,7 +109,7 @@
             content: "";
             height: 4vw;
             width: 4vw;
-            background-color: var(--main_color);
+            background-color: var(--color1);
             position: absolute;
             z-index: -4;
             right: -15rem;
@@ -128,7 +128,7 @@
         margin-top: -30%;
         font-family: HACKED;
         filter: blur(1px);
-        color: var(--secondary_color_fade);
+        color: var(--color2_fade);
     }
 }
 

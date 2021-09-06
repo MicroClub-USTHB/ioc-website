@@ -12,10 +12,10 @@
     color: black;
 
     &:hover {
-        background-color: var(--main_color_high);
+        background-color: var(--color1_shade);
 
         & > div > .icon_container {
-            color: var(--secondary_color);
+            color: var(--color2);
             background-color: var(--light_color);
         }
     }
@@ -27,7 +27,7 @@
 }
 
 .icon_container {
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
     color: var(--light_color);
     display: flex;
     justify-content: center;
@@ -99,7 +99,7 @@
     }
 
     & > li > a {
-        color: var(--secondary_color);
+        color: var(--color2);
         text-decoration: none;
         display: block;
         width: 100%;

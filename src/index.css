@@ -4,17 +4,17 @@
     src: local("HACKED"), url("./fonts/HACKED.ttf");
 }
 :root {
-    --main_color: #40cd7d;
-    --main_color_high: #309a5d;
-    --secondary_color: #0d1b28;
-    --secondary_color_fade: #0d1b28de;
+    --color1: #40cd7d;
+    --color1_shade: #309a5d;
+    --color2: #0d1b28;
+    --color2_fade: #0d1b28de;
     --light_color: #e0e0e0;
     --white_color: white;
     --gray_color: #c0c0c0;
     --dark_color: #8c8c8c;
     --error_color: #cd4040;
-    --gradiant: linear-gradient(-45deg, var(--main_color), var(--dark_color));
-    --gradiant2: linear-gradient(-45deg, var(--main_color), var(--main_color_high));
+    --gradiant: linear-gradient(-45deg, var(--color1), var(--dark_color));
+    --gradiant2: linear-gradient(-45deg, var(--color1), var(--color1_shade));
 }
 * {
     font-family: "Open Sans";
@@ -42,7 +42,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--secondary_color);
+    color: var(--color2);
     font-weight: 600;
     margin: 0;
 }
@@ -50,11 +50,11 @@ h6 {
     width: 1rem;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: var(--main_color);
+    background-color: var(--color1);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--main_color_high);
+    background-color: var(--color1_shade);
 }
 ::-webkit-scrollbar-track {
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
 }

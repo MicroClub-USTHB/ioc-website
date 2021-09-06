@@ -1,6 +1,6 @@
 .nav {
     display: flex;
-    color: var(--secondary_color);
+    color: var(--color2);
     z-index: 100;
     position: absolute;
     right: 0;
@@ -9,11 +9,11 @@
         display: flex;
         margin-right: 2vw;
         & > a {
-            color: var(--secondary_color);
+            color: var(--color2);
 
             &:hover {
                 & > svg {
-                    color: var(--main_color);
+                    color: var(--color1);
                 }
             }
         }

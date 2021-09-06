@@ -19,7 +19,7 @@
 .content_container {
     width: 100%;
     max-width: 35rem;
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@
         width: 100%;
         max-width: 100%;
         & .title {
-            color: var(--secondary_color);
+            color: var(--color2);
         }
     }
 }

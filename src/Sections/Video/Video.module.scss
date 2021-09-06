@@ -2,7 +2,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -58,5 +58,5 @@
 }
 
 .highlight {
-    color: var(--main_color);
+    color: var(--color1);
 }

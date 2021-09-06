@@ -6,13 +6,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
     fill: var(--light_color);
 }
 .Loader.transparent {
     background-color: transparent;
     position: initial;
-    fill: var(--secondary_color);
+    fill: var(--color2);
     z-index: 1;
 }
 .Loader svg #Text {
@@ -85,13 +85,13 @@
     }
     30% {
         transform: scale(1.35);
-        fill: var(--main_color_high);
+        fill: var(--color1_shade);
     }
     35% {
         transform: scale(1);
     }
     80% {
-        fill: var(--main_color_high);
+        fill: var(--color1_shade);
     }
     100% {
         fill: inherit;
@@ -127,11 +127,11 @@
     }
     45% {
         transform: scale(1);
-        fill: var(--main_color_high);
+        fill: var(--color1_shade);
     }
     60% {
         transform: scale(0.9);
-        fill: var(--main_color_high);
+        fill: var(--color1_shade);
     }
     100% {
         fill: inherit;

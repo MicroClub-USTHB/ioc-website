@@ -21,7 +21,7 @@
     & > svg {
         width: 7rem;
         height: 7rem;
-        color: var(--secondary_color);
+        color: var(--color2);
         margin-bottom: 1rem;
     }
 
@@ -30,14 +30,14 @@
         font-size: 2rem;
         text-transform: uppercase;
         white-space: nowrap;
-        color: var(--secondary_color);
+        color: var(--color2);
     }
 
     & > h2 {
         font-weight: 400;
         font-size: 1.4rem;
         min-width: 15ch;
-        color: var(--secondary_color);
+        color: var(--color2);
     }
 }
 

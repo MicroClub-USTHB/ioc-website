@@ -95,8 +95,8 @@ const French = {
         side: "Secondaire",
         task: "tâche",
         submit: "Soumettre une Réponse",
-        no: "There is no Challenge yet! be patient !",
-        select: "Select a challenge in the left",
+        no: "Il n'y a pas encore de Défi ! sois patient !",
+        select: "Sélectionnez un défi à gauche",
     },
     menu: {
         user: "Commencer les défis ",

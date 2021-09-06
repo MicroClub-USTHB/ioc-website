@@ -42,11 +42,11 @@
             padding-left: 3rem;
             font-size: 1rem;
             font-weight: 800 !important;
-            color: var(--main_color) !important;
-            box-shadow: 1px 1px 9px -3px var(--secondary_color) !important;
+            color: var(--color1) !important;
+            box-shadow: 1px 1px 9px -3px var(--color2) !important;
             &:focus + .label {
-                color: var(--main_color) !important;
-                text-shadow: 1px 1px 2px var(--secondary_color);
+                color: var(--color1) !important;
+                text-shadow: 1px 1px 2px var(--color2);
                 transform: translateY(-38px);
             }
         }
@@ -73,7 +73,7 @@
                 background-color: var(--light_color);
                 width: 1.2rem;
                 height: 1.2rem;
-                color: var(--secondary_color);
+                color: var(--color2);
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -86,8 +86,8 @@
 
 .label_values {
     transform: translateY(-38px) !important;
-    color: var(--main_color) !important;
-    text-shadow: 1px 1px 2px var(--secondary_color);
+    color: var(--color1) !important;
+    text-shadow: 1px 1px 2px var(--color2);
 }
 
 .error_color {
@@ -95,11 +95,11 @@
 }
 
 .submit_button {
-    background-color: var(--main_color);
+    background-color: var(--color1);
     padding: 0.7rem 0;
     border: none;
     border-radius: 30px;
-    color: var(--secondary_color);
+    color: var(--color2);
     font-size: 1.3rem;
     font-weight: 800;
     cursor: pointer;
@@ -107,7 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 9px -3px var(--secondary_color);
+    box-shadow: 1px 1px 9px -3px var(--color2);
 
     z-index: 2;
     &:hover {
@@ -121,19 +121,19 @@
             & > .field:-webkit-autofill,
             & > .field:-webkit-autofill:hover,
             & > .field:-webkit-autofill:focus {
-                background-color: var(--secondary_color) !important;
+                background-color: var(--color2) !important;
                 color: var(--gray_color) !important;
                 &:focus + .label {
-                    color: var(--secondary_color) !important;
+                    color: var(--color2) !important;
                 }
             }
             & > .label {
                 color: var(--dark_color);
             }
             & > .error {
-                color: var(--secondary_color);
+                color: var(--color2);
                 &::before {
-                    background-color: var(--secondary_color);
+                    background-color: var(--color2);
                     color: var(--light_color);
                 }
             }
@@ -141,7 +141,7 @@
     }
     .submit_button {
         &:hover {
-            background-color: var(--secondary_color);
+            background-color: var(--color2);
             color: var(--light_color);
         }
     }

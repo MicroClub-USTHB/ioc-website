@@ -42,7 +42,7 @@
                 cursor: pointer;
                 transition: all 0.1s ease;
                 &:hover {
-                    background-color: var(--secondary_color);
+                    background-color: var(--color2);
                     color: var(--light_color);
                 }
             }
@@ -71,7 +71,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--secondary_color);
+        background-color: var(--color2);
         color: white;
         padding: 0 0.7rem;
         border-radius: 5px;
@@ -92,7 +92,7 @@
     border-radius: 30px;
     padding-left: 3rem;
     &:focus + .label {
-        color: var(--main_color);
+        color: var(--color1);
         transform: translateY(-38px);
     }
 }
