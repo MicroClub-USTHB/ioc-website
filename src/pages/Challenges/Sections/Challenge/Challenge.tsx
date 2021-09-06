@@ -4,14 +4,15 @@ import { useGetDayQuery, useGetDaysQuery } from "../../../../redux/api/backend";
 
 import { ExtendedDay } from "../../../../types/Day";
 // components
-import StoryContainer from "../components/StoryContainer/StoryContainer";
-import SubmitContainer from "../components/SubmitContainer/SubmitContainer";
-import ChallengeContainer from "../components/ChallengeContainer/ChallengeContainer";
+import StoryContainer from "./components/StoryContainer/StoryContainer";
+import SubmitContainer from "./components/SubmitContainer/SubmitContainer";
+import ChallengeContainer from "./components/ChallengeContainer/ChallengeContainer";
 
 // styles
 import challengeStyle from "./Challenge.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/types";
+import Spinner from "../../../../common/Spinner/Spinner";
 
 const Challenge: React.FC<RouteComponentProps> = (props) => {
     const location = useLocation();
@@ -33,7 +34,6 @@ const Challenge: React.FC<RouteComponentProps> = (props) => {
         example = "",
         title = "",
         finishingMsg = "";
-    if (dayLoading) return <div>loading</div>;
 
     if (day !== undefined) {
         content = day[type]!.content[language]!.content;
@@ -43,6 +43,9 @@ const Challenge: React.FC<RouteComponentProps> = (props) => {
         finishingMsg = day[type]!.content[language]!.finishingMsg ?? "";
     }
 
+    if (dayLoading) return <div className={challengeStyle.spinner}>
+        <Spinner />
+    </div>;
     return (
         <section className={challengeStyle.container}>
             <div className={challengeStyle.left_container}>

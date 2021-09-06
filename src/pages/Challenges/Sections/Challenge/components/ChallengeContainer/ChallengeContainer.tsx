@@ -1,7 +1,7 @@
 import { UilClipboardNotes } from "@iconscout/react-unicons";
 import { useSelector } from "react-redux";
-import { LangType } from "../../../../../common/Lang/french";
-import { RootState } from "../../../../../redux/types";
+import { LangType } from "../../../../../../common/Lang/french";
+import { RootState } from "../../../../../../redux/types";
 
 // styles
 import challengeStyle from "./ChallengeContainer.module.scss";

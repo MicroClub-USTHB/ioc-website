@@ -1,13 +1,13 @@
 import { Form, Formik } from "formik";
-import ErrorDisplay from "../../../../../common/Formik/ErrorDisplay/ErrorDisplay";
+import ErrorDisplay from "../../../../../../common/Formik/ErrorDisplay/ErrorDisplay";
 import * as yup from "yup";
-import FormControl from "../../../../../common/Formik/FormControl";
+import FormControl from "../../../../../../common/Formik/FormControl";
 
 // styles
 import submitStyle from "./SubmitContainer.module.scss";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../../../redux/types";
-import { LangType } from "../../../../../common/Lang/french";
+import { RootState } from "../../../../../../redux/types";
+import { LangType } from "../../../../../../common/Lang/french";
 
 const SubmitContainer = (props: { dayNumber: string }) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;

@@ -28,3 +28,12 @@ export interface SignUpValues {
     password_confirm: string;
     login?: boolean;
 }
+
+type ioc_years = "2021" | "2022" | "2023" | "2024";
+export interface LeaderboardItem {
+    _id: string
+    userName: string
+    scores: {
+        [key in ioc_years]: number
+    }
+}
