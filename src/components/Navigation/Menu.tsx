@@ -49,10 +49,7 @@ const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, l
     return (
         <li>
             <Link
-                onClick={(e) => {
-                    e.preventDefault();
-                    set(false);
-                }}
+                onClick={(e) => set(false)}
                 to={to}
                 className={`${user ? popoverStyle.nav_main : ""} ${logout ? popoverStyle.nav_logout : ""} ${
                     popoverStyle.nav_button
