@@ -149,3 +149,26 @@
         flex-direction: column;
     }
 }
+
+/* FORM STYLE */
+.input_list {
+    padding: 1rem 0 2rem !important;
+}
+
+.submit_button {
+    width: 100%;
+}
+
+.error {
+    bottom: 0 !important;
+    top: 3.3rem !important;
+    color: var(--error_color) !important;
+    &::before {
+        background-color: var(--error_color) !important;
+        color: var(--light_color) !important;
+    }
+}
+
+.label {
+    text-shadow: none !important;
+}
