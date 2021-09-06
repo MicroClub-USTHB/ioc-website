@@ -39,15 +39,19 @@ const Hero = () => {
                     <div className={heroStyle.decoration}></div>
                 </div>
                 <div className={heroStyle.hero_nav}>
-                    <Link to="/signin">
-                        <LineText text={Lang.hero.left} />
-                    </Link>
-                    <Link to="/#About">
-                        <LineText text={Lang.hero.middle} />
-                    </Link>
-                    <a href="https://microclub.net/">
-                        <LineText text={Lang.hero.right} />
-                    </a>
+                    <div>
+                        <Link to="/signin">
+                            <LineText text={Lang.hero.left} />
+                        </Link>
+                        <a href="https://microclub.net/">
+                            <LineText text={Lang.hero.right} />
+                        </a>
+                    </div>
+                    <div>
+                        <Link to="/#About">
+                            <LineText text={Lang.hero.middle} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>

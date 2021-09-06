@@ -1,7 +1,6 @@
 import { Popover } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as yup from "yup";
-import { usePopper } from "react-popper";
 import { Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import FormControl from "../../common/Formik/FormControl";
@@ -27,6 +26,7 @@ import {
 // styles
 import popoverStyle from "./Menu.module.scss";
 import { setUser } from "../../redux/slices/user";
+
 const initial_values: SignInValues = {
     email: "",
     password: "",
@@ -41,13 +41,18 @@ interface navButtonI {
     Comp: React.ReactNode;
     text: string;
     span: string;
+    set: any;
     user?: boolean;
     logout?: boolean;
 }
-const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, logout = false }) => {
+const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, logout = false, set }) => {
     return (
         <li>
             <Link
+                onClick={(e) => {
+                    e.preventDefault();
+                    set(false);
+                }}
                 to={to}
                 className={`${user ? popoverStyle.nav_main : ""} ${logout ? popoverStyle.nav_logout : ""} ${
                     popoverStyle.nav_button
@@ -65,29 +70,28 @@ const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, l
 const Menu = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const user = useSelector<RootState>((state) => state.user) as User;
-    const [referenceElement, setReferenceElement] = useState(null);
-    const [popperElement, setPopperElement] = useState(null);
+    const [popper, setPopper] = useState(false);
     const dispatch = useDispatch<AppDispatch>();
     const [signIn, { isLoading }] = useSignInMutation();
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        placement: "bottom-start",
-        modifiers: [{ name: "offset", options: { offset: [0, 20] } }],
-    });
+    const ref = useRef(null);
+    useEffect(() => {
+        window.document.addEventListener("click", (event) => {
+            if (ref?.current && !(ref?.current as Element | null)?.contains(event.target as Node | null)) {
+                setPopper(false);
+            }
+        });
+    }, []);
     return (
-        <Popover style={{ zIndex: 10 }}>
-            <Popover.Button ref={setReferenceElement as any} className={popoverStyle.popover_button}>
+        <span ref={ref}>
+            <button className={popoverStyle.popover_button} onClick={(e) => setPopper(!popper)}>
                 <UilBars />
-            </Popover.Button>
-            <Popover.Panel
-                ref={setPopperElement as any}
-                className={popoverStyle.popover_container}
-                style={styles.popper}
-                {...attributes.popper}
-            >
+            </button>
+            <div className={`${popoverStyle.popover_container} ${popper ? popoverStyle.display : ""}`}>
                 <ul className={popoverStyle.nav_list}>
                     {/* Sign in */}
                     {user ? (
                         <NavButton
+                            set={setPopper}
                             to="/challenges"
                             text={user.userName}
                             span={Lang.menu.user}
@@ -132,6 +136,7 @@ const Menu = () => {
                             </Formik>
                             {window.location.pathname !== "/" && !user ? (
                                 <NavButton
+                                    set={setPopper}
                                     to="/"
                                     text={Lang.menu.home[0]}
                                     span={Lang.menu.home[1]}
@@ -139,6 +144,7 @@ const Menu = () => {
                                 />
                             ) : (
                                 <NavButton
+                                    set={setPopper}
                                     to="/Signup"
                                     text={Lang.menu.signup[0]}
                                     span={Lang.menu.signup[1]}
@@ -149,13 +155,14 @@ const Menu = () => {
                     )}
                     {/* The event */}
                     <NavButton
+                        set={setPopper}
                         to="/#About"
                         text={Lang.menu.about[0]}
                         span={Lang.menu.about[1]}
                         Comp={<UilInfoCircle />}
                     />
                     {/* Video Tutorial 
-                    <NavButton
+                    <NavButton set={setPopper}
                         to="/#Video"
                         text={Lang.menu.video[0]}
                         span={Lang.menu.video[1]}
@@ -163,6 +170,7 @@ const Menu = () => {
                     />*/}
                     {/* FAQ */}
                     <NavButton
+                        set={setPopper}
                         to="/#FAQ"
                         text={Lang.menu.FAQ[0]}
                         span={Lang.menu.FAQ[1]}
@@ -170,6 +178,7 @@ const Menu = () => {
                     />
                     {user ? (
                         <NavButton
+                            set={setPopper}
                             to="/logout"
                             logout
                             text={Lang.menu.logout[0]}
@@ -180,8 +189,8 @@ const Menu = () => {
                         ""
                     )}
                 </ul>
-            </Popover.Panel>
-        </Popover>
+            </div>
+        </span>
     );
 };
 

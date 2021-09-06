@@ -13,24 +13,32 @@
 .hero_nav {
     display: flex;
     width: 100%;
+    position: absolute;
+    bottom: 0;
     margin: auto 0 1rem;
-    justify-content: space-between;
-
-    & > a {
-        color: unset;
+    flex-direction: column;
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        & > a:last-child {
+            flex-direction: row-reverse;
+        }
+    }
+    & > div:last-child {
+        justify-content: center;
+        a {
+            flex-direction: column-reverse;
+            margin: 1rem 0 0;
+        }
+    }
+    & a {
+        color: var(--color2);
         text-decoration: unset;
         display: flex;
         align-items: center;
         text-align: center;
         margin: 0 0 auto;
 
-        &:last-child {
-            flex-direction: row-reverse;
-        }
-        &:nth-child(2) {
-            flex-direction: column-reverse;
-            margin: 5rem 0 0;
-        }
         .line {
             height: 2px;
             width: 3rem;
@@ -63,7 +71,7 @@
     max-width: 25rem;
     height: 50vw;
     max-height: 25rem;
-    margin: auto auto 0;
+    margin: auto;
     align-self: center;
     justify-self: center;
     position: relative;
@@ -72,7 +80,7 @@
     align-items: center;
     z-index: -2;
     background-color: var(--color1);
-    background: linear-gradient(-45deg, var(--color1), var(--color1_shade));
+    background: linear-gradient(-45deg, var(--color1), var(--dark_color));
     background-size: 200% 200%;
     animation: gradient 5s ease infinite;
     border-radius: 50%;
@@ -91,9 +99,9 @@
             height: 4vw;
             width: 4vw;
             background-color: var(--color1);
-            background: var(--gradiant2);
+            background: linear-gradient(-45deg, var(--color1), var(--dark_color));
             background-size: 200% 200%;
-            animation: gradient 5s ease infinite;
+            animation: gradient 5s ease infinite, turn 5s linear infinite both;
             z-index: -4;
             opacity: 40%;
             border-radius: 50%;
@@ -101,7 +109,6 @@
             left: -15rem;
             top: -15rem;
             transform-origin: 15rem 15rem;
-            animation: turn 5s linear infinite both;
         }
 
         &::after {
@@ -110,11 +117,12 @@
             height: 4vw;
             width: 4vw;
             background-color: var(--color1);
+            background: linear-gradient(-45deg, var(--color1), var(--dark_color));
             position: absolute;
             z-index: -4;
             right: -15rem;
             bottom: -15rem;
-            animation: turn 5s linear infinite both;
+            animation: gradient 5s ease infinite, turn 5s linear infinite both;
             transform-origin: -14rem -10rem;
             border-radius: 50%;
             opacity: 40%;
@@ -123,7 +131,7 @@
 
     &::after {
         content: "Impact of Code";
-        font-size: 9vw;
+        font-size: 8rem;
         white-space: nowrap;
         margin-top: -30%;
         font-family: HACKED;
@@ -158,14 +166,24 @@
     }
 }
 
-@media screen and (max-width: 700px) {
-    .main_container {
-        display: flex;
-    }
-
+@media screen and (max-width: 900px) {
     .hero_image_container {
         &::after {
-            font-size: 12vw;
+            font-size: 7rem;
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .hero_image_container {
+        &::after {
+            font-size: 5.8rem;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .hero_image_container {
+        &::after {
+            font-size: 4.8rem;
         }
     }
 }
