@@ -109,11 +109,11 @@ h1::after {
 }
 .dark::-webkit-scrollbar-thumb:hover,
 .dark ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--dark_color1);
+    background-color: var(--dark_color2);
 }
 .dark::-webkit-scrollbar-track,
 .dark ::-webkit-scrollbar-track {
-    background-color: var(--dark_color2);
+    background-color: var(--dark_color1);
 }
 .moon .st0 {
     fill: var(--color1);
