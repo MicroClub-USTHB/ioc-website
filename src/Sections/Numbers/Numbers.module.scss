@@ -5,6 +5,7 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
 }
 
@@ -51,7 +52,7 @@
 
 .cards_holder {
     background-image: url("../../resources/Numbers1-min.png");
-    background-size: contain 500px;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
@@ -85,6 +86,7 @@
 }
 @media screen and (max-width: 800px) {
     .cards_holder {
+        width: 90%;
         & > div:nth-child(2) {
             transform: translate(9rem, 18rem);
         }
@@ -93,6 +95,9 @@
         }
         & > div:nth-child(4) {
             transform: translate(5rem, -17rem);
+        }
+        & > div:nth-child(5) {
+            transform: translate(-25rem, -32rem);
         }
     }
 }

@@ -7,6 +7,7 @@ import About from "../../Sections/About/About";
 import FAQ from "../../Sections/FAQ/FAQ";
 import Footer from "../../Sections/Footer/Footer";
 import Hero from "../../Sections/Hero/Hero";
+import Organizers from "../../Sections/Organizers/Organizers";
 import Numbers from "../../Sections/Numbers/Numbers";
 import Video from "../../Sections/Video/Video";
 import LogoV from "../../components/LogoV/LogoV";
@@ -28,6 +29,7 @@ const Landing: React.FC<RouteComponentProps> = () => {
             <Hero />
             <About />
             <Info />
+            <Organizers />
             <Numbers />
             <Video />
             <FAQ />

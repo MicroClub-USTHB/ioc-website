@@ -1,0 +1,65 @@
+.section_container {
+  min-height: 100vh;
+  padding: 8rem 0 6rem;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.section_title {
+  font-size: 4rem;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  &::before {
+      content: "The Organizers";
+      display: block;
+      position: absolute;
+      font-size: 9rem;
+      color: var(--dark_color);
+      white-space: nowrap;
+      opacity: 0.1;
+      z-index: -1;
+      bottom: -0.5ch;
+  }
+  &.FR::before {
+      content: "Les organisateurs";
+  }
+  &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background-color: var(--secondary_color);
+      z-index: 40;
+      bottom: 0;
+  }
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > li {
+    display: contents;
+  }
+}

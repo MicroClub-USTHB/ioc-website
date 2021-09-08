@@ -14,7 +14,7 @@ import Card from "./Card/Card";
 
 const Numbers = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
-    const language = (useSelector<RootState>((state) => state.common.language) as "english") || "french";
+    const language = (useSelector<RootState>((state) => state.common.language) as "english" | "french");
     return (
         <section id="Card" className={numbersStyle.section_container}>
             <div className={numbersStyle.title}>

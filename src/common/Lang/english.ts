@@ -30,6 +30,9 @@ const English: LangType = {
             },
         ],
     },
+    organizers: {
+        title: "The Organizers",
+    },
     numbers: {
         title: `Our Numbers`,
         card: [

@@ -28,6 +28,9 @@ const French = {
             },
         ],
     },
+    organizers: {
+        title: "Les organisateurs",
+    },
     numbers: {
         title: `Nos chiffres`,
         card: [
