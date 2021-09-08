@@ -1,31 +1,29 @@
 .section_container {
     min-height: 100vh;
-    padding: 4vw 0;
+    padding: 6rem 0 12rem;
     width: 100vw;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .section_title {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: auto;
     position: relative;
     display: flex;
-    align-items: center;
-    margin-bottom: 2vw;
-    margin-left: 8vw;
+    justify-content: center;
 
     &::before {
         content: "Numbers";
         display: block;
         position: absolute;
-        font-size: 4rem;
+        font-size: 9rem;
         color: var(--dark_color);
         white-space: nowrap;
-        opacity: 0.3;
+        opacity: 0.1;
         z-index: -1;
-        right: 1ch;
         bottom: -0.5ch;
     }
     &.FR::before {
@@ -35,7 +33,7 @@
         content: "";
         display: block;
         position: absolute;
-        height: 2px;
+        height: 1px;
         width: 100%;
         background-color: var(--secondary_color);
         z-index: 40;
@@ -43,15 +41,22 @@
     }
 }
 
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
 .cards_holder {
     background-image: url("../../resources/Numbers1-min.png");
-    background-size: contain;
+    background-size: contain 500px;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 100%;
-    min-height: 20rem;
-    margin: 15rem auto;
+    height: 600px;
+    margin: 3rem 0;
     position: relative;
     display: flex;
     align-items: center;
@@ -64,16 +69,13 @@
         z-index: 5;
     }
     & > div:nth-child(2) {
-        transform: translate(20vw, 15vw);
+        transform: translate(21rem, 17rem);
     }
     & > div:nth-child(3) {
-        transform: translate(-20vw, 15vw);
+        transform: translate(-22rem, 13rem);
     }
     & > div:nth-child(4) {
-        transform: translate(20vw, -15vw);
-    }
-    & > div:nth-child(5) {
-        transform: translate(-20vw, -15vw);
+        transform: translate(18rem, -18rem);
     }
 }
 
@@ -84,22 +86,23 @@
 @media screen and (max-width: 800px) {
     .cards_holder {
         & > div:nth-child(2) {
-            transform: translate(25vw, 40vw);
+            transform: translate(9rem, 18rem);
         }
         & > div:nth-child(3) {
-            transform: translate(-25vw, 40vw);
+            transform: translate(-8rem, 20rem);
         }
         & > div:nth-child(4) {
-            transform: translate(25vw, -32vw);
-        }
-        & > div:nth-child(5) {
-            transform: translate(-25vw, -32vw);
+            transform: translate(5rem, -17rem);
         }
     }
 }
 @media screen and (max-width: 500px) {
     .section_container {
         padding: 4rem 0;
+    }
+
+    .cards_holder {
+        margin: 10rem 0;
     }
 
     .section_title {

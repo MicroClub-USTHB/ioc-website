@@ -5,14 +5,14 @@
     // min-height: 70vh;
 
     & > .left_section {
-        padding: 8rem 0 12rem;
+        padding: 12rem 0 16rem;
         width: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         & > .section_title {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0 0 2rem;
             position: relative;
             display: flex;
@@ -22,7 +22,7 @@
                 content: "The Event";
                 display: block;
                 position: absolute;
-                font-size: 6rem;
+                font-size: 9rem;
                 color: var(--dark_color);
                 opacity: 0.1;
                 z-index: -1;
@@ -47,7 +47,7 @@
         }
 
         & > p {
-            font-size: 1rem;
+            font-size: 1.4rem;
             text-align: center;
         }
     }
