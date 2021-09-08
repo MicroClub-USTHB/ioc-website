@@ -1,0 +1,141 @@
+.right_section {
+  height: 100%;
+  background-color: var(--secondary_color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8vw 0;
+
+  & > .info_box_top {
+      display: flex;
+      position: relative;
+      justify-content: flex-end;
+      margin-bottom: 4rem;
+
+      & > .top_description {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          position: absolute;
+          height: 100%;
+          width: 45%;
+          font-size: 1.3rem;
+          right: 8%;
+          top: -2%;
+
+          & > h2 {
+              margin-bottom: 0.9vw;
+          }
+      }
+
+      & > img {
+          width: 60%;
+      }
+  }
+
+  & > .info_box_bottom {
+      position: relative;
+      display: flex;
+      & > img {
+          width: 60%;
+      }
+
+      & > .bottom_description {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          position: absolute;
+          height: 100%;
+          width: 45%;
+          font-size: 1.3rem;
+          left: 12%;
+
+          & > h2 {
+              margin-bottom: 0.9vw;
+          }
+      }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .right_section {
+    min-height: 100vh;
+
+    & > .info_box_top {
+        margin-bottom: 4rem;
+        overflow: hidden;
+        padding: 2rem 0;
+        & > img {
+            position: absolute;
+            width: 70%;
+            top: -5px;
+        }
+
+        .top_description {
+            font-size: 1.2rem;
+            width: 56%;
+            position: relative;
+            padding: 2rem 0;
+            & > h2 {
+                margin-bottom: 0.9rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    & > .info_box_bottom {
+      overflow: hidden;
+        & > img {
+            position: absolute;
+            width: 70%;
+        }
+
+        .bottom_description {
+            font-size: 1.2rem;
+            position: relative;
+            padding: 4rem 0;
+            width: 54%;
+            & > h2 {
+                margin-bottom: 0.9rem;
+                font-size: 2rem;
+            }
+        }
+    }
+  }
+}
+
+// God damn is making this garbage code resposive tedious, who the hell wrote this crap
+// Oh wait it was me tehe
+
+@media screen and (max-width: 950px) {
+  .right_section {
+    & > .info_box_top {
+      .top_description {
+        width: 70%;
+        padding: 3rem 0;
+        font-size: 1.2rem;
+      }
+      & > img {
+        object-fit: fill;
+        width: 90%;
+        height: 55rem; // wtf?
+      }
+    }
+
+    & > .info_box_bottom {
+      overflow: hidden;
+      .bottom_description {
+        width: 70%;
+        margin-left: 1rem;
+        font-size: 1.2rem;
+      }
+      & > img {
+        object-fit: fill;
+        width: 90%;
+        height: 55rem; // wtf?
+      }
+    }
+  }
+}
