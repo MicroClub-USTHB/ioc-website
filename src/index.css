@@ -272,7 +272,11 @@ h1::after {
     width: 40%;
 }
 .Loader.transparent svg {
+    fill: var(--color2);
     width: 100%;
+}
+.dark .Loader.transparent svg {
+    fill: var(--dark_color2);
 }
 @keyframes The_I {
     25% {
