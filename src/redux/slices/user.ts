@@ -1,4 +1,4 @@
-import { createSlice, SliceCaseReducers } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../types/User";
 
 const initial_state: User | null = JSON.parse(localStorage.getItem("User") || "null");

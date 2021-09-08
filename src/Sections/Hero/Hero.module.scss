@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -20,44 +21,45 @@
     & > div {
         display: flex;
         justify-content: space-between;
-        & > a:last-child {
+        flex-wrap: wrap;
+        & > a:last-child:not(:first-child) {
             flex-direction: row-reverse;
+            margin-left: auto;
         }
     }
     & > div:last-child {
         justify-content: center;
         a {
             flex-direction: column-reverse;
-            margin: 1rem 0 0;
+            .line {
+                width: 7rem;
+            }
         }
     }
     & a {
-        color: var(--color2);
+        margin: 0.5rem 0 auto;
+
         text-decoration: unset;
         display: flex;
         align-items: center;
         text-align: center;
-        margin: 0 0 auto;
 
         .line {
             height: 2px;
             width: 3rem;
-            background-color: var(--color2);
+            background-color: currentColor;
             transition: background-color 300ms ease-in;
         }
         & > span {
             margin: 0 1rem;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
 
-            font-family: "Hacked";
+            font-weight: 800;
             text-transform: uppercase;
             transition: color 0.1s ease;
         }
         &:hover {
-            .line {
-                background-color: var(--color1);
-            }
-            & > span {
+            & > * {
                 color: var(--color1);
                 // todo: add sliding green bar to Line
             }
@@ -67,22 +69,21 @@
 
 /* hero image */
 .hero_image_container {
-    width: 50vw;
     max-width: 25rem;
-    height: 50vw;
+    width: 50vw;
     max-height: 25rem;
+    height: 50vw;
     margin: auto;
+    display: flex;
     align-self: center;
     justify-self: center;
-    position: relative;
-    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -2;
+    position: relative;
     background-color: var(--color1);
     background: linear-gradient(-45deg, var(--color1), var(--dark_color));
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
     border-radius: 50%;
     & > img {
         position: absolute;
@@ -93,50 +94,41 @@
 
     & > .decoration {
         position: absolute;
+        &::after,
         &::before {
             display: block;
-            content: "";
+            content: " ";
             height: 4vw;
             width: 4vw;
             background-color: var(--color1);
             background: linear-gradient(-45deg, var(--color1), var(--dark_color));
-            background-size: 200% 200%;
+            background-size: 400% 400%;
             animation: gradient 5s ease infinite, turn 5s linear infinite both;
-            z-index: -4;
             opacity: 40%;
             border-radius: 50%;
             position: absolute;
+        }
+        &::before {
             left: -15rem;
             top: -15rem;
             transform-origin: 15rem 15rem;
         }
 
         &::after {
-            display: block;
-            content: "";
-            height: 4vw;
-            width: 4vw;
-            background-color: var(--color1);
-            background: linear-gradient(-45deg, var(--color1), var(--dark_color));
-            position: absolute;
-            z-index: -4;
             right: -15rem;
             bottom: -15rem;
-            animation: gradient 5s ease infinite, turn 5s linear infinite both;
             transform-origin: -14rem -10rem;
-            border-radius: 50%;
-            opacity: 40%;
         }
     }
 
     &::after {
-        content: "Impact of Code";
+        content: "IMPACT OF CODE";
+        text-shadow: 1px 1px 0 #000;
         font-size: 8rem;
         white-space: nowrap;
         margin-top: -30%;
         font-family: HACKED;
-        filter: blur(1px);
-        color: var(--color2_fade);
+        font-weight: 400;
     }
 }
 
@@ -144,14 +136,8 @@
     0% {
         background-position: 0% 0%;
     }
-    25% {
-        background-position: 0% 100%;
-    }
     50% {
-        background-position: 100% 100%;
-    }
-    75% {
-        background-position: 100% 0%;
+        background-position: 60% 60%;
     }
     100% {
         background-position: 0% 0%;
@@ -167,23 +153,40 @@
 }
 
 @media screen and (max-width: 900px) {
-    .hero_image_container {
-        &::after {
-            font-size: 7rem;
-        }
+    .hero_image_container::after {
+        font-size: 7rem;
     }
 }
 @media screen and (max-width: 700px) {
-    .hero_image_container {
-        &::after {
-            font-size: 5.8rem;
-        }
+    .hero_image_container::after {
+        font-size: 5.8rem;
     }
 }
 @media screen and (max-width: 600px) {
+    .hero_image_container::after {
+        font-size: 4.8rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .hero_image_container::after {
+        font-size: 3.8rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .hero_image_container::after {
+        font-size: 2.8rem;
+    }
+}
+:global(.dark) {
     .hero_image_container {
+        background: linear-gradient(-45deg, var(--dark_color2), var(--dark_color1_shade));
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
         &::after {
-            font-size: 4.8rem;
+            color: var(--dark_color2);
         }
+    }
+    .hero_nav a:hover * {
+        color: var(--dark_color1_shade);
     }
 }

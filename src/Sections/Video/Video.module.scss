@@ -2,7 +2,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-color: var(--color2);
+    background-color: currentColor;
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -11,52 +11,71 @@
         position: absolute;
         left: 0;
         height: 60vh;
+        max-width: 45%;
         z-index: 0;
-
-        & > img {
-            height: 100%;
-        }
     }
 
     & > .right_decoration {
         position: absolute;
         right: 0;
         height: 35vh;
+        max-width: 45%;
         z-index: 0;
-
-        & > img {
-            height: 100%;
+    }
+    svg {
+        fill: var(--color1);
+        height: 100%;
+    }
+    .video_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        & > h2 {
+            font-size: 1.5rem;
+            color: var(--white_color);
+            margin: 1.5rem 2rem;
+            text-align: center;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px var(--color2);
+            .highlight {
+                color: var(--color1);
+                font-weight: 800;
+            }
+        }
+        & > .coming {
+            font-family: "Hacked";
+            font-size: clamp(3rem, 20vw, 9rem);
+            margin: 0 5rem;
+            color: var(--white_color);
+        }
+        & > .youtube_video {
+            max-width: 50rem;
+            width: 80%;
+            max-height: calc(50rem * 9 / 16);
+            height: 55vh;
         }
     }
 }
 
-.video_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-
-    & > h1 {
-        font-size: 1.5rem;
-        color: var(--light_color);
-        margin: 1.5rem 2rem;
-        text-align: center;
-        font-weight: 400;
+:global(.dark) {
+    .video_section {
+        .video_container {
+            & > .coming {
+                color: var(--dark_color1_shade);
+            }
+            & > h2 {
+                color: var(--dark_color1);
+                .highlight {
+                    color: var(--dark_color1_shade);
+                    font-weight: 800;
+                }
+            }
+        }
+        svg {
+            fill: var(--dark_color1);
+        }
     }
-    & > .coming {
-        font-family: "Hacked";
-        font-size: 10rem;
-        color: var(--white_color);
-    }
-    & > .youtube_video {
-        max-width: 50rem;
-        width: 80%;
-        max-height: calc(50rem * 9 / 16);
-        height: 55vh;
-    }
-}
-
-.highlight {
-    color: var(--color1);
 }

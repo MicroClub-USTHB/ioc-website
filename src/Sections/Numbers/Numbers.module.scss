@@ -1,79 +1,37 @@
 .section_container {
     min-height: 100vh;
-    padding: 4vw 0;
-    width: 100vw;
+    padding: 7rem 0;
+    width: 100%;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
 
-.section_title {
-    font-size: 3rem;
-    margin: auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2vw;
-    margin-left: 8vw;
-
-    &::before {
-        content: "Numbers";
-        display: block;
-        position: absolute;
-        font-size: 4rem;
-        color: var(--dark_color);
-        white-space: nowrap;
-        opacity: 0.3;
-        z-index: -1;
-        right: 1ch;
-        bottom: -0.5ch;
-    }
-    &.FR::before {
-        content: "Nos chiffres";
-    }
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        background-color: var(--color2);
-        z-index: 40;
-        bottom: 0;
-    }
-}
-
 .cards_holder {
-    background-image: url("../../resources/Numbers1-min.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
-    height: 100%;
-    min-height: 20rem;
-    margin: 15rem auto;
+    max-width: 45rem;
+    margin: 2rem auto 0.5rem;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    & > div {
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1rem;
+    & > svg {
         position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        & path {
+            transform: translate(50%, 50%) scale(2);
+            fill: currentColor;
+            opacity: 0.2;
+        }
     }
-    & > div:nth-child(1) {
-        z-index: 5;
-    }
-    & > div:nth-child(2) {
-        transform: translate(20vw, 15vw);
-    }
-    & > div:nth-child(3) {
-        transform: translate(-20vw, 15vw);
-    }
-    & > div:nth-child(4) {
-        transform: translate(20vw, -15vw);
-    }
-    & > div:nth-child(5) {
-        transform: translate(-20vw, -15vw);
+    & > :not(.transparent) {
+        grid-column: span 2 / auto;
+        grid-row: span 2 / auto;
     }
 }
 
@@ -83,34 +41,10 @@
 }
 @media screen and (max-width: 800px) {
     .cards_holder {
-        & > div:nth-child(2) {
-            transform: translate(25vw, 40vw);
-        }
-        & > div:nth-child(3) {
-            transform: translate(-25vw, 40vw);
-        }
-        & > div:nth-child(4) {
-            transform: translate(25vw, -32vw);
-        }
-        & > div:nth-child(5) {
-            transform: translate(-25vw, -32vw);
-        }
-    }
-}
-@media screen and (max-width: 500px) {
-    .section_container {
-        padding: 4rem 0;
-    }
-
-    .section_title {
-        font-size: 3rem;
-        margin-bottom: 2rem;
-        &::before {
-            font-size: 5rem;
-        }
-
-        &::after {
-            width: 3rem;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        & > .transparent {
+            display: none;
         }
     }
 }

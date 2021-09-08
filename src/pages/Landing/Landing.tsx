@@ -5,6 +5,7 @@ import About from "../../Sections/About/About";
 import FAQ from "../../Sections/FAQ/FAQ";
 import Footer from "../../Sections/Footer/Footer";
 import Hero from "../../Sections/Hero/Hero";
+
 import Numbers from "../../Sections/Numbers/Numbers";
 import Video from "../../Sections/Video/Video";
 import LogoV from "../../components/LogoV/LogoV";

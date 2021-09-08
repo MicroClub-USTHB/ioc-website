@@ -1,182 +1,95 @@
 .about_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-    & > .left_section {
-        padding: 8vw;
+    & > .top_section {
+        padding: 7rem 0;
+        min-height: 80vh;
         display: flex;
+        text-align: center;
         flex-direction: column;
-
-        & > .section_title {
-            font-size: 3rem;
-            margin: 0 auto 2vw 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            &::before {
-                content: "The Event";
-                display: block;
-                position: absolute;
-                font-size: 4rem;
-                color: var(--dark_color);
-                opacity: 0.3;
-                z-index: -1;
-                right: 1ch;
-                bottom: -0.5ch;
-                white-space: nowrap;
-            }
-
-            &::after {
-                content: "";
-                display: block;
-                position: absolute;
-                height: 2px;
-                width: 100%;
-                background-color: var(--color2);
-                z-index: 40;
-                left: 0;
-                bottom: 0;
-            }
-            &.FR::before {
-                content: "L'événement";
-            }
-        }
-
         & > p {
-            font-size: 1vw;
+            margin: 3rem auto;
+            width: 80vw;
+            max-width: 50rem;
         }
     }
 
-    .right_section {
-        height: 100%;
-        background-color: var(--color2);
+    & > .bottom_section {
+        min-height: 100vh;
+        background-color: currentColor;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-
-        & > .info_box_top {
+        & > .info_box {
             display: flex;
             position: relative;
-            justify-content: flex-end;
-
-            & > .top_description {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            background-color: var(--color1);
+            padding: 4rem 10vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 2.5rem 0 2.5rem auto;
+            width: 80%;
+            max-width: 60rem;
+            text-align: center;
+            overflow: hidden;
+            &::before,
+            &::after {
+                content: " ";
                 position: absolute;
-                height: 100%;
-                width: 65%;
-                font-size: 1vw;
-                right: 8%;
-                top: -2%;
-
-                & > h2 {
-                    margin-bottom: 0.9vw;
+                background-color: currentColor;
+                border-radius: 50%;
+            }
+            &::before {
+                width: 12rem;
+                height: 12rem;
+                bottom: -6rem;
+                left: -8rem;
+            }
+            &::after {
+                width: 12rem;
+                height: 12rem;
+                top: -6rem;
+                right: -8rem;
+            }
+            & > h2 {
+                margin-bottom: 2rem;
+            }
+            &:nth-child(even) {
+                margin-right: auto;
+                margin-left: 0;
+                &::before {
+                    left: unset;
+                    right: -8rem;
                 }
-            }
-
-            & > img {
-                width: 80%;
-            }
-        }
-
-        & > .info_box_bottom {
-            position: relative;
-            display: flex;
-            & > img {
-                width: 80%;
-            }
-
-            & > .bottom_description {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                height: 100%;
-                width: 65%;
-                font-size: 1vw;
-                left: 12%;
-
-                & > h2 {
-                    margin-bottom: 0.9vw;
+                &::after {
+                    right: unset;
+                    left: -8rem;
                 }
             }
         }
     }
 }
-@media screen and (max-width: 1000px) {
-    .about_container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .left_section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            & > .section_title {
-                font-size: 3rem;
-                margin-bottom: 2rem;
-
-                &::before {
-                    font-size: 5rem;
-                }
-
-                &::after {
-                    width: 3rem;
-                }
-            }
-
-            & > p {
-                font-size: 1.1rem;
-            }
+@media (max-width: 600px) {
+    .about_container > .bottom_section {
+        background-color: unset;
+        .info_box {
+            width: 100%;
+            padding: 5rem 10vw;
+            margin: -1px 0 0;
         }
-
-        .right_section {
-            min-height: 100vh;
-
-            & > .info_box_top {
-                margin: 0 0 2.5rem;
-                overflow: hidden;
-                & > img {
-                    position: absolute;
-                    width: 100%;
-                    top: -5px;
-                }
-
-                .top_description {
-                    font-size: 1rem;
-
-                    position: relative;
-                    padding: 2rem 0;
-                    & > h2 {
-                        margin-bottom: 0.9rem;
-                        font-size: 2rem;
-                    }
-                }
+    }
+}
+:global(.dark) {
+    .about_container {
+        & > .bottom_section {
+            & > .info_box {
+                background-color: var(--dark_color1);
             }
-
-            & > .info_box_bottom {
-                margin: 2.5rem 0 5rem;
-
-                & > img {
-                    position: absolute;
-                    width: 100%;
-                }
-
-                .bottom_description {
-                    font-size: 1rem;
-                    position: relative;
-                    padding: 2rem 0;
-                    & > h2 {
-                        margin-bottom: 0.9rem;
-                        font-size: 2rem;
-                    }
-                }
+            p,
+            h1 {
+                color: var(--white_color);
             }
         }
     }
