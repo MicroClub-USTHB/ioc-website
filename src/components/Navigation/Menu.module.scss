@@ -80,6 +80,7 @@
             & > span {
                 font-size: 1rem;
                 transition: color 300ms ease-in;
+                color: inherit;
             }
 
             & > span:nth-child(1) {
@@ -89,7 +90,7 @@
 
         &:hover {
             & > .nav_icon_container {
-                background-color: #40cd7d40;
+                background-color: var(--color1_shade);
 
                 & > svg {
                     color: var(--color1);
@@ -161,5 +162,70 @@
         padding: 1rem;
         width: 90vw;
         min-width: 15rem;
+    }
+}
+:global(.dark) {
+    .popover_container {
+        background-color: var(--dark_color1_shade);
+        * {
+            color: var(--dark_color1);
+        }
+    }
+    .nav_list {
+        .nav_button {
+            &:hover {
+                & > .nav_icon_container {
+                    background-color: var(--dark_color2);
+                }
+                .nav_button_text > span:nth-child(1) {
+                    color: var(--dark_color2);
+                }
+            }
+        }
+        .nav_main {
+            & > .nav_icon_container {
+                background-color: var(--dark_color1);
+
+                & > svg {
+                    fill: var(--light_color);
+                }
+            }
+            & > .nav_button_text {
+                & > span:nth-child(1) {
+                    color: var(--dark_color1);
+                }
+            }
+            &:hover {
+                & > .nav_icon_container {
+                    background-color: var(--dark_color2);
+
+                    & > svg {
+                        fill: var(--dark_color1);
+                    }
+                }
+
+                & > .nav_button_text {
+                    & > span:nth-child(1) {
+                        fill: var(--dark_color1);
+                    }
+                }
+            }
+        }
+        .nav_logout {
+            &:hover {
+                & > .nav_icon_container {
+                    background-color: var(--dark_error_color);
+                    & > svg {
+                        fill: var(--light_color);
+                    }
+                }
+
+                & > .nav_button_text {
+                    & > span:nth-child(1) {
+                        color: var(--dark_error_color);
+                    }
+                }
+            }
+        }
     }
 }

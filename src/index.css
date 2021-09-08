@@ -19,6 +19,7 @@
     --dark_color1_shade: #3b5833;
     --dark_color2: #ecdd69;
     --dark_color2_fade: hsla(53, 78%, 67%, 0.5);
+    --dark_error_color: #bd4646;
 }
 * {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
