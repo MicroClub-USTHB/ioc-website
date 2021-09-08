@@ -36,8 +36,8 @@ const Day = (props: DayProps) => {
           <span style={side.completed ? color_green : color_red}>{ side.completed ? 'Completed' : 'Not Completed' }</span>
         </div>
         <div className={`${dayStyle.challenge} ${dayStyle.score}`}>
-          <span style={main.completed ? color_green : color_red}>{`${main.points} Points`}</span>
-          <span style={side.completed ? color_green : color_red}>{`${side.points} Points`}</span>
+          <span style={main.completed ? color_green : color_red}>{`${main.points ?? 'No'} Points`}</span>
+          <span style={side.completed ? color_green : color_red}>{`${side.points ?? 'No'} Points`}</span>
         </div>
       </div>
     </div>

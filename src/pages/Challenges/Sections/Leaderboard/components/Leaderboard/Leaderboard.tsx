@@ -16,7 +16,7 @@ const Leaderboard = () => {
       <div className={boardStyle.display}>
         {
           !isLoading && data?.map((participant, index) => (
-            <Participant position={index + 1} name={participant.userName} score={participant.scores[2021]} />
+            <Participant key={participant._id} position={index + 1} name={participant.userName} score={participant.scores[2021]} />
           ))
         }
       </div>

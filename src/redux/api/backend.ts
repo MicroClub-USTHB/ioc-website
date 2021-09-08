@@ -7,8 +7,8 @@ export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         // baseUrl: "https://ioc-backend.herokuapp.com/",
-        baseUrl: "https://ioc-beta.herokuapp.com/",
-        //baseUrl: "http://localhost:3001/",
+        // baseUrl: "https://ioc-beta.herokuapp.com/",
+        baseUrl: "http://localhost:3001/",
         credentials: "include",
     }),
     endpoints: (builder) => ({
@@ -36,8 +36,8 @@ export const api = createApi({
             }),
         }),
         /* Get User Data */
-        getUserData: builder.mutation<User, void>({
-            query: () => ({ url: "users" }),
+        getUserData: builder.query<User, void>({
+            query: () => ({ url: "/" }),
         }),
         /* Reauthenticate */
         reAuthenticate: builder.query<User, null>({
@@ -64,7 +64,7 @@ export const {
     useSignInMutation,
     useLogOutMutation,
     useSignUpMutation,
-    useGetUserDataMutation,
+    useGetUserDataQuery,
     useReAuthenticateQuery,
     useGetDaysQuery,
     useGetDayQuery,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGetUserDataQuery } from '../../../../../../redux/api/backend';
 
 // Components
 import Day, { DayProps } from './components/Day/Day';
@@ -7,24 +8,32 @@ import Day, { DayProps } from './components/Day/Day';
 import progStyle from './Progress.module.scss';
 
 const Progress = () => {
-  const dummy_data: DayProps[] = [
-    { title: 'Day 1', main: { completed: true, points: 240 }, side: { completed: true, points: 200 } },
-    { title: 'Day 2', main: { completed: true, points: 189.76 }, side: { completed: false, points: 0 } },
-    { title: 'Day 3', main: { completed: false, points: 0 }, side: { completed: false, points: 0 } },
-  ]
+  const { data, isLoading } = useGetUserDataQuery();
   return (
     <div className={progStyle.container}>
       <div>
         <h1 className={progStyle.title}>Your Story So Far</h1>
         <ul className={progStyle.list}>
           {
-            dummy_data.map(day => (
-              <li> <Day {...day} /> </li>
+            data?.days.map(day => (
+              <li key={day.number}>
+                <Day
+                  title={`Day ${day.number}`}
+                  main={{
+                    completed: !!day.completed.main.completed,
+                    points: day.completed.main.score
+                  }}
+                  side={{
+                    completed: !!day.completed.side.completed,
+                    points: day.completed.side.score
+                  }}
+                />
+              </li>
             ))
           }
         </ul>
       </div>
-      <span className={progStyle.total}>Score Total:<span className={progStyle.points}> {dummy_data.flatMap(day => [day.main.points, day.side.points]).reduce((acc, curr) => acc += curr)} Points</span></span>
+      <span className={progStyle.total}>Score Total:<span className={progStyle.points}> {data?.scores[Number(new Date().getFullYear())]} Points</span></span>
     </div>
   );
 }

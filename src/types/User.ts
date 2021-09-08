@@ -1,14 +1,28 @@
-type Keys = `20${number}${number}`;
-type Scores = {
-    [key in Keys]?: number;
-};
+interface Spam {
+    count: number
+    total: number
+    last: Date
+}
+
+interface UserDay {
+    completed: {
+        main: { completed: Date, score: number };
+        side: { completed: Date, score: number };
+    };
+    day: string;
+    main: string;
+    side: string;
+    number: number;
+}
 export interface User {
     _id: string;
     email: string;
     userName: string;
     firstName: string;
     lastName: string;
-    scores: Scores;
+    spam?: Spam;
+    scores: { [key: number]: number };
+    days: UserDay[]
 }
 
 /* AUTHENTICATION */
