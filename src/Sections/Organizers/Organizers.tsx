@@ -18,8 +18,8 @@ const Organizers = () => {
   const org_list: OrganizerType[] = [
     /* MICRO CLUB */
     {
-      title: "Event Organizer",
-      description: "Micro Club is the first founded scientific club in Algeria, back in March 5th, 1985.\nWe focuse on Computer Science and IT field as we work to popularize among the student community.",
+      title: Lang.organizers.org_list.mc.title,
+      description: Lang.organizers.org_list.mc.description,
       links: [
         { type: 'instagram', link: 'https://www.instagram.com/microclub_usthb/' },
         { type: 'facebook', link: 'https://www.facebook.com/Micro.Club.USTHB' },
@@ -32,10 +32,10 @@ const Organizers = () => {
       },
       orientation: 'left',
     },
-    /* MICRO CLUB */
+    /* Etudz Academy */
     {
-      title: "Event Partner",
-      description: "Etudz Academy is a digital professions training institution that uses advanced coaching approaches based in Algeria.",
+      title: Lang.organizers.org_list.ea.title,
+      description: Lang.organizers.org_list.ea.description,
       links: [
         { type: 'instagram', link: 'https://www.instagram.com/etudzacademy' },
         { type: 'facebook', link: 'https://www.facebook.com/etudz.academy' },
