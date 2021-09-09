@@ -1,6 +1,11 @@
 import { RouteComponentProps, useLocation } from "react-router-dom";
 
-import { useGetDayQuery, useGetDaysQuery, useSubmitAnswerMutation } from "../../../../redux/api/backend";
+import {
+    useGetDayQuery,
+    useGetDaysQuery,
+    useSubmitAnswerMutation,
+    useGetInputsMutation,
+} from "../../../../redux/api/backend";
 
 import { ExtendedDay } from "../../../../types/Day";
 
@@ -8,7 +13,7 @@ import { ExtendedDay } from "../../../../types/Day";
 import challengeStyle from "./Challenge.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/types";
-import React from "react";
+import { useState, FC } from "react";
 // components
 var textFile: any = null;
 const makeTextFile = function (text: string) {
@@ -28,8 +33,8 @@ const makeTextFile = function (text: string) {
 const StoryIcon = () => (
     <svg viewBox="0 0 30 26" xmlns="http://www.w3.org/2000/svg">
         <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M28.3463 0.664307H16.875L16.145 0.97716L14.7893 2.312L13.4336 0.97716L12.7036 0.664307H1.2323L0.189453 1.70715V22.5641L1.2323 23.6069H12.2656L14.0593 25.3797H15.5193L17.313 23.6069H28.3463L29.3891 22.5641V1.70715L28.3463 0.664307ZM13.7464 22.1886L13.371 21.8341L12.7036 21.5212H2.27514V2.75H12.2656L13.809 4.29341L13.7464 22.1886ZM27.3034 21.5212H16.875L16.145 21.8341L15.853 22.1052V4.20998L17.313 2.75H27.3034V21.5212ZM10.6179 6.92138H4.36083V9.00707H10.6179V6.92138ZM10.6179 15.2641H4.36083V17.3498H10.6179V15.2641ZM4.36083 11.0928H10.6179V13.1784H4.36083V11.0928ZM25.2177 6.92138H18.9607V9.00707H25.2177V6.92138ZM18.9607 11.0928H25.2177V13.1784H18.9607V11.0928ZM18.9607 15.2641H25.2177V17.3498H18.9607V15.2641Z"
         />
     </svg>
@@ -55,8 +60,14 @@ const TasksIcon = () => (
     </svg>
 );
 
-const Tab: React.FC<{ Icon: any; title: string; text?: string }> = ({ Icon, title, text = null, children }) => (
-    <div className={challengeStyle.Tab}>
+const Tab: FC<{ Icon: any; title: string; text?: string; className?: string }> = ({
+    Icon,
+    title,
+    text = null,
+    children,
+    className = "",
+}) => (
+    <div className={challengeStyle.Tab + " " + className}>
         <div className={challengeStyle.Header}>
             <div>
                 <Icon />
@@ -68,7 +79,7 @@ const Tab: React.FC<{ Icon: any; title: string; text?: string }> = ({ Icon, titl
         </div>
     </div>
 );
-const Challenge: React.FC<RouteComponentProps> = (props) => {
+const Challenge: FC<RouteComponentProps> = (props) => {
     const location = useLocation();
     let [dayNumber, type]: [string | number, "main" | "side"] = location.pathname.split("/").slice(-2) as [
         string,
@@ -77,6 +88,8 @@ const Challenge: React.FC<RouteComponentProps> = (props) => {
     dayNumber = Number(dayNumber[dayNumber.length - 1]);
     const { data: days } = useGetDaysQuery(null);
     const [submitAnswer, { isLoading }] = useSubmitAnswerMutation();
+    const [getInputs, { isLoading: isLoadingGet }] = useGetInputsMutation();
+    const [url, setUrl] = useState("#");
     const language = useSelector<RootState>((state) => (state.common.language === "english" ? "EN" : "FR")) as
         | "EN"
         | "FR";
@@ -107,33 +120,51 @@ const Challenge: React.FC<RouteComponentProps> = (props) => {
             </div>
             <div className={challengeStyle.half_container}>
                 {example ? <Tab Icon={TasksIcon} title={"Examples"} text={example} /> : ""}
-                <Tab Icon={downloadIcon} title={"Inputs"}>
+                <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
                     <a
-                        href="#"
+                        className={isLoadingGet ? challengeStyle.disabled : ""}
+                        href={url}
                         onClick={(e) => {
-                            let url = ((e.target as HTMLAnchorElement).attributes as NamedNodeMap).getNamedItem(
-                                "href"
-                            )?.value;
-                            if (url === "#") {
+                            let link = e.target as HTMLAnchorElement,
+                                url = (link.attributes as NamedNodeMap).getNamedItem("href")?.value;
+                            if (isLoadingGet) e.preventDefault();
+                            else if (url === "#" && day) {
                                 // here
+                                getInputs({
+                                    day: day._id,
+                                    type,
+                                })
+                                    .then((response) => {
+                                        if (response.hasOwnProperty("data")) {
+                                            const url = window.URL.createObjectURL(
+                                                new Blob([(response as { data: string }).data])
+                                            );
+                                            link.href = url;
+                                            link.setAttribute("download", "input.txt");
+                                            link.click();
+                                        } else console.log(response);
+                                    })
+                                    .catch((er) => console.error(er));
                                 e.preventDefault();
-                            } else console.log("url");
+                            } else console.log(url);
                         }}
                     >
-                        Download
+                        <div className={challengeStyle.button}>Download</div>
                     </a>
                 </Tab>
                 <Tab Icon={submitIcon} title={"Submit your answer"}>
                     <form
                         onSubmit={(e) => {
+                            let input = (e.target as HTMLFormElement)[0] as HTMLInputElement;
                             if (day) {
                                 submitAnswer({
                                     day: day._id,
                                     type,
-                                    answer: ((e.target as HTMLFormElement)[0] as HTMLInputElement).value,
+                                    answer: input.value,
                                 })
                                     .then((data) => {
                                         console.log(data);
+                                        input.value = "";
                                     })
                                     .catch((er) => {
                                         console.log(er);

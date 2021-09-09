@@ -6,8 +6,8 @@ import { DayRequest } from "../../types/Day";
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://ioc-backend.herokuapp.com/",
-        //baseUrl: "http://localhost:3001/",
+        //baseUrl: "https://ioc-backend.herokuapp.com/",
+        baseUrl: "http://localhost:3001/",
         credentials: "include",
     }),
     endpoints: (builder) => ({
@@ -36,7 +36,7 @@ export const api = createApi({
             }),
         }),
         /* getInputs Answers */
-        getInputs: builder.mutation<GetInputs, AnswersValues>({
+        getInputs: builder.mutation<string, GetInputs>({
             query: (body) => ({
                 url: `challenge/${body.day}/${body.type}`,
                 method: "GET",
