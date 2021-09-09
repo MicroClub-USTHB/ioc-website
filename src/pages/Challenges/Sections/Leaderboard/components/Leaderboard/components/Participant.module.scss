@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  margin-bottom: 2.9rem;
+  position: relative;
+  margin
+
+  &::before {
+    content: '';
+    display: block;
+    width: 110%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: -1.2rem;
+    left: -2.5rem;
+  }
+}
+
+.user {
+  position: sticky;
+  bottom: .8rem;
+}
+
+.user_box {
+  position: sticky;
+  bottom: 0;
+  transform: translateX(-2.5rem);
+  width: 150%;
+  height: 7rem;
+  background-color: var(--secondary_color);
+  margin-bottom: -7rem;
+}
+
+.position {
+  font-family: 'Hacked';
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: 2.5rem;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+  }
+}
+
+.gold {
+  color: #ECDD69;
+  &::after {
+    border-color: #ECDD69;
+  }
+}
+
+.bronze {
+  color: #F0AC6E;
+  &::after {
+    border-color: #F0AC6E;
+  }
+}
+
+.silver {
+  color: #BFBFBD;
+  &::after {
+    border-color: #BFBFBD;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.name {
+  font-family: 'Hacked';
+  font-size: 2.4rem;
+}
+
+.score {
+  font-size: 1.4rem;
+  font-weight: 200;
+}

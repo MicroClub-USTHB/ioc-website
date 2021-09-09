@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  width: 650px;
+  height: 300px;
+  background-color: var(--main_color);
+  position: relative;
+  border-radius: 10px;
+  transform: translateX(30%);
+  margin-bottom: 5rem;
+
+  .image {
+    height: 55%;
+    position: absolute;
+    padding: 2rem;
+    border-radius: 10px;
+    transform: translate(-70%, 40%);
+  }
+
+  .image_right {
+    transform: translate(70%, 40%);
+  }
+  
+  .bg_dark {
+    background-color: var(--secondary_color);
+  }
+  
+  .bg_light {
+    background-color: white;
+  }
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10rem;
+    padding-right: 4rem;
+
+    .title {
+      font-family: 'Hacked';
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+
+    .description {
+      font-size: 1.2rem;
+    }
+
+    .links > a {
+      margin-right: .6rem;
+      transition: all .1s ease;
+      color: var(--secondary_color);
+
+      &:hover, &:focus {
+        color: var(--secondary_color_fade);
+      }
+    }
+  }
+
+  .content_right {
+    padding-left: 4rem;
+    padding-right: 10rem;
+  }
+}
+
+.container_right {
+  flex-direction: row-reverse;
+  transform: translateX(-30%);
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    transform: translateX(13%);
+  }
+
+  .container_right {
+    transform: translateX(-13%);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    transform: none;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 8rem;
+
+    .image {
+      height: 45%;
+      transform: translate(-30px, -50%);
+    }
+    
+    .image_right {
+      transform: translate(20px, -50%);
+    }
+
+    .content {
+      padding: 6rem 4rem 0;
+    }
+  }
+
+  .container_right {
+    transform: none;
+  }
+}

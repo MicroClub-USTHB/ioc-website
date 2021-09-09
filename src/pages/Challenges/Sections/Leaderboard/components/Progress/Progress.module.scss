@@ -1,0 +1,33 @@
+.container {
+  background-color: white;
+  padding: 3rem 5rem;
+  width: 46%;
+  border-radius: 20px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: 'Hacked';
+  font-size: 2.5rem;
+  color: var(--secondary_color);
+  font-weight: 400;
+}
+
+.list {
+  list-style: none;
+  margin: 2rem 0 0 ;
+  padding: 0;
+}
+
+.total, .points {
+  font-family: 'Hacked';
+  font-size: 2rem;
+}
+
+.points {
+  color: var(--main_color);
+}

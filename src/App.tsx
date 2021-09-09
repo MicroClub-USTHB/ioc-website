@@ -6,6 +6,7 @@ import { AppDispatch } from "./redux/types";
 import { setUser, removeUser } from "./redux/slices/user";
 import { useReAuthenticateQuery } from "./redux/api/backend";
 import { User } from "./types/User";
+import './common.scss';
 
 const App: React.FC = () => {
     const {

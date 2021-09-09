@@ -30,6 +30,19 @@ const English: LangType = {
             },
         ],
     },
+    organizers: {
+        title: "The Organizers",
+        org_list: {
+            mc: {
+                title: 'Event Organizer',
+                description: 'Micro Club is the first founded scientific club in Algeria, back in March 5th, 1985.\nWe focus on Computer Science and IT field as we work to popularize among the student community.',
+            },
+            ea: {
+                title: 'Event Partner',
+                description: 'Etudz Academy is a digital professions training institution that uses advanced coaching approaches based in Algeria.',
+            }
+        }
+    },
     numbers: {
         title: `Our Numbers`,
         card: [

@@ -1,0 +1,55 @@
+.quote {
+  font-style: italic;
+}
+.morceaupapier {
+  border-top-left-radius: 37px 140px;
+  border-top-right-radius: 23px 130px;
+  border-bottom-left-radius: 110px 19px;
+  border-bottom-right-radius: 120px 24px;
+
+  display: block;
+  position: relative;
+  border: solid 3px #6e7491;
+  padding: 40px 60px;
+  max-width: 800px;
+  width: 70%;
+  margin: 16px auto 0; /* <- this is for the white space gotchya Thank you < 3 :smile: */
+  font-size: 17px;
+  line-height: 28px;
+  transform: rotate(-1deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.13s ease-in;
+}
+.dots {
+  font-weight: 550;
+}
+
+.MIoc {
+  float: right;
+  color: #40cd7d;
+  text-indent: 5em;
+  transform: skewX(-10deg);
+  font-weight: 600;
+}
+.bold {
+  font-weight: 600;
+}
+.green {
+  color: #40cd7d;
+  font-weight: 600;
+}
+.long {
+  word-break: break-all;
+}
+.cadreinstrucation {
+  box-shadow: 1px 1px 6px 0px #8c8c8c;
+  padding: 10px;
+  border-radius: 10px;
+  background: #40cd7d;
+  color: white;
+}
+.cadreinstrucation li {
+  list-style: "➼ ";
+}
+.red 
+{ color: red; }

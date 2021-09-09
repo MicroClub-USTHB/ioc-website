@@ -28,6 +28,19 @@ const French = {
             },
         ],
     },
+    organizers: {
+        title: "Les organisateurs",
+        org_list: {
+            mc: {
+                title: `Organisateur d'evenement`,
+                description: `Le Micro Club est le premier club scientifique fondé en Algérie, le 5 mars 1985.\nNous nous concentrons sur l'informatique et les technologies de l'information et nous nous efforçons de les populariser auprès de la communauté étudiante.`,
+            },
+            ea: {
+                title: `Partenaire de l'evenement`,
+                description: `Etudz Academy est une institution de formation aux métiers du numérique qui utilise des approches de coaching avancées, basée en Algérie.`,
+            }
+        }
+    },
     numbers: {
         title: `Nos chiffres`,
         card: [

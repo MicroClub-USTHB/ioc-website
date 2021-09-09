@@ -1,4 +1,3 @@
-import { Popover } from "@headlessui/react";
 import React, { useEffect, useState, useRef } from "react";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
@@ -103,6 +102,7 @@ const Menu = () => {
                                 onSubmit={async (values: SignInValues) => {
                                     try {
                                         const res = await signIn(values);
+                                        console.log("this is: ", res);
                                         if (res.hasOwnProperty("data")) {
                                             dispatch(setUser((res as { data: User }).data));
                                         } else if (res.hasOwnProperty("error")) {
@@ -113,23 +113,46 @@ const Menu = () => {
                                     }
                                 }}
                             >
-                                <Form className={popoverStyle.signin_form}>
-                                    <FormControl
-                                        control="email"
-                                        name="email"
-                                        label={Lang.auth.email}
-                                        ErrorComponent={ErrorDisplay}
-                                    />
-                                    <FormControl
-                                        control="password"
-                                        name="password"
-                                        label={Lang.auth.password}
-                                        ErrorComponent={ErrorDisplay}
-                                    />
-                                    <button disabled={isLoading}>
-                                        {!isLoading ? Lang.auth.signin.button : <Spinner />}
-                                    </button>
-                                </Form>
+                                {({ values, errors, touched }) => (
+                                    <Form className={popoverStyle.signin_form}>
+                                        <ul className={`input_list ${popoverStyle.input_list}`}>
+                                            <li className="email">
+                                                <FormControl
+                                                    control="email"
+                                                    name="email"
+                                                    label={Lang.auth.email}
+                                                    label_className={`label ${popoverStyle.label} ${
+                                                        errors.email && touched.email && "error_color"
+                                                    } ${values.email && `label_values`}`}
+                                                    field_className={"field"}
+                                                    error_className={`error ${popoverStyle.error}`}
+                                                    ErrorComponent={ErrorDisplay}
+                                                />
+                                            </li>
+                                            <li className="password">
+                                                <FormControl
+                                                    control="password"
+                                                    name="password"
+                                                    label={Lang.auth.password}
+                                                    label_className={`label ${popoverStyle.label} ${
+                                                        errors.password && touched.password && "error_color"
+                                                    } ${
+                                                        values.password && `label_values ${popoverStyle.label_values}`
+                                                    }`}
+                                                    field_className={"field"}
+                                                    error_className={`error ${popoverStyle.error}`}
+                                                    ErrorComponent={ErrorDisplay}
+                                                />
+                                            </li>
+                                            <button
+                                                className={`submit_button ${popoverStyle.submit_button}`}
+                                                disabled={isLoading}
+                                            >
+                                                {!isLoading ? Lang.auth.signin.button : <Spinner />}
+                                            </button>
+                                        </ul>
+                                    </Form>
+                                )}
                             </Formik>
                             {window.location.pathname !== "/" && !user ? (
                                 <NavButton

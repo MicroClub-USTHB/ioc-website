@@ -102,7 +102,6 @@ const Challenge: FC<RouteComponentProps> = (props) => {
         example = "",
         title = "",
         finishingMsg = "";
-    if (dayLoading) return <div>loading</div>;
 
     if (day !== undefined) {
         content = day[type]!.content[language]!.content;
@@ -112,6 +111,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
         finishingMsg = day[type]!.content[language]!.finishingMsg ?? "";
     }
 
+    if (dayLoading) return <div className={challengeStyle.spinner}></div>;
     return (
         <section className={challengeStyle.container}>
             <div className={challengeStyle.half_container}>

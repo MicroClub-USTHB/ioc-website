@@ -16,6 +16,7 @@ import Loader from "../../components/Loader/Loader";
 
 import { Day } from "../../types/Day";
 import Logo from "../../components/Logo/Logo";
+import Leaderboard from "./Sections/Leaderboard/Leaderboard";
 const PlaceHolder = ({ text }: { text: string }) => {
     return (
         <div className={challengesStyle.loader_container}>
@@ -92,14 +93,17 @@ const Container = ({
 }) => {
     return (
         <div className={challengesStyle.container}>
-            {daysLoading ? (
-                <PlaceHolder text={text} />
-            ) : (
-                <Switch>
-                    <Route path={`${match.path}/`} exact render={() => <PlaceHolder text={text} />} />
-                    <Route path={`${match.path}/:day`} component={Challenge} />
-                </Switch>
-            )}
+            <Switch>
+                <Route path={`${match.path}/`} exact render={() => <PlaceHolder text={text} />} />
+                <Route path={`${match.path}/leaderboard`} exact component={Leaderboard} />
+                {daysLoading ? (
+                    <PlaceHolder text={text} />
+                ) : (
+                    <>
+                        <Route path={`${match.path}/:day`} component={Challenge} />
+                    </>
+                    )}
+            </Switch>
         </div>
     );
 };
