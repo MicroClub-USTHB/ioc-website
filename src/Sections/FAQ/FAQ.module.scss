@@ -1,25 +1,10 @@
 .faq_section {
     min-height: 100vh;
+    padding: 7rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 3rem 0;
-}
-
-.section_title {
-    font-size: clamp(1.5rem, 3vw, 4rem);
-    position: relative;
-    margin: 5rem 0;
-
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: var(--secondary_color);
-        position: absolute;
-        bottom: 0;
-    }
 }
 
 .qa_list {
@@ -44,31 +29,51 @@
             width: 4.8rem;
             height: 4.8rem;
             margin: 0 1rem;
-            fill: var(--secondary_color);
+            fill: currentColor;
         }
     }
 
     .message {
-        background-color: var(--main_color);
+        background-color: var(--color1);
         border-radius: 15px;
-        padding: 2rem 3rem;
+        padding: 2rem;
         font-size: clamp(1.2rem, 2vw, 2rem);
-        color: var(--secondary_color);
         width: 100%;
+        p {
+            margin: 0;
+        }
     }
 }
 .Answer {
     flex-direction: row-reverse;
     .message {
-        background-color: var(--secondary_color);
-        color: var(--light_color);
+        background-color: currentColor;
+        p {
+            color: var(--white_color);
+        }
     }
 }
 
-@media screen and (max-width: 425px) {
-    .section_title {
-        &::before {
-            width: 2.3rem;
+@media screen and (max-width: 700px) {
+    .faq_section {
+        h1 {
+            margin: 0 3rem;
+            &::before {
+                white-space: normal;
+            }
         }
+    }
+}
+:global(.dark) {
+    .message_container:not(.Answer) {
+        .message {
+            background-color: var(--dark_color1_shade);
+            p {
+                color: var(--white_color);
+            }
+        }
+    }
+    .Answer .message p {
+        color: var(--dark_color1);
     }
 }

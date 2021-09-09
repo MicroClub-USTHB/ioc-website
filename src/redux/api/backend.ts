@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Day, ExtendedDay } from "../../types/Day";
+import { Day, ExtendedDay, AnswersValues, CorrectAnswer, GetInputs } from "../../types/Day";
 import { User, SignInValues, SignUpValues, LeaderboardItem } from "../../types/User";
 import { DayRequest } from "../../types/Day";
 
@@ -35,6 +35,21 @@ export const api = createApi({
                 body: { ...body, login: true }, // auto signIn set to true
             }),
         }),
+        /* getInputs Answers */
+        getInputs: builder.mutation<string, GetInputs>({
+            query: (body) => ({
+                url: `challenge/${body.day}/${body.type}`,
+                method: "GET",
+            }),
+        }),
+        /* Submit Answers */
+        submitAnswer: builder.mutation<CorrectAnswer, AnswersValues>({
+            query: (body) => ({
+                url: `challenge/${body.day}/${body.type}`,
+                method: "POST",
+                body: { answer: body.answer },
+            }),
+        }),
         /* Get User Data */
         getUserData: builder.query<User, void>({
             query: () => ({ url: "/" }),
@@ -52,11 +67,11 @@ export const api = createApi({
         getDay: builder.query<ExtendedDay, DayRequest>({
             query: (body) => ({ url: "days/" + body._id }),
         }),
-        getLeaderboard: builder.query<LeaderboardItem[], null> ({
+        getLeaderboard: builder.query<LeaderboardItem[], null>({
             query: (query) => ({
-                url: '/leaderboard'
-            })
-        })
+                url: "/leaderboard",
+            }),
+        }),
     }),
 });
 
@@ -64,10 +79,12 @@ export const {
     useSignInMutation,
     useLogOutMutation,
     useSignUpMutation,
+    useSubmitAnswerMutation,
+    useGetInputsMutation,
     useGetUserDataQuery,
     useReAuthenticateQuery,
     useGetDaysQuery,
     useGetDayQuery,
     usePrefetch,
-    useGetLeaderboardQuery
+    useGetLeaderboardQuery,
 } = api;

@@ -1,60 +1,344 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @font-face {
     font-family: "HACKED";
     src: local("HACKED"), url("./fonts/HACKED.ttf");
 }
 :root {
-    --main_color: #40cd7d;
-    --main_color_high: #309a5d;
-    --secondary_color: #0d1b28;
-    --secondary_color_fade: #0d1b28de;
+    --color1: #40cd7d;
+    --color1_shade: #309a5d;
+    --color2: #0d1b28;
+    --color2_fade: rgba(13, 27, 40, 0.2);
     --light_color: #e0e0e0;
     --white_color: white;
     --gray_color: #c0c0c0;
-    --dark_color: #8c8c8c;
+    --dark_color: #9c9c9c;
     --error_color: #cd4040;
-    --gradiant: linear-gradient(-45deg, var(--main_color), var(--dark_color));
-    --gradiant2: linear-gradient(-45deg, var(--main_color), var(--main_color_high));
+    --gradiant: linear-gradient(-45deg, var(--color1), var(--dark_color));
+    --gradiant2: linear-gradient(-45deg, var(--color1), var(--color1_shade));
+    --dark_color1: #030d09;
+    --dark_color1_shade: #3b5833;
+    --dark_color2: #ecdd69;
+    --dark_color2_fade: hsla(53, 78%, 67%, 0.5);
+    --dark_error_color: #bd4646;
 }
 * {
-    font-family: "Open Sans";
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     box-sizing: border-box;
+    font-weight: 600;
+    color: var(--color2);
 }
+
 html {
     height: 100%;
+    overflow: hidden;
 }
 body {
     margin: 0;
-    font-family: "Opan Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    position: relative;
+    overflow: auto;
+    height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--light_color);
 }
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+.dark {
+    background-color: var(--dark_color1);
 }
-
+.dark * {
+    color: var(--dark_color2);
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: var(--secondary_color);
-    font-weight: 600;
+    text-align: center;
+
     margin: 0;
+}
+h1 {
+    font-size: 3rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    font-family: "HACKED";
+    font-weight: 400;
+    align-items: center;
+    text-transform: uppercase;
+}
+h1::before {
+    content: attr(title);
+    position: absolute;
+    transform: scale(1.5);
+    transform-origin: center;
+    transform-box: fill-box;
+    color: inherit;
+    opacity: 0.2;
+    white-space: nowrap;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: currentColor;
+    height: 2px;
+    width: 100%;
+    z-index: 40;
+    left: 0;
+    bottom: 0;
 }
 ::-webkit-scrollbar {
     width: 1rem;
+    height: 1rem;
 }
+
 ::-webkit-scrollbar-thumb {
-    background-color: var(--main_color);
+    background-color: var(--color1);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--main_color_high);
+    background-color: var(--color1_shade);
 }
+
 ::-webkit-scrollbar-track {
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
+}
+.dark::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+    background-color: var(--dark_color1_shade);
+}
+.dark::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark_color2);
+}
+.dark::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
+    background-color: var(--dark_color1);
+}
+.moon .st0 {
+    fill: var(--color1);
+}
+.moon .st1 {
+    fill: var(--color2);
+}
+.dark .moon .st0 {
+    fill: var(--dark_color2);
+}
+.dark .moon .st1 {
+    fill: var(--dark_color1_shade);
+}
+.moon .st2 {
+    opacity: 0.6;
+}
+.Logo,
+.Loader svg,
+.LogoV {
+    fill: var(--color2);
+}
+.Loader svg *,
+.LogoV * {
+    color: var(--color1);
+}
+.Logo * {
+    color: var(--light_color);
+}
+.dark .Logo {
+    fill: var(--dark_color1);
+}
+.dark .Loader svg,
+.dark .LogoV {
+    fill: var(--dark_color2);
+}
+.dark .Loader svg *,
+.dark .LogoV * {
+    color: var(--white_color);
+}
+.dark .Logo * {
+    color: var(--dark_color2);
+}
+
+.LogoV {
+    width: 13rem;
+    margin: 1.2rem 0 -2rem 4rem;
+}
+
+@media (max-width: 600px) {
+    .LogoV #Text {
+        display: none;
+    }
+    .LogoV {
+        margin: 1.2rem 0 -2rem 1rem;
+    }
+}
+.Loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color2);
+}
+.dark .Loader {
+    background-color: var(--dark_color1);
+}
+.Loader.transparent {
+    background-color: transparent;
+    position: initial;
+    fill: var(--color2);
+    z-index: 1;
+}
+.Loader svg #Text {
+    transform: translateY(80px);
+}
+.Logo:hover #logo,
+.LogoV #logo,
+.Loader svg #logo {
+    animation: circle 6s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.LogoV #circle,
+.Loader svg #circle {
+    animation: Bump 6s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+.Logo:hover #The_I,
+.LogoV #The_I,
+.Loader svg #The_I {
+    animation: The_I 6s linear infinite;
+    transform-box: fill-box;
+    transform-origin: 50% 32.7%;
+}
+.LogoV .letter,
+.Loader svg .letter,
+.Logo #Text > .group > * {
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: scale(0.9);
+}
+.LogoV .letter,
+.Loader svg .letter,
+.Logo:hover #Text > .group > * {
+    animation: letter 6s linear infinite;
+}
+.LogoV #Text > :nth-child(2),
+.Loader svg #Text > :nth-child(2) {
+    animation-delay: 100ms;
+}
+.LogoV #Text > :nth-child(3),
+.Loader svg #Text > :nth-child(3) {
+    animation-delay: 200ms;
+}
+.LogoV #Text > :nth-child(4),
+.Loader svg #Text > :nth-child(4) {
+    animation-delay: 300ms;
+}
+.LogoV #Text > :nth-child(5),
+.Loader svg #Text > :nth-child(5) {
+    animation-delay: 400ms;
+}
+.LogoV #Text > :nth-child(6),
+.Loader svg #Text > :nth-child(6) {
+    animation-delay: 500ms;
+}
+.LogoV #Text > :nth-child(7),
+.Loader svg #Text > :nth-child(7) {
+    animation-delay: 600ms;
+}
+.LogoV #Text > :nth-child(8),
+.Loader svg #Text > :nth-child(8) {
+    animation-delay: 700ms;
+}
+.LogoV #Text > :nth-child(9),
+.Loader svg #Text > :nth-child(9) {
+    animation-delay: 800ms;
+}
+.LogoV #Text > :nth-child(10),
+.Loader svg #Text > :nth-child(10) {
+    animation-delay: 900ms;
+}
+.LogoV #Text > :nth-child(11),
+.Loader svg #Text > :nth-child(11) {
+    animation-delay: 1000ms;
+}
+.LogoV #Text > :nth-child(12),
+.Loader svg #Text > :nth-child(12) {
+    animation-delay: 1100ms;
+}
+.Loader svg {
+    fill: white;
+    width: 40%;
+}
+.Loader.transparent svg {
+    fill: var(--color2);
+    width: 100%;
+    height: 100%;
+}
+.dark .Loader.transparent svg {
+    fill: var(--dark_color2);
+}
+@keyframes The_I {
+    25% {
+        transform: scale(1);
+        fill: inherit;
+    }
+    30% {
+        transform: scale(1.35);
+        fill: currentColor;
+    }
+    35% {
+        transform: scale(1);
+    }
+    80% {
+        fill: currentColor;
+    }
+    100% {
+        fill: inherit;
+    }
+}
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(360deg);
+    }
+    25.001% {
+        transform: rotate(0);
+    }
+}
+@keyframes Bump {
+    35.001% {
+        transform: scale(1);
+    }
+    37.5% {
+        transform: scale(1.02);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+@keyframes letter {
+    40% {
+        transform: scale(0.9);
+        fill: inherit;
+    }
+    45% {
+        transform: scale(1);
+        fill: currentColor;
+    }
+    60% {
+        transform: scale(0.9);
+        fill: currentColor;
+    }
+    100% {
+        fill: inherit;
+    }
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./LogoV.css";
+
 const LogoV = ({ className }: { className: string }) => {
     return (
         <Link className={className} to="/">

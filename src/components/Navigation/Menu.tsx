@@ -1,13 +1,11 @@
-import { Popover } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as yup from "yup";
-import { usePopper } from "react-popper";
 import { Formik, Form } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import FormControl from "../../common/Formik/FormControl";
 import ErrorDisplay from "../../common/Formik/ErrorDisplay/ErrorDisplay";
 import Spinner from "../../common/Spinner/Spinner";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SignInValues, User } from "../../types/User";
 import { useSignInMutation } from "../../redux/api/backend";
 import { LangType } from "../../common/Lang/french";
@@ -27,6 +25,7 @@ import {
 // styles
 import popoverStyle from "./Menu.module.scss";
 import { setUser } from "../../redux/slices/user";
+
 const initial_values: SignInValues = {
     email: "",
     password: "",
@@ -41,13 +40,15 @@ interface navButtonI {
     Comp: React.ReactNode;
     text: string;
     span: string;
+    set: any;
     user?: boolean;
     logout?: boolean;
 }
-const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, logout = false }) => {
+const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, logout = false, set }) => {
     return (
         <li>
             <Link
+                onClick={(e) => set(false)}
                 to={to}
                 className={`${user ? popoverStyle.nav_main : ""} ${logout ? popoverStyle.nav_logout : ""} ${
                     popoverStyle.nav_button
@@ -65,33 +66,31 @@ const NavButton: React.FC<navButtonI> = ({ to, Comp, text, span, user = false, l
 const Menu = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const user = useSelector<RootState>((state) => state.user) as User;
-    const [referenceElement, setReferenceElement] = useState(null);
-    const [popperElement, setPopperElement] = useState(null);
+    const [popper, setPopper] = useState(false);
     const dispatch = useDispatch<AppDispatch>();
     const [signIn, { isLoading }] = useSignInMutation();
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        placement: "bottom-start",
-        modifiers: [{ name: "offset", options: { offset: [0, 20] } }],
-    });
-    const history = useHistory();
+    const ref = useRef(null);
+    useEffect(() => {
+        window.document.addEventListener("click", (event) => {
+            if (ref?.current && !(ref?.current as Element | null)?.contains(event.target as Node | null)) {
+                setPopper(false);
+            }
+        });
+    }, []);
     return (
-        <Popover style={{ zIndex: 10 }}>
-            <Popover.Button ref={setReferenceElement as any} className={popoverStyle.popover_button}>
+        <span ref={ref}>
+            <button className={popoverStyle.popover_button} onClick={(e) => setPopper(!popper)}>
                 <UilBars />
-            </Popover.Button>
-            <Popover.Panel
-                ref={setPopperElement as any}
-                className={popoverStyle.popover_container}
-                style={styles.popper}
-                {...attributes.popper}
-            >
+            </button>
+            <div className={`${popoverStyle.popover_container} ${popper ? popoverStyle.display : ""}`}>
                 <ul className={popoverStyle.nav_list}>
                     {/* Sign in */}
                     {user ? (
                         <NavButton
+                            set={setPopper}
                             to="/challenges"
                             text={user.userName}
-                            span={"Start the Challenges"}
+                            span={Lang.menu.user}
                             Comp={<UilUser />}
                             user={true}
                         />
@@ -103,10 +102,9 @@ const Menu = () => {
                                 onSubmit={async (values: SignInValues) => {
                                     try {
                                         const res = await signIn(values);
-                                        console.log('this is: ', res);
+                                        console.log("this is: ", res);
                                         if (res.hasOwnProperty("data")) {
                                             dispatch(setUser((res as { data: User }).data));
-                                            history.push('/challenges');
                                         } else if (res.hasOwnProperty("error")) {
                                             throw new Error(JSON.stringify((res as { error: unknown }).error));
                                         }
@@ -115,56 +113,61 @@ const Menu = () => {
                                     }
                                 }}
                             >
-                                {
-                                    ({values, errors, touched}) => (
-                                        <Form className={popoverStyle.signin_form}>
-                                            <ul className={`input_list ${popoverStyle.input_list}`}>
-                                                <li className="email">
-                                                    <FormControl
-                                                        control="email"
-                                                        name="email"
-                                                        label={Lang.auth.email}
-                                                        label_className={`label ${popoverStyle.label} ${
-                                                            errors.email && touched.email && 'error_color'
-                                                        } ${values.email && `label_values`}`}
-                                                        field_className={'field'}
-                                                        error_className={`error ${popoverStyle.error}`}
-                                                        ErrorComponent={ErrorDisplay}
-                                                    />
-                                                </li>
-                                                <li className="password">
-                                                    <FormControl
-                                                        control="password"
-                                                        name="password"
-                                                        label={Lang.auth.password}
-                                                        label_className={`label ${popoverStyle.label} ${
-                                                            errors.password && touched.password && 'error_color'
-                                                        } ${values.password && `label_values ${popoverStyle.label_values}`}`}
-                                                        field_className={'field'}
-                                                        error_className={`error ${popoverStyle.error}`}
-                                                        ErrorComponent={ErrorDisplay}
-                                                    />
-                                                </li>
-                                                <button className={`submit_button ${popoverStyle.submit_button}`} disabled={isLoading}>
-                                                    {!isLoading ? Lang.auth.signin.button : <Spinner />}
-                                                </button>
-                                            </ul>
-                                        </Form>
-                                        )
-                                    }
+                                {({ values, errors, touched }) => (
+                                    <Form className={popoverStyle.signin_form}>
+                                        <ul className={`input_list ${popoverStyle.input_list}`}>
+                                            <li className="email">
+                                                <FormControl
+                                                    control="email"
+                                                    name="email"
+                                                    label={Lang.auth.email}
+                                                    label_className={`label ${popoverStyle.label} ${
+                                                        errors.email && touched.email && "error_color"
+                                                    } ${values.email && `label_values`}`}
+                                                    field_className={"field"}
+                                                    error_className={`error ${popoverStyle.error}`}
+                                                    ErrorComponent={ErrorDisplay}
+                                                />
+                                            </li>
+                                            <li className="password">
+                                                <FormControl
+                                                    control="password"
+                                                    name="password"
+                                                    label={Lang.auth.password}
+                                                    label_className={`label ${popoverStyle.label} ${
+                                                        errors.password && touched.password && "error_color"
+                                                    } ${
+                                                        values.password && `label_values ${popoverStyle.label_values}`
+                                                    }`}
+                                                    field_className={"field"}
+                                                    error_className={`error ${popoverStyle.error}`}
+                                                    ErrorComponent={ErrorDisplay}
+                                                />
+                                            </li>
+                                            <button
+                                                className={`submit_button ${popoverStyle.submit_button}`}
+                                                disabled={isLoading}
+                                            >
+                                                {!isLoading ? Lang.auth.signin.button : <Spinner />}
+                                            </button>
+                                        </ul>
+                                    </Form>
+                                )}
                             </Formik>
                             {window.location.pathname !== "/" && !user ? (
                                 <NavButton
+                                    set={setPopper}
                                     to="/"
-                                    text={"Home"}
-                                    span={"Go Back the the landing page"}
+                                    text={Lang.menu.home[0]}
+                                    span={Lang.menu.home[1]}
                                     Comp={<UilHome />}
                                 />
                             ) : (
                                 <NavButton
+                                    set={setPopper}
                                     to="/Signup"
-                                    text={"Signup"}
-                                    span={"Register in this challenge"}
+                                    text={Lang.menu.signup[0]}
+                                    span={Lang.menu.signup[1]}
                                     Comp={<UilSignInAlt />}
                                 />
                             )}
@@ -172,24 +175,42 @@ const Menu = () => {
                     )}
                     {/* The event */}
                     <NavButton
+                        set={setPopper}
                         to="/#About"
-                        text={"The event"}
-                        span={"Learn more about the event"}
+                        text={Lang.menu.about[0]}
+                        span={Lang.menu.about[1]}
                         Comp={<UilInfoCircle />}
                     />
                     {/* Video Tutorial 
-                    <NavButton
+                    <NavButton set={setPopper}
                         to="/#Video"
-                        text={"Participation tutorial"}
-                        span={"Watch a video tutorial"}
+                        text={Lang.menu.video[0]}
+                        span={Lang.menu.video[1]}
                         Comp={<UilVideo />}
                     />*/}
                     {/* FAQ */}
-                    <NavButton to="/#FAQ" text={"FAQ"} span={"Questions and answers"} Comp={<UilCommentQuestion />} />
-                    {user ? <NavButton to="/logout" logout text={"Logout"} span={""} Comp={<UilSignOutAlt />} /> : ""}
+                    <NavButton
+                        set={setPopper}
+                        to="/#FAQ"
+                        text={Lang.menu.FAQ[0]}
+                        span={Lang.menu.FAQ[1]}
+                        Comp={<UilCommentQuestion />}
+                    />
+                    {user ? (
+                        <NavButton
+                            set={setPopper}
+                            to="/logout"
+                            logout
+                            text={Lang.menu.logout[0]}
+                            span={Lang.menu.logout[1]}
+                            Comp={<UilSignOutAlt />}
+                        />
+                    ) : (
+                        ""
+                    )}
                 </ul>
-            </Popover.Panel>
-        </Popover>
+            </div>
+        </span>
     );
 };
 

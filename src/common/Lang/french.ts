@@ -10,14 +10,14 @@ const French = {
     },
     hero: { left: "Commencez", middle: "En savoir plus", right: "Micro Club" },
     event: {
-        title: "L'événement",
+        title: "L'evenement",
         description: [
             "Impact of code est un événement de développement d'une semaine qui consiste en des défis quotidiens de codage enveloppés dans un scénario captivant sur le thème d'un monde post-apocalyptique dans lequel nous suivons les étapes d'un personnage alors qu'il résout son chemin pour échapper à la fin. Chaque jour, les participants découvriront un nouveau défi principal et un défi bonus avec une chance de gagner des points après chaque bonne réponse.",
             "Chaque jour, les participants découvriront un nouveau défi principal et un défi bonus avec une chance de gagner des points après chaque bonne réponse.",
         ],
         about: [
             {
-                title: "7 Jours , 14 défis. Un seul héro , vous !",
+                title: "7 Jours , 14 defis. Un seul hero , vous !",
                 description:
                     "Impact of Code propose 14 défis de différentes techniques et difficultés, vous n'avez pas besoin d'être un étudiant en informatique pour les résoudre vous n'avez besoin que d'avoir des connaissances de base en algorithmes et structures de données.",
             },
@@ -45,10 +45,10 @@ const French = {
         title: `Nos chiffres`,
         card: [
             [`TOP 5`, `swags`],
-            `14 Défis`,
+            `14 Defis`,
             `7 jours`,
             ["TOP 3", "Des Formations premium gratuitement"],
-            "notre partner",
+            "notre partenaire",
         ],
     },
     video: {
@@ -58,7 +58,7 @@ const French = {
         ],
     },
     faq: {
-        title: "Questions fréquemment posées",
+        title: "Questions frequemment posees",
         qa: [
             "Que signifie IOC ?",
             "Impact of Code",
@@ -108,8 +108,17 @@ const French = {
         side: "Secondaire",
         task: "tâche",
         submit: "Soumettre une Réponse",
-        no: "There is no Challenge yet! be patient !",
-        select: "Select a challenge in the left",
+        no: "Il n'y a pas encore de Defi ! sois patient !",
+        select: "Sélectionnez un défi à gauche",
+    },
+    menu: {
+        user: "Commencer les défis ",
+        home: ["Accueil", "Retour à la page de destination"],
+        signup: ["S'inscrire", "S'inscrire à ce défi"],
+        about: ["L'événement", "En savoir plus sur l'événement"],
+        FAQ: ["FAQ", "Questions et réponses"],
+        video: ["Tutoriel de participation", "Regarder un tutoriel vidéo"],
+        logout: ["Déconnexion", ""],
     },
 };
 

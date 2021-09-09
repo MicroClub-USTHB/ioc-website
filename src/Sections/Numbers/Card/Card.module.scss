@@ -1,7 +1,7 @@
 .card_container {
-    background-color: var(--light_color);
-    padding: 2rem 2rem;
-    margin: 0.5rem 0.5em;
+    background-color: var(--white_color);
+    padding: 1rem;
+    margin: 0.5rem;
     opacity: 1;
     position: relative;
     z-index: 1;
@@ -13,16 +13,10 @@
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.1);
-    & > img {
-        width: 10rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-    }
+
     & > svg {
         width: 7rem;
         height: 7rem;
-        color: var(--secondary_color);
-        margin-bottom: 1rem;
     }
 
     & > h1 {
@@ -30,30 +24,48 @@
         font-size: 2rem;
         text-transform: uppercase;
         white-space: nowrap;
-        color: var(--secondary_color);
     }
 
     & > h2 {
         font-weight: 400;
         font-size: 1.4rem;
         min-width: 15ch;
-        color: var(--secondary_color);
     }
 }
 
 @media screen and (max-width: 800px) {
     .card_container {
-        & > img {
-            width: 8rem;
-        }
         & > svg {
             width: 6rem;
+            height: 6rem;
         }
         & > h1 {
             font-size: 1.7rem;
         }
         & > h2 {
             font-size: 1rem;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .card_container {
+        & > svg {
+            width: 4rem;
+            height: 4rem;
+        }
+        & > h1 {
+            font-size: 1.5rem;
+        }
+        & > h2 {
+            font-size: 0.8rem;
+        }
+    }
+}
+:global(.dark) {
+    .card_container {
+        background-color: var(--dark_color2);
+        & * {
+            color: var(--dark_color1);
         }
     }
 }

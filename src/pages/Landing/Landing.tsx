@@ -11,7 +11,6 @@ import Organizers from "../../Sections/Organizers/Organizers";
 import Numbers from "../../Sections/Numbers/Numbers";
 import Video from "../../Sections/Video/Video";
 import LogoV from "../../components/LogoV/LogoV";
-import Info from "../../Sections/Info/Info";
 
 // styles
 import landingStyle from "./Landing.module.scss";
@@ -28,7 +27,7 @@ const Landing: React.FC<RouteComponentProps> = () => {
             <LogoV className={landingStyle.logo} />
             <Hero />
             <About />
-            <Info />
+
             <Organizers />
             <Numbers />
             <Video />

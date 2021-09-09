@@ -1,4 +1,3 @@
-import "./Loader.css";
 import { FC } from "react";
 const Loader: FC<{ transparent?: boolean }> = ({ transparent = false }) => {
     return (

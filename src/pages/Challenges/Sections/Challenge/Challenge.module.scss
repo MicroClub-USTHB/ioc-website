@@ -1,26 +1,136 @@
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100%;
     width: 100%;
     position: relative;
-
+    flex-wrap: wrap;
     /* left section */
-    & > .left_container {
+    & > .half_container {
         display: flex;
         flex-direction: column;
-        width: 65%;
+        width: 50%;
+        padding: 1rem;
+        .Tab {
+            padding: 2rem 3rem;
+            border-radius: 2rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: var(--white_color);
+            max-height: 30rem;
+            display: flex;
+            flex-direction: column;
+            ::-webkit-scrollbar {
+                width: 0.6rem;
+                height: 0.6rem;
+            }
+            ::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: var(--gray_color);
+                border-radius: 2rem;
+            }
+            & > .Body {
+                overflow: auto;
+                p {
+                    padding: 0.5rem;
+                    margin: 0;
+                }
+                & > form {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    & > button {
+                        position: absolute;
+                        right: 1rem;
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        & > svg {
+                            fill: currentColor;
+                            width: 2rem;
+                        }
+                    }
+                    & > input {
+                        width: 100%;
+                        outline: none;
+                        border: none;
+                        background-color: var(--light_color);
+                        padding: 0.8rem;
+                        border-radius: 1rem;
+                        margin: 0;
+                    }
+                }
+            }
+            & > .Header {
+                display: flex;
+                align-items: center;
+                margin: 0.5rem 0;
+                & > div {
+                    background-color: currentColor;
+                    padding: 0.3rem 0.7rem;
+                    border-radius: 0.4rem;
+                    display: flex;
+                    align-items: center;
+                    & > svg {
+                        fill: var(--light_color);
+                        width: 1.5rem;
+                    }
+                }
+                & > h2 {
+                    margin-left: 1rem;
+                }
+            }
+            &.row {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                & > .Body > a {
+                    margin: 0;
+                    display: flex;
+                    padding: 0.8rem 2rem;
+                    border-radius: 1rem;
+                    background-color: currentColor;
+                    text-decoration: none;
+                    .button {
+                        color: var(--white_color);
+                    }
+                    &:hover {
+                        background-color: var(--color1);
+                    }
+                    &.disabled {
+                        &:hover {
+                            background-color: currentColor;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-
-.spinner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    & > div {
-        width: 20rem;
-        height: 20rem;
+@media (max-width: 1000px) {
+    .container > .half_container {
+        width: 100%;
+    }
+}
+:global(.dark) {
+    .container {
+        & > .half_container {
+            .Tab {
+                background-color: var(--dark_color1_shade);
+                * {
+                    color: var(--dark_color1);
+                }
+                &.row > .Body > a {
+                    &:hover {
+                        background-color: var(--dark_color2);
+                        .button {
+                            color: var(--dark_color1);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
