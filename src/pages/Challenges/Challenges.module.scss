@@ -17,7 +17,7 @@
 .container {
     width: 100%;
     margin: 0 auto;
-    padding-top: 1rem;
+    padding-top: 3rem;
     height: 100vh;
     overflow: auto;
 }
@@ -65,4 +65,9 @@
 .loading_list_indicator {
     margin-left: 2.6rem;
     font-size: 1.2rem;
+}
+:global(.dark) {
+    .navigation {
+        background-color: var(--dark_color1_shade);
+    }
 }

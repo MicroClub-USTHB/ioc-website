@@ -36,3 +36,13 @@ export interface DayLinkPassedState {
     number: number;
     type: "main" | "side";
 }
+export interface GetInputs {
+    day: string;
+    type: string;
+}
+export interface AnswersValues extends GetInputs {
+    answer: string;
+}
+export interface CorrectAnswer {
+    message: string;
+}

@@ -97,6 +97,7 @@
         &::after,
         &::before {
             display: block;
+            opacity: 0.4;
             content: " ";
             height: 4vw;
             width: 4vw;
@@ -104,7 +105,6 @@
             background: linear-gradient(-45deg, var(--color1), var(--dark_color));
             background-size: 400% 400%;
             animation: gradient 5s ease infinite, turn 5s linear infinite both;
-            opacity: 40%;
             border-radius: 50%;
             position: absolute;
         }

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Day, ExtendedDay } from "../../types/Day";
+import { Day, ExtendedDay, AnswersValues, CorrectAnswer, GetInputs } from "../../types/Day";
 import { User, SignInValues, SignUpValues } from "../../types/User";
 import { DayRequest } from "../../types/Day";
 
@@ -35,6 +35,21 @@ export const api = createApi({
                 body: { ...body, login: true }, // auto signIn set to true
             }),
         }),
+        /* getInputs Answers */
+        getInputs: builder.mutation<GetInputs, AnswersValues>({
+            query: (body) => ({
+                url: `challenge/${body.day}/${body.type}`,
+                method: "GET",
+            }),
+        }),
+        /* Submit Answers */
+        submitAnswer: builder.mutation<CorrectAnswer, AnswersValues>({
+            query: (body) => ({
+                url: `challenge/${body.day}/${body.type}`,
+                method: "POST",
+                body: { answer: body.answer },
+            }),
+        }),
         /* Get User Data */
         getUserData: builder.mutation<User, void>({
             query: () => ({ url: "users" }),
@@ -58,6 +73,8 @@ export const {
     useSignInMutation,
     useLogOutMutation,
     useSignUpMutation,
+    useSubmitAnswerMutation,
+    useGetInputsMutation,
     useGetUserDataMutation,
     useReAuthenticateQuery,
     useGetDaysQuery,
