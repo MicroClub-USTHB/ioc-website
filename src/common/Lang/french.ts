@@ -71,7 +71,7 @@ const French = {
             "Etudz Academy est le partenaire de l'événement, mais qu'est-ce qu'ils sont ?",
             "Etudz Academy est un établissement de formation aux métiers du numérique qui utilise des approches de coaching avancées pour enseigner les compétences les plus demandées par le marché du travail.",
             "Qui peut participer à l'événement ? Et que faire si je ne peux pas me rendre à Alger pour y assister ?",
-            "Tout le monde, peu importe qui il est, peut participer à l'événement, qu'il s'agisse d'étudiants universitaires, d'élèves ou de professionnels.\NL'événement se déroulera sur ce site web afin que vous puissiez participer depuis le confort de votre propre maison, il suffit de s'inscrire sur la plate-forme et de vérifier chaque jour pour résoudre un nouveau défi et faire avancer l'histoire. 💻",
+            "Tout le monde, peu importe qui il est, peut participer à l'événement, qu'il s'agisse d'étudiants universitaires, d'élèves ou de professionnels.L'événement se déroulera sur ce site web afin que vous puissiez participer depuis le confort de votre propre maison, il suffit de s'inscrire sur la plate-forme et de vérifier chaque jour pour résoudre un nouveau défi et faire avancer l'histoire. 💻",
             "Y a-t-il des exigences ou des règles pour participer ?",
             "Il n'y a pas d'exigences pour participer, nous étions sérieux quand nous avons dit que tout le monde peut participer.Vous devez cependant suivre les règles lors de la participation, vous pouvez faire défiler vers le haut pour les trouver.",
             "Puis-je résoudre les défis avec une équipe ?",

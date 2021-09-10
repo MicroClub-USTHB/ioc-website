@@ -21,7 +21,7 @@ const English: LangType = {
             {
                 title: "Seven Days. Seven Challenges. One Hero, You!",
                 description:
-                    "Impact of Code features 7 challenges of different domains and difficulties, you don’t have to be a computer science student nor have any coding skills to solve them, a good brain inside your thick skull is all that is required. A new challenge is announced with the coming of each new day, solving the challenges advances the story.",
+                    "Impact of Code features 14 challenges of different techniques and difficulties, you don’t have to be a computer science student to solve them but you need to have a base knowledge in algorithms and data structures.",
             },
             {
                 title: "Rules & conditions",
