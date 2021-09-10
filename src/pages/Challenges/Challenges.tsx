@@ -80,17 +80,7 @@ const Navigation = ({
         </div>
     );
 };
-const Container = ({
-    text,
-    days,
-    daysLoading,
-    match,
-}: {
-    text: string;
-    days: Day[] | undefined;
-    daysLoading: boolean;
-    match: matchI;
-}) => {
+const Container = ({ text, daysLoading, match }: { text: string; daysLoading: boolean; match: matchI }) => {
     return (
         <div className={challengesStyle.container}>
             <Switch>
@@ -102,7 +92,7 @@ const Container = ({
                     <>
                         <Route path={`${match.path}/:day`} component={Challenge} />
                     </>
-                    )}
+                )}
             </Switch>
         </div>
     );
@@ -117,7 +107,6 @@ const Challenges = (props: RouteComponentProps) => {
             <Navigation Lang={Lang} days={days} daysLoading={daysLoading} match={match} />
             {/* right content */}
             <Container
-                days={days}
                 match={match}
                 daysLoading={daysLoading}
                 text={!days || days.length < 1 ? Lang.challenges.no : Lang.challenges.select}

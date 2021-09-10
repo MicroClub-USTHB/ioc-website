@@ -5,10 +5,6 @@ import { RootState } from "../../redux/types";
 // styles
 import videoStyle from "./Video.module.scss";
 
-// resources
-import video1 from "../../resources/Video1-min.png";
-import video2 from "../../resources/Video2-min.png";
-import teaser from "../../resources/teaser_ioc.jpg";
 const Video = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
 

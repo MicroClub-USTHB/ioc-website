@@ -8,28 +8,15 @@ import {
 } from "../../../../redux/api/backend";
 
 import { ExtendedDay } from "../../../../types/Day";
-
+import Spinner from "../../../../common/Spinner/Spinner";
 // styles
 import challengeStyle from "./Challenge.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/types";
 import { useState, FC } from "react";
+import { CorrectAnswer } from "../../../../types/Day";
 // components
-var textFile: any = null;
-const makeTextFile = function (text: string) {
-    var data = new Blob([text], { type: "text/plain" });
 
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
-    }
-
-    textFile = window.URL.createObjectURL(data);
-
-    // returns a URL you can use as a href
-    return textFile;
-};
 const StoryIcon = () => (
     <svg viewBox="0 0 30 26" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -79,17 +66,16 @@ const Tab: FC<{ Icon: any; title: string; text?: string; className?: string }> =
         </div>
     </div>
 );
-const Challenge: FC<RouteComponentProps> = (props) => {
+const Challenge: FC<RouteComponentProps> = () => {
+    const { data: days } = useGetDaysQuery(null);
     const location = useLocation();
     let [dayNumber, type]: [string | number, "main" | "side"] = location.pathname.split("/").slice(-2) as [
         string,
         "main" | "side"
     ];
     dayNumber = Number(dayNumber[dayNumber.length - 1]);
-    const { data: days } = useGetDaysQuery(null);
     const [submitAnswer, { isLoading }] = useSubmitAnswerMutation();
     const [getInputs, { isLoading: isLoadingGet }] = useGetInputsMutation();
-    const [url, setUrl] = useState("#");
     const language = useSelector<RootState>((state) => (state.common.language === "english" ? "EN" : "FR")) as
         | "EN"
         | "FR";
@@ -97,21 +83,16 @@ const Challenge: FC<RouteComponentProps> = (props) => {
         _id: days ? days[dayNumber - 1]._id : "",
     });
 
-    let story = "",
-        content = "",
-        example = "",
-        title = "",
-        finishingMsg = "";
-
-    if (day !== undefined) {
-        content = day[type]!.content[language]!.content;
-        title = day[type]!.content[language]!.title; // may change into the day title
-        story = day[type]!.content[language]!.story;
-        example = day[type]!.content[language]!.example ?? "";
-        finishingMsg = day[type]!.content[language]!.finishingMsg ?? "";
-    }
+    let story = day !== undefined ? day[type].content[language]!.story : "",
+        content = day !== undefined ? day[type].content[language]!.content : "", // may change into the day titl:"",
+        example = day !== undefined ? day[type].content[language]!.example : "",
+        title = day !== undefined ? day[type].content[language]!.title ?? "" : "",
+        finishingMsg = day !== undefined ? day[type].content[language]!.finishingMsg ?? "" : "";
+    const [dayId, setDayId] = useState("");
+    const [blobS, setBlobS] = useState<string>("");
 
     if (dayLoading) return <div className={challengeStyle.spinner}></div>;
+    else if (dayId && day !== undefined && dayId !== day._id) setDayId("");
     return (
         <section className={challengeStyle.container}>
             <div className={challengeStyle.half_container}>
@@ -122,34 +103,33 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                 {example ? <Tab Icon={TasksIcon} title={"Examples"} text={example} /> : ""}
                 <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
                     <a
+                        href={blobS}
+                        download={`${title}-${type}.txt`}
                         className={isLoadingGet ? challengeStyle.disabled : ""}
-                        href={url}
                         onClick={(e) => {
-                            let link = e.target as HTMLAnchorElement,
-                                url = (link.attributes as NamedNodeMap).getNamedItem("href")?.value;
                             if (isLoadingGet) e.preventDefault();
-                            else if (url === "#" && day) {
-                                // here
+                            else if (!dayId && day) {
                                 getInputs({
                                     day: day._id,
                                     type,
                                 })
                                     .then((response) => {
                                         if (response.hasOwnProperty("data")) {
-                                            const url = window.URL.createObjectURL(
-                                                new Blob([(response as { data: string }).data])
-                                            );
-                                            link.href = url;
-                                            link.setAttribute("download", "input.txt");
-                                            link.click();
+                                            const message = (response as { data: CorrectAnswer }).data.message;
+                                            if (blobS) window.URL.revokeObjectURL(blobS);
+                                            const blob = window.URL.createObjectURL(new Blob([message]));
+                                            setBlobS(blob);
+                                            setDayId(day._id);
                                         } else console.log(response);
                                     })
                                     .catch((er) => console.error(er));
                                 e.preventDefault();
-                            } else console.log(url);
+                            } else console.log(blobS, dayId);
                         }}
                     >
-                        <div className={challengeStyle.button}>Download</div>
+                        <div className={challengeStyle.button}>
+                            {isLoadingGet ? <Spinner /> : dayId ? "Download" : "Genrate"}
+                        </div>
                     </a>
                 </Tab>
                 <Tab Icon={submitIcon} title={"Submit your answer"}>

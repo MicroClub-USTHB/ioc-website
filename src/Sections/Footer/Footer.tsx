@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 // styles
 import footerStyle from "./Footer.module.scss";
 
-// resources
-import footer1 from "../../resources/Footer1-min.png";
-import footer2 from "../../resources/Footer2-min.png";
-
 const Footer = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     return (

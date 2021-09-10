@@ -13,7 +13,7 @@ const user = createSlice({
             return state;
         },
         removeUser: (state, action: { type: string; payload: any }) => {
-            console.error(action.payload);
+            console.error("error", action.payload);
             localStorage.removeItem("User");
             state = null;
             return state;

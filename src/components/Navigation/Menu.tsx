@@ -14,7 +14,6 @@ import { AppDispatch, RootState } from "../../redux/types";
 import {
     UilBars,
     UilInfoCircle,
-    UilVideo,
     UilHome,
     UilCommentQuestion,
     UilUser,
@@ -145,6 +144,7 @@ const Menu = () => {
                                                 />
                                             </li>
                                             <button
+                                                type="submit"
                                                 className={`submit_button ${popoverStyle.submit_button}`}
                                                 disabled={isLoading}
                                             >
@@ -181,13 +181,6 @@ const Menu = () => {
                         span={Lang.menu.about[1]}
                         Comp={<UilInfoCircle />}
                     />
-                    {/* Video Tutorial 
-                    <NavButton set={setPopper}
-                        to="/#Video"
-                        text={Lang.menu.video[0]}
-                        span={Lang.menu.video[1]}
-                        Comp={<UilVideo />}
-                    />*/}
                     {/* FAQ */}
                     <NavButton
                         set={setPopper}

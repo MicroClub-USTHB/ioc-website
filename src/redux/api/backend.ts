@@ -8,7 +8,7 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         // baseUrl: "https://ioc-backend.herokuapp.com/",
         baseUrl: "https://ioc-beta.herokuapp.com/",
-        // baseUrl: "http://localhost:3001/",
+        //baseUrl: "http://localhost:3001/",
         credentials: "include",
     }),
     endpoints: (builder) => ({
@@ -36,7 +36,7 @@ export const api = createApi({
             }),
         }),
         /* getInputs Answers */
-        getInputs: builder.mutation<string, GetInputs>({
+        getInputs: builder.mutation<CorrectAnswer, GetInputs>({
             query: (body) => ({
                 url: `challenge/${body.day}/${body.type}`,
                 method: "GET",

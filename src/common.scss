@@ -111,8 +111,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 9px -3px var(--secondary_color);
-    box-shadow: 1px 1px 9px -3px currentColor;
+    box-shadow: 1px 1px 5px -3px currentColor;
     z-index: 2;
     &:hover {
         background-color: var(--light_color);
