@@ -27,7 +27,6 @@ const Landing: React.FC<RouteComponentProps> = () => {
             <LogoV className={landingStyle.logo} />
             <Hero />
             <About />
-
             <Organizers />
             <Numbers />
             <Video />

@@ -12,7 +12,7 @@ const Organizer = (props: OrganizerProps) => {
     <div className={`${orgStyle.container} ${orientation === 'right' && orgStyle.container_right}`}>
       <img className={`${orgStyle.image} ${orientation === 'right' && orgStyle.image_right} ${image.bg === 'light' ? orgStyle.bg_light : orgStyle.bg_dark}`} src={image.link} alt={`${title} Logo`} />
       <div className={`${orgStyle.content} ${orientation === 'right' && orgStyle.content_right}`}>
-        <h1 className={orgStyle.title}> {title.toUpperCase()} </h1>
+        <h2 className={orgStyle.title}> {title.toUpperCase()} </h2>
         <p className={orgStyle.description}> {description} </p>
         <div className={orgStyle.links}>
           {

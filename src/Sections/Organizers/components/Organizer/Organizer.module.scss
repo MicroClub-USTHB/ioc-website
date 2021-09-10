@@ -3,7 +3,7 @@
   align-items: flex-start;
   width: 650px;
   height: 300px;
-  background-color: var(--main_color);
+  background-color: var(--color1);
   position: relative;
   border-radius: 10px;
   transform: translateX(30%);
@@ -22,7 +22,7 @@
   }
   
   .bg_dark {
-    background-color: var(--secondary_color);
+    background-color: var(--color2);
   }
   
   .bg_light {
@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding-left: 10rem;
     padding-right: 4rem;
 
@@ -50,10 +51,10 @@
     .links > a {
       margin-right: .6rem;
       transition: all .1s ease;
-      color: var(--secondary_color);
+      color: var(--color2);
 
       &:hover, &:focus {
-        color: var(--secondary_color_fade);
+        color: var(--color2_fade);
       }
     }
   }
@@ -102,5 +103,14 @@
 
   .container_right {
     transform: none;
+  }
+}
+
+:global(.dark) {
+  .container {
+    background-color: var(--dark_color2);
+    .content * {
+      color: var(--dark_color1);
+    }
   }
 }
