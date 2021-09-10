@@ -22,9 +22,15 @@ const French = {
                     "Impact of Code propose 14 défis de différentes techniques et difficultés, vous n'avez pas besoin d'être un étudiant en informatique pour les résoudre vous n'avez besoin que d'avoir des connaissances de base en algorithmes et structures de données.",
             },
             {
-                title: "Battez les ennemis dans l'histoire. Battez vos amis sur le tableau de bord.",
+                title: "Regles et conditions",
                 description:
-                    "Impact of Code propose 7 défis de différents domaines et difficultés, vous n'avez pas besoin d'être un étudiant en informatique ni d'avoir des compétences en codage pour les résoudre, un bon cerveau dans votre crâne épais est tout ce qui est nécessaire. Un nouveau défi est annoncé à l'aube de chaque nouvelle journée, la résolution des défis fait avancer l'histoire.",
+                    `⮞ Lors de votre inscription, remplissez le formulaire avec vos véritables informations, afin que nous puissions vous contacter facilement une fois que vous aurez gagné.<br />
+                    ⮞ Lisez  les défis attentivement, ils peuvent être rusés !<br />
+                    ⮞ Afin de résoudre les défis, vous devez écrire une solution dans n'importe quel langage de programmation qui utilisera les données fournies afin de trouver la solution que vous insérerez dans le site Web pour gagner des points.<br />
+                    ⮞ Le plus tôt vous soumettez la solution des défis , le plus de points vous obtenez.<br />
+                    ⮞ Pour une compétition équitable, ne partagez pas les solutions avec vos amis.<br />
+                    ⮞ Ne touchez pas la plateforme et n'effectuez aucune sorte d'attaque dessus <br/>
+                    ⮞ Pour participer, il faut avoir un compte IOC, s'inscrire à l'événement et respecter tous les règlements énoncés précédemment.<br />`,
             },
         ],
     },
@@ -60,24 +66,18 @@ const French = {
     faq: {
         title: "Questions frequemment posees",
         qa: [
-            "Que signifie IOC ?",
-            "Impact of Code",
-            "Qu'est-ce que IoC ?",
-            "Impact of code est un événement conçu par Micro club en collaboration avec Etudz Academy qui se fera en une semaine qui consiste en des défis algorithmiques enveloppés dans une histoire fascinante. Chaque jour, les défis deviennent de plus en plus difficiles, et votre tâche est de les résoudre !",
-            "Qui sont Etudz Academy ?",
-            "Etudz Academy est une école de formation innovante pour un apprentissage facile et efficace pour acquérir les compétences les plus recherchées par les entreprises.",
-            "Le IOC est-il en ligne ou sur place ?",
-            "IOC est un événement en ligne hébergé ici sur le site web! Il suffit de s’inscrire et attendre le début des défis.",
-            "Qui peut rejoindre IOC ?",
-            "Tout le monde ! Peu importe qui vous êtes.",
-            "Comment gagner à l' IOC ?",
-            "Facile ! Tout ce que vous devez faire, c'est résoudre correctement le maximum de défis pour obtenir des points et vous hisser au sommet du classement.",
-            "Y’a t'il  des exigences pour le IOC ?",
-            "Il n'y en a pas, mais il serait avantageux pour vous d'avoir des connaissances préalables en algorithmique !",
-            "Puis-je travailler avec une équipe?",
-            "Non, il s'agit d'une compétition individuelle, vous devrez donc travailler seul pour résoudre les problèmes.",
-            "Dans quelle langue sont les défis?",
-            "Les défis seront principalement en anglais ou en français ,c'est à vous de choisir la langue qui vous convient ,vous avez la possibilité de la changer .",
+            "Que signifie IOC ? et de quoi s'agit-il ?",
+            "IOC est l'acronyme de Impact of Code. Impact of code est un événement d'une semaine créé par Micro club en collaboration avec Etudz Academy qui consiste en des défis algorithmiques enveloppés dans une histoire captivante , chaque jour les défis deviennent de plus en plus difficiles, en les résolvant vous gagnez un score qui élavira votre classement parmi les participants et vous gagnez des chances de gagner des prix de valeur ! 🎁",
+            "Etudz Academy est le partenaire de l'événement, mais qu'est-ce qu'ils sont ?",
+            "Etudz Academy est un établissement de formation aux métiers du numérique qui utilise des approches de coaching avancées pour enseigner les compétences les plus demandées par le marché du travail.",
+            "Qui peut participer à l'événement ? Et que faire si je ne peux pas me rendre à Alger pour y assister ?",
+            "Tout le monde, peu importe qui il est, peut participer à l'événement, qu'il s'agisse d'étudiants universitaires, d'élèves ou de professionnels.\NL'événement se déroulera sur ce site web afin que vous puissiez participer depuis le confort de votre propre maison, il suffit de s'inscrire sur la plate-forme et de vérifier chaque jour pour résoudre un nouveau défi et faire avancer l'histoire. 💻",
+            "Y a-t-il des exigences ou des règles pour participer ?",
+            "Il n'y a pas d'exigences pour participer, nous étions sérieux quand nous avons dit que tout le monde peut participer.Vous devez cependant suivre les règles lors de la participation, vous pouvez faire défiler vers le haut pour les trouver.",
+            "Puis-je résoudre les défis avec une équipe ?",
+            "NON, il s'agit d'une compétition solo, vous devrez donc travailler seul pour résoudre les problèmes. Si vous participez avec une équipe, vous ne pourrez pas gagner de prix",
+            "En quelle langue seront les défis ?",
+            "Les défis sont en anglais et en français, vous pouvez changer de langue en haut à droite de la page. Vous pouvez également changer le thème de la page de clair à foncé à cet endroit.",
         ],
         question: "Question",
         answer: "Réponse",

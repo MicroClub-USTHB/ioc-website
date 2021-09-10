@@ -26,11 +26,12 @@ const About = () => {
                     <h1>{Lang.event.about[0].title}</h1>
                     <p>{Lang.event.about[0].description}</p>
                 </div>
-                {/*<div className={aboutStyle.info_box}>
+                <div className={aboutStyle.info_box}>
                     <h1>{Lang.event.about[1].title}</h1>
-                    <p>{Lang.event.about[1].description}</p>
+                    {/* I'm setting description as inline html to achieve new lines. \n didn't work */}
+                    <p style={{ textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: Lang.event.about[1].description }}></p>
                 </div>
-                */}
+               
             </div>
         </section>
     );
