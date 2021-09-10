@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as yup from "yup";
-import { Formik, Form } from "formik";
+import { Formik, Form, FormikHelpers, FormikErrors } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import FormControl from "../../common/Formik/FormControl";
 import ErrorDisplay from "../../common/Formik/ErrorDisplay/ErrorDisplay";
@@ -10,6 +10,7 @@ import { SignInValues, User } from "../../types/User";
 import { useSignInMutation } from "../../redux/api/backend";
 import { LangType } from "../../common/Lang/french";
 import { AppDispatch, RootState } from "../../redux/types";
+import { Notify } from "../../redux/slices/notifications";
 // icons
 import {
     UilBars,
@@ -98,17 +99,49 @@ const Menu = () => {
                             <Formik
                                 initialValues={initial_values}
                                 validationSchema={validation_schema}
-                                onSubmit={async (values: SignInValues) => {
+                                onSubmit={async (values: SignInValues, formikBag: FormikHelpers<SignInValues>) => {
                                     try {
                                         const res = await signIn(values);
-                                        console.log("this is: ", res);
                                         if (res.hasOwnProperty("data")) {
+                                            Notify(dispatch, {
+                                                title: Lang.notifications.loggedIn.title,
+                                                description: Lang.notifications.loggedIn.description,
+                                                type: "success",
+                                            });
                                             dispatch(setUser((res as { data: User }).data));
                                         } else if (res.hasOwnProperty("error")) {
-                                            throw new Error(JSON.stringify((res as { error: unknown }).error));
+                                            /* formikBag.setErrors({
+                                                password: (res as { error: { data: { msg: string } } }).error.data.msg,
+                                            }); */
+                                            const status = (res as { error: any }).error.status;
+                                            console.log((res as { error: any }).error);
+                                            if (status) {
+                                                switch (status) {
+                                                    case 420:
+                                                        Notify(dispatch, {
+                                                            title: Lang.errors.loggedIn.title,
+                                                            description: Lang.errors.loggedIn.email,
+                                                            type: "error",
+                                                        });
+                                                        break;
+                                                    case 421:
+                                                        Notify(dispatch, {
+                                                            title: Lang.errors.loggedIn.title,
+                                                            description: Lang.errors.loggedIn.password,
+                                                            type: "error",
+                                                        });
+                                                        break;
+                                                    default:
+                                                        throw (res as { error: any }).error;
+                                                }
+                                            } else throw (res as { error: any }).error;
                                         }
                                     } catch (err) {
-                                        console.error(err);
+                                        Notify(dispatch, {
+                                            title: Lang.errors.loggedIn.title,
+                                            description: Lang.errors.loggedIn.description,
+                                            type: "error",
+                                        });
                                     }
                                 }}
                             >

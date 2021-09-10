@@ -46,7 +46,7 @@
             font-size: 1rem;
             font-weight: 800 !important;
             color: var(--main_color) !important;
-            box-shadow: 1px 1px 9px -3px var(--secondary_color) !important;
+            box-shadow: 1px 1px 9px -3px var(--color2) !important;
             &:focus + .label {
                 color: var(--color1) !important;
                 text-shadow: 1px 1px 2px var(--color2);
@@ -68,15 +68,15 @@
 
         & > .error {
             color: var(--light_color);
-            position: absolute;
-            bottom: -1.7rem;
+            position: relative;
+            margin-top: 0.5rem;
             margin-left: 1.7rem;
             &::before {
                 content: "!";
                 background-color: var(--light_color);
                 width: 1.2rem;
                 height: 1.2rem;
-                color: var(--secondary_color);
+                color: currentColor;
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -90,7 +90,7 @@
 .label_values {
     transform: translateY(-38px) !important;
     color: var(--main_color) !important;
-    text-shadow: 1px 1px 2px var(--secondary_color);
+    text-shadow: 1px 1px 2px var(--color2);
 }
 
 .error_color {
@@ -103,7 +103,7 @@
     width: 100%;
     border: none;
     border-radius: 30px;
-    color: var(--secondary_color);
+    color: var(--color2);
     font-size: 1.3rem;
     font-weight: 800;
     cursor: pointer;
@@ -158,3 +158,60 @@
     }
 }
 /* LIST STYLE END */
+.Notifications {
+    background-color: #ffffffa9;
+    backdrop-filter: blur(3px);
+    padding: 1rem;
+    min-width: 12rem;
+    display: flex;
+    justify-content: start;
+    position: fixed;
+    border-radius: 0.5rem;
+    bottom: 1rem;
+    opacity: 0;
+    left: -100vw;
+    transition: transform 800ms ease-in, opacity 400ms ease-in;
+    & > .Container {
+        display: flex;
+        flex-direction: column;
+        & > .Header {
+            display: flex;
+            justify-content: space-between;
+        }
+        & > h3 {
+            text-align: left;
+        }
+    }
+    & > svg {
+        margin: auto 1rem auto 0;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    & > button {
+        margin-left: 1em;
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        &:hover {
+            color: var(--color1);
+        }
+    }
+
+    &.show {
+        transform: translateX(calc(100vw + 1rem));
+        opacity: 1;
+        z-index: 30;
+    }
+}
+
+.dark {
+    .Notifications {
+        background-color: var(--dark_color2_fade);
+        * {
+            color: var(--dark_color1);
+        }
+        & > button:hover {
+            color: var(--dark_color1_shade);
+        }
+    }
+}

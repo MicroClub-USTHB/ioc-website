@@ -7,14 +7,19 @@ import {
     useGetInputsMutation,
 } from "../../../../redux/api/backend";
 
-import { ExtendedDay } from "../../../../types/Day";
+import { Challenge as ChallengeI } from "../../../../types/Day";
 import Spinner from "../../../../common/Spinner/Spinner";
 // styles
 import challengeStyle from "./Challenge.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/types";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../redux/types";
 import { useState, FC } from "react";
 import { CorrectAnswer } from "../../../../types/Day";
+import PlaceHolder from "../../components/PlaceHolder/PlaceHolder";
+import { LangType } from "../../../../common/Lang/french";
+import { Notify } from "../../../../redux/slices/notifications";
+import { setUser } from "../../../../redux/slices/user";
+import { User } from "../../../../types/User";
 // components
 
 const StoryIcon = () => (
@@ -66,108 +71,177 @@ const Tab: FC<{ Icon: any; title: string; text?: string; className?: string }> =
         </div>
     </div>
 );
-const Challenge: FC<RouteComponentProps> = () => {
-    const { data: days } = useGetDaysQuery(null);
-    const location = useLocation();
-    let [dayNumber, type]: [string | number, "main" | "side"] = location.pathname.split("/").slice(-2) as [
-        string,
-        "main" | "side"
-    ];
-    dayNumber = Number(dayNumber[dayNumber.length - 1]);
+const Challenge: FC<RouteComponentProps> = (props) => {
+    const dispatch = useDispatch<AppDispatch>();
+    let { day: _id, type } = props.match.params as { day: string; type: string };
     const [submitAnswer, { isLoading }] = useSubmitAnswerMutation();
     const [getInputs, { isLoading: isLoadingGet }] = useGetInputsMutation();
+    const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const language = useSelector<RootState>((state) => (state.common.language === "english" ? "EN" : "FR")) as
         | "EN"
         | "FR";
-    const { data: day, isLoading: dayLoading }: { data?: ExtendedDay; isLoading: boolean } = useGetDayQuery({
-        _id: days ? days[dayNumber - 1]._id : "",
+    const { data: challenge, isLoading: dayLoading }: { data?: ChallengeI; isLoading: boolean } = useGetDayQuery({
+        _id,
+        type,
     });
-
-    let story = day !== undefined ? day[type].content[language]!.story : "",
-        content = day !== undefined ? day[type].content[language]!.content : "", // may change into the day titl:"",
-        example = day !== undefined ? day[type].content[language]!.example : "",
-        title = day !== undefined ? day[type].content[language]!.title ?? "" : "",
-        finishingMsg = day !== undefined ? day[type].content[language]!.finishingMsg ?? "" : "";
-    const [dayId, setDayId] = useState("");
+    const [challengeId, setChallengeId] = useState<string>("");
     const [blobS, setBlobS] = useState<string>("");
-
-    if (dayLoading) return <div className={challengeStyle.spinner}></div>;
-    else if (dayId && day !== undefined && dayId !== day._id) setDayId("");
-    return (
-        <section className={challengeStyle.container}>
-            <div className={challengeStyle.half_container}>
-                <Tab Icon={StoryIcon} title={title} text={story} />
-                <Tab Icon={TasksIcon} title={"Tasks And Instructions"} text={content} />
-            </div>
-            <div className={challengeStyle.half_container}>
-                {example ? <Tab Icon={TasksIcon} title={"Examples"} text={example} /> : ""}
-                <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
-                    <a
-                        href={blobS}
-                        download={`${title}-${type}.txt`}
-                        className={isLoadingGet ? challengeStyle.disabled : ""}
-                        onClick={(e) => {
-                            if (isLoadingGet) e.preventDefault();
-                            else if (!dayId && day) {
-                                getInputs({
-                                    day: day._id,
-                                    type,
-                                })
-                                    .then((response) => {
-                                        if (response.hasOwnProperty("data")) {
-                                            const message = (response as { data: CorrectAnswer }).data.message;
-                                            if (blobS) window.URL.revokeObjectURL(blobS);
-                                            const blob = window.URL.createObjectURL(new Blob([message]));
-                                            setBlobS(blob);
-                                            setDayId(day._id);
-                                        } else console.log(response);
+    if (!dayLoading && challenge !== undefined) {
+        let story = challenge.content[language]!.story,
+            content = challenge.content[language]!.content, // may change into the day titl:"",
+            example = challenge.content[language]!.example,
+            title = challenge.content[language]!.title ?? "",
+            finishingMsg = challenge.content[language]!.finishingMsg ?? "";
+        if (challengeId && challengeId !== challenge._id) setChallengeId("");
+        return (
+            <section className={challengeStyle.container}>
+                <div className={challengeStyle.half_container}>
+                    <Tab Icon={StoryIcon} title={title} text={story} />
+                    <Tab Icon={TasksIcon} title={"Tasks And Instructions"} text={content} />
+                </div>
+                <div className={challengeStyle.half_container}>
+                    {example ? <Tab Icon={TasksIcon} title={"Examples"} text={example} /> : ""}
+                    <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
+                        <a
+                            href={blobS}
+                            download={`${title}-${type}.txt`}
+                            className={isLoadingGet ? challengeStyle.disabled : ""}
+                            onClick={(e) => {
+                                if (isLoadingGet) e.preventDefault();
+                                else if (!challengeId) {
+                                    getInputs({
+                                        day: _id,
+                                        type,
                                     })
-                                    .catch((er) => console.error(er));
-                                e.preventDefault();
-                            } else console.log(blobS, dayId);
-                        }}
-                    >
-                        <div className={challengeStyle.button}>
-                            {isLoadingGet ? <Spinner /> : dayId ? "Download" : "Genrate"}
-                        </div>
-                    </a>
-                </Tab>
-                <Tab Icon={submitIcon} title={"Submit your answer"}>
-                    <form
-                        onSubmit={(e) => {
-                            let input = (e.target as HTMLFormElement)[0] as HTMLInputElement;
-                            if (day) {
-                                submitAnswer({
-                                    day: day._id,
-                                    type,
-                                    answer: input.value,
-                                })
-                                    .then((data) => {
-                                        console.log(data);
-                                        input.value = "";
-                                    })
-                                    .catch((er) => {
-                                        console.log(er);
+                                        .then((response) => {
+                                            if (response.hasOwnProperty("data")) {
+                                                const message = (response as { data: CorrectAnswer }).data.message;
+                                                if (blobS) window.URL.revokeObjectURL(blobS);
+                                                const blob = window.URL.createObjectURL(new Blob([message]));
+                                                setBlobS(blob);
+                                                setChallengeId(challenge._id);
+                                                Notify(dispatch, {
+                                                    title: Lang.notifications.challenge.title,
+                                                    description: Lang.notifications.challenge.description,
+                                                    type: "success",
+                                                });
+                                            } else
+                                                Notify(dispatch, {
+                                                    title: Lang.errors.challenge.title,
+                                                    description: Lang.errors.challenge.description,
+                                                    type: "error",
+                                                });
+                                        })
+                                        .catch((er) => console.error(er));
+                                    e.preventDefault();
+                                } else console.log(blobS, challengeId);
+                            }}
+                        >
+                            <div className={challengeStyle.button}>
+                                {isLoadingGet ? <Spinner /> : challengeId ? "Download" : "Genrate"}
+                            </div>
+                        </a>
+                    </Tab>
+                    <Tab Icon={submitIcon} title={"Submit your answer"}>
+                        <form
+                            onSubmit={(e) => {
+                                let input = (e.target as HTMLFormElement)[0] as HTMLInputElement;
+                                if (input.value === "")
+                                    Notify(dispatch, {
+                                        title: Lang.errors.EmptyAnswer.title,
+                                        description: Lang.errors.EmptyAnswer.description,
+                                        type: "error",
                                     });
-                            }
-                            e.preventDefault();
-                        }}
-                    >
-                        <input type="text" id="Answer" name="Answer" />
-                        <button type="submit" disabled={isLoading}>
-                            {isLoading ? (
-                                ""
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
-                                </svg>
-                            )}
-                        </button>
-                    </form>
-                </Tab>
-            </div>
-        </section>
-    );
+                                else if (!isLoading)
+                                    submitAnswer({
+                                        day: _id,
+                                        type,
+                                        answer: input.value,
+                                    })
+                                        .then((data) => {
+                                            console.log(data);
+                                            if (data.hasOwnProperty("data")) {
+                                                Notify(dispatch, {
+                                                    title: Lang.notifications.correctAnswer.title,
+                                                    description: Lang.notifications.correctAnswer.description,
+                                                    type: "success",
+                                                });
+                                                dispatch(setUser((data as { data: User }).data));
+                                                input.value = "";
+                                            } else {
+                                                const status = (data as { error: any }).error.status;
+                                                if (status) {
+                                                    let description,
+                                                        title = "";
+                                                    switch (status) {
+                                                        case 420:
+                                                            title = Lang.errors.spammingAnswer.title;
+                                                            description =
+                                                                Lang.errors.spammingAnswer.description +
+                                                                (data as { error: any }).error.data.time +
+                                                                "minutes";
+                                                            break;
+                                                        case 421:
+                                                            description = Lang.errors.wrongAnswer.description;
+                                                            break;
+                                                        case 423:
+                                                            description = Lang.errors.wrongAnswer.Lower;
+                                                            break;
+                                                        case 424:
+                                                            description = Lang.errors.wrongAnswer.Higher;
+                                                            break;
+                                                        case 425:
+                                                            title = Lang.errors.NotInitialized.title;
+                                                            description = Lang.errors.NotInitialized.description;
+                                                            break;
+                                                        case 426:
+                                                            title = Lang.errors.FinishMain.title;
+                                                            description = Lang.errors.FinishMain.description;
+                                                            break;
+                                                        case 427:
+                                                            title = Lang.errors.AlreadyAnswered.title;
+                                                            description = Lang.errors.AlreadyAnswered.description;
+                                                            break;
+                                                        default:
+                                                            description = (data as { error: any }).error.msg;
+                                                            break;
+                                                    }
+                                                    Notify(dispatch, {
+                                                        title: title ? title : Lang.errors.wrongAnswer.title,
+                                                        description,
+                                                        type: "error",
+                                                    });
+                                                } else throw (data as { error: any }).error;
+                                            }
+                                        })
+                                        .catch((er) => {
+                                            console.log(er);
+                                            Notify(dispatch, {
+                                                title: Lang.errors.spammingAnswer.title,
+                                                description: Lang.errors.spammingAnswer.description,
+                                                type: "error",
+                                            });
+                                        });
+
+                                e.preventDefault();
+                            }}
+                        >
+                            <input type="text" id="Answer" name="Answer" />
+                            <button type="submit" disabled={isLoading}>
+                                {isLoading ? (
+                                    <Spinner />
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
+                                    </svg>
+                                )}
+                            </button>
+                        </form>
+                    </Tab>
+                </div>
+            </section>
+        );
+    } else return <PlaceHolder text={dayLoading ? Lang.challenges.loading : Lang.challenges.wrongPage} />;
 };
 
 export default Challenge;

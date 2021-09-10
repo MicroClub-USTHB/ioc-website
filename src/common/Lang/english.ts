@@ -34,14 +34,16 @@ const English: LangType = {
         title: "The Organizers",
         org_list: {
             mc: {
-                title: 'Event Organizer',
-                description: 'Micro Club is the first founded scientific club in Algeria, back in March 5th, 1985.\nWe focus on Computer Science and IT field as we work to popularize among the student community.',
+                title: "Event Organizer",
+                description:
+                    "Micro Club is the first founded scientific club in Algeria, back in March 5th, 1985.\nWe focus on Computer Science and IT field as we work to popularize among the student community.",
             },
             ea: {
-                title: 'Event Partner',
-                description: 'Etudz Academy is a digital professions training institution that uses advanced coaching approaches based in Algeria.',
-            }
-        }
+                title: "Event Partner",
+                description:
+                    "Etudz Academy is a digital professions training institution that uses advanced coaching approaches based in Algeria.",
+            },
+        },
     },
     numbers: {
         title: `Our Numbers`,
@@ -110,6 +112,8 @@ const English: LangType = {
         submit: "Submit an Answer",
         no: "There is no Challenge yet! be patient !",
         select: "Select a challenge in the left",
+        loading: "Loading The day's story",
+        wrongPage: "The challenge you are looking for doesn't exist",
     },
 
     menu: {
@@ -120,6 +124,65 @@ const English: LangType = {
         FAQ: ["FAQ", "Questions and answers"],
         video: ["Participation tutorial", "Watch a video tutorial"],
         logout: ["Logout", ""],
+    },
+    errors: {
+        timeout: {
+            title: "Its been long time no see",
+            description: "No token",
+        },
+        loggedIn: {
+            title: "Login Failed",
+            description: "Credentials do not match any of our records.",
+            email: "email doesn't exist",
+            password: "password is wrong",
+        },
+        signedUp: {
+            title: "Sign Up Failed",
+            userName: "UserName does exist before",
+            email: "Email already in use",
+            description: "Something went wrong.",
+        },
+        challenge: { title: "Can't be Generated", description: "You need to finish the main challenge first." },
+        wrongAnswer: {
+            title: "Wrong Answer",
+            Lower: "Answer is Lower than what we expected.",
+            Higher: "Answer is higher than what we expected.",
+            description: "Not Correct Try Again",
+        },
+        AlreadyAnswered: {
+            title: "Already Answered",
+            description: "You have already submited the answer for this challenge.",
+        },
+        FinishMain: {
+            title: "You can't answer this",
+            description: "You can't answer this until you finish the main challenge.",
+        },
+        NotInitialized: {
+            title: "You can't answer this",
+            description: "This challenge hasn't been initialized.",
+        },
+        EmptyAnswer: { title: "Empty Answer", description: "You can't submit an empty answer" },
+        spammingAnswer: {
+            title: "Spamming Answer",
+            description: "It appears that you are spamming answers you can't answer for : ",
+        },
+    },
+
+    notifications: {
+        loggedIn: {
+            title: "Login Succeeded",
+            description: "Welcome to Impact of Code",
+        },
+        signedUp: {
+            title: "Sign Up Succeeded",
+            description: "Welcome to Impact of Code",
+        },
+        loggedOut: {
+            title: "Logged out",
+            description: "Bye Bye see you later",
+        },
+        challenge: { title: "Challenge Generated", description: "challenge has been generated you can download it." },
+        correctAnswer: { title: "Correct Answer", description: "Good job man you can go the next challenge." },
     },
 };
 

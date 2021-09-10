@@ -13,17 +13,8 @@ interface NavButtonProps {
     Icon?: string;
     title: string;
     isChallengeLink?: boolean;
-    number?: number;
-    link?: LinkPathObject;
-}
-
-interface LinkPathObject {
-    pathname: string;
-    state: LinkState;
-}
-
-interface LinkState {
-    source: string;
+    link: string;
+    slide?: boolean;
 }
 
 const ease = (v: number, pow = 4) => 1 - Math.pow(1 - v, pow);
@@ -68,15 +59,20 @@ const createExpandKeyframeAnimation = () =>
         }
     });
 
-const NavButton: React.FC<NavButtonProps> = (props) => {
+const NavButton: React.FC<NavButtonProps> = ({
+    title,
+    Icon,
+    iconReplacement,
+    isChallengeLink,
+    link,
+    slide = false,
+}) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
-    const match = useRouteMatch();
     const [Expand, setExpand] = useState<{ expand: boolean; wasExpanded: boolean }>({
         expand: false,
         wasExpanded: false,
     });
     const [ShowRetractAnimation, setShowRetractAnimation] = useState<boolean>(false);
-    const { title, Icon, iconReplacement, isChallengeLink, number, link } = props;
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (Expand) {
             setShowRetractAnimation(true);
@@ -119,48 +115,36 @@ const NavButton: React.FC<NavButtonProps> = (props) => {
 
     return (
         <>
-            {link?.pathname ? (
-                <Link<LinkState> className={buttonStyle.button} to={link}>
+            {!isChallengeLink ? (
+                <Link className={buttonStyle.button} to={link}>
                     {ButtonContent}
                 </Link>
             ) : (
-                <button className={buttonStyle.button} onClick={handleButtonClick}>
-                    {ButtonContent}
-                </button>
-            )}
-            {Expand.expand && isChallengeLink && (
-                <ul
-                    className={`${buttonStyle.nav_list} ${Expand.expand && buttonStyle.list_expand} ${
-                        ShowRetractAnimation && buttonStyle.list_retract
-                    }`}
-                >
-                    <li>
-                        <Link<DayLinkPassedState>
-                            to={{
-                                pathname: `${match.path}/day${number}/main`,
-                                state: {
-                                    number: number!,
-                                    type: "main",
-                                },
-                            }}
+                <>
+                    <button className={buttonStyle.button} onClick={handleButtonClick}>
+                        {ButtonContent}
+                    </button>
+                    {Expand.expand ? (
+                        <ul
+                            className={`${buttonStyle.nav_list} ${Expand.expand && buttonStyle.list_expand} ${
+                                ShowRetractAnimation && buttonStyle.list_retract
+                            }`}
                         >
-                            {Lang.challenges.main}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link<DayLinkPassedState>
-                            to={{
-                                pathname: `${match.path}/day${number}/side`,
-                                state: {
-                                    number: number!,
-                                    type: "side",
-                                },
-                            }}
-                        >
-                            {Lang.challenges.side}
-                        </Link>
-                    </li>
-                </ul>
+                            <li>
+                                <Link<DayLinkPassedState> to={`${link}/main`}>{Lang.challenges.main}</Link>
+                            </li>
+                            {slide ? (
+                                <li>
+                                    <Link<DayLinkPassedState> to={`${link}/side`}>{Lang.challenges.side}</Link>
+                                </li>
+                            ) : (
+                                ""
+                            )}
+                        </ul>
+                    ) : (
+                        ""
+                    )}
+                </>
             )}
         </>
     );

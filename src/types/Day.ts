@@ -1,5 +1,6 @@
 export interface DayRequest {
     _id: string;
+    type: string;
 }
 export interface Day {
     _id: string;
@@ -18,6 +19,7 @@ export interface ExtendedDay {
 type Lang = "EN" | "FR";
 
 export interface Challenge {
+    _id: string;
     baseScore: number;
     content: {
         [key in Lang]?: ChallengeDetails;

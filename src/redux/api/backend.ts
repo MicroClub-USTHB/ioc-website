@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Day, ExtendedDay, AnswersValues, CorrectAnswer, GetInputs } from "../../types/Day";
+import { Day, Challenge, AnswersValues, CorrectAnswer, GetInputs } from "../../types/Day";
 import { User, SignInValues, SignUpValues, LeaderboardItem } from "../../types/User";
 import { DayRequest } from "../../types/Day";
 
@@ -43,7 +43,7 @@ export const api = createApi({
             }),
         }),
         /* Submit Answers */
-        submitAnswer: builder.mutation<CorrectAnswer, AnswersValues>({
+        submitAnswer: builder.mutation<User, AnswersValues>({
             query: (body) => ({
                 url: `challenge/${body.day}/${body.type}`,
                 method: "POST",
@@ -64,8 +64,8 @@ export const api = createApi({
         /* Get Days' metadata */
         getDays: builder.query<Array<Day>, null>({ query: () => ({ url: "days" }) }),
         /* Get Day Details */
-        getDay: builder.query<ExtendedDay, DayRequest>({
-            query: (body) => ({ url: "days/" + body._id }),
+        getDay: builder.query<Challenge, DayRequest>({
+            query: (body) => ({ url: "days/" + body._id + "/" + body.type }),
         }),
         getLeaderboard: builder.query<LeaderboardItem[], null>({
             query: (query) => ({

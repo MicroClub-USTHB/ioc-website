@@ -38,8 +38,8 @@ const French = {
             ea: {
                 title: `Partenaire de l'evenement`,
                 description: `Etudz Academy est une institution de formation aux métiers du numérique qui utilise des approches de coaching avancées, basée en Algérie.`,
-            }
-        }
+            },
+        },
     },
     numbers: {
         title: `Nos chiffres`,
@@ -110,6 +110,8 @@ const French = {
         submit: "Soumettre une Réponse",
         no: "Il n'y a pas encore de Defi ! sois patient !",
         select: "Sélectionnez un défi à gauche",
+        loading: "Chargement L'histoire du jour",
+        wrongPage: "Le défi que vous recherchez n'existe pas",
     },
     menu: {
         user: "Commencer les défis ",
@@ -119,6 +121,64 @@ const French = {
         FAQ: ["FAQ", "Questions et réponses"],
         video: ["Tutoriel de participation", "Regarder un tutoriel vidéo"],
         logout: ["Déconnexion", ""],
+    },
+    errors: {
+        timeout: {
+            title: "Its been long time no see",
+            description: "No token",
+        },
+        loggedIn: {
+            title: "Login Failed",
+            description: "Welcome to Impact of Code",
+            email: "email doesn't exist",
+            password: "password is wrong",
+        },
+        signedUp: {
+            title: "Sign Up Failed",
+            userName: "userName does exist before",
+            email: "email does exist before",
+            description: "Something went wrong.",
+        },
+        challenge: { title: "Can't be Generated", description: "You need to finish the main challenge first." },
+        wrongAnswer: {
+            title: "Wrong Answer",
+            Lower: "Answer is Lower than what we expected.",
+            Higher: "Answer is higher than what we expected.",
+            description: "Not Correct Try Again",
+        },
+        AlreadyAnswered: {
+            title: "Already Answered",
+            description: "You have already submited the answer for this challenge.",
+        },
+        FinishMain: {
+            title: "You can't answer this",
+            description: "You can't answer this until you finish the main challenge.",
+        },
+        NotInitialized: {
+            title: "challenge not initialized",
+            description: "You have to genrate input first.",
+        },
+        EmptyAnswer: { title: "Empty Answer", description: "You can't submit an empty answer" },
+        spammingAnswer: {
+            title: "Spamming Answer",
+            description: "It appears that you are spamming answers you can't answer for : ",
+        },
+    },
+    notifications: {
+        loggedIn: {
+            title: "Login Succeeded",
+            description: "Welcome to Impact of Code",
+        },
+        signedUp: {
+            title: "Sign Up Succeeded",
+            description: "Welcome to Impact of Code",
+        },
+        loggedOut: {
+            title: "Logged out",
+            description: "Bye Bye see you later",
+        },
+        challenge: { title: "Challenge Generated", description: "challenge has been generated you can download it." },
+        correctAnswer: { title: "Correct Answer", description: "Good job man you can go the next challenge." },
     },
 };
 

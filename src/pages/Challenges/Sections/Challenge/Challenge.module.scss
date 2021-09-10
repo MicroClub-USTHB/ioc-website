@@ -46,9 +46,19 @@
                         cursor: pointer;
                         background: none;
                         border: none;
+                        border-radius: 1rem;
+                        transition: background-color 200ms ease-in;
                         & > svg {
+                            transition: color 200ms ease-in;
                             fill: currentColor;
                             width: 2rem;
+                            height: 2rem;
+                        }
+                        &:hover {
+                            background-color: var(--color2);
+                            svg {
+                                fill: var(--color1);
+                            }
                         }
                     }
                     & > input {
@@ -56,7 +66,7 @@
                         outline: none;
                         border: none;
                         background-color: var(--light_color);
-                        padding: 0.8rem;
+                        padding: 1rem;
                         border-radius: 1rem;
                         margin: 0;
                     }
@@ -122,11 +132,21 @@
                 * {
                     color: var(--dark_color1);
                 }
-                &.row > .Body > a {
+                &.row > .Body {
+                    & > a {
+                        &:hover {
+                            background-color: var(--dark_color2);
+                            .button {
+                                color: var(--dark_color1);
+                            }
+                        }
+                    }
+                }
+                & .Body > form > button {
                     &:hover {
-                        background-color: var(--dark_color2);
-                        .button {
-                            color: var(--dark_color1);
+                        background-color: var(--dark_color1);
+                        svg {
+                            fill: var(--light_color);
                         }
                     }
                 }

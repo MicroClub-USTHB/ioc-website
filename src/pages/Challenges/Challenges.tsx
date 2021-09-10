@@ -1,6 +1,14 @@
 import NavButton from "./components/NavButton/NavButton";
 import Challenge from "./Sections/Challenge/Challenge";
-import { Route, Switch, RouteComponentProps, useRouteMatch, match as matchI, Link } from "react-router-dom";
+import {
+    Route,
+    Switch,
+    RouteComponentProps,
+    useRouteMatch,
+    match as matchI,
+    Link,
+    useLocation,
+} from "react-router-dom";
 import { useGetDaysQuery } from "../../redux/api/backend";
 
 // styles
@@ -12,31 +20,26 @@ import { UilDashboard, UilEstate } from "@iconscout/react-unicons";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/types";
 import { LangType } from "../../common/Lang/french";
-import Loader from "../../components/Loader/Loader";
 
 import { Day } from "../../types/Day";
 import Logo from "../../components/Logo/Logo";
 import Leaderboard from "./Sections/Leaderboard/Leaderboard";
-const PlaceHolder = ({ text }: { text: string }) => {
-    return (
-        <div className={challengesStyle.loader_container}>
-            <Loader transparent={true} />
-            <p>{text}</p>
-        </div>
-    );
-};
+import PlaceHolder from "./components/PlaceHolder/PlaceHolder";
+import { User } from "../../types/User";
 
 const Navigation = ({
     Lang,
     days,
-    daysLoading,
     match,
+    daysLoading,
 }: {
     Lang: LangType;
     days: Day[] | undefined;
     daysLoading: boolean;
     match: matchI;
 }) => {
+    const user = useSelector<RootState>((state) => state.user) as User;
+    console.log(user);
     return (
         <div className={challengesStyle.navigation}>
             <Link to="/">
@@ -47,58 +50,73 @@ const Navigation = ({
                     {daysLoading ? (
                         <li className={challengesStyle.loading_list_indicator}>Loading...</li>
                     ) : (
-                        days?.map((day, index) => (
-                            <li key={day._id}>
-                                <NavButton
-                                    title={day.title}
-                                    iconReplacement={day.number.toString()}
-                                    number={day.number}
-                                    isChallengeLink={true}
-                                />
-                            </li>
-                        ))
+                        days?.map((day, index) => {
+                            return (
+                                <li key={day._id}>
+                                    <NavButton
+                                        title={day.title}
+                                        iconReplacement={day.number.toString()}
+                                        isChallengeLink={true}
+                                        link={`/challenges/${day._id}`}
+                                        slide={
+                                            !user.days.every((elm) => {
+                                                return !(elm.day === day._id && elm.side);
+                                            })
+                                        }
+                                    />
+                                </li>
+                            );
+                        })
                     )}
                 </ul>
                 <hr className={challengesStyle.divider} />
                 <ul className={challengesStyle.navigation_list}>
                     <li>
                         <NavButton
-                            link={{ pathname: `${match.path}/leaderboard`, state: { source: "/challenges" } }}
+                            link={`/challenges/leaderboard`}
                             title={Lang.challenges.leaderboard}
                             Icon={UilDashboard}
                         />
                     </li>
                     <li>
-                        <NavButton
-                            link={{ pathname: "/", state: { source: "/challenges" } }}
-                            title={Lang.challenges.landing}
-                            Icon={UilEstate}
-                        />
+                        <NavButton link={"/"} title={Lang.challenges.landing} Icon={UilEstate} />
                     </li>
                 </ul>
             </div>
         </div>
     );
 };
-const Container = ({ text, daysLoading, match }: { text: string; daysLoading: boolean; match: matchI }) => {
+const Container = ({
+    text,
+    days,
+    pathname,
+    match,
+    daysLoading,
+}: {
+    days: Day[] | undefined;
+    text: string;
+    pathname: string;
+    daysLoading: boolean;
+    match: matchI;
+}) => {
     return (
         <div className={challengesStyle.container}>
             <Switch>
-                <Route path={`${match.path}/`} exact render={() => <PlaceHolder text={text} />} />
                 <Route path={`${match.path}/leaderboard`} exact component={Leaderboard} />
                 {daysLoading ? (
                     <PlaceHolder text={text} />
                 ) : (
-                    <>
-                        <Route path={`${match.path}/:day`} component={Challenge} />
-                    </>
+                    <Route path={`${match.path}/:day/:type`} exact component={Challenge} />
                 )}
+                <Route path={`${match.path}/`} render={() => <PlaceHolder text={text} />} />
             </Switch>
         </div>
     );
 };
 const Challenges = (props: RouteComponentProps) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
+    const location = useLocation();
+
     const match = useRouteMatch();
     const { data: days, isLoading: daysLoading } = useGetDaysQuery(null);
     return (
@@ -107,7 +125,9 @@ const Challenges = (props: RouteComponentProps) => {
             <Navigation Lang={Lang} days={days} daysLoading={daysLoading} match={match} />
             {/* right content */}
             <Container
+                days={days}
                 match={match}
+                pathname={location.pathname}
                 daysLoading={daysLoading}
                 text={!days || days.length < 1 ? Lang.challenges.no : Lang.challenges.select}
             />

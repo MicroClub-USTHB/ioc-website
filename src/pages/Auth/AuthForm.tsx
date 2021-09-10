@@ -17,6 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/types";
 import { LangType } from "../../common/Lang/french";
 import { setUser } from "../../redux/slices/user";
+import { Notify } from "../../redux/slices/notifications";
 const initial_values: SignUpValues = {
     email: "",
     userName: "",
@@ -48,105 +49,137 @@ const AuthForm = () => {
         <Formik
             initialValues={initial_values}
             validationSchema={validation_schema(Lang)}
-            onSubmit={async (values: SignUpValues, formikHelpers: FormikHelpers<SignUpValues>) => {
+            onSubmit={async (values: SignUpValues, formikBag: FormikHelpers<SignUpValues>) => {
                 try {
                     const res = await signUp(values);
                     if (res.hasOwnProperty("data")) {
+                        Notify(dispatch, {
+                            title: Lang.notifications.signedUp.title,
+                            description: Lang.notifications.signedUp.description,
+                            type: "success",
+                        });
                         dispatch(setUser((res as { data: User }).data));
-                    } else if (res.hasOwnProperty("error")) {
-                        throw new Error(JSON.stringify((res as { error: unknown }).error));
+                    } else {
+                        /* formikBag.setErrors({
+                            password: (res as { error: { data: { msg: string } } }).error.data.msg,
+                        }); */
+                        const status = (res as { error: any }).error.status;
+                        if (status) {
+                            switch (status) {
+                                case 420:
+                                    Notify(dispatch, {
+                                        title: Lang.errors.signedUp.title,
+                                        description: Lang.errors.signedUp.email,
+                                        type: "error",
+                                    });
+                                    break;
+
+                                case 421:
+                                    Notify(dispatch, {
+                                        title: Lang.errors.signedUp.title,
+                                        description: Lang.errors.signedUp.userName,
+                                        type: "error",
+                                    });
+                                    break;
+                                default:
+                                    throw (res as { error: any }).error;
+                            }
+                        } else throw (res as { error: any }).error;
                     }
                 } catch (err) {
-                    // needs error handling logic
-                    console.error(err);
+                    Notify(dispatch, {
+                        title: Lang.errors.signedUp.title,
+                        description: Lang.errors.signedUp.description,
+                        type: "error",
+                    });
                 }
             }}
         >
             {(props) => {
                 const { values, errors, touched } = props;
                 return (
-                    <Form className={'container'}>
-                        <ul className={'input_list'}>
-                            <li className={'email'}>
+                    <Form className={"container"}>
+                        <ul className={"input_list"}>
+                            <li className={"email"}>
                                 <FormControl
                                     control="email"
                                     name="email"
                                     label={Lang.auth.email}
-                                    label_className={`${'label'} ${
-                                        errors.email && touched.email && 'error_color'
-                                    } ${values.email && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                    label_className={`${"label"} ${errors.email && touched.email && "error_color"} ${
+                                        values.email && "label_values"
+                                    }`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
-                            <li className={'userName'}>
+                            <li className={"userName"}>
                                 <FormControl
                                     control="text"
                                     name="userName"
                                     label={Lang.auth.userName}
-                                    label_className={`${'label'} ${
-                                        errors.userName && touched.userName && 'error_color'
-                                    } ${values.userName && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                    label_className={`${"label"} ${
+                                        errors.userName && touched.userName && "error_color"
+                                    } ${values.userName && "label_values"}`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
-                            <li className={'userName'}>
+                            <li className={"userName"}>
                                 <FormControl
                                     control="text"
                                     name="firstName"
                                     label={Lang.auth.firstName}
-                                    label_className={`${'label'} ${
-                                        errors.firstName && touched.firstName && 'error_color'
-                                    } ${values.firstName && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                    label_className={`${"label"} ${
+                                        errors.firstName && touched.firstName && "error_color"
+                                    } ${values.firstName && "label_values"}`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
-                            <li className={'userName'}>
+                            <li className={"userName"}>
                                 <FormControl
                                     control="text"
                                     name="lastName"
                                     label={Lang.auth.lastName}
-                                    label_className={`${'label'} ${
-                                        errors.lastName && touched.lastName && 'error_color'
-                                    } ${values.lastName && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                    label_className={`${"label"} ${
+                                        errors.lastName && touched.lastName && "error_color"
+                                    } ${values.lastName && "label_values"}`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
-                            <li className={'password'}>
+                            <li className={"password"}>
                                 <FormControl
                                     control="password"
                                     name="password"
                                     label={Lang.auth.password}
-                                    label_className={`label ${
-                                        errors.password && touched.password && 'error_color'
-                                    } ${values.password && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                    label_className={`label ${errors.password && touched.password && "error_color"} ${
+                                        values.password && "label_values"
+                                    }`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
-                            <li className={'password'}>
+                            <li className={"password"}>
                                 <FormControl
                                     control="password"
                                     name="password_confirm"
                                     label={Lang.auth.password_confirm}
                                     label_className={`label ${
-                                        errors.password_confirm && touched.password_confirm && 'error_color'
-                                    } ${values.password_confirm && 'label_values'}`}
-                                    field_className={'field'}
-                                    error_className={'error'}
+                                        errors.password_confirm && touched.password_confirm && "error_color"
+                                    } ${values.password_confirm && "label_values"}`}
+                                    field_className={"field"}
+                                    error_className={"error"}
                                     ErrorComponent={ErrorDisplay}
                                 />
                             </li>
                             <li>
-                                <button disabled={isLoading} className={'submit_button'}>
+                                <button disabled={isLoading} className={"submit_button"} type="submit">
                                     {!isLoading ? Lang.auth.signup.button : <Spinner />}
                                 </button>
                             </li>
