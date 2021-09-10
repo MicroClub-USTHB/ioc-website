@@ -28,7 +28,7 @@ const Navigation = () => {
     return (
         <div className={NavigationStyle.nav}>
             <svg
-                className="moon"
+                className={`moon ${NavigationStyle.theme_selector}`}
                 onMouseEnter={() => {
                     setWhole(false);
                 }}
