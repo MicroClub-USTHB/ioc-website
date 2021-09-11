@@ -1,116 +1,122 @@
 .container {
-  display: flex;
-  align-items: flex-start;
-  width: 650px;
-  height: 300px;
-  background-color: var(--color1);
-  position: relative;
-  border-radius: 10px;
-  transform: translateX(30%);
-  margin-bottom: 5rem;
-
-  .image {
-    height: 55%;
-    position: absolute;
-    padding: 2rem;
-    border-radius: 10px;
-    transform: translate(-70%, 40%);
-  }
-
-  .image_right {
-    transform: translate(70%, 40%);
-  }
-  
-  .bg_dark {
-    background-color: var(--color2);
-  }
-  
-  .bg_light {
-    background-color: white;
-  }
-
-  .content {
-    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    padding-left: 10rem;
-    padding-right: 4rem;
-
-    .title {
-      font-family: 'Hacked';
-      font-size: 2.5rem;
-      font-weight: 400;
-    }
-
-    .description {
-      font-size: 1.2rem;
-    }
-
-    .links > a {
-      margin-right: .6rem;
-      transition: all .1s ease;
-      color: var(--color2);
-
-      &:hover, &:focus {
-        color: var(--color2_fade);
-      }
-    }
-  }
-
-  .content_right {
-    padding-left: 4rem;
-    padding-right: 10rem;
-  }
-}
-
-.container_right {
-  flex-direction: row-reverse;
-  transform: translateX(-30%);
-}
-
-@media screen and (max-width: 1050px) {
-  .container {
-    transform: translateX(13%);
-  }
-
-  .container_right {
-    transform: translateX(-13%);
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .container {
-    transform: none;
-    width: 400px;
-    height: 400px;
-    margin-bottom: 8rem;
+    width: 650px;
+    height: 300px;
+    background-color: var(--color1);
+    position: relative;
+    border-radius: 10px;
+    transform: translateX(30%);
+    margin-bottom: 5rem;
 
     .image {
-      height: 45%;
-      transform: translate(-30px, -50%);
+        height: 55%;
+        position: absolute;
+        padding: 2rem;
+        border-radius: 10px;
+        transform: translate(-70%, 40%);
     }
-    
+
     .image_right {
-      transform: translate(20px, -50%);
+        transform: translate(70%, 40%);
+    }
+
+    .bg_dark {
+        background-color: var(--color2);
+    }
+
+    .bg_light {
+        background-color: white;
     }
 
     .content {
-      padding: 6rem 4rem 0;
-    }
-  }
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 7rem;
+        padding-right: 4rem;
 
-  .container_right {
-    transform: none;
-  }
+        .title {
+            font-family: "Hacked";
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 1.2rem;
+        }
+
+        .links > a {
+            margin-right: 0.6rem;
+            transition: all 0.1s ease;
+            color: var(--color2);
+
+            &:hover,
+            &:focus {
+                color: var(--color2_fade);
+            }
+        }
+    }
+
+    .content_right {
+        padding-left: 4rem;
+        padding-right: 7rem;
+    }
+}
+
+.container_right {
+    flex-direction: row-reverse;
+    transform: translateX(-30%);
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        transform: translateX(13%);
+    }
+
+    .container_right {
+        transform: translateX(-13%);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .container {
+        transform: none;
+        width: 400px;
+        height: 400px;
+        margin-bottom: 8rem;
+        display: flex;
+        justify-content: center;
+
+        .image {
+            height: 45%;
+            transform: translate(0, -50%);
+        }
+
+        .image_right {
+            width: 80%;
+        }
+
+        .content {
+            padding: 6rem 4rem 0;
+        }
+    }
+
+    .container_right {
+        transform: none;
+    }
 }
 
 :global(.dark) {
-  .container {
-    background-color: var(--dark_color2);
-    .content * {
-      color: var(--dark_color1);
+    .container {
+        .bg_dark {
+            background-color: var(--dark_color1_shade);
+        }
+        background-color: var(--dark_color2);
+        .content * {
+            color: var(--dark_color1);
+        }
     }
-  }
 }

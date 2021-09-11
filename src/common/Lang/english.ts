@@ -24,9 +24,8 @@ const English: LangType = {
                     "Impact of Code features 14 challenges of different techniques and difficulties, you don’t have to be a computer science student to solve them but you need to have a base knowledge in algorithms and data structures.",
             },
             {
-                title: "Rules & conditions",
-                description:
-                    `⮞ When registering, fill the form with your real information, so we can contact you easily once you win.<br/>
+                title: "Rules and conditions",
+                description: `⮞ When registering, fill the form with your real information, so we can contact you easily once you win.<br/>
                     ⮞ Read the challenges carefully, they might be tricky!<br/>
                     ⮞ In order to solve the challenges, you need to write a solution in any coding language that will use the data given so you can find the solution you’ll insert back into the website to gain points.<br/>
                     ⮞ The earlier you submit the challenges the more points you get.<br/>
@@ -130,8 +129,8 @@ const English: LangType = {
     },
     errors: {
         timeout: {
-            title: "Its been long time no see",
-            description: "No token",
+            title: "Welcome back",
+            description: "You aren't registered yet!",
         },
         loggedIn: {
             title: "Login Failed",
@@ -154,7 +153,7 @@ const English: LangType = {
         },
         AlreadyAnswered: {
             title: "Already Answered",
-            description: "You have already submited the answer for this challenge.",
+            description: "You have already submitted the answer for this challenge.",
         },
         FinishMain: {
             title: "You can't answer this",

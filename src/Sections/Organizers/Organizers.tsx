@@ -39,6 +39,7 @@ const Organizers = () => {
             links: [
                 { type: "instagram", link: "https://www.instagram.com/etudzacademy" },
                 { type: "facebook", link: "https://www.facebook.com/etudz.academy" },
+                { type: "linkedin", link: "https://www.linkedin.com/in/etudz-academy-6523021a1/" },
                 { type: "web", link: "https://etudz.academy/" },
             ],
             image: {

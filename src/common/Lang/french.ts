@@ -23,8 +23,7 @@ const French = {
             },
             {
                 title: "Regles et conditions",
-                description:
-                    `⮞ Lors de votre inscription, remplissez le formulaire avec vos véritables informations, afin que nous puissions vous contacter facilement une fois que vous aurez gagné.<br />
+                description: `⮞ Lors de votre inscription, remplissez le formulaire avec vos véritables informations, afin que nous puissions vous contacter facilement une fois que vous aurez gagné.<br />
                     ⮞ Lisez  les défis attentivement, ils peuvent être rusés !<br />
                     ⮞ Afin de résoudre les défis, vous devez écrire une solution dans n'importe quel langage de programmation qui utilisera les données fournies afin de trouver la solution que vous insérerez dans le site Web pour gagner des points.<br />
                     ⮞ Le plus tôt vous soumettez la solution des défis , le plus de points vous obtenez.<br />
@@ -98,7 +97,7 @@ const French = {
             firstName: "Vous devez écrire votre prénom.",
             lastName: "Vous devez écrire votre nom de famille.",
             password: ["Vous devez écrire un mot de passe.", "Le mot de passe doit comporter au moins 8 caractères"],
-            password_confirm: ["Vous devez réécrire le mot de passe.", "Doit être le même que le mot de passe."],
+            password_confirm: ["Vous devez reécrire le mot de passe.", "Doit être le même que le mot de passe."],
         },
     },
     challenges: {
@@ -108,10 +107,10 @@ const French = {
         side: "Secondaire",
         task: "tâche",
         submit: "Soumettre une Réponse",
-        no: "Il n'y a pas encore de Defi ! sois patient !",
+        no: "Il n'y a pas encore de Defi ! Soyez patient !",
         select: "Sélectionnez un défi à gauche",
-        loading: "Chargement L'histoire du jour",
-        wrongPage: "Le défi que vous recherchez n'existe pas",
+        loading: "Chargement de l'histoire du jour",
+        wrongPage: "Le défi que vous recherchez n'existe pas!",
     },
     menu: {
         user: "Commencer les défis ",
@@ -124,61 +123,64 @@ const French = {
     },
     errors: {
         timeout: {
-            title: "Its been long time no see",
-            description: "No token",
+            title: "Bienvenues!",
+            description: "N'oubliez pas de créer un compte",
         },
         loggedIn: {
-            title: "Login Failed",
-            description: "Welcome to Impact of Code",
-            email: "email doesn't exist",
-            password: "password is wrong",
+            title: "Connexion échouée",
+            description: "Bienvenue dans Impact of Code",
+            email: "Cet email n'existe pas",
+            password: "Mot de passe incorrecte",
         },
         signedUp: {
-            title: "Sign Up Failed",
-            userName: "userName does exist before",
-            email: "email does exist before",
-            description: "Something went wrong.",
+            title: "Echec de l'inscription",
+            userName: "Oops, le nom d'utilisateur est pris",
+            email: "Oops, email est déja utilisé",
+            description: "Ouch, quelque chose s'est mal passé.",
         },
-        challenge: { title: "Can't be Generated", description: "You need to finish the main challenge first." },
+        challenge: { title: "Ne peut pas être généré", description: "Vous devrez finir le défis principale." },
         wrongAnswer: {
-            title: "Wrong Answer",
-            Lower: "Answer is Lower than what we expected.",
-            Higher: "Answer is higher than what we expected.",
-            description: "Not Correct Try Again",
+            title: "Mauvaise réponse",
+            Lower: "Réponse insuffisante.",
+            Higher: "Longue réponse.",
+            description: "Incorrecte, réessayer.",
         },
         AlreadyAnswered: {
-            title: "Already Answered",
-            description: "You have already submited the answer for this challenge.",
+            title: "Déja fait.",
+            description: "Vous avez déjà soumis la réponse à ce défi..",
         },
         FinishMain: {
-            title: "You can't answer this",
-            description: "You can't answer this until you finish the main challenge.",
+            title: "Vous ne pouvez pas résoudre ce challenge",
+            description: "Vous ne pouvez pas répondre jusqu'à ce que vous finissez le défis principale..",
         },
         NotInitialized: {
-            title: "challenge not initialized",
-            description: "You have to genrate input first.",
+            title: "Challenge non initialisé",
+            description: "Vous devez d'abord générer l'entrée (input).",
         },
-        EmptyAnswer: { title: "Empty Answer", description: "You can't submit an empty answer" },
+        EmptyAnswer: { title: "Réponse vide", description: "Vous ne pouvez pas soumettre une réponse vide." },
         spammingAnswer: {
-            title: "Spamming Answer",
-            description: "It appears that you are spamming answers you can't answer for : ",
+            title: "Alerte: Spam!",
+            description: "Il semble que vous spammez les réponses, vous ne pouvez pas répondre pour : ",
         },
     },
     notifications: {
         loggedIn: {
-            title: "Login Succeeded",
-            description: "Welcome to Impact of Code",
+            title: "Connexion réussie",
+            description: "Bienvenue dans Impact of Code",
         },
         signedUp: {
-            title: "Sign Up Succeeded",
-            description: "Welcome to Impact of Code",
+            title: "Inscription réussie",
+            description: "Bienvenue dans Impact of Code",
         },
         loggedOut: {
-            title: "Logged out",
-            description: "Bye Bye see you later",
+            title: "Déconnecté!",
+            description: "Bye! A bientot!",
         },
-        challenge: { title: "Challenge Generated", description: "challenge has been generated you can download it." },
-        correctAnswer: { title: "Correct Answer", description: "Good job man you can go the next challenge." },
+        challenge: { title: "Défi généré", description: "Défi généré vous pouvez le télécharger." },
+        correctAnswer: {
+            title: "Réponse correcte!",
+            description: "Super travail! Vous pouvez passer au prochain défi.",
+        },
     },
 };
 

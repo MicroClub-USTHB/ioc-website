@@ -1,70 +1,77 @@
 .quote {
-  font-style: italic;
+    font-style: italic;
 }
 .morceaupapier {
-  border-top-left-radius: 37px 140px;
-  border-top-right-radius: 23px 130px;
-  border-bottom-left-radius: 110px 19px;
-  border-bottom-right-radius: 120px 24px;
-  display: block;
-  position: relative;
-  padding: 40px 60px;
-  max-width: 800px;
-  width: 70%;
-  margin: 16px auto 0;
-  font-size: 17px;
-  line-height: 28px;
-  transform: rotate(-1deg);
-  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
-  transition: all 0.13s ease-in;
-  background-color: var(--color1);
+    border-top-left-radius: 37px 140px;
+    border-top-right-radius: 23px 130px;
+    border-bottom-left-radius: 110px 19px;
+    border-bottom-right-radius: 120px 24px;
+    display: block;
+    position: relative;
+    padding: 40px 60px;
+    max-width: 800px;
+    width: 70%;
+    margin: 16px auto 0;
+    font-size: 17px;
+    line-height: 28px;
+    transform: rotate(-1deg);
+    box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+    transition: all 0.13s ease-in;
+    background-color: var(--color1);
+}
+.dark .morceaupapier {
+    background-color: var(--dark_color1);
+    color: var(--white_color) !important;
+    * {
+        color: var(--white_color) !important;
+    }
 }
 .dots {
-  font-weight: 550;
+    font-weight: 550;
 }
 
 .MIoc {
-  float: right;
-  color: var(--color1);
-  text-indent: 5em;
-  transform: skewX(-10deg);
-  font-weight: 600;
+    float: right;
+    color: var(--color1);
+    text-indent: 5em;
+    transform: skewX(-10deg);
+    font-weight: 600;
 }
 .bold {
-  font-weight: 600;
+    font-weight: 600;
 }
 .green {
-  color: var(--color1);
-  font-weight: 600;
+    color: var(--color1);
+    font-weight: 600;
 }
 .long {
-  word-break: break-all;
+    word-break: break-all;
 }
 .cadreinstrucation {
-  box-shadow: 1px 1px 6px 0px #8c8c8c;
-  padding: 10px;
-  border-radius: 10px;
-  background: var(--color1);
-  color: white;
+    box-shadow: 1px 1px 6px 0px #8c8c8c;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--color1);
+    color: white;
 }
 .cadreinstrucation li {
-  list-style: "➼ ";
+    list-style: "➼ ";
 }
-.red 
-{ color: red; }
+.red {
+    color: red;
+}
 
 @media screen and (max-width: 650px) {
-  .morceaupapier {
-    width: 130%;
-    transform: translateX(-15%);
-    padding: 1rem 3rem;
-    font-size: 1em;
-  }
+    .morceaupapier {
+        width: 130%;
+        transform: translateX(-15%);
+        padding: 1rem 3rem;
+        font-size: 1em;
+    }
 }
 
 @media screen and (max-width: 500px) {
-  .morceaupapier {
-    padding: 1rem .5rem;
-  }
+    .morceaupapier {
+        padding: 1rem 0.5rem;
+    }
 }
-
