@@ -101,6 +101,7 @@ const French = {
         },
     },
     challenges: {
+        help: "Aide sur Discord",
         leaderboard: "Score & Classement",
         landing: "Page d'accueil",
         main: "Principale",
