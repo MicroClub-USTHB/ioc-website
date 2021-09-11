@@ -132,11 +132,11 @@
             & > .field:-webkit-autofill:focus {
                 color: var(--dark_color1) !important;
                 &:focus + .label {
-                    color: var(--dark_color1) !important;
+                    color: var(--gray_color) !important;
                 }
             }
             & > .label {
-                color: var(--dark_color1);
+                color: var(--dark_color1_shade);
             }
             & > .error {
                 color: var(--dark_color1);

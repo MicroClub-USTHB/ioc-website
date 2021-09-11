@@ -174,9 +174,14 @@
         * {
             color: var(--dark_color1);
         }
-    }
-    :global(.submit_button) {
-        background-color: var(--dark_color2);
+        :global(.submit_button) {
+            background-color: var(--dark_color2);
+        }
+        :global(.input_list > li) {
+            & > .label {
+                color: var(--dark_color1);
+            }
+        }
     }
     .nav_list {
         .nav_button {
