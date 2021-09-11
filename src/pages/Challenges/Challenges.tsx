@@ -86,6 +86,7 @@ const Navigation = ({
                             link={"https://discord.gg/RPFKAWu8r2"}
                             title={Lang.challenges.help}
                             Icon={UilDiscord}
+                            external={true}
                         />
                     </li>
                 </ul>

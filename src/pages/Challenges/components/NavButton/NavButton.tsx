@@ -15,6 +15,7 @@ interface NavButtonProps {
     isChallengeLink?: boolean;
     link: string;
     slide?: boolean;
+    external?: boolean;
 }
 
 const ease = (v: number, pow = 4) => 1 - Math.pow(1 - v, pow);
@@ -66,6 +67,7 @@ const NavButton: React.FC<NavButtonProps> = ({
     isChallengeLink,
     link,
     slide = false,
+    external = false,
 }) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
     const [Expand, setExpand] = useState<{ expand: boolean; wasExpanded: boolean }>({
@@ -116,9 +118,15 @@ const NavButton: React.FC<NavButtonProps> = ({
     return (
         <>
             {!isChallengeLink ? (
-                <Link className={buttonStyle.button} to={link}>
-                    {ButtonContent}
-                </Link>
+                !external ? (
+                    <Link className={buttonStyle.button} to={link}>
+                        {ButtonContent}
+                    </Link>
+                ) : (
+                    <a className={buttonStyle.button} href={link}>
+                        {ButtonContent}
+                    </a>
+                )
             ) : (
                 <>
                     <button className={buttonStyle.button} onClick={handleButtonClick}>

@@ -106,7 +106,7 @@ const English: LangType = {
         },
     },
     challenges: {
-        help: "Help on Discord",
+        help: "Find Help on Discord",
         leaderboard: "Score & Leaderboard",
         landing: "Landing Page",
         main: "Main",
