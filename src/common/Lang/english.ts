@@ -165,8 +165,8 @@ const English: LangType = {
         },
         EmptyAnswer: { title: "Empty Answer", description: "You can't submit an empty answer" },
         spammingAnswer: {
-            title: "Spamming Answer",
-            description: "It appears that you are spamming answers you can't answer for : ",
+            title: "Spamming wrong Answer",
+            description: "It appears that you are spamming wrong answers you can only answer now after : ",
         },
     },
 
