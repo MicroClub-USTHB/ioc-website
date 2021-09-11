@@ -30,6 +30,16 @@
         border-radius: 1rem;
     }
 }
+:global(.dark) {
+    .container > .Tab {
+        &:first-child > * {
+            color: var(--dark_color1);
+        }
+        &:nth-child(2) {
+            background-color: var(--dark_color1_shade);
+        }
+    }
+}
 @media (max-width: 1000px) {
     .container {
         flex-direction: column;

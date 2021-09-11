@@ -47,3 +47,26 @@
         }
     }
 }
+:global(.dark) {
+    .container:not(.half):not(.completed) {
+        background-color: var(--dark_color1);
+    }
+    .container.half {
+        background-color: var(--dark_color2);
+        .title {
+            color: var(--dark_color1);
+        }
+        span {
+            &:first-child {
+                color: var(--dark_color1_shade);
+            }
+        }
+    }
+    .container.completed {
+        background-color: var(--dark_color1_shade);
+        span,
+        .title {
+            color: var(--light_color);
+        }
+    }
+}
