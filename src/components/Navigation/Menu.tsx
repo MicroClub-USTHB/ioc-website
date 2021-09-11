@@ -124,7 +124,7 @@ const Menu = () => {
                                                             type: "error",
                                                         });
                                                         break;
-                                                    case 421:
+                                                    case 423:
                                                         Notify(dispatch, {
                                                             title: Lang.errors.loggedIn.title,
                                                             description: Lang.errors.loggedIn.password,

@@ -101,6 +101,7 @@ const French = {
         },
     },
     challenges: {
+        help: "Aide sur Discord",
         leaderboard: "Score & Classement",
         landing: "Page d'accueil",
         main: "Principale",
@@ -159,8 +160,8 @@ const French = {
         },
         EmptyAnswer: { title: "Réponse vide", description: "Vous ne pouvez pas soumettre une réponse vide." },
         spammingAnswer: {
-            title: "Alerte: Spam!",
-            description: "Il semble que vous spammez les réponses, vous ne pouvez pas répondre pour : ",
+            title: "Spamming mauvaise réponse",
+            description: "Il semble que vous spammiez de mauvaises réponses, vous ne pouvez répondre qu'après :",
         },
     },
     notifications: {

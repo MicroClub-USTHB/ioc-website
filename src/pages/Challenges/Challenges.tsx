@@ -15,7 +15,7 @@ import { useGetDaysQuery } from "../../redux/api/backend";
 import challengesStyle from "./Challenges.module.scss";
 
 // resources
-import { UilDashboard, UilEstate } from "@iconscout/react-unicons";
+import { UilDashboard, UilEstate, UilDiscord } from "@iconscout/react-unicons";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/types";
@@ -80,6 +80,13 @@ const Navigation = ({
                     </li>
                     <li>
                         <NavButton link={"/"} title={Lang.challenges.landing} Icon={UilEstate} />
+                    </li>
+                    <li>
+                        <NavButton
+                            link={"https://discord.gg/RPFKAWu8r2"}
+                            title={Lang.challenges.help}
+                            Icon={UilDiscord}
+                        />
                     </li>
                 </ul>
             </div>

@@ -146,6 +146,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                         <form
                             onSubmit={(e) => {
                                 let input = (e.target as HTMLFormElement)[0] as HTMLInputElement;
+
                                 if (input.value === "")
                                     Notify(dispatch, {
                                         title: Lang.errors.EmptyAnswer.title,
@@ -159,7 +160,6 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                         answer: input.value,
                                     })
                                         .then((data) => {
-                                            console.log(data);
                                             if (data.hasOwnProperty("data")) {
                                                 Notify(dispatch, {
                                                     title: Lang.notifications.correctAnswer.title,
@@ -181,7 +181,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                                                 (data as { error: any }).error.data.time +
                                                                 "minutes";
                                                             break;
-                                                        case 421:
+                                                        case 428:
                                                             description = Lang.errors.wrongAnswer.description;
                                                             break;
                                                         case 423:

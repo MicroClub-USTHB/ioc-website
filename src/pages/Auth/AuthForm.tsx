@@ -74,7 +74,7 @@ const AuthForm = () => {
                                     });
                                     break;
 
-                                case 421:
+                                case 423:
                                     Notify(dispatch, {
                                         title: Lang.errors.signedUp.title,
                                         description: Lang.errors.signedUp.userName,
