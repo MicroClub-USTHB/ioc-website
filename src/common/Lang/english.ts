@@ -19,7 +19,7 @@ const English: LangType = {
         ],
         about: [
             {
-                title: "Seven Days. Seven Challenges. One Hero, You!",
+                title: "7 Days. 14 Challenges. One Hero, You!",
                 description:
                     "Impact of Code features 14 challenges of different techniques and difficulties, you don’t have to be a computer science student to solve them but you need to have a base knowledge in algorithms and data structures.",
             },
@@ -130,7 +130,7 @@ const English: LangType = {
     errors: {
         timeout: {
             title: "Welcome back",
-            description: "You aren't registered yet!",
+            description: "Don't forget to register!",
         },
         loggedIn: {
             title: "Login Failed",
