@@ -123,7 +123,7 @@ const NavButton: React.FC<NavButtonProps> = ({
                         {ButtonContent}
                     </Link>
                 ) : (
-                    <a className={buttonStyle.button} href={link}>
+                    <a className={buttonStyle.button} href={link} target="_blank">
                         {ButtonContent}
                     </a>
                 )
