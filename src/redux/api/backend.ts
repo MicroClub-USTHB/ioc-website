@@ -54,13 +54,6 @@ export const api = createApi({
         getUserData: builder.query<User, void>({
             query: () => ({ url: "/" }),
         }),
-        /* Reauthenticate */
-        reAuthenticate: builder.query<User, null>({
-            query: () => ({
-                url: "reauthenticate",
-                method: "POST",
-            }),
-        }),
         /* Get Days' metadata */
         getDays: builder.query<Array<Day>, null>({ query: () => ({ url: "days" }) }),
         /* Get Day Details */
@@ -82,7 +75,6 @@ export const {
     useSubmitAnswerMutation,
     useGetInputsMutation,
     useGetUserDataQuery,
-    useReAuthenticateQuery,
     useGetDaysQuery,
     useGetDayQuery,
     usePrefetch,

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./redux/types";
 import { setUser, removeUser } from "./redux/slices/user";
 import { Notify } from "./redux/slices/notifications";
-import { useReAuthenticateQuery } from "./redux/api/backend";
+import { useGetUserDataQuery } from "./redux/api/backend";
 import { User } from "./types/User";
 import "./common.scss";
 import Router from "./Router";
@@ -12,13 +12,11 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query/fetchBaseQuery"
 import { LangType } from "./common/Lang/french";
 
 const App: React.FC = () => {
-    const {
+    const { 
         data,
         error,
-        isLoading: isAuthing,
-    } = useReAuthenticateQuery(null, {
-        pollingInterval: 60 * 60 * 1000,
-    });
+        isLoading: isAuthing
+    } = useGetUserDataQuery();
     const [isLoading, setLoading] = useState(false);
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
 
