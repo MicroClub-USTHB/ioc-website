@@ -10,38 +10,13 @@ interface ParticipantProps {
 
 const Participant = (props: ParticipantProps) => {
     const { name, position, score, isUser } = props;
-    const user_className = partStyle.user;
-    let position_className: string;
-    let name_className: string;
-    switch (Number(position)) {
-        case 1:
-            position_className = `${partStyle.position} ${partStyle.gold}`;
-            name_className = `${partStyle.name} ${partStyle.gold}`;
-            break;
-
-        case 2:
-            position_className = `${partStyle.position} ${partStyle.bronze}`;
-            name_className = `${partStyle.name} ${partStyle.bronze}`;
-            break;
-
-        case 3:
-            position_className = `${partStyle.position} ${partStyle.silver}`;
-            name_className = `${partStyle.name} ${partStyle.silver}`;
-            break;
-
-        default:
-            position_className = `${partStyle.position}`;
-            name_className = `${partStyle.name}`;
-            break;
-    }
     return (
         <>
-            {isUser && <div className={partStyle.user_box}></div>}
-            <div className={`${partStyle.container} ${isUser && user_className}`}>
-                <span className={position_className}>{position}</span>
+            <div className={`${partStyle.container} ${isUser && partStyle.user}`}>
+                <span className={partStyle.position}>{position}</span>
                 <div className={partStyle.info}>
-                    <span className={name_className}>{name}</span>
-                    <span className={partStyle.score}>{score}</span>
+                    <span className={partStyle.name}>{name}</span>
+                    <span className={partStyle.score}>{score.toFixed(0)} Points</span>
                 </div>
             </div>
         </>

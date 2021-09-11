@@ -39,7 +39,7 @@ const Navigation = ({
     match: matchI;
 }) => {
     const user = useSelector<RootState>((state) => state.user) as User;
-    console.log(user);
+
     return (
         <div className={challengesStyle.navigation}>
             <Link to="/">

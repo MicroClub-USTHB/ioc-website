@@ -12,7 +12,7 @@ const initial_state: NotificationsS = {
     title: "Error",
     description: "Undefined",
     type: "error",
-    shown: true,
+    shown: false,
 };
 const notifications = createSlice({
     name: "notifications",

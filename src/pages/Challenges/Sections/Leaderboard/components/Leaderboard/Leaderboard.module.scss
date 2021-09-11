@@ -1,30 +1,17 @@
-.board {
-  padding: 3rem 5rem;
-  width: 50%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: var(--secondary_color);
-  position: relative;
-}
-
 .title {
-  font-family: 'Hacked';
-  font-size: 2.5rem;
-  color: white;
-  font-weight: 400; 
+    font-family: "Hacked";
+    text-align: left;
+    font-size: 2rem;
+    color: var(--white_color);
+    font-weight: 400;
 }
 
 .display {
-  height: 93%;
-  width: 100%;
-  margin-bottom: 3rem;
-  color: white;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 3rem 2.5rem 0rem;
-  position: relative;
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-  }
+    height: 93%;
+    width: 100%;
+    color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1rem 0;
+    position: relative;
 }

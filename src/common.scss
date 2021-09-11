@@ -45,7 +45,6 @@
             padding-left: 3rem;
             font-size: 1rem;
             font-weight: 800 !important;
-            color: var(--main_color) !important;
             box-shadow: 1px 1px 9px -3px var(--color2) !important;
             &:focus + .label {
                 color: var(--color1) !important;
@@ -67,7 +66,6 @@
         }
 
         & > .error {
-            color: var(--light_color);
             position: relative;
             margin-top: 0.5rem;
             margin-left: 1.7rem;
@@ -89,7 +87,6 @@
 
 .label_values {
     transform: translateY(-38px) !important;
-    color: var(--main_color) !important;
     text-shadow: 1px 1px 2px var(--color2);
 }
 
@@ -121,6 +118,7 @@
 .dark {
     .submit_button {
         background-color: var(--dark_color1_shade);
+        color: currentColor;
         &:hover {
             background-color: var(--light_color);
             color: var(--dark_color1);

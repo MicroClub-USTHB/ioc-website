@@ -1,8 +1,42 @@
 .container {
-  height: 95vh;
-  padding: 4rem 3rem 3rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    height: 100%;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    overflow: auto;
+    .Tab {
+        background-color: var(--white_color);
+        height: 90%;
+        margin: 0.5rem;
+        border-radius: 1rem;
+        padding: 2rem;
+        width: 58%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &:last-child {
+            background-color: var(--color2);
+            width: 42%;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+    }
+}
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        .Tab,
+        .Tab:last-child {
+            width: calc(100% - 4rem);
+            margin: 2rem;
+        }
+    }
 }
