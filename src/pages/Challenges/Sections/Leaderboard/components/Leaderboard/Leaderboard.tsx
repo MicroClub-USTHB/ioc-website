@@ -1,4 +1,4 @@
-import { useGetLeaderboardQuery, useGetUserDataQuery } from "../../../../../../redux/api/backend";
+import { useGetLeaderboardQuery } from "../../../../../../redux/api/backend";
 
 import { User } from "../../../../../../types/User";
 

@@ -14,7 +14,6 @@ import orgStyle from "./Organizers.module.scss";
 
 const Organizers = () => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
-    const language = useSelector<RootState>((state) => state.common.language) as "english" | "french";
     const org_list: OrganizerType[] = [
         /* MICRO CLUB */
         {

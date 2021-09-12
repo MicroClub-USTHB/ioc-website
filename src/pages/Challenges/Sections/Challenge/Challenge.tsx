@@ -1,11 +1,6 @@
-import { RouteComponentProps, useLocation } from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 
-import {
-    useGetDayQuery,
-    useGetDaysQuery,
-    useSubmitAnswerMutation,
-    useGetInputsMutation,
-} from "../../../../redux/api/backend";
+import { useGetDayQuery, useSubmitAnswerMutation, useGetInputsMutation } from "../../../../redux/api/backend";
 
 import { Challenge as ChallengeI } from "../../../../types/Day";
 import Spinner from "../../../../common/Spinner/Spinner";
@@ -211,14 +206,14 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                                         description,
                                                         type: "error",
                                                     });
-                                                } else throw (data as { error: any }).error;
+                                                } else throw new Error((data as { error: any }).error.msg);
                                             }
                                         })
                                         .catch((er) => {
                                             console.log(er);
                                             Notify(dispatch, {
                                                 title: Lang.errors.spammingAnswer.title,
-                                                description: Lang.errors.spammingAnswer.description,
+                                                description: er.message,
                                                 type: "error",
                                             });
                                         });

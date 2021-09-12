@@ -1,5 +1,3 @@
-import React from "react";
-import { useGetUserDataQuery } from "../../../../../../redux/api/backend";
 import { User } from "../../../../../../types/User";
 
 // Components

@@ -1,4 +1,4 @@
-import { createSlice, ThunkDispatch } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface NotificationsI {
     title: string;

@@ -1,5 +1,3 @@
-import React, { CSSProperties } from "react";
-
 // styles
 import dayStyle from "./Day.module.scss";
 

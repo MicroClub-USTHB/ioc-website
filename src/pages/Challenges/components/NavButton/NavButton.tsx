@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LangType } from "../../../../common/Lang/french";
 import { RootState } from "../../../../redux/types";
 import { DayLinkPassedState } from "../../../../types/Day";
