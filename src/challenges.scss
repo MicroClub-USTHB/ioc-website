@@ -45,7 +45,7 @@
     font-weight: 600;
 }
 .yellow {
-    color: #ccba33;
+    color: var(--dark_color2) !important;
 }
 .long {
     word-break: break-all;
