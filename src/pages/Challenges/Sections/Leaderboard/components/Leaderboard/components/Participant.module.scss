@@ -76,4 +76,12 @@
     &:last-child {
         margin-bottom: 0;
     }
+    .user {
+        animation: bumper 700ms infinite alternate both;
+    }
+}
+@keyframes bumper {
+    to {
+        transform: scale(1.2);
+    }
 }
