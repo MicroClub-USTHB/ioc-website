@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 //style
 import NavigationStyle from "./Navigation.module.scss";
 // icons
-import { UilLinkedin, UilFacebook, UilInstagram } from "@iconscout/react-unicons";
+import { UilLinkedin, UilFacebook, UilInstagram, UilDiscord } from "@iconscout/react-unicons";
 import { Switch } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/types";
@@ -118,6 +118,9 @@ const Navigation = () => {
                 </a>
                 <a href="https://www.instagram.com/microclub_usthb/">
                     <UilInstagram />
+                </a>
+                <a href="https://discord.gg/RPFKAWu8r2" target="_blank">
+                    <UilDiscord />
                 </a>
             </div>
             {/* nav dropdown */}
