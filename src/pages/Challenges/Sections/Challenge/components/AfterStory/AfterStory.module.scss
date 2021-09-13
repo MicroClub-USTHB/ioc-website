@@ -1,0 +1,99 @@
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(1px);
+  will-change: transform;
+  animation: appear 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: var(--color1);
+    padding: 5rem 4rem;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px rgba($color: #000000, $alpha: .2);
+    text-align: center;
+    font-size: 1.2rem;
+
+    .title {
+      font-family: 'Hacked';
+      font-weight: 400;
+      font-size: 4rem;
+    }
+
+    .button {
+      padding: 1rem 4rem;
+      background-color: transparent;
+      border: 2px solid var(--color2);
+      border-radius: 10px;
+      color: bar(--color2);
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: all .05s ease;
+
+      &:hover {
+        color: white;
+        background-color: var(--color2);
+      }
+    }
+  }
+}
+
+.exit {
+  animation: disappear 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes appear {
+  0% {
+    -webkit-transform: rotateY(30deg) translateY(300px) skewY(-30deg);
+            transform: rotateY(30deg) translateY(300px) skewY(-30deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+            transform: rotateY(0deg) translateY(0) skewY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px);
+            transform: translateZ(-1100px);
+    opacity: 0;
+  }
+}
+
+:global(.dark) {
+  .content {
+    background-color: var(--dark_color2) !important;
+    box-shadow: 6px 6px 6px rgba($color: #3b5833, $alpha: .1);
+
+    & > *, & > p > div > *, & > p > * {
+      color: var(--dark_color1) !important;
+    }
+
+  }
+  .button {
+    border-color: var(--dark_color1) !important;
+
+    &:hover {
+      background-color: var(--dark_color1) !important;
+      color: var(--dark_color2) !important;
+    }
+  }
+}

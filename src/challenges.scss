@@ -32,7 +32,7 @@
 
 .MIoc {
     float: right;
-    color: var(--color1);
+    color: var(--color1) !important;
     text-indent: 5em;
     transform: skewX(-10deg);
     font-weight: 600;
@@ -41,7 +41,7 @@
     font-weight: 600;
 }
 .green {
-    color: var(--color1);
+    color: var(--color1) !important;
     font-weight: 600;
 }
 .yellow {
@@ -54,7 +54,7 @@
     box-shadow: 1px 1px 6px 0px #8c8c8c;
     padding: 10px;
     border-radius: 10px;
-    background: var(--color1);
+    background: var(--color1) !important;
     color: white;
 }
 .cadreinstrucation li {

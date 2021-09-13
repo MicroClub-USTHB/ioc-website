@@ -116,6 +116,8 @@ const English: LangType = {
         no: "There is no Challenge yet! be patient !",
         select: "Select a challenge in the left",
         loading: "Loading The day's story",
+        afterStory: "AFTER STORY",
+        button: "Understood",
         wrongPage: "The challenge you are looking for doesn't exist",
     },
 

@@ -111,6 +111,8 @@ const French = {
         no: "Il n'y a pas encore de Defi ! Soyez patient !",
         select: "Sélectionnez un défi à gauche",
         loading: "Chargement de l'histoire du jour",
+        afterStory: "APRES-RECIT",
+        button: "Compris",
         wrongPage: "Le défi que vous recherchez n'existe pas!",
     },
     menu: {

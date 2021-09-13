@@ -15,6 +15,7 @@ import { LangType } from "../../../../common/Lang/french";
 import { Notify } from "../../../../redux/slices/notifications";
 import { setUser } from "../../../../redux/slices/user";
 import { User } from "../../../../types/User";
+import AfterStory from "./components/AfterStory/AfterStory";
 // components
 
 const StoryIcon = () => (
@@ -67,6 +68,7 @@ const Tab: FC<{ Icon: any; title: string; text?: string; className?: string }> =
     </div>
 );
 const Challenge: FC<RouteComponentProps> = (props) => {
+    const [ShowAfterStory, setShowAfterStory] = useState<boolean>(false);
     const dispatch = useDispatch<AppDispatch>();
     let { day: _id, type } = props.match.params as { day: string; type: string };
     const [submitAnswer, { isLoading }] = useSubmitAnswerMutation();
@@ -156,6 +158,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                     })
                                         .then((data) => {
                                             if (data.hasOwnProperty("data")) {
+                                                setShowAfterStory(true);
                                                 Notify(dispatch, {
                                                     title: Lang.notifications.correctAnswer.title,
                                                     description: Lang.notifications.correctAnswer.description,
@@ -234,6 +237,9 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                         </form>
                     </Tab>
                 </div>
+                {
+                    finishingMsg && <AfterStory show={ShowAfterStory} setShow={setShowAfterStory} content={finishingMsg} title={Lang.challenges.afterStory} button={Lang.challenges.button} />
+                }
             </section>
         );
     } else return <PlaceHolder text={dayLoading ? Lang.challenges.loading : Lang.challenges.wrongPage} />;
