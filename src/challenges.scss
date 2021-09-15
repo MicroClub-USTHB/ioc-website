@@ -44,14 +44,20 @@
     color: var(--color1) !important;
     font-weight: 600;
 }
+.dark .green {
+    color: var(--dark_color2) !important;
+}
 .yellow {
     color: var(--dark_color2) !important;
+}
+.dark .yellow {
+    color: var(--color1) !important;
 }
 .long {
     word-break: break-all;
 }
 .cadreinstrucation {
-    box-shadow: 1px 1px 6px 0px #8c8c8c;
+    box-shadow: 1px 1px 6px 0px #000000;
     padding: 10px;
     border-radius: 10px;
     background: var(--color1) !important;
