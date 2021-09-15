@@ -55,7 +55,7 @@
     padding: 10px;
     border-radius: 10px;
     background: var(--color1) !important;
-    color: white;
+    color: white !important;
 }
 .cadreinstrucation li {
     list-style: "➼ ";
@@ -77,4 +77,21 @@
     .morceaupapier {
         padding: 1rem 0.5rem;
     }
+}
+
+
+body.dark ul.cadreinstrucation {
+    background-color: var(--dark_color1) !important;
+    box-shadow: 1px 1px 6px 0px #000000;
+}
+body.dark ul.cadreinstrucation * {
+    color: white !important;
+}
+
+body.dark .yellow {
+    color: white !important;
+}
+
+body.dark .green {
+    color: var(--dark_color2) !important;
 }
