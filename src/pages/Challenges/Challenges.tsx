@@ -26,6 +26,8 @@ import Logo from "../../components/Logo/Logo";
 import Leaderboard from "./Sections/Leaderboard/Leaderboard";
 import PlaceHolder from "./components/PlaceHolder/PlaceHolder";
 import { User } from "../../types/User";
+import AfterStory from "./Sections/Challenge/components/AfterStory/AfterStory";
+import { useState } from "react";
 
 const Navigation = ({
     Lang,
@@ -107,6 +109,12 @@ const Container = ({
     daysLoading: boolean;
     match: matchI;
 }) => {
+    const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
+    const [ShowPostpone, setShowPostpone] = useState<boolean>(localStorage.getItem("ShowPostpone") !== "false" && new Date() < new Date('September 17, 2021 14:00:00'));
+    const closePostpone = () => { 
+        setShowPostpone(false);
+        localStorage.setItem("ShowPostpone", "false");
+    }
     return (
         <div className={challengesStyle.container}>
             <Switch>
@@ -116,7 +124,12 @@ const Container = ({
                 ) : (
                     <Route path={`${match.path}/:day/:type`} exact component={Challenge} />
                 )}
-                <Route path={`${match.path}/`} render={() => <PlaceHolder text={text} />} />
+                <Route path={`${match.path}/`} render={() => (
+                    <>
+                        <PlaceHolder text={text} />
+                        <AfterStory show={ShowPostpone} setShow={closePostpone} content={Lang.challenges.postpone.content} title={Lang.challenges.postpone.title} button={Lang.challenges.postpone.button} />
+                    </>
+                )} />
             </Switch>
         </div>
     );

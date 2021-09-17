@@ -114,6 +114,11 @@ const French = {
         afterStory: "APRES-RECIT",
         button: "Compris",
         wrongPage: "Le défi que vous recherchez n'existe pas!",
+        postpone: {
+            title: "Attention chers participants !",
+            content: "Le défi d'aujourd'hui, jour 7, a été reporté jusqu'à la fin de la prière de Joumouaa, le défi sera publié à 14 heures.<br/> Joumouaa makboulaa <3",
+            button: "OK"
+        }
     },
     menu: {
         user: "Commencer les défis ",

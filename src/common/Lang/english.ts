@@ -119,6 +119,11 @@ const English: LangType = {
         afterStory: "AFTER STORY",
         button: "Understood",
         wrongPage: "The challenge you are looking for doesn't exist",
+        postpone: {
+            title: "Attention Dear Participants!",
+            content: "Today's challenge, day 7, has been postponed until after the Joumouaa prayer, the challenge will be released at 2PM.<br/> Joumouaa makboulaa <3",
+            button: "Understood"
+        }
     },
 
     menu: {

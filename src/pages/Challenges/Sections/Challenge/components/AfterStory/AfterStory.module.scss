@@ -9,8 +9,9 @@
   top: 0;
   left: 0;
   backdrop-filter: blur(1px);
-  will-change: transform;
+  will-change: transform, opacity;
   animation: appear 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  z-index: 10;
 
   .content {
     display: flex;
