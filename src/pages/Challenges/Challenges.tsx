@@ -110,10 +110,10 @@ const Container = ({
     match: matchI;
 }) => {
     const Lang = useSelector<RootState>((state) => state.common.Lang) as LangType;
-    const [ShowPostpone, setShowPostpone] = useState<boolean>(localStorage.getItem("ShowPostpone") !== "false" && new Date() < new Date('September 17, 2021 14:00:00'));
-    const closePostpone = () => { 
-        setShowPostpone(false);
-        localStorage.setItem("ShowPostpone", "false");
+    const [ShowEnd, setShowEnd] = useState<boolean>(localStorage.getItem("ShowEnd") !== "false");
+    const closeEnd = () => { 
+        setShowEnd(false);
+        localStorage.setItem("ShowEnd", "false");
     }
     return (
         <div className={challengesStyle.container}>
@@ -127,7 +127,7 @@ const Container = ({
                 <Route path={`${match.path}/`} render={() => (
                     <>
                         <PlaceHolder text={text} />
-                        <AfterStory show={ShowPostpone} setShow={closePostpone} content={Lang.challenges.postpone.content} title={Lang.challenges.postpone.title} button={Lang.challenges.postpone.button} />
+                        <AfterStory show={ShowEnd} setShow={closeEnd} content={Lang.challenges.end.content} title={Lang.challenges.end.title} button={Lang.challenges.end.button} />
                     </>
                 )} />
             </Switch>

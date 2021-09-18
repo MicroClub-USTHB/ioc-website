@@ -123,6 +123,11 @@ const English: LangType = {
             title: "Attention Dear Participants!",
             content: "Today's challenge, day 7, has been postponed until after the Joumouaa prayer, the challenge will be released at 2PM.<br/> Joumouaa makboulaa <3",
             button: "Understood"
+        },
+        end: {
+            title: "Axios's story comes to an end.",
+            content: "Axios has reached his goals, and his story ends.<br/><br/> For now...",
+            button: "Goodbye"
         }
     },
 

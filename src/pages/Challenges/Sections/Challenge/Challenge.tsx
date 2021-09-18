@@ -98,7 +98,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                 </div>
                 <div className={challengeStyle.half_container}>
                     {example ? <Tab Icon={TasksIcon} title={"Examples"} text={example} /> : ""}
-                    <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
+                    {/* <Tab className={challengeStyle.row} Icon={downloadIcon} title={"Inputs"}>
                         <a
                             href={blobS}
                             download={`${title}-${type}.txt`}
@@ -138,8 +138,8 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                 {isLoadingGet ? <Spinner /> : challengeId ? "Download" : "Genrate"}
                             </div>
                         </a>
-                    </Tab>
-                    <Tab Icon={submitIcon} title={"Submit your answer"}>
+                    </Tab> */}
+                    {/* <Tab Icon={submitIcon} title={"Submit your answer"}>
                         <form
                             onSubmit={(e) => {
                                 let input = (e.target as HTMLFormElement)[0] as HTMLInputElement;
@@ -235,7 +235,7 @@ const Challenge: FC<RouteComponentProps> = (props) => {
                                 )}
                             </button>
                         </form>
-                    </Tab>
+                    </Tab> */}
                 </div>
                 {
                     finishingMsg && <AfterStory show={ShowAfterStory} setShow={setShowAfterStory} content={finishingMsg} title={Lang.challenges.afterStory} button={Lang.challenges.button} />

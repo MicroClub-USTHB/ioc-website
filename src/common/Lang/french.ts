@@ -118,6 +118,11 @@ const French = {
             title: "Attention chers participants !",
             content: "Le défi d'aujourd'hui, jour 7, a été reporté jusqu'à la fin de la prière de Joumouaa, le défi sera publié à 14 heures.<br/> Joumouaa makboulaa <3",
             button: "OK"
+        },
+        end: {
+            title: "L'histoire d'Axios se termine.",
+            content: "Axios a atteint son but, et son histoire se termine.<br/><br/> Pour l'instant...",
+            button: "Adieu"
         }
     },
     menu: {
