@@ -15,7 +15,7 @@ import { LangType } from "../../../../common/Lang/french";
 import { Notify } from "../../../../redux/slices/notifications";
 import { setUser } from "../../../../redux/slices/user";
 import { User } from "../../../../types/User";
-import AfterStory from "./components/AfterStory/AfterStory";
+import AfterStory from "./components/AfterStory/DialogModal";
 // components
 
 const StoryIcon = () => (

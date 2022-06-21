@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
@@ -14,14 +14,18 @@ import LogoV from "../../components/LogoV/LogoV";
 
 // styles
 import landingStyle from "./Landing.module.scss";
+import DialogModal from "../Challenges/Sections/Challenge/components/AfterStory/DialogModal";
 
 const Landing: React.FC<RouteComponentProps> = () => {
+    const [ShowEventEndModal, setShowEventEndModal] = useState<boolean>((localStorage.getItem('end_of_event_modal_seen') ?? 'false') !== 'true');
+    const wrappedSetEventEndModal = (show: boolean) => {
+        if (!show) localStorage.setItem('end_of_event_modal_seen', 'true');
+        setShowEventEndModal(show)
+    }
     useEffect(() => {
         const tag = window.location.href.match(/#\w+/);
-        if (tag) {
-            window.document.querySelector(tag[0])?.scrollIntoView({ behavior: "smooth" });
-        }
-    });
+        if (tag) window.document.querySelector(tag[0])?.scrollIntoView({ behavior: "smooth" });
+    }, []);
     return (
         <main className={landingStyle.main_container}>
             <LogoV className={landingStyle.logo} />
@@ -32,6 +36,13 @@ const Landing: React.FC<RouteComponentProps> = () => {
             <Video />
             <FAQ />
             <Footer />
+            <DialogModal
+                title="The Journey Has Ended."
+                content="This event has ended, thank you for participating, and stay in touch for future events."
+                show={ShowEventEndModal}
+                setShow={wrappedSetEventEndModal as any}
+                button="Understood"
+            />
         </main>
     );
 };

@@ -26,7 +26,7 @@ import Logo from "../../components/Logo/Logo";
 import Leaderboard from "./Sections/Leaderboard/Leaderboard";
 import PlaceHolder from "./components/PlaceHolder/PlaceHolder";
 import { User } from "../../types/User";
-import AfterStory from "./Sections/Challenge/components/AfterStory/AfterStory";
+import AfterStory from "./Sections/Challenge/components/AfterStory/DialogModal";
 import { useState } from "react";
 
 const Navigation = ({

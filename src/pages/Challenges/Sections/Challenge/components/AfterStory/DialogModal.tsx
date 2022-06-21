@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 
 // Styles
-import afterStyle from "./AfterStory.module.scss";
+import afterStyle from "./DialogModal.module.scss";
 
 interface AfterStoryProps {
   show: boolean;
@@ -12,7 +12,7 @@ interface AfterStoryProps {
   button: string;
 }
 
-const AfterStory = (props: AfterStoryProps) => {
+const DialogModal = (props: AfterStoryProps) => {
   const { show, setShow, content, title, button } = props;
   const [Exit, setExit] = useState("");
   return (
@@ -48,4 +48,4 @@ const AfterStory = (props: AfterStoryProps) => {
   );
 };
 
-export default AfterStory;
+export default DialogModal;
